@@ -1,8 +1,6 @@
 # Bitte installieren Sie die folgenden Pakete.
 # Hinweis: Starten Sie nur die Pakete, die Sie im Moment brauchen.
 
-install.packages("pacman")
-
 pckgs2 <- 
   c(
     "tidyverse",
@@ -36,8 +34,6 @@ pckgs2 <-
     "see"
   )
 
-
-# NUR für Module, in denen Bayes-Statistik unterricht wird:
 pckgs_bayes <-
   c("rstan",
     "rstanarm",
@@ -45,8 +41,6 @@ pckgs_bayes <-
     "bayestestR",
     "tidybayes")
 
-
-# Mit diesem Befehl installieren Sie die Pakete:
 pacman::p_load(char = pckgs2)
   
 pacman::p_load(char = pckgs_bayes)
