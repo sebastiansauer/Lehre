@@ -5,7 +5,7 @@ title: Lernhilfen
 
 
 
-# Software
+## Software
 
 - Installieren Sie [R und seine Freunde](https://data-se.netlify.app/2021/11/30/installation-von-r-und-seiner-freunde/).
 - Installieren Sie die folgende R-Pakete:
@@ -18,7 +18,7 @@ title: Lernhilfen
 
 
 
-# Online-Zusammenarbeit
+## Online-Zusammenarbeit
 
 - [Frag-Jetzt-Raum zum anonymen Fragen stellen während des Unterrichts](https://frag.jetzt/home). Der Keycode wird Ihnen vom Dozenten bereitgestellt.
 - [Padlet](https://de.padlet.com/) zum einfachen (und anonymen) Hochladen von Arbeitsergebnissen der Studentis im Unterricht. Wir nutzen es als eine Art Pinwand zum Sammeln von Arbeitsbeiträgen. Die Zugangsdaten stellt Ihnen der Dozent bereit.

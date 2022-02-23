@@ -8,7 +8,7 @@ subtitle: Hinweise zur Organisation des Unterrichts
 
 
 
-# Sicherheitsunterweisung
+## Sicherheitsunterweisung
 
 
 - Der Dozent weist auf Fluchtwege und auf die Sammelstelle hin (abhängig vom Seminarraum).
@@ -27,7 +27,7 @@ subtitle: Hinweise zur Organisation des Unterrichts
 
 
 
-# Organisatorisches
+## Organisatorisches
 
 - Bitte laden Sie sich rechtzeitig die Materialien herunter.
 - Beachten Sie die Vorbereitungshinweise zur ersten Unterrichtsstunde und für die einzelnen Termine.
@@ -38,21 +38,22 @@ subtitle: Hinweise zur Organisation des Unterrichts
 - Es können sich Aktualisierungen des Unterrichtsmaterials ergeben. Bitte prüfen Sie regelmäßig, ob neues Material eingestellt ist. Nachdem der Unterricht stattgefunden hat, wird das Material aber nicht mehr geändert, so dass Sie Sicherheit für das Lernen haben.
 
 
-# Präsenzunterricht
+## Präsenzunterricht
 
 - Beachten Sie aktuell geltenden Hygienevorschriften.
 - Bitte meiden Sie datenhungrige Applikationen wie das Streamen von Filmen – Sie behindern den Unterricht und verärgern damit andere Studierende (in diesem oder anderen Kursen).
 - Bitte bringen Sie einen Computer (mit Internetanschluss) in alle Präsenztermine mit. Bringen Sie ggf. Ersatzbatterien und/oder Verlängerungskabel mit - leider sind nicht überall ausreichend Steckdosen vorhanden.
 
 
-# Rechtliche Hinweise
+## Rechtliche Hinweise
 
 - Dieser Kurs ist lizensiert unter der [MIT Lizenz](https://github.com/sebastiansauer/bayes-start/blob/main/LICENSE). Das ist eine permissive Lizenz, die erlaubt, dass Sie diesen Kurs frei verwenden können. Sie haben (nur) die Verpflichtung, zu zitieren und auf die Lizenzart hinzuweisen.
 - Mitarbeit oder Verbesserungsvorschläge: am besten als [Github Issue](https://github.com/sebastiansauer/bayes-start/issues) einstellen.
 - Für die Inhalte von Links kann keine Haftung übernommen werden.
 - Aus Datenschutzgründen dürfen Studentis den Unterricht (Video, Ton, sonstige) nicht aufnehmen.
 
-# Aufnahme des Unterrichts
+
+### Datenschutz 
 
 - Einige Teile des Unterrichts werden u.U. aufgenommen. 
 - Die Aufnahme erfolgt nur nach vorheriger Information durch den Dozenten. 
@@ -66,7 +67,7 @@ subtitle: Hinweise zur Organisation des Unterrichts
 - Aufnahmen des Unterrichts durch die Studentis sind nicht erlaubt.
 
 
-# IT
+## IT
 
 - [Installieren Sie bitte R und seine Freunden ](https://data-se.netlify.app/2021/11/30/installation-von-r-und-seiner-freunde/) vor der ersten Unterrichtsstunde.
 - Bitte beachten Sie die Installationshinweise für Software und installieren Sie die Software vor Beginn des ersten Termins.
@@ -82,7 +83,7 @@ subtitle: Hinweise zur Organisation des Unterrichts
 
 
 
-# Ich brauche Hilfe. Was soll ich tun?
+## Ich brauche Hilfe. Was soll ich tun?
 
 - Versuchen Sie erst selber, das Problem zu lösen. Manchmal hilft etwas Abstand (Pause, drüber schlafen), um ein Problem klarer zu sehen (oder es als nicht mehr so wichtig zu sehen).
 - Fragen Sie Kommilitonis.
@@ -93,7 +94,7 @@ subtitle: Hinweise zur Organisation des Unterrichts
 
 
 
-# Videokonferenzen
+## Videokonferenzen
 
 
 - -Für Videokonferenzen/Webinare in diesem Modul wird die Software Zoom verwendet.
@@ -113,7 +114,7 @@ subtitle: Hinweise zur Organisation des Unterrichts
 - Aus Sicherheitsgründen kann eine Zoom-Konferenz auf Ihre "offizielle" E-Mail-Adresse (der Hochschule) begrenzt sein. Mit einer anderen, potenziell anonymen E-Mail-Adresse, können Sie also u.U. nicht teilnehmen.
 
 
-# Streaming
+## Streaming
 
 In einigen Kursen wird Präsenzunterricht plus Streaming angeboten.
 In diesem Fall gelten folgende Hinweise:
@@ -127,10 +128,10 @@ In diesem Fall gelten folgende Hinweise:
 
 
 
-# Didaktik
+## Didaktik
 
-## Lehrkonzept
-- In der "Vorlesung" wird im Schwerpunkt *nicht* das Folienskript "vorgelesen". Dieser Vortrag steht vorab als Video zur Verfügung (s. Links im Themenüberblick).
+### Lehrkonzept
+- In der "Vorlesung" wird im Schwerpunkt *nicht* ein Folienskript "vorgelesen". Dieser Vortrag steht oft vorab als Video zur Verfügung (s. Links im Themenüberblick).
 - Stattdessen steht in der "Vorlesung" die Durcharbeiten und Vertiefen des Stoffes im Vordergrund, nicht aber das Vortragen des Stoffes.
 - Warum wird die Literatur oder das Folienskript nicht im Unterricht vorgetragen? Zum einen können Sie das alleine besser (in eigener Geschwindigkeit, mit Pausen nach Gusto, zu beliebiger Zeit und beliebigem Ort, so oft wiederholt wie Sie mögen). Zum anderen ist der Lerngewinn beim passiven Zuhören gering. Das Durchdenken, Durcharbeiten, "Durchfragen" des Stoffes ist es, was Ihnen den meisten Gewinn beschwert. Entsprechend liegt auf dem aktiven, gemeinsamen Arbeiten der Schwerpunkt.
 - Das heißt nicht, dass es nie Vorträge vom Dozenten im Unterricht gäbe; manchmal schon. Aber aus genannten Gründen liegt der Fokus des Unterrichts im aktivierenden Arbeiten.
@@ -139,7 +140,7 @@ In diesem Fall gelten folgende Hinweise:
 
 
 
-## Lerntipps
+### Lerntipps
 
 - Damit Sie vom Unterricht maximal profitieren, ist es essenziell, dass Sie aktiv mitarbeiten. Ein "Nur-Zuhören" nimmt Ihnen einen Gutteil des Nutzens des Unterrichts. Sie lernen nur zum kleinen Teil vom Zuhören; der größte Teil des Lernerfolgs kommt vom Selber-Erarbeiten!
 - Bitte stellen Sie Ihre Kamera (Webcam) an, wenn Sie Kommilitonis oder den Dozenten ansprechen. Das ist der Güte der Kommunikation zuträglich.
@@ -151,7 +152,7 @@ In diesem Fall gelten folgende Hinweise:
 - Anbieter wie Google stellen (teilweise) kostenfreie Angebote zum kollaborativen Arbeiten zur Verfügung (Google Docs). Behalten Sie hier den Datenschutz im Blick.
 
 
-# Umgangsformen
+## Umgangsformen
 
 - Freundlicher Umgang miteinander ist selbstverständlich.
 - Selbstverständlich sind auch die grundlegenden Formen der höflichen Miteinanders (Begrüßung, Ansprache mit Namen, bitte/danke sagen, Pünktlichkeit, Verbindlichkeit, ...).
@@ -162,11 +163,8 @@ In diesem Fall gelten folgende Hinweise:
 
 
 
-# Salvatorische Klausel
+## Salvatorische Klausel
 
 - Diese Hinweise hier gelten nur insofern Ihre Dozentis Ihnen nicht andere Hinweise geben :-)
 
-# Startseite
 
-
-[Startseite](https://sebastiansauer.github.io/fopra/)
