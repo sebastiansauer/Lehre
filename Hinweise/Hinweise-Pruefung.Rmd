@@ -11,7 +11,7 @@ params:
 *Die folgenden Prüfungshinweise gelten nur insoweit, dass Ihnen Ihr/e Dozent/in nicht anderweitige Hinweise gegeben hat.*
 
 
-# Prüfungsgegenstand
+## Prüfungsgegenstand
 
 
 1. Die Prüfungsleistung wird rechtzeitig vom Prüfi definiert und an geeignetem Ort bekannt gegeben.
@@ -58,10 +58,10 @@ Anwendung der Methoden quantitativer Datenanalyse
 
 
 
-# Benotung
+## Benotung
 
 
-## Aspekte der Benotung
+### Aspekte der Benotung
 
 1. Es wird eine Gesamtnote und drei Teilnoten vergeben.
 
@@ -73,7 +73,7 @@ Anwendung der Methoden quantitativer Datenanalyse
     - *Inhalt* (u.a. Gliederung, Argumentation, Literaturnutzung, sprachlicher Ausdruck, Problemlösung, Reflexion)
     
     
-## Anspruch
+### Anspruch
 
 1. Anspruch an eine gute Seminararbeit
     - Überwiegende Verwendung von Literatur hoher Qualität (Fachartikel, peer-reviewed)
@@ -90,7 +90,7 @@ Anwendung der Methoden quantitativer Datenanalyse
 
 
 
-## Beispiele für Fehler
+### Beispiele für Fehler
 
 Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der Note führen. Beispiele für solche Fehler sind:
 
@@ -119,7 +119,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
     
     
     
-## Merkmale einer sehr guten Seminararbeit
+### Merkmale einer sehr guten Seminararbeit
 
 1. Formales
 
@@ -141,7 +141,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 
 
-## Aus der Checkliste der Prüfis
+### Aus der Checkliste der Prüfis
 
 - Wissen
 
@@ -173,7 +173,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
   - Sind Text, Abbildungen, Tabellen etc. ansprechend formatiert?  
   
   
-## Typische Fehler
+### Typische Fehler
 
 1. Fachlich dünn: Die Anzahl von guten Quellen (z. B. Fachartikel) ist gering; der Autor kennt sein Thema zu wenig. Es findet kaum Rückbezug der eigenen Studie/Daten auf die Literatur statt.
 
@@ -187,9 +187,9 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 
   
-## Tipps für eine erfolgreiche Seminararbeit
+### Tipps für eine erfolgreiche Seminararbeit
 
-### Reflexion: Bereichen Sie die Welt mit Ihren Gedanken
+#### Reflexion: Bereichen Sie die Welt mit Ihren Gedanken
 
 - Ein Hauptfehler vieler Hausarbeiten liegt darin, dass sie nur andere Texte nacherzählen. Wo liegt da der Mehrwert?
 
@@ -211,7 +211,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
   
   
   
-### Fachwissen: Zeigen Sie, dass Sie sich auskennen
+#### Fachwissen: Zeigen Sie, dass Sie sich auskennen
 
 
 - Nachdem Sie darüber nachgedacht haben, was ein lohnendes Thema ist, recherchieren Sie nach Literatur.
@@ -232,7 +232,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
   
   
   
-### Fluss: Der Text soll elegant fließen
+#### Fluss: Der Text soll elegant fließen
 
 - Begründen Sie Ihr Vorgehen.
 
@@ -252,7 +252,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 
 
-### Redlichkeit: Machen Sie Ihre Ergebnisse nachvollziehbar
+#### Redlichkeit: Machen Sie Ihre Ergebnisse nachvollziehbar
 
 - Was sind Ihre eigenen Gedanken und welche Gedanken haben Sie übernommen – machen Sie dies kenntlich, indem Sie übernommen Gedanken als Zitate kennzeichnen.
 
@@ -269,7 +269,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 - Versuchen Sie, den Nutzen Ihrer Arbeit für Dritte aufzuzeigen.
 
 
-### Leserseite: Schreiben Sie für den Leser
+#### Leserseite: Schreiben Sie für den Leser
 
 
 Hier sind einige typische Fragen, die sich Lesis - implizit oder explizit - stellen:
@@ -279,7 +279,11 @@ Hier sind einige typische Fragen, die sich Lesis - implizit oder explizit - stel
 - *Was soll ich jetzt tun?* --> Geben Sie Handlungsempfehlungen, ggf. „Kochrezepte“, wie in einer bestimmten Situation vorzugehen ist, z. B. Typologien beschreiben
 - *So what?*  -->  Tja, und nun :-)
 
-# Hinweise
+
+
+
+
+## Sonstiges
 
 
 - Vermeiden Sie den Upload von Prüfungsleistungen kurz vor der Frist – falls technische Probleme auftreten, können diese u. U. nicht mehr gelöst werden.
