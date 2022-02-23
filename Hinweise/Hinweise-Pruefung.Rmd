@@ -14,8 +14,7 @@ params:
 # Prüfungsgegenstand
 
 
-1. Die Prüfung besteht aus folgende/n Leistung/en:
-    - *`r params$pruefungsleistung`*
+1. Die Prüfungsleistung wird rechtzeitig vom Prüfi definiert und an geeignetem Ort bekannt gegeben.
     
 2. Es wird erwartet, dass Sie als Versuchsperson an den *Studien der Kommilitonis teilnehmen*, falls nötig.
     
