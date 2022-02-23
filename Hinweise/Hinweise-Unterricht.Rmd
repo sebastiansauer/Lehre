@@ -3,7 +3,7 @@
 
 
 ---
-title: Hinweise zur Organisation des Unterrichts
+subtitle: Hinweise zur Organisation des Unterrichts
 ---
 
 
