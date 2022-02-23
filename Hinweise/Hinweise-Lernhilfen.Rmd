@@ -1,6 +1,6 @@
 
 ---
-subtitle: Lernhilfen
+title: Lernhilfen
 ---
 
 
