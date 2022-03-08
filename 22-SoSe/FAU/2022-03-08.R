@@ -139,4 +139,44 @@ nyc_january %>%
 # Bonus exercise: compute the SD (Jan, JFK flights)
 
 
+nyc_january %>% 
+  drop_na(dep_delay) %>% 
+  summarise(delay_max = max(dep_delay))
 
+  
+nyc_january %>% 
+  drop_na(dep_delay) %>% 
+  summarise(delay_sd = sd(dep_delay))
+
+
+
+nyc_january %>% 
+  drop_na(dep_delay) %>% 
+  summarise(delay_median = median(dep_delay))
+
+
+
+# Grouping
+
+
+# RQ: What's the average delay in each NYC airport in Jan 2013?
+
+
+
+
+flights %>% 
+  filter(month == 1) %>% 
+  select(origin, dep_delay) %>% 
+  drop_na() %>% 
+  group_by(origin) %>%
+  summarise(delay_avg_per_origin = mean(dep_delay))
+
+
+
+# Exercise:
+
+# 1) What's the median delay in each NYC airport in Jan 2013?
+# 2) What's the average delay in each month in NYC?
+
+
+  
