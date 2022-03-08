@@ -129,9 +129,14 @@ nyc_january <-
 
 
 nyc_january %>% 
-  
+  drop_na(dep_delay) %>% 
+  summarise(delay_mean = mean(dep_delay))
   
 
+# Exercise:
+# Find the maximum delay in Jan 2013, JFK flights!
+# hint: use `max(x)`!
+# Bonus exercise: compute the SD (Jan, JFK flights)
 
 
 
