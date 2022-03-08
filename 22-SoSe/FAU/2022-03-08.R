@@ -233,10 +233,33 @@ flights %>%
 
 
 # RQ: Is the "gain" in delay related to the distance to the destination?
+
 # RQ.1: What does the gain distribution look like?
 # RQ.2: Is there a strong correlation to distance? It is linear?
 # RQ.3: Maybe we should normalize (standardize) gain in relation to the flight time, i.e,. gain by hour instead of gain?
 
+# ad RQ.1: What does the gain distribution look like?
+data(flights)
+
+flights2 <- 
+  flights %>% 
+  mutate(gain = dep_delay - arr_delay) %>% 
+  select(-year, month, day, gain, everything())  # change of the order of the columns, and kick out `year`
+
+# use `summarise()` to get summary stats. OK! mean, sd, IQR, min, max,...
+
+
+# Alternatively:
+library(rstatix)  # install it once
+
+flights2 %>% 
+  get_summary_stats(gain)
+
+
+flights2 %>% 
+  ggplot(aes(x = gain)) +
+  geom_histogram()
+           
 
 
 
