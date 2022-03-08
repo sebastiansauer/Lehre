@@ -74,3 +74,22 @@ ggplot(data = weather, mapping = aes(x = factor(month), y = temp)) +
 # Make data available from R package:
 
 data(flights)
+
+
+
+
+
+# Data Wrangling
+
+# "Lego system" of dplyr:
+
+mtcars %>%   # Shortcut Cntrl-Shift-M
+  filter(cyl == 6) %>% 
+  select(cyl, mpg, hp, am) %>% 
+  group_by(am) %>% 
+  summarise(mpg_mean = mean(mpg))
+
+
+
+# Exercise:
+# Filter the `flights` data set to all flights departing from NYC in January 2013
