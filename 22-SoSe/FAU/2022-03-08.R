@@ -1,0 +1,23 @@
+# Step 0: upfront preparation
+
+
+# install.packages("tidyverse")
+library("tidyverse")  # starting the extension, run this each time you open RStudio
+
+
+# Step 1: Import your data
+
+library(readr)
+Affair <- read_csv("~/datasets/Affair.csv")
+View(Affair)
+
+
+mtcars_path <- "https://vincentarelbundock.github.io/Rdatasets/csv/datasets/mtcars.csv"
+
+
+library(readr)
+mtcars <- read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/datasets/mtcars.csv")
+View(mtcars)  # Contrl-Enter Shortcut, very useful
+
+
+# Step 2: Have a look
