@@ -225,3 +225,18 @@ flights %>%
   arrange(-delay_avg_per_month) %>% 
   #filter(row_number() == 1)
   slice_head(n = 3)  # either via filter or via slice_head
+
+
+
+
+# mutate()
+
+
+# RQ: Is the "gain" in delay related to the distance to the destination?
+# RQ.1: What does the gain distribution look like?
+# RQ.2: Is there a strong correlation to distance? It is linear?
+# RQ.3: Maybe we should normalize (standardize) gain in relation to the flight time, i.e,. gain by hour instead of gain?
+
+
+
+
