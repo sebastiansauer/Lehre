@@ -1,8 +1,21 @@
+
+# Upfront preparation -----------------------------------------------------
+
+
+
+
+
 # Step 0: upfront preparation
 
 
 # install.packages("tidyverse")
 library("tidyverse")  # starting the extension, run this each time you open RStudio
+
+
+
+
+# Importing data ----------------------------------------------------------
+
 
 
 # Step 1: Import your data
@@ -77,6 +90,10 @@ data(flights)
 
 
 
+# Data Wrangling ----------------------------------------------------------
+
+
+
 
 
 # Data Wrangling
@@ -92,4 +109,29 @@ mtcars %>%   # Shortcut Cntrl-Shift-M
 
 
 # Exercise:
-# Filter the `flights` data set to all flights departing from NYC in January 2013
+# Filter the `flights` data set to all flights departing from JFK in January 2013, and save it as a new R table.
+
+# preparation, only needed if you have not yet done so:
+library(nycflights13)
+library(tidyverse)
+data(flights)
+
+
+nyc_january <- 
+  flights %>%  # Shortcut Contrl-shift-m
+  filter(origin == "JFK", month == 1)
+  
+
+# Summarise data
+
+# Research Question: What's the mean delay in Jan 2013 from JFK?
+
+
+
+nyc_january %>% 
+  
+  
+
+
+
+
