@@ -249,8 +249,9 @@ flights2 <-
 # use `summarise()` to get summary stats. OK! mean, sd, IQR, min, max,...
 
 
-# Alternatively:
+# Alternatively, saving you typing.
 library(rstatix)  # install it once
+# sth is "masked" -- that's the "Smith" problem
 
 flights2 %>% 
   get_summary_stats(gain)
@@ -262,4 +263,11 @@ flights2 %>%
            
 
 
+# RQ.2: Is there a strong correlation to distance? It is linear?
 
+# hint: correlation: `cor()`
+
+
+flights2 %>% 
+  drop_na(gain, distance) %>% 
+  summarise(cor_gain_dist = cor(gain, distance))
