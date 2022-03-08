@@ -20,6 +20,10 @@ mtcars <- read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/datasets/
 View(mtcars)  # Contrl-Enter Shortcut, very useful
 
 
+
+
+
+
 # Step 2: Have a look
 
 library(nycflights13)
@@ -64,3 +68,9 @@ ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
 
 ggplot(data = weather, mapping = aes(x = factor(month), y = temp)) +
   geom_boxplot()
+
+
+
+# Make data available from R package:
+
+data(flights)
