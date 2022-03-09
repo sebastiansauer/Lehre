@@ -81,3 +81,28 @@ summary(lm1)
 # lm: score ~ age, intercept, b, R^2 
 
 
+lm2 <- 
+  lm(score ~ age, data = evals_ch5)
+
+lm2
+
+
+summary(lm2)
+
+
+
+# 5.2 One categorical explanatory variable
+
+
+# Ex
+
+# 1) Build a linear model with a categorical independent variable (IV) having 2 levels! Interpret the coefficients. Gauge the model precision.
+# 2) Visualize the model
+# 3) Compare to a t-Test.
+
+
+
+
+
+
+
