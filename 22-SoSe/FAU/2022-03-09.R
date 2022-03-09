@@ -251,8 +251,19 @@ summary(score_model)
 
 
 
+
+
+
+
 # 6.1 One numerical and one categorical explanatory variable --------------
 
 
 
 
+# Ex
+
+# 1) Build a lm with the two predictors beauty and gender, add an interaction effect. Interpret. Visualize.
+
+# 2) Now build a lm with the two predictors beauty and gender, do  NOT add an interaction effect. Interpret. Visualize.
+
+# 3) Compare the models. Which one do you prefer? Why?
