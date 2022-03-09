@@ -163,7 +163,7 @@ help(evals)
 # ad 1)
 
 evals_ch6 <- evals %>%
-  select(ID, score, age, gender, bty_avg, pic_outfit)
+  select(ID, score, age, gender, bty_avg, pic_outfit, bty_avg)
 
 
 
@@ -173,12 +173,19 @@ evals_ch6 <-
   mutate(score_log = log(score))
 
 
-
+# Visualize squaered model:
 ggplot(evals_ch6, aes(x = age_sqr, y = score)) +
   geom_point() +
   labs(x = "Age^2", y = "Teaching Score") +
   geom_smooth(method = "lm")
 
+
+
+
+# Visualize log model:
+ggplot(evals_ch6, aes(x = bty_avg, y = score_log)) +
+  geom_point() +
+  geom_smooth(method = "lm")
 
 
 # Fit regression model:
@@ -220,6 +227,18 @@ summary(score_model)
 
 # ad 1)
 
+
+
+
+
+
+# ad 2)
+
+
+
+
+
+# ad 3)
 
 
 
