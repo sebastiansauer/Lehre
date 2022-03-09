@@ -282,6 +282,11 @@ evals2 <-
 
 # 6.1 One numerical and one categorical explanatory variable --------------
 
+ggplot(evals_ch6, aes(x = age, y = score, color = gender)) +
+  geom_point() +
+  labs(x = "Age", y = "Teaching Score", color = "Gender") +
+  geom_smooth(method = "lm", se = FALSE)
+
 # age_centered
 
 evals2 <-
@@ -289,7 +294,10 @@ evals2 <-
   mutate(age_c = age - mean(age))
 
 
-ggplot(evals_ch6, aes(x = age, y = score, color = gender)) +
+
+# with centered predictor age_c:
+
+ggplot(evals2, aes(x = age_c, y = score, color = gender)) +
   geom_point() +
   labs(x = "Age", y = "Teaching Score", color = "Gender") +
   geom_smooth(method = "lm", se = FALSE)
@@ -321,8 +329,20 @@ summary(score_model_interaction2)
 
 
 
+lm10 <- 
+  lm(score ~ bty_avg + gender + bty_avg:gender, data = evals2)
+
+lm11 <-
+  lm(score ~ bty_avg + gender, data = evals2)
+
+# Compare adj. R squared:
+summary(lm10)$adj.r.squared
+summary(lm11)$adj.r.squared
+
+# The results do not support an interaction effect.
 
 
-
-
-
+# WITHOUT interaction effect (parallel slopes):
+ggplot(evals_ch6, aes(x = bty_avg, y = score, color = gender)) +
+  geom_point() +
+  geom_parallel_slopes(se = FALSE)
