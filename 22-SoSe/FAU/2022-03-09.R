@@ -215,8 +215,24 @@ summary(score_model)
 
 # 2) Is there any difference between the (3) values (levels) of rank at all w.r.t. the DV? 
 
-# 3) Bonus (optional): How to change the baseline level (group) of the DV? Try to google it.
+# 3) Bonus (optional): How to change the baseline level (group) of a variable? Try to google it.
 
+
+# ad 1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 6.1 One numerical and one categorical explanatory variable --------------
 
 
 
