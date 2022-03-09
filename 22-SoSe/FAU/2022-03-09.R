@@ -282,15 +282,33 @@ evals2 <-
 
 # 6.1 One numerical and one categorical explanatory variable --------------
 
+# age_centered
 
+evals2 <-
+  evals %>% 
+  mutate(age_c = age - mean(age))
+
+
+ggplot(evals_ch6, aes(x = age, y = score, color = gender)) +
+  geom_point() +
+  labs(x = "Age", y = "Teaching Score", color = "Gender") +
+  geom_smooth(method = "lm", se = FALSE)
+
+# either so:
 score_model_interaction <- lm(score ~ age * gender, data = evals_ch6)
 
-# synonymous:
-score_model_interaction <- lm(score ~ age + gender + age:gender, data = evals_ch6)
+# or so, synonymous:
+score_model_interaction <- lm(score ~ age + gender + age:gender, data = evals)
+
+get_regression_table(score_model_interaction)
+
+score_model_interaction2 <- lm(score ~ age_c + gender + age_c:gender, data = evals2)
 
 
+get_regression_table(score_model_interaction2)
 
 
+summary(score_model_interaction2)
 
 
 # Ex
@@ -300,3 +318,11 @@ score_model_interaction <- lm(score ~ age + gender + age:gender, data = evals_ch
 # 2) Now build a lm with the two predictors beauty and gender, do  NOT add an interaction effect. Interpret. Visualize.
 
 # 3) Compare the models. Which one do you prefer? Why?
+
+
+
+
+
+
+
+
