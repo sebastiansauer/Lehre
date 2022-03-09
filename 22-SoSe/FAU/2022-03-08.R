@@ -238,6 +238,8 @@ flights %>%
 # RQ.2: Is there a strong correlation to distance? It is linear?
 # RQ.3: Maybe we should normalize (standardize) gain in relation to the flight time, i.e,. gain by hour instead of gain?
 
+
+
 # ad RQ.1: What does the gain distribution look like?
 data(flights)
 
@@ -271,3 +273,13 @@ flights2 %>%
 flights2 %>% 
   drop_na(gain, distance) %>% 
   summarise(cor_gain_dist = cor(gain, distance))
+
+
+flights2 %>% 
+  ggplot(aes(x = distance, gain)) +
+  geom_point(alpha=.2)
+
+
+flights2 %>% 
+  ggplot(aes(x = distance, gain)) +
+  geom_point(alpha=.2)
