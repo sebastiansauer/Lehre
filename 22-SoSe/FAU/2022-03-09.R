@@ -228,18 +228,43 @@ summary(score_model)
 # ad 1)
 
 
+# Fit regression model:
+score_model6 <- lm(score ~ rank, data = evals)
+# Get regression table:
+get_regression_table(score_model6)
+
+summary(score_model6)
+# teaching is the baseline value (group)
+
+
+
+ggplot(evals, aes(x = rank, y = score)) +
+  geom_jitter(width = 0.1) +
+  labs(x = "Rank", y = "Teaching Score",
+       title = "Jittered scatterplot of relationship of teaching score and rank")
+
+
+ggplot(evals, aes(x = rank, y = score)) +
+  geom_boxplot() +
+  labs(x = "Rank", y = "Teaching Score",
+       title = "Boxplot of relationship of teaching score and rank")
 
 
 
 
 # ad 2)
 
-
+summary(score_model6)
 
 
 
 # ad 3)
 
+# relevel(rank, "tenured")
+
+evals2 <- 
+  evals %>% 
+  mutate(rank2 = relevel(rank, ref = "tenured"))
 
 
 
@@ -256,6 +281,14 @@ summary(score_model)
 
 
 # 6.1 One numerical and one categorical explanatory variable --------------
+
+
+score_model_interaction <- lm(score ~ age * gender, data = evals_ch6)
+
+# synonymous:
+score_model_interaction <- lm(score ~ age + gender + age:gender, data = evals_ch6)
+
+
 
 
 
