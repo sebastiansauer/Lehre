@@ -151,12 +151,71 @@ help(evals)
 
 # Ex
 
-# 1) Compute a variable "age_squared", add it to the data frame. Then build a linear model with age_squared as predictor (DV: score). Check the results. Visualize it.
+# 1) Compute a variable "age_squared", add it to the data frame. Then build a linear model with age_squared as predictor (DV: score). Is it a linear model? Check the results. Visualize it.
 
 # Hint: to square a variable, type: "age*age" or "age^2".
 
+
 # 2) Compute a variable "score_log" (natural log), add it to the data frame. Then build a linear model with this variable as output variable and beauty as predictor. Check the results. Visualize it.
 
+
+
+# ad 1)
+
+evals_ch6 <- evals %>%
+  select(ID, score, age, gender, bty_avg, pic_outfit)
+
+
+
+evals_ch6 <- 
+  evals_ch6 %>% 
+  mutate(age_sqr = age^2)%>%
+  mutate(score_log = log(score))
+
+
+
+ggplot(evals_ch6, aes(x = age_sqr, y = score)) +
+  geom_point() +
+  labs(x = "Age^2", y = "Teaching Score") +
+  geom_smooth(method = "lm")
+
+
+
+# Fit regression model:
+score_model <- lm(score ~ age_sqr, data = evals_ch6)
+score_model2 <- lm(score_log ~ age_sqr, data = evals_ch6)
+
+# Get regression table:
+get_regression_table(score_model)
+
+
+summary(score_model)
+
+
+
+# ad 2)
+
+#log(y) = x  | exponentiate, de-log
+#y  = e^x
+
+
+
+
+
+
+
+
+# categorical IV with many levels -----------------------------------------
+
+
+
+# Ex
+
+# 1) Run a model with `rank` of the professor as IV (score as DV). Interpret the results. Visualize the model. What's the baseline value (group) of `rank`? 
+
+# 2) Is there any difference between the (3) values (levels) of rank at all w.r.t. the DV? 
+
+# 3) Bonus (optional): How to change the baseline level (group) of the DV? Try to google it.
 
 
 
