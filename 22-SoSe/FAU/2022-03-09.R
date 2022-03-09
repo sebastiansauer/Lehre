@@ -46,6 +46,13 @@ ggplot(evals_ch5, aes(x = bty_avg, y = score)) +
   geom_smooth(method = "lm", se = FALSE) 
 
 
+
+ggplot(evals_ch5, aes(x = bty_avg, y = age)) +
+  geom_jitter() +
+  labs(x = "Age", 
+       y = "Teaching Score") +
+  geom_smooth(method = "lm", se = FALSE) 
+
 # ad 4)
 
 
@@ -59,6 +66,11 @@ evals_ch5 %>%
 
 
 # R formula: "y ~ x"  - > y = f(x)
+
+
+
+
+# Modelling ---------------------------------------------------------------
 
 
 
@@ -96,10 +108,54 @@ summary(lm2)
 
 # Ex
 
-# 1) Build a linear model with a categorical independent variable (IV) having 2 levels! Interpret the coefficients. Gauge the model precision.
-# 2) Visualize the model
-# 3) Compare to a t-Test.
+# 1) Build a linear model with a categorical independent variable (IV) having 2 levels! Use "score" as outupt variable (y/ dependent variable). Interpret the coefficients. Gauge the model precision.
+# 2) Visualize the model.
+# 3) Compare to a t-Test (optional).
 
+
+
+score_model3 <- lm(score ~ gender, data = evals)
+# Get regression table:
+get_regression_table(score_model3)
+
+summary(score_model3)
+
+
+
+evals %>% 
+  ggplot(aes(x = gender, y = score)) +
+  geom_jitter(width = .1) +
+  geom_abline(slope = 0.142, intercept = 4.09, color = "blue")
+
+
+
+
+# Codebook of the data set can be accessed like this:
+
+help(evals)
+
+
+
+
+
+
+
+
+
+
+
+# How linear is linear? ---------------------------------------------------
+
+
+
+
+# Ex
+
+# 1) Compute a variable "age_squared", add it to the data frame. Then build a linear model with age_squared as predictor (DV: score). Check the results. Visualize it.
+
+# Hint: to square a variable, type: "age*age" or "age^2".
+
+# 2) Compute a variable "score_log" (natural log), add it to the data frame. Then build a linear model with this variable as output variable and beauty as predictor. Check the results. Visualize it.
 
 
 
