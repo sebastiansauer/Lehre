@@ -328,18 +328,20 @@ summary(score_model_interaction2)
 # 3) Compare the models. Which one do you prefer? Why?
 
 
-
+# with interaction effect:
 lm10 <- 
   lm(score ~ bty_avg + gender + bty_avg:gender, data = evals2)
 
+# without interaction effect
 lm11 <-
   lm(score ~ bty_avg + gender, data = evals2)
+
 
 # Compare adj. R squared:
 summary(lm10)$adj.r.squared
 summary(lm11)$adj.r.squared
 
-# The results do not support an interaction effect.
+# The results show a very weak or even no interaction effect.
 
 
 # WITHOUT interaction effect (parallel slopes):
