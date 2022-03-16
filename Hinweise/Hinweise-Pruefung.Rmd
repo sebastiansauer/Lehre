@@ -25,9 +25,9 @@ params:
 3. *Abschnittsverantwortliche*: Jedes Kapitel/Teilkapitel muss mit genau einem Namen ausgewiesen sein. Der Namen der/des Autor*in soll als Fußnote an die jeweilige Überschrift angefügt sein.
 
 4. *Formale Anforderungen* an die Seminararbeit:
-    - Der Umfang der Arbeit umfasst 6000 Wörter (im Hauptteil).
+    - Der Umfang der Arbeit umfasst 6000 Wörter (im Hauptteil), plus/minus 10%.
     - Die Methoden des wissenschaftlichen Arbeiten in Recherche, Zitat und Darstellung werden angewandt.
-Anwendung der Methoden quantitativer Datenanalyse
+    - Wenden Sie die Methoden quantitativer Datenanalyse an.
     - Textsatz und Gestaltung der Seminararbeit orientieren sich an dem bereitgestellten Leitfaden.
     - Gestaltungsaspekte, die nicht im bereitgestellten Leitfaden aufgeführt sind, sind nach den Vorgaben der APA (neueste Version) anzulegen.
     - Die Arbeit kann in deutscher oder englischer Sprache eingereicht werden.
@@ -53,7 +53,7 @@ Anwendung der Methoden quantitativer Datenanalyse
 
 14. *Open Science*: Reichen Sie die Rohdaten und ggf. Syntax (elektronisch) ein. Verweisen Sie im Anhang auf eine Datei, die Sie hochladen, in der die entsprechenden Informationen zu finden sind.
 
-15. Das Thema muss einen d*irekten empirisch-psychologischen Bezug* haben; die Forschungsfrage muss psychologisch relevante Aspekte adressieren.
+15. Das Thema muss einen *direkten empirisch-psychologischen Bezug* haben; die Forschungsfrage muss psychologisch relevante Aspekte adressieren.
 
 
 
