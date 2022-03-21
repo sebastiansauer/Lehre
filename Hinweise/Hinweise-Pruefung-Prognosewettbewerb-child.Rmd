@@ -198,7 +198,7 @@ Für eine gute Prognose sollte daher $\text{MAE}_{\text{Test}}$ möglichst klein
 
 Die Güte der Vorhersage wird anhand des *mittleren Absolutfehlers* (mae) bemessen:
 
-$$\text{mae} = \frac{1}{n} \sum_{i=1}^n(y_i - \hat{y}_i)$$
+$$\text{mae} = \frac{1}{n} \sum_{i=1}^n|(y_i - \hat{y}_i)|$$
 
 
 ### Notenstufen
