@@ -173,7 +173,8 @@ render_course_outline <- function(
       
       for (j in subsections){
         
-        render_section(d = master_table,
+        render_section(course_dates_file,
+                       content_file,
                        name = j,
                        header_level = header_level,
                        id = i)
