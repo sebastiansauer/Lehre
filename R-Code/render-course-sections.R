@@ -121,6 +121,8 @@ render_course_outline <- function(
   master_table <-
     course_dates %>%
     bind_cols(course_topics)
+  # warning: columns are just bind next to eacher other, no ID is checked
+  # make sure the order of the rows match.
   
   
   # get headers:
