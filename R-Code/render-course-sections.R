@@ -43,7 +43,7 @@ compute_course_dates <- function(dates_file, # input yaml file
 
 
 
-render_section <- function(d = master_table, name, id, header_level = 2){
+render_section <- function(d, name, id, header_level = 2){
   
   # this function renders the markdown code for one item of the course description.
   
@@ -57,7 +57,7 @@ render_section <- function(d = master_table, name, id, header_level = 2){
     cat("\n")
   }
   
-  if (class(master_table[[name]]) == "list") {
+  if (class(d[[name]]) == "list") {
     
     out <- d[[name]][[1]][[id]]
     
@@ -150,6 +150,7 @@ render_course_outline <- function(
         
         render_section(d = master_table,
                        name = j,
+                       header_level = header_level,
                        id = i)
       }
       
