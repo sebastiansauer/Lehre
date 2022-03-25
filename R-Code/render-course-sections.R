@@ -22,25 +22,16 @@ render_course_outline <- function(
     library(tidyverse)
     library(lubridate)
     library(yaml)
+    library(assertthat)
     
     yml_file <- dates_file
     
     dates <- read_yaml(yml_file)
-    
     week1 <-  week(ymd(dates$first_day))
-    
     weeks_vec <- week(ymd(dates$first_day)):(week(ymd(dates$first_day))+dates$weeks_n-1)
-    
-    weeks_vec
-    
     teaching_vec <- rep(TRUE, dates$weeks_n)
-    
-    
     teaching_vec[dates$weeks_off] <- FALSE
-    
     teaching_comments <- rep(NA, dates$weeks_n)
-    
-    
     
     course_dates <-
       tibble(
@@ -116,6 +107,10 @@ render_course_outline <- function(
     mutate(Aufgaben = list(course_topics_l %>% map("Aufgaben"))) %>%
     mutate(Vertiefung = list(course_topics_l %>% map("Vertiefung"))) %>%
     mutate(Hinweise = list(course_topics_l %>% map("Hinweise")))
+  
+  # check if the number of rows are identical:
+  assert_that(nrow(course_dates) == nrow(course_topics))
+  
   
   # build master table:
   master_table <-
