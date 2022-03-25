@@ -43,7 +43,7 @@ compute_course_dates <- function(dates_file, # input yaml file
 
 
 
-render_section <- function(d = master_table, name, id){
+render_section <- function(d = master_table, name, id, header_level = 2){
   
   # this function renders the markdown code for one item of the course description.
   
