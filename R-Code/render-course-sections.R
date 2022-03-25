@@ -1,6 +1,8 @@
 # Functions to render the course sections in markdown format
 
 
+
+
 compute_course_dates <- function(dates_file, # input yaml file
                                  output_file = "course_dates.csv",
                                  write_to_disk = FALSE){
@@ -42,24 +44,74 @@ compute_course_dates <- function(dates_file, # input yaml file
 }
 
 
+build_master_course_table <- function(course_dates_file,
+                                      content_file) {
+  # this function reads two yaml files 
+  # and builds the master table with course descriptors per topic
+  # the two yaml file are the dates files, and the descriptors file
+  
+  
+  
+  # read source files:
+  course_dates <- compute_course_dates(course_dates_file)
+  course_topics_l <- yaml::read_yaml(content_file)
+  
+  #  build tables with course description:
+  course_topics <-
+    tibble(
+      Titel = course_topics_l %>% map_chr("Titel")) %>%
+    mutate(Lernziele = list(course_topics_l %>% map("Lernziele"))) %>%
+    mutate(Vorbereitung = list(course_topics_l %>% map("Vorbereitung"))) %>%
+    mutate(Literatur = list(course_topics_l %>% map("Literatur"))) %>%
+    mutate(Videos = list(course_topics_l %>% map("Videos"))) %>%
+    mutate(Skript = list(course_topics_l %>% map("Skript"))) %>%
+    mutate(Aufgaben = list(course_topics_l %>% map("Aufgaben"))) %>%
+    mutate(Vertiefung = list(course_topics_l %>% map("Vertiefung"))) %>%
+    mutate(Hinweise = list(course_topics_l %>% map("Hinweise")))
+  
+  # check if the number of rows are identical:
+  assert_that(nrow(course_dates) == nrow(course_topics))
+  
+  # build master table:
+  master_table <-
+    course_dates %>%
+    bind_cols(course_topics)
+  # warning: columns are just bind next to eacher other, no ID is checked
+  # make sure the order of the rows match.
+  
+  return(master_table)
+  
+}
 
-render_section <- function(d, name, id, header_level = 2){
+
+
+
+
+render_section <- function(course_dates_file,
+                           content_file, 
+                           name, 
+                           id, 
+                           header_level = 2){
   
   # this function renders the markdown code for one item of the course description.
   
-  if (class(d[[name]]) != "list") {
+  master_table <- 
+    build_master_course_table(course_dates_file,
+                              content_file)
+  
+  if (class(master_table[[name]]) != "list") {
     
     cat("\n")
     cat(paste0(str_c(rep("#", header_level + 1), collapse = "")," ", name, " \n"))
     cat("\n")
-    out <- as.character(unname(d[[name]][id]))
+    out <- as.character(unname(master_table[[name]][id]))
     cat(out)
     cat("\n")
   }
   
-  if (class(d[[name]]) == "list") {
+  if (class(master_table[[name]]) == "list") {
     
-    out <- d[[name]][[1]][[id]]
+    out <- master_table[[name]][[1]][[id]]
     
     if (!is.null(out)){
       cat(paste0(str_c(rep("#", header_level + 1), collapse = "")," ", name, " \n"))
@@ -90,38 +142,11 @@ render_course_outline <- function(
   # using the information provided from two yaml files, one with dates, one with content
   
   
-  
-   
-  # read source files:
-  course_dates <- compute_course_dates(course_dates_file)
-  course_topics_l <- yaml::read_yaml(content_file)
-  
-  
-  #  build tables with course description:
-  course_topics <-
-    tibble(
-      Titel = course_topics_l %>% map_chr("Titel")) %>%
-    mutate(Lernziele = list(course_topics_l %>% map("Lernziele"))) %>%
-    mutate(Vorbereitung = list(course_topics_l %>% map("Vorbereitung"))) %>%
-    mutate(Literatur = list(course_topics_l %>% map("Literatur"))) %>%
-    mutate(Videos = list(course_topics_l %>% map("Videos"))) %>%
-    mutate(Skript = list(course_topics_l %>% map("Skript"))) %>%
-    mutate(Aufgaben = list(course_topics_l %>% map("Aufgaben"))) %>%
-    mutate(Vertiefung = list(course_topics_l %>% map("Vertiefung"))) %>%
-    mutate(Hinweise = list(course_topics_l %>% map("Hinweise")))
-  
-  # check if the number of rows are identical:
-  assert_that(nrow(course_dates) == nrow(course_topics))
-  
-  
-  # build master table:
   master_table <-
-    course_dates %>%
-    bind_cols(course_topics)
-  # warning: columns are just bind next to eacher other, no ID is checked
-  # make sure the order of the rows match.
-  
-  
+    build_master_course_table(course_dates_file,
+                              content_file)
+   
+
   # get headers:
   chapters <-
     master_table %>%
