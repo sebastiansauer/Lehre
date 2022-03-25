@@ -9,6 +9,60 @@ render_course_outline <- function(
   # using the information provided from two yaml files, one with dates, one with content
   
   
+  
+  
+  compute_course_dates <- function(dates_file, # input yaml file
+                                   output_file = "course_dates.csv",
+                                   write_to_disk = FALSE){
+    
+    # this function builds a dataframe with course dates
+    # basing on a yaml file with basic infos
+    
+    
+    library(tidyverse)
+    library(lubridate)
+    library(yaml)
+    
+    yml_file <- dates_file
+    
+    dates <- read_yaml(yml_file)
+    
+    week1 <-  week(ymd(dates$first_day))
+    
+    weeks_vec <- week(ymd(dates$first_day)):(week(ymd(dates$first_day))+dates$weeks_n-1)
+    
+    weeks_vec
+    
+    teaching_vec <- rep(TRUE, dates$weeks_n)
+    
+    
+    teaching_vec[dates$weeks_off] <- FALSE
+    
+    teaching_comments <- rep(NA, dates$weeks_n)
+    
+    
+    
+    course_dates <-
+      tibble(
+        ID = 1:length(weeks_vec),
+        KW = weeks_vec,
+        Lehre = teaching_vec,
+        lehrfrei = !Lehre,
+        Kurswoche = cumsum(Lehre),
+        Wochenbeginn_Datum = ymd(dates$first_day) + ID * 7 - 7,
+        Wochenabschluss_Datum = (ymd(dates$first_day)+6) + ID * 7 - 7
+      )
+    
+    
+    if (write_to_disk) write_csv(course_dates, output_file)
+    
+    return(course_dates)
+    
+  }
+  
+  
+  
+  
   render_section <- function(d = master_table, name, id){
     
     # this function renders the markdown code for one item of the course description.
@@ -46,7 +100,7 @@ render_course_outline <- function(
   
   
   # read source files:
-  course_dates <- read_csv(course_dates_file,)
+  course_dates <- compute_course_dates(course_dates_file)
   course_topics_l <- yaml::read_yaml(content_file)
   
   
@@ -63,19 +117,19 @@ render_course_outline <- function(
     mutate(Vertiefung = list(course_topics_l %>% map("Vertiefung"))) %>%
     mutate(Hinweise = list(course_topics_l %>% map("Hinweise")))
   
-  # build master table
+  # build master table:
   master_table <-
     course_dates %>%
-    left_join(course_topics, by = "ID")
+    bind_cols(course_topics)
   
   
-  # get headers
+  # get headers:
   chapters <-
     master_table %>%
     pull(Titel) %>%
     simplify()
   
-  # get descriptors of course (such das date, literature, ... for each topic/week)
+  # get descriptors of course (such das date, literature, ... for each topic/week):
   subsections <-
     master_table %>%
     names()
