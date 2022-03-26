@@ -32,8 +32,8 @@ compute_course_dates <- function(dates_file, # input yaml file
       Lehre = teaching_vec,
       lehrfrei = !Lehre,
       Kurswoche = cumsum(Lehre),
-      Beginn = ymd(dates$first_day) + ID * 7 - 7,
-      Ende = (ymd(dates$first_day)+6) + ID * 7 - 7
+      Datum_Beginn = ymd(dates$first_day) + ID * 7 - 7,
+      Datum_Ende = (ymd(dates$first_day)+6) + ID * 7 - 7
     )
   
   
@@ -211,7 +211,7 @@ render_course_outline <- function(
   } else {
     master_table %>%
       filter(Lehre == TRUE) %>%
-      select(Kurswoche, KW, Titel, Datum = Wochenbeginn_Datum) %>%
+      select(Kurswoche, KW, Titel, contains("Datum")) %>%
       gt::gt()
     
   }
