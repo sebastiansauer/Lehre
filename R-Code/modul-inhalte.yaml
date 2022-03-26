@@ -1,6 +1,6 @@
 Thema1:
   Titel: ERRRstkontakt
-  id: 1
+
   Lernziele:
     - Sie kennen zentrale Begriffe im Kontext der Datenanalyse.
     - Sie können den Unterschied zwischen Signal und Rauschen erklären.
@@ -60,7 +60,7 @@ Thema1:
 
 
 Thema2:
-  id: 2
+
   Titel: Datenimport
   Lernziele:
     - Sie können Daten (verschiedener Formate) in R importieren.
@@ -94,7 +94,7 @@ Thema2:
 
 
 Thema3:
-  id: 3
+
   Titel: Datenjudo
   Lernziele:
     - Sie können Daten in R aufbereiten mit dem Tidyverse.
@@ -119,7 +119,7 @@ Thema3:
 
 Thema5:
   Titel: Deskriptive Statistik, Teil 1
-  id: 4
+
   Lernziele:
     - Sie beherrschen grundlegende Operationen der univariaten deskriptiven Statistik sowohl für Lage- als auch Streuungsmaße.
   Literatur:
@@ -149,7 +149,7 @@ Thema5a:
   Vorbereitung:
     - Lesen Sie die Literatur.
     - Sehen Sie sich ggf. das Video zum Folienskript an.
-  id: 5
+
   Hinweise:
     -
   Videos:

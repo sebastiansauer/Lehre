@@ -32,8 +32,8 @@ compute_course_dates <- function(dates_file, # input yaml file
       Lehre = teaching_vec,
       lehrfrei = !Lehre,
       Kurswoche = cumsum(Lehre),
-      Wochenbeginn_Datum = ymd(dates$first_day) + ID * 7 - 7,
-      Wochenabschluss_Datum = (ymd(dates$first_day)+6) + ID * 7 - 7
+      Beginn = ymd(dates$first_day) + ID * 7 - 7,
+      Ende = (ymd(dates$first_day)+6) + ID * 7 - 7
     )
   
   
@@ -93,11 +93,17 @@ render_section <- function(course_dates_file,
                            id, 
                            header_level = 2){
   
+  library(tidyverse)
+  library(assertthat)
+  
   # this function renders the markdown code for one item of the course description.
   
   master_table <- 
     build_master_course_table(course_dates_file,
                               content_file)
+  
+  assert_that(name %in% names(master_table))
+  
   
   if (class(master_table[[name]]) != "list") {
     
@@ -131,10 +137,13 @@ render_section <- function(course_dates_file,
 }
 
 
+
+
 render_course_outline <- function(
   course_dates_file, # yaml file with course dates
   content_file,   # course contents/description
   header_level = 2, # start to render text at header level 2
+  descriptors = NULL,  # which descriptors from the yaml file should be rendered? Null: All
   small_table = FALSE)  # render all columns or only a subset?
   {
   
@@ -154,9 +163,22 @@ render_course_outline <- function(
     simplify()
   
   # get descriptors of course (such das date, literature, ... for each topic/week):
+  
   subsections <-
     master_table %>%
     names()
+
+  # if argument `descriptors` is not NULL, only the selected descriptors will be rendered
+   if (!is.null(descriptors)) {
+     assertthat::assert_that(all(descriptors %in% subsections))
+    
+     subsections <-
+       subsections %>% 
+       keep(~ .x %in% descriptors)
+  }
+  
+
+    
   
   if (small_table == FALSE){
     
@@ -189,7 +211,7 @@ render_course_outline <- function(
   } else {
     master_table %>%
       filter(Lehre == TRUE) %>%
-      select(Kurswoche, KW, Titel, Wochenbeginn_Datum) %>%
+      select(Kurswoche, KW, Titel, Datum = Wochenbeginn_Datum) %>%
       gt::gt()
     
   }
