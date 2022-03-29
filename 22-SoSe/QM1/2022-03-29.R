@@ -28,11 +28,37 @@ filter(mtcars, am == 0 | cyl > 6)  # |, Mac: Option-7
 
 mtcars2 <- arrange(mtcars, hp)
 
-
-# Was macht wohl dieser Arrange-Befehl?
-
-mtcars3 <- arrange(mtcars, am ,hp)
+# Was macht wohl der folgende Arrange-Befehl?
+mtcars3 <- arrange(mtcars, am, hp)
 
 
+# Aufgabe
+# Selektieren Sie die Spalten 2,3,5,7,11
 
->>>>>>> a6c6beb1adf60d816b5cb240e6f77ea447d7567e
+select(mtcars, 2,3,5,7,11)
+# synonym:
+select(mtcars, c(2,3,5,7,11))
+
+# Wählen Sie die Spalten für PS, Zylinder und Spritverbrauch und speichern Sie die Tabelle als mtcars4.
+
+
+mtcars4 <- select(mtcars, cyl, mpg, hp)
+
+
+summarise(mtcars, mean(hp))
+
+# Aufgabe:
+# Max-Wert von mpg!
+
+
+summarise(mtcars, mpg_max_wert = max(mpg))
+
+# Aufgabe:
+# Max und Min und Mean-Wert von mpg!
+
+
+
+
+
+
+
