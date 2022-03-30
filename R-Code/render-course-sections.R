@@ -145,7 +145,7 @@ render_section <- function(course_dates_file,
   # this function renders the markdown code for one item of the course description.
   
   master_table <- 
-    build_master_course_table(course_dates_file,
+    build_master_course_table2(course_dates_file,
                               content_file)
   
   assert_that(name %in% names(master_table))
