@@ -167,7 +167,9 @@ render_section <- function(course_dates_file,
     
     # look in column 'name', and read the i'th element:
     # i give the the row number which corresponds to the row/course number
-    out <- master_table[[name]][i]
+    out <- master_table[[name]][[i]]
+    # nb: we need to `[[` as we want the actual character vector with multiple elements
+    # only one `[` would leave us with a single element list, so we could not splice multiple bullet points
     
     if (!is.null(out)){
       cat(paste0(str_c(rep("#", header_level + 1), collapse = "")," ", name, " \n"))
