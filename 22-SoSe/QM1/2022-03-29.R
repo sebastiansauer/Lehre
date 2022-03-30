@@ -57,8 +57,24 @@ summarise(mtcars, mpg_max_wert = max(mpg))
 # Max und Min und Mean-Wert von mpg!
 
 
+summarise(mtcars, 
+          mpg_max = max(mpg), 
+          mpg_mean = mean(mpg), 
+          mpg_min = min(mpg))
+
+
+# Was ist der mittlere Spritverbrauch, gruppiert nach
+# Zylinderzahl?
 
 
 
+mtcars_grouped <- group_by(mtcars, cyl)
+mtcars_grouped
+
+summarise(mtcars_grouped, mean(mpg))
+# oder mit Namen der neuen Spalte:
+summarise(mtcars_grouped, mpg_mean = mean(mpg))
 
 
+# synonym:
+summarise(group_by(mtcars, cyl), mean(mpg))
