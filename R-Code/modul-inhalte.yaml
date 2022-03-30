@@ -127,8 +127,6 @@ Thema5:
   Vorbereitung:
     - Lesen Sie die Literatur.
     - Sehen Sie sich ggf. das Video zum Folienskript an.
-  Kalenderwoche: 15
-  Datum: 11.4.-15.4.
   Hinweise:
     - In dieser Woche fällt die Übung aus (Ostern)
   Videos:
@@ -164,7 +162,7 @@ Thema5a:
 
 Thema6:
   Titel: Aufholwoche
-  id: 6
+
   Lernziele:
     - Sie vertiefen Ihr Wissen in den bisher gelernten Themen.
     - Sie schließen etwaige Lernlücken individuell und selbständig.
@@ -181,7 +179,7 @@ Thema6:
 
 Thema7:
   Titel: Praxisprobleme der Datenaufbereitung
-  id: 7
+
   Lernziele:
     - Sie wissen mit typischen Problemen der Datenaufbereitung umzugehen, wie mit fehlenden Werten, Datenanomalien oder Formatänderung der Tabelle.
     - Sie kennen die grundlegenden Eigenschaften der Normalverteilung.
@@ -201,7 +199,7 @@ Thema7:
 
 Thema8:
   Titel: Datenvisualisierung
-  id: 8
+
   Lernziele:
     - Sie können Daten visualisieren, um wesentliche Einsichten zu vermitteln.
   Literatur:
@@ -223,7 +221,7 @@ Thema8:
 
 Thema9:
   Titel: Fallstudie zur EDA
-  id: 9
+
   Lernziele:
     - Sie können die gelernten Techniken der explorativen Datenanalyse praktisch anwenden.
   Vorbereitung:
@@ -246,7 +244,7 @@ Thema9:
 
 Thema10:
   Titel: Modellieren
-  id: 10
+
   Lernziele:
     - Sie verstehen die Methoden des Modellierens.
   Literatur:
@@ -266,7 +264,7 @@ Thema10:
 
 Thema11:
   Titel: Regression
-  id: 11
+
   Lernziele:
     - Sie verstehen die Grundkonzepte der Regression und können diese in R anwenden.
   Literatur:
@@ -291,12 +289,12 @@ Thema11:
 
 Thema11a:
   Titel: KEIN UNTERRICHT in dieser Woche
-  id: 12
+
 
 
 Thema12:
   Titel: Wiederholung
-  id: 13
+
   Lernziele:
     - Sie vertiefen Ihr Wissen in den bisher gelernten Themen.
   Hinweise:
@@ -315,7 +313,7 @@ Thema12:
 
 Thema13:
   Titel: Fallstudie zur Regression
-  id: 14
+
   Lernziele:
     - Sie können die gelernten Techniken der Regressionsanalyse praktisch anwenden.
   Vorbereitung:
@@ -336,7 +334,7 @@ Thema13:
 
 Thema14:
   Titel: Klassifikation
-  id: 15
+
   Lernziele:
     - Sie verstehen die Grundkonzepte der logistischen Regression und können diese in R anwenden.
   Literatur:
@@ -353,7 +351,7 @@ Thema14:
 
 Thema15:
   Titel: Vertiefung
-  id: 16
+
   Lernziele:
     - Sie erwerben tieferes Wissen in den Stoffgebieten dieses Kurses.
   Hinweise:
