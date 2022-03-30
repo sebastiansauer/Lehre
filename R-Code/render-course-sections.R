@@ -135,9 +135,9 @@ build_master_course_table2 <- function(course_dates_file,
 
 render_section <- function(course_dates_file,
                            content_file, 
-                           name, 
-                           id, 
-                           header_level = 2){
+                           name,  # descriptor name (such as literature, exercises,...)
+                           i, # this is the index variable giving the entry number (such as topic/week 2)
+                           header_level = 2){  # how many '#' to prepend
   
   library(tidyverse)
   library(assertthat)
@@ -146,24 +146,28 @@ render_section <- function(course_dates_file,
   
   master_table <- 
     build_master_course_table2(course_dates_file,
-                              content_file)
+                               content_file)
   
   assert_that(name %in% names(master_table))
   
   
+  # first, deal with the simpler, non-list columns:
   if (class(master_table[[name]]) != "list") {
     
     cat("\n")
     cat(paste0(str_c(rep("#", header_level + 1), collapse = "")," ", name, " \n"))
     cat("\n")
-    out <- as.character(unname(master_table[[name]][id]))
+    out <- as.character(unname(master_table[[name]][i]))
     cat(out)
     cat("\n")
   }
   
+  # then, deal with the list cols:
   if (class(master_table[[name]]) == "list") {
     
-    out <- master_table[[name]][[1]][[id]]
+    # look in column 'name', and read the i'th element:
+    # i give the the row number which corresponds to the row/course number
+    out <- master_table[[name]][i]
     
     if (!is.null(out)){
       cat(paste0(str_c(rep("#", header_level + 1), collapse = "")," ", name, " \n"))
@@ -245,7 +249,7 @@ render_course_outline <- function(
                        content_file,
                        name = j,
                        header_level = header_level,
-                       id = i)
+                       i = i)
       }
       
       
