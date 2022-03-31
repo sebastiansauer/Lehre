@@ -44,48 +44,9 @@ compute_course_dates <- function(dates_file, # input yaml file
 }
 
 
+
+
 build_master_course_table <- function(course_dates_file,
-                                      content_file) {
-  # this function reads two yaml files 
-  # and builds the master table with course descriptors per topic
-  # the two yaml file are the dates files, and the descriptors file
-  
-  
-  
-  # read source files:
-  course_dates <- compute_course_dates(course_dates_file)
-  course_topics_l <- yaml::read_yaml(content_file)
-  
-  #  build tables with course description:
-  course_topics <-
-    tibble(
-      Titel = course_topics_l %>% map_chr("Titel")) %>%
-    mutate(Lernziele = list(course_topics_l %>% map("Lernziele"))) %>%
-    mutate(Vorbereitung = list(course_topics_l %>% map("Vorbereitung"))) %>%
-    mutate(Literatur = list(course_topics_l %>% map("Literatur"))) %>%
-    mutate(Videos = list(course_topics_l %>% map("Videos"))) %>%
-    mutate(Skript = list(course_topics_l %>% map("Skript"))) %>%
-    mutate(Aufgaben = list(course_topics_l %>% map("Aufgaben"))) %>%
-    mutate(Vertiefung = list(course_topics_l %>% map("Vertiefung"))) %>%
-    mutate(Hinweise = list(course_topics_l %>% map("Hinweise")))
-  
-  # check if the number of rows are identical:
-  assert_that(nrow(course_dates) == nrow(course_topics))
-  
-  # build master table:
-  master_table <-
-    course_dates %>%
-    bind_cols(course_topics)
-  # warning: columns are just bind next to eacher other, no ID is checked
-  # make sure the order of the rows match.
-  
-  return(master_table)
-  
-}
-
-
-
-build_master_course_table2 <- function(course_dates_file,
                                        content_file) {
   # this function reads two yaml files 
   # and builds the master table with course descriptors per topic
@@ -145,7 +106,7 @@ render_section <- function(course_dates_file,
   # this function renders the markdown code for one item of the course description.
   
   master_table <- 
-    build_master_course_table2(course_dates_file,
+    build_master_course_table(course_dates_file,
                                content_file)
   
   assert_that(name %in% names(master_table))
@@ -204,7 +165,7 @@ render_course_outline <- function(
   
   
   master_table <-
-    build_master_course_table2(course_dates_file,
+    build_master_course_table(course_dates_file,
                                content_file)
    
 
