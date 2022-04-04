@@ -1,6 +1,8 @@
 # 2022-04-01
 
-library(tidyverse)
+library(tidyverse)  
+# dplyr is included in tidyverse
+
 
 data(mtcars)
 
@@ -16,3 +18,18 @@ mtcars %>%
   group_by(am) %>% 
   summarise(mean(mpg))
 
+
+select(mtcars, am, hp, mpg)
+
+
+
+# compute mpg in km (not in miles):
+
+mtcars2 <-
+  mtcars %>% 
+  mutate(mpg_km = mpg * 1.6)
+
+# same as:
+
+mtcars2 <-
+  mutate(mtcars, mpg_km = mpg * 1.6)
