@@ -37,7 +37,7 @@ library(tidyverse)
 library(rstanarm)  # Bayes
 library(broom)  # schöner Output lm
 library(broom.mixed)  # schöner Output stan_glm
-library(rstatix)
+library(rstatix)  # EDA, desk. Stats
 ```
 
 
@@ -99,7 +99,8 @@ d %>%
   filter(usage_time < 500) %>% 
   ggplot() +
   aes(x = usage_time, y = correct_perc) +
-  geom_jitter()
+  geom_jitter() +
+  geom_smooth(method = "lm")
 ```
 
 
@@ -127,13 +128,24 @@ d %>%
 
 ```{r}
 lm1 <- lm(correct_perc ~ usage_time, data = d)
-
 ```
 
 Modellkoeffizienten:
 
+
+Dazu könnte man `summary(lm1)` benutzen:
+
 ```{r}
-tidy(lm1)
+summary(lm1)
+```
+
+
+
+
+Aber schicker ist die Ausgabe so:
+
+```{r}
+tidy(lm1)  # aus dem Paket `broom`
 ```
 
 
@@ -164,4 +176,17 @@ glance(slm1)
 ```{r}
 bayes_R2(slm1) %>% mean()
 ```
+
+
+
+# Inferenzstatistik
+
+
+```{r}
+posterior_interval(slm1)
+```
+
+
+
+
 
