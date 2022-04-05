@@ -1,0 +1,24 @@
+---
+title: "FoPro"
+author: "ses"
+date: "4/5/2022"
+output: html_document
+---
+
+
+
+# Handystudie
+
+Analysieren Sie die Daten der Handystudie von letzter Woche (Live-Experiment)! 
+
+Hinweise:
+
+- Formulieren Sie vorab Ihre Forschungsfrage.
+- Sie können sich zunächst auf Deskriptivstatistik beschränken (noch keine Inferenzstatistik).
+- Die Daten (bzw. einen Link zu den Daten) finden Sie auf der offenen Lehrmittelseite des Modul.
+
+```{r}
+data_path <- "https://raw.githubusercontent.com/sebastiansauer/fopra/main/data/Handystudie-2022-04-05.csv"
+```
+
+
