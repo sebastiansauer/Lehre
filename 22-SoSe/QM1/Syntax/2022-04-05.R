@@ -3,8 +3,8 @@
 
 # MAD vs. SD
 
-# Definiere die Messwerte:
-x <- c(1, 10, 11)
+# Definiere die Messwerte: (spielen Sie ruhig mit diesen Werten)
+x <- c(1, 10, 10000)
 
 # MAD:
 # 1. Abstände d_i von x_i zum MW
