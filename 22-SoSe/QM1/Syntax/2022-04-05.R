@@ -23,15 +23,16 @@ d_abs <- abs(d)
 # MAD als MW der Abstolutabstände:
 mad_x <- mean(d_abs)
 
-
-
 # Varianz/SD
 
+# Abweichungsquadrate (Vorstufe zur Varianz):
 d_sq <- d^2
 d_sq
 
+# Varianz:
 var_x <- mean(d_sq)
 var_x    
 
+# Ziehe Wurzel, um von Varianz zu SD zu kommen:
 sd_x <- sqrt(var_x)
 sd_x
