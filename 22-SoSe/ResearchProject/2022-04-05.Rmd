@@ -21,4 +21,13 @@ Hinweise:
 data_path <- "https://raw.githubusercontent.com/sebastiansauer/fopra/main/data/Handystudie-2022-04-05.csv"
 ```
 
+## Tipps
+
+Spaltennamen ändern:
+
+```{r}
+names(df) <- c("Name1", "Name2", "etc") # auf die richtige Anzahl der Spalten achten
+```
+
+
 
