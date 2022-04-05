@@ -1,5 +1,5 @@
 ---
-title: "FoPro"
+title: "FoPro - Handystudie"
 author: "ses"
 date: "4/5/2022"
 output: html_document
@@ -7,7 +7,7 @@ output: html_document
 
 
 
-# Handystudie
+# Einleitung
 
 Analysieren Sie die Daten der Handystudie von letzter Woche (Live-Experiment)! 
 
@@ -21,7 +21,7 @@ Hinweise:
 data_path <- "https://raw.githubusercontent.com/sebastiansauer/fopra/main/data/Handystudie-2022-04-05.csv"
 ```
 
-## Tipps
+# Tipps
 
 Spaltennamen ändern:
 
@@ -30,4 +30,110 @@ names(df) <- c("Name1", "Name2", "etc") # auf die richtige Anzahl der Spalten ac
 ```
 
 
+# Setup
+
+```{r}
+library(tidyverse)
+library(rstanarm)  # Bayes
+library(broom)  # schöner Output lm
+library(broom.mixed)  # schöner Output stan_glm
+
+```
+
+
+# Daten importieren
+
+
+```{r}
+d <- read_csv(data_path)
+```
+
+# Daten aufbereiten
+
+```{r}
+names(d) <- c("Timestamp", "usage_time", "rt", "correct_perc", "pickups_n", "sex")
+```
+
+
+# Operationalisierung
+
+`usage_time` $u$ ist die Operationalisierung der Handynutzung pro Tag in Minuten gemittelt über die letzten 7 Tage, so wie es von der iOS-Funktion "Bildschirmzeit" oder einer Android-App (nicht weiter geprüft) übermittelt wird.
+
+`correct_perc` $c$ ist die Operationalisierung des Anteil korrekter Antworten in einem Stroop-Test wie er auf [dieser Webseite](https://www.bernhard-gaul.de/spiele/stroop-test/stroop.php) angeboten wurde zum Zeitpunkt Ende März 2022. Die Messgüte dieses Instruments ist unbekannt. 
+
+
+# Hypothese
+
+
+$u$ hat einen kausalen, linearen Effekt auf $c$:
+
+- $c \sim u$
+- $\beta_u < 0$
+
+
+# Visualisierung
+
+
+
+```{r}
+d %>% 
+  filter(between(correct_perc, 0, 100)) %>% 
+  ggplot() +
+  aes(x = usage_time, y = correct_perc) +
+  geom_point()
+```
+
+
+
+```{r}
+d %>% 
+  filter(between(correct_perc, 0, 100)) %>% 
+  filter(usage_time < 500) %>% 
+  ggplot() +
+  aes(x = usage_time, y = correct_perc) +
+  geom_jitter()
+```
+
+# Lineares Modell mit `lm`
+
+
+```{r}
+lm1 <- lm(correct_perc ~ usage_time, data = d)
+
+```
+
+Modellkoeffizienten:
+
+```{r}
+tidy(lm1)
+```
+
+
+Modellgüte:
+
+```{r}
+glance(lm1)
+```
+
+
+
+# Lineares Modell mit `stan_glm`
+
+
+```{r}
+slm1 <- stan_glm(correct_perc ~ usage_time, data = d)
+```
+
+
+```{r}
+tidy(slm1)
+```
+
+```{r}
+glance(slm1)
+```
+
+```{r}
+bayes_R2(slm1) %>% mean()
+```
 
