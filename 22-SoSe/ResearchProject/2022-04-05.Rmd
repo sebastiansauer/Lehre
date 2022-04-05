@@ -161,7 +161,7 @@ glance(lm1)
 
 
 ```{r}
-slm1 <- stan_glm(correct_perc ~ usage_time, data = d)
+slm1 <- stan_glm(correct_perc ~ usage_time, data = d, refresh = 0)
 ```
 
 
@@ -187,6 +187,29 @@ posterior_interval(slm1)
 ```
 
 
+# Handyzeit in Stunden?
+
+Vielleicht ist es cleverer, die Handyzeit in Stunden anstelle von Minuten zu betrachten? Kann man sich viel besser vorstellen, 5 Stunden anstelle von 300 Minuten etc.
+
+Rechnen Sie die Handyzeit in Stunden um und wiederholen Sie dann die Analyse!
 
 
+```{r}
+d2 <-
+  d %>% 
+  mutate(usage_time_h = usage_time / 60)
+```
+
+
+
+# lm2
+
+
+```{r}
+lm2 <- stan_glm(correct_perc ~ usage_time_h, data = d2, refresh = 0)
+```
+
+```{r}
+posterior_interval(lm2)
+```
 
