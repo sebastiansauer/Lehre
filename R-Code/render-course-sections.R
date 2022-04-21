@@ -133,11 +133,14 @@ render_section <- function(course_dates_file,
     # only one `[` would leave us with a single element list, so we could not splice multiple bullet points
     
     if (!is.null(out)){
-      cat(paste0(str_c(rep("#", header_level + 1), collapse = "")," ", name, " \n"))
-      cat("\n")
-      for (i in out) {
-        cat(paste0("- ", i))
+      if (!is.na(out[1])){
+        cat(paste0(str_c(rep("#", header_level + 1), 
+                         collapse = "")," ", name, " \n"))
         cat("\n")
+        for (i in out) {
+          cat(paste0("- ", i))
+          cat("\n")
+        }
       }
       
       cat("\n")
@@ -169,20 +172,20 @@ render_course_outline <- function(
                                content_file)
    
 
-  # get headers:
+  # get column with titles (title_topic_1, title_topic_2, ...):
   chapters <-
     master_table %>%
     pull(Titel) %>%
     simplify()
   
   # get descriptors of course (such das date, literature, ... for each topic/week):
-  
   subsections <-
     master_table %>%
     names()
 
   # if argument `descriptors` is not NULL, only the selected descriptors will be rendered
    if (!is.null(descriptors)) {
+     # only valid (existing) descriptors are allowed:
      assertthat::assert_that(all(descriptors %in% subsections))
     
      subsections <-
@@ -198,7 +201,6 @@ render_course_outline <- function(
     for (i in seq_along(chapters)){
       
       # oberabschnitt:
-      
       cat(paste0(str_c(rep("#", header_level), collapse = "")," ", chapters[i], "\n"))
       cat("\n")
       
@@ -208,12 +210,14 @@ render_course_outline <- function(
       
       for (j in subsections){
         
-        render_section(course_dates_file,
-                       content_file,
-                       name = j,
-                       header_level = header_level,
-                       i = i)
-      }
+#        if (!is.null(master_table[[j]][[i]])) {
+          render_section(course_dates_file,
+                         content_file,
+                         name = j,
+                         header_level = header_level,
+                         i = i)
+  #      }
+      }  # for loop j
       
       
       # Leerzeilen, bevor neues Thema anfängt
