@@ -56,13 +56,17 @@ compute_course_dates <- function(dates_file, # input yaml file
 
 build_master_course_table <- function(course_dates_file,
                                       content_file,
-                                      link_stump = NULL
+                                      link_stump = NULL,
+                                      link_type = NULL
                                       ) {
   # this function reads two yaml files 
   # and builds the master table with course descriptors per topic
   # the two yaml file are the dates files, and the descriptors file
   # descriptors: name of first level keys (descriptors) to be rendered. 
   # If NULL, all will be rendered.
+  # link_stump: used as base URL in order to link the chapter titles to the respective URLs on the site
+  # link_type: if NULL or 1, the link will be built in this manner "some/dmain/some.page.html/#",
+  # if link_type is 2, the link will be built like this "some/domain/"
   
   
   
@@ -98,13 +102,21 @@ build_master_course_table <- function(course_dates_file,
   # make sure the order of the rows match.
   
   if (!is.null(link_stump)) {
-    
-    clean_title
+
+    if (is.null(link_type) | link_type == 1){
     
     master_table <-
       master_table %>% 
       mutate(Titel_Link = paste0("[", Titel,"](", link_stump, clean_title(master_table$Titel), ")")) %>% 
       relocate(Titel_Link, .after = Titel)
+    }
+
+    if (link_type == 2) {
+      master_table <-
+        master_table %>% 
+        mutate(Titel_Link = paste0("[", Titel,"](", link_stump, clean_title(master_table$Titel), ".html)")) %>% 
+        relocate(Titel_Link, .after = Titel)  
+    }
   }
   
   return(master_table)
