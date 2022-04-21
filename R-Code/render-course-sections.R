@@ -4,7 +4,7 @@
 clean_title <- function(title){
   # Helper function: Format the title, so that it is compatible with URLs, eg., no blanks
   out <- tolower(title)
-  out2 <- stringr::str_remove_all(out, "[:punct:]")
+  out2 <- stringr::str_remove_all(out, "[;,.!?]")
   out3 <- stringr::str_replace_all(out2, "[:space:]", "-")
 }
 
