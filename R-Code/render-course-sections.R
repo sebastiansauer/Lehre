@@ -1,6 +1,14 @@
 # Functions to render the course sections in markdown format
 
 
+clean_title <- function(title){
+  # Helper function: Format the title, so that it is compatible with URLs, eg., no blanks
+  out <- tolower(title)
+  out2 <- stringr::str_remove_all(out, "[:punct:]")
+  out3 <- stringr::str_replace_all(out2, "[:space:]", "-")
+}
+
+
 
 
 compute_course_dates <- function(dates_file, # input yaml file
@@ -47,7 +55,9 @@ compute_course_dates <- function(dates_file, # input yaml file
 
 
 build_master_course_table <- function(course_dates_file,
-                                       content_file) {
+                                      content_file,
+                                      link_stump = NULL
+                                      ) {
   # this function reads two yaml files 
   # and builds the master table with course descriptors per topic
   # the two yaml file are the dates files, and the descriptors file
@@ -87,6 +97,16 @@ build_master_course_table <- function(course_dates_file,
   # warning: columns are just bind next to eacher other, no ID is checked
   # make sure the order of the rows match.
   
+  if (!is.null(link_stump)) {
+    
+    clean_title
+    
+    master_table <-
+      master_table %>% 
+      mutate(Titel_Link = paste0("[", Titel,"](", link_stump, clean_title(master_table$Titel), ")")) %>% 
+      relocate(Titel_Link, .after = Titel)
+  }
+  
   return(master_table)
   
 }
@@ -98,6 +118,7 @@ render_section <- function(course_dates_file,
                            content_file, 
                            name,  # descriptor name (such as literature, exercises,...)
                            i, # this is the index variable giving the entry number (such as topic/week 2)
+                           link_stump = NULL,
                            header_level = 2){  # how many '#' to prepend
   
   library(tidyverse)
@@ -107,7 +128,9 @@ render_section <- function(course_dates_file,
   
   master_table <- 
     build_master_course_table(course_dates_file,
-                               content_file)
+                              content_file,
+                              link_stump = link_stump
+                              )
   
   assert_that(name %in% names(master_table))
   

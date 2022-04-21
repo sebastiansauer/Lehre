@@ -12,7 +12,7 @@
 <meta name="author" content="ses" />
 
 
-<title>Trials</title>
+<title>Test Renderdown</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -358,18 +358,307 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Trials</h1>
+<h1 class="title toc-ignore">Test Renderdown</h1>
 <h4 class="author">ses</h4>
-<h4 class="date">4/14/2022</h4>
+<h4 class="date">4/21/2022</h4>
 
 </div>
 
 
-<div id="test" class="section level1">
-<h1>Test</h1>
-<hr />
-<p>Just a sample algorithmn</p>
-<p>asdjfl</p>
+<div id="testing" class="section level1">
+<h1>Testing</h1>
+<div id="load-libs" class="section level2">
+<h2>Load libs</h2>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.6     ✓ dplyr   1.0.8
+## ✓ tidyr   1.2.0     ✓ stringr 1.4.0
+## ✓ readr   2.1.2     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(gt)</code></pre>
+<pre class="r"><code>source(&quot;R-Code/render-course-sections.R&quot;)</code></pre>
+</div>
+<div id="constants" class="section level2">
+<h2>Constants</h2>
+<pre class="r"><code>dates_file &lt;- &quot;R-Code/course-dates.yaml&quot;
+content_file &lt;- &quot;R-Code/modul-inhalte.yaml&quot;
+
+link_stump &lt;- &quot;https://sebastiansauer.github.io/vorhersagemodellierung/index.html#&quot;</code></pre>
+</div>
+<div id="compute-tables" class="section level2">
+<h2>Compute tables</h2>
+<pre class="r"><code>dates &lt;- compute_course_dates(dates_file = dates_file)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<pre><code>## 
+## Attaching package: &#39;assertthat&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:tibble&#39;:
+## 
+##     has_name</code></pre>
+<pre class="r"><code>master_table &lt;- build_master_course_table(dates_file, 
+                                          content_file,
+                                          link_stump = link_stump)</code></pre>
+</div>
+<div id="render-table" class="section level2">
+<h2>Render Table</h2>
+<pre class="r"><code>master_table_short &lt;- 
+  master_table %&gt;% 
+  select(1,2,6, Titel_Link) </code></pre>
+<pre class="r"><code>knitr::kable(master_table_short)</code></pre>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="1%" />
+<col width="7%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">ID</th>
+<th align="right">KW</th>
+<th align="left">Datum_Beginn</th>
+<th align="left">Titel_Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">11</td>
+<td align="left">2022-03-14</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#errrstkontakt">ERRRstkontakt</a></td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">12</td>
+<td align="left">2022-03-21</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#datenimport">Datenimport</a></td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">13</td>
+<td align="left">2022-03-28</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#datenjudo">Datenjudo</a></td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">14</td>
+<td align="left">2022-04-04</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#deskriptive-statistik-teil-1">Deskriptive
+Statistik, Teil 1</a></td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">15</td>
+<td align="left">2022-04-11</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#deskriptive-statistik-teil-2">Deskriptive
+Statistik, Teil 2</a></td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">16</td>
+<td align="left">2022-04-18</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#aufholwoche">Aufholwoche</a></td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">17</td>
+<td align="left">2022-04-25</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#praxisprobleme-der-datenaufbereitung">Praxisprobleme
+der Datenaufbereitung</a></td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">18</td>
+<td align="left">2022-05-02</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#datenvisualisierung">Datenvisualisierung</a></td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">19</td>
+<td align="left">2022-05-09</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#fallstudie-zur-eda">Fallstudie
+zur EDA</a></td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">20</td>
+<td align="left">2022-05-16</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#modellieren">Modellieren</a></td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">21</td>
+<td align="left">2022-05-23</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#regression">Regression</a></td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">22</td>
+<td align="left">2022-05-30</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#kein-unterricht-in-dieser-woche">KEIN
+UNTERRICHT in dieser Woche</a></td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">23</td>
+<td align="left">2022-06-06</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#wiederholung">Wiederholung</a></td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">24</td>
+<td align="left">2022-06-13</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#fallstudie-zur-regression">Fallstudie
+zur Regression</a></td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">25</td>
+<td align="left">2022-06-20</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#klassifikation">Klassifikation</a></td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">26</td>
+<td align="left">2022-06-27</td>
+<td align="left"><a href="https://sebastiansauer.github.io/vorhersagemodellierung/index.html#vertiefung">Vertiefung</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="test" class="section level2">
+<h2>Test</h2>
+<p>dsjfkl</p>
+<pre class="r"><code>urls &lt;- rep(&quot;https://stackoverflow.com/&quot;, 10)
+# use paste0 to compose markdown-formatted hyperlinks
+mtcars$mpg &lt;- paste0(&quot;[&quot;, mtcars$mpg, &quot;](&quot;, urls, &quot;)&quot;)
+# print the table, with hyperlinked text
+knitr::kable(head(mtcars))</code></pre>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="35%" />
+<col width="4%" />
+<col width="5%" />
+<col width="4%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="3%" />
+<col width="3%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
+<th align="right">am</th>
+<th align="right">gear</th>
+<th align="right">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mazda RX4</td>
+<td align="left"><a href="https://stackoverflow.com/">21</a></td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.620</td>
+<td align="right">16.46</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Mazda RX4 Wag</td>
+<td align="left"><a href="https://stackoverflow.com/">21</a></td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.875</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Datsun 710</td>
+<td align="left"><a href="https://stackoverflow.com/">22.8</a></td>
+<td align="right">4</td>
+<td align="right">108</td>
+<td align="right">93</td>
+<td align="right">3.85</td>
+<td align="right">2.320</td>
+<td align="right">18.61</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Hornet 4 Drive</td>
+<td align="left"><a href="https://stackoverflow.com/">21.4</a></td>
+<td align="right">6</td>
+<td align="right">258</td>
+<td align="right">110</td>
+<td align="right">3.08</td>
+<td align="right">3.215</td>
+<td align="right">19.44</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Hornet Sportabout</td>
+<td align="left"><a href="https://stackoverflow.com/">18.7</a></td>
+<td align="right">8</td>
+<td align="right">360</td>
+<td align="right">175</td>
+<td align="right">3.15</td>
+<td align="right">3.440</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Valiant</td>
+<td align="left"><a href="https://stackoverflow.com/">18.1</a></td>
+<td align="right">6</td>
+<td align="right">225</td>
+<td align="right">105</td>
+<td align="right">2.76</td>
+<td align="right">3.460</td>
+<td align="right">20.22</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
