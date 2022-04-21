@@ -65,9 +65,9 @@ build_master_course_table <- function(course_dates_file,
   # descriptors: name of first level keys (descriptors) to be rendered. 
   # If NULL, all will be rendered.
   # link_stump: used as base URL in order to link the chapter titles to the respective URLs on the site
-  # link_type: if NULL or 1, the link will be built in this manner "some/dmain/some.page.html/#",
-  # if link_type is 2, the link will be built like this "some/domain/"
-  
+  # link_type: if NULL or 1, the link will be built in this manner "some/dmain/some.page.html/#"TITLE,
+  # if link_type is 2, the link will be built like this "some/domain/TITLE.html"
+  # if link_type is 3, the link will be built like this: "some/domain/TITLE-1.html"
   
   
   # read source files:
@@ -117,6 +117,15 @@ build_master_course_table <- function(course_dates_file,
         mutate(Titel_Link = paste0("[", Titel,"](", link_stump, clean_title(master_table$Titel), ".html)")) %>% 
         relocate(Titel_Link, .after = Titel)  
     }
+    
+    if (link_type == 3) {
+      master_table <-
+        master_table %>% 
+        mutate(Titel_Link = paste0("[", Titel,"](", link_stump, clean_title(master_table$Titel), "-1.html)")) %>% 
+        relocate(Titel_Link, .after = Titel)  
+    }    
+    
+    
   }
   
   return(master_table)
