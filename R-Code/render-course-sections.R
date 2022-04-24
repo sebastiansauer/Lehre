@@ -102,8 +102,8 @@ build_master_course_table <- function(course_dates_file,
   # make sure the order of the rows match.
   
   if (!is.null(link_stump)) {
-
-    if (is.null(link_type) | link_type == 1){
+    if (is.null(link_type)) link_type <- 1
+    if (link_type == 1){
     
     master_table <-
       master_table %>% 

@@ -40,6 +40,7 @@ link_stump <- "https://sebastiansauer.github.io/vorhersagemodellierung/index.htm
 ```{r}
 dates <- compute_course_dates(dates_file = dates_file)
 
+undebug(build_master_course_table)
 master_table <- build_master_course_table(dates_file, 
                                           content_file,
                                           link_stump = link_stump)
