@@ -123,9 +123,7 @@ build_master_course_table <- function(course_dates_file,
         master_table %>% 
         mutate(Titel_Link = paste0("[", Titel,"](", link_stump, clean_title(master_table$Titel), "-1.html)")) %>% 
         relocate(Titel_Link, .after = Titel)  
-    }    
-    
-    
+    }  
   }
   
   return(master_table)
@@ -140,7 +138,10 @@ render_section <- function(course_dates_file,
                            name,  # descriptor name (such as literature, exercises,...)
                            i, # this is the index variable giving the entry number (such as topic/week 2)
                            link_stump = NULL,
+                           title = NULL,  # alternatively to the index (ID) i, the name of the title of the chosen section can be given here
                            header_level = 2){  # how many '#' to prepend
+  
+  if (is.null(i) & is.null(i)) stop("Either i or name must be non-null. Stopping.")
   
   library(tidyverse)
   library(assertthat)
@@ -162,7 +163,8 @@ render_section <- function(course_dates_file,
     cat("\n")
     cat(paste0(str_c(rep("#", header_level + 1), collapse = "")," ", name, " \n"))
     cat("\n")
-    out <- as.character(unname(master_table[[name]][i]))
+    if (!is.null(i)) out <- as.character(unname(master_table[[name]][i]))
+    if (!is.null(title)) out <- as.character(unname(master_table[master_table$Titel == title, name]))
     cat(out)
     cat("\n")
   }
@@ -172,7 +174,10 @@ render_section <- function(course_dates_file,
     
     # look in column 'name', and read the i'th element:
     # i give the the row number which corresponds to the row/course number
-    out <- master_table[[name]][[i]]
+    
+    if (!is.null(i)) out <- master_table[[name]][[i]]
+    if (!is.null(title)) out <- master_table[master_table$Titel == title, name] %>% unlist()
+ 
     # nb: we need to `[[` as we want the actual character vector with multiple elements
     # only one `[` would leave us with a single element list, so we could not splice multiple bullet points
     

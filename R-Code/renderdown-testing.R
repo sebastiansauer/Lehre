@@ -1,5 +1,6 @@
 # testing renderdown tools
 
+source("R-Code/render-course-sections.R")
 
 dates_file <- "R-Code/course-dates.yaml"
 content_file <- "R-Code/modul-inhalte.yaml"
