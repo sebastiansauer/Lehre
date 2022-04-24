@@ -136,7 +136,7 @@ build_master_course_table <- function(course_dates_file,
 render_section <- function(course_dates_file,
                            content_file, 
                            name,  # descriptor name (such as literature, exercises,...)
-                           i, # this is the index variable giving the entry number (such as topic/week 2)
+                           i = NULL, # this is the index variable giving the entry number (such as topic/week 2)
                            link_stump = NULL,
                            title = NULL,  # alternatively to the index (ID) i, the name of the title of the chosen section can be given here
                            header_level = 2){  # how many '#' to prepend
