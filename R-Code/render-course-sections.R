@@ -141,7 +141,7 @@ render_section <- function(course_dates_file,
                            title = NULL,  # alternatively to the index (ID) i, the name of the title of the chosen section can be given here
                            header_level = 2){  # how many '#' to prepend
   
-  if (is.null(i) & is.null(i)) stop("Either i or name must be non-null. Stopping.")
+  if (is.null(i) & is.null(title)) stop("Either i or name must be non-null. Stopping.")
   
   library(tidyverse)
   library(assertthat)
