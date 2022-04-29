@@ -26,3 +26,11 @@ mtcars %>%
             mpg_md = median(mpg),
             mpg_sd = sd(mpg))
 
+
+mtcars %>% 
+  summarise(mpg_nas = sum(is.na(mpg)))
+
+
+alter <- c(20, 23, 22, NA)
+
+is.na(alter)
