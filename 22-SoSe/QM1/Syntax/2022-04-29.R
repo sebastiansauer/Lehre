@@ -20,3 +20,9 @@ mtcars %>%
 
 
 # Bonus: Compute median and SD of mpg as well!
+mtcars %>% 
+  drop_na() %>%  # kicks out all rows with NAs
+  summarise(mpg_mean = mean(mpg),
+            mpg_md = median(mpg),
+            mpg_sd = sd(mpg))
+
