@@ -57,3 +57,18 @@ mtcars3 <-
   relocate(mpg_repaired, .after = mpg)
 
 
+# Duplicates:
+
+mtcars4 <- 
+  mtcars %>% 
+  distinct()
+
+# Create some duplicates:
+mtcars5 <-
+  mtcars %>% 
+  bind_rows(mtcars)
+# Check mtcars5 for duplicates!
+
+
+
+
