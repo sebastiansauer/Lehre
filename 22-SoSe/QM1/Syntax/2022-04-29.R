@@ -34,3 +34,26 @@ mtcars %>%
 alter <- c(20, 23, 22, NA)
 
 is.na(alter)
+
+sum(is.na(alter))  # number of NAs in "alter"
+
+mtcars2 <-
+  mtcars %>% 
+  drop_na()  # how many rows remain?
+
+
+
+# Count missing values
+
+
+mtcars %>% 
+  summarise(mpg_nas = sum(is.na(mpg)))
+
+# Replace missing values: 
+
+mtcars3 <- 
+  mtcars %>% 
+  mutate(mpg_repaired = replace_na(mpg, 20)) %>% 
+  relocate(mpg_repaired, .after = mpg)
+
+
