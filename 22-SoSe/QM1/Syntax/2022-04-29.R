@@ -69,6 +69,14 @@ mtcars5 <-
   bind_rows(mtcars)
 # Check mtcars5 for duplicates!
 
+# Installieren Sie folgendes R-Paket:
+install.packages("datawizard")
+
+library(datawizard)
+
+describe_distribution(mtcars)
+
+
 
 
 
