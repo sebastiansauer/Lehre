@@ -29,7 +29,7 @@ ggbetweenstats(
 
 # Aufgabe: Exportieren Sie eine Tabelle!
 
-# 1. Erstellen Sie eine Häufigkeitstabelle für mtcars (mpg ~ am)
+# 1. Erstellen Sie eine Häufigkeitstabelle für mtcars (am)
 # 2. Visualisieren Sie die Tabelle (Tipp: Paket `gt` oder `flextable`)
 # 3. Exportieren Sie nach Word!
 
@@ -38,8 +38,8 @@ library(gt)
 
 # ad 1
 tab1 <-
-mtcars %>% 
-  count(am) 
+  mtcars %>% 
+  count(am, hp > 100) 
   
 # ad2
 tab1 %>% 
@@ -49,5 +49,26 @@ tab1 %>%
 # ad 3
 # copy-paste der Tabelle oder:
 flextable(tab1)
+
+
+
+
+
+
+
+# Aufgabe: Exportieren Sie ein Diagramm nach Word!
+# Boxplot: mpg  ~ am
+  
+  
+ggplot(mtcars) +
+  aes(x = factor(am), y = mpg) +
+  geom_boxplot()
+
+
+
+
+# Welche Zahl ist größer?
+# a) 0.001
+# b) 9e-04
 
 
