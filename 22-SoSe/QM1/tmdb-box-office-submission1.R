@@ -21,7 +21,7 @@ d_test_path <- "https://raw.githubusercontent.com/sebastiansauer/Lehre/main/data
 
 
 d_train <- read_csv(d_train_path)
-d_train <- read_csv(d_test_path)
+d_test <- read_csv(d_test_path)
 
 
 
@@ -75,6 +75,7 @@ d_test2 <-
 d_test3 <-
   d_test2 %>%
   mutate(revenue = predict(lm1, newdata = .))
+
 
 submission_df <-
   d_test3 %>% 
