@@ -11,7 +11,7 @@ clean_title <- function(title){
 
 
 
-compute_course_dates <- function(dates_file, # input yaml file
+compute_course_dates <- function(dates_file,  # input yaml file with dates
                                  output_file = "course_dates.csv",
                                  write_to_disk = FALSE){
   
@@ -33,6 +33,10 @@ compute_course_dates <- function(dates_file, # input yaml file
   teaching_vec[dates$weeks_off] <- FALSE
   teaching_comments <- rep(NA, dates$weeks_n)
   
+  d <-
+    tibble(KW = dates_yml[["comments"]] %>% flatten() %>% names() %>% as.integer(),
+           Terminhinweise = dates_yml[["comments"]] %>% flatten()  %>% as.character())
+  
   course_dates <-
     tibble(
       ID = 1:length(weeks_vec),
@@ -43,6 +47,10 @@ compute_course_dates <- function(dates_file, # input yaml file
       Datum_Beginn = ymd(dates$first_day) + ID * 7 - 7,
       Datum_Ende = (ymd(dates$first_day)+6) + ID * 7 - 7
     )
+  
+  course_dates <-
+    d %>% 
+    full_join(course_dates, by = "KW")
   
   
   if (write_to_disk) write_csv(course_dates, output_file)

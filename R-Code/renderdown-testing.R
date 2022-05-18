@@ -10,6 +10,16 @@ link_stump <- "https://sebastiansauer.github.io/datascience1/"
 
 dates <- compute_course_dates(dates_file = dates_file)
 
+
+dates_yml <- read_yaml(dates_file)
+
+dates_yml[["comments"]] %>% 
+   flatten()  %>% as.character()
+
+d <-
+  tibble(kw = dates_yml[["comments"]] %>% flatten() %>% names() %>% as.integer(),
+         Terminhinweise = dates_yml[["comments"]] %>% flatten()  %>% as.character())
+
 master_table <- build_master_course_table(dates_file, content_file)
 
 render_section(dates_file, 
