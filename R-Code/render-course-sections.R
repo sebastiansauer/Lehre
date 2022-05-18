@@ -34,8 +34,8 @@ compute_course_dates <- function(dates_file,  # input yaml file with dates
   teaching_comments <- rep(NA, dates$weeks_n)
   
   d <-
-    tibble(KW = dates_yml[["comments"]] %>% flatten() %>% names() %>% as.integer(),
-           Terminhinweise = dates_yml[["comments"]] %>% flatten()  %>% as.character())
+    tibble(KW = dates[["comments"]] %>% flatten() %>% names() %>% as.integer(),
+           Terminhinweise = dates[["comments"]] %>% flatten()  %>% as.character())
   
   course_dates <-
     tibble(
