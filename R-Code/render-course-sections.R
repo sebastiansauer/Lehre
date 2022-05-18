@@ -50,7 +50,8 @@ compute_course_dates <- function(dates_file,  # input yaml file with dates
   
   course_dates <-
     d %>% 
-    full_join(course_dates, by = "KW")
+    full_join(course_dates, by = "KW") %>% 
+    arrange(KW)
   
   
   if (write_to_disk) write_csv(course_dates, output_file)
