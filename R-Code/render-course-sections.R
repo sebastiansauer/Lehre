@@ -29,12 +29,16 @@ compute_course_dates <- function(dates_file,  # input yaml file with dates
   
   # check if all neded variables in dates_file are present:
   needed_vars <- 
-    c("first_day", "weeks_n", "weeks_off", "comments", "weeks_off")
+    c("first_day", "weeks_n", "weeks_off", "comments")
   
   needed_vars_present_in_dates_files <-
     all(needed_vars %in% names(dates))
   
-  assertthat::assert_that(needed_vars_present_in_dates_files, msg = stringr::str_c("Not all needed variables are present in the dates file. These are the needed vars, some of which are missing: ", stringr::str_c(needed_vars, collapse = ", ")))
+  err_msg <-
+    paste0("Not all needed variables are present in the dates file. These are the needed vars, some of which are missing: ", stringr::str_c(needed_vars, collapse = ", "),
+           ". But I found these vars only: ", str_c(names(dates),collapse = ", "))
+  
+  assertthat::assert_that(needed_vars_present_in_dates_files, msg = err_msg)
   
  
   # compute course dates such as weeks:
