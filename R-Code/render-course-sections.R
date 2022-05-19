@@ -25,14 +25,26 @@ compute_course_dates <- function(dates_file,  # input yaml file with dates
   library(assertthat)
   
   yml_file <- dates_file
-  
   dates <- read_yaml(yml_file)
+  
+  # check if all neded variables in dates_file are present:
+  needed_vars <- 
+    c("first_day", "weeks_n", "weeks_off", "comments", "weeks_off")
+  
+  needed_vars_present_in_dates_files <-
+    all(needed_vars %in% names(dates))
+  
+  assertthat::assert_that(needed_vars_present_in_dates_files, msg = stringr::str_c("Not all needed variables are present in the dates file. These are the needed vars, some of which are missing: ", stringr::str_c(needed_vars, collapse = ", ")))
+  
+ 
+  # compute course dates such as weeks:
   week1 <-  week(ymd(dates$first_day))
   weeks_vec <- week(ymd(dates$first_day)):(week(ymd(dates$first_day))+dates$weeks_n-1)
   teaching_vec <- rep(TRUE, dates$weeks_n)
   teaching_vec[dates$weeks_off] <- FALSE
   teaching_comments <- rep(NA, dates$weeks_n)
   
+  # compute the comments for each week:
   d <-
     tibble(KW = dates[["comments"]] %>% flatten() %>% names() %>% as.integer(),
            Terminhinweise = dates[["comments"]] %>% flatten()  %>% as.character())
@@ -148,7 +160,7 @@ render_section <- function(course_dates_file,
                            i = NULL, # this is the index variable giving the entry number (such as topic/week 2)
                            link_stump = NULL,
                            title = NULL,  # alternatively to the index (ID) i, the name of the title of the chosen section can be given here
-                           header_level = 2){  # how many '#' to prepend
+                           header_level = 2){  # how many '#' to prepend to indicate the header level
   
   if (is.null(i) & is.null(title)) stop("Either i or name must be non-null. Stopping.")
   
@@ -218,7 +230,8 @@ render_course_outline <- function(
   content_file,   # course contents/description
   header_level = 2, # start to render text at header level 2
   descriptors = NULL,  # which descriptors from the yaml file should be rendered? Null: All
-  small_table = FALSE)  # render all columns or only a subset?
+  small_table = FALSE,  # render all columns or only a subset?
+  filter_holidays = TRUE)  # rm all weeks corresponding to public holidays?
   {
   
   # this function generates markdown code
@@ -284,8 +297,8 @@ render_course_outline <- function(
       
     }
   } else {
+    if (filter_holidays) master_table <- filter(master_table, Lehre == TRUE)
     master_table %>%
-      filter(Lehre == TRUE) %>%
       select(Kurswoche, KW, Titel, contains("Datum")) %>%
       gt::gt()
     
