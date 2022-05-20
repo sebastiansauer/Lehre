@@ -1,35 +1,34 @@
-# 2022-05-20
-
 
 
 
 
 Question
 ========
-  
-  ```{r}
+
+```{r}
 data("mtcars")
 ```
 
 
 Betrachten Sie folgendes Modell (Datensatz `mtcars`):
-  
-  `mpg ~ disp`
+
+`mpg ~ disp`
 
 Anders gesagt: Wie gut kann man den Spritverbrauch vorhersagen auf Basis des Hubraums eines Autos?
-  
-  1. Berechnen Sie die Modellkoeffizienten! Tipp: `lm()`
+
+1. Berechnen Sie die Modellkoeffizienten! Tipp: `lm()`
 2. Berechnen Sie im Anschluss die Vorhersagen dieses Modells. Tipp: `predict()` mit `mutate()`
 3. Visualisieren Sie dann das Modell Tipp: `ggplot()` und `geom_smooth()`
-4. Berechnen Sie die Korrelation der Vorhersagen mit den tatsächlichen Werten (des Spritverbrauchs)! Tipp: `summarise() mit `cor()`.
+4. Berechnen Sie die Residuen: `e = echtem Y-Wert und vorhergesagtem Y-Wert`. Tipp: `mutate()`.
+6. Berechnen Sie die Korrelation der Vorhersagen mit den tatsächlichen Werten (des Spritverbrauchs)! Tipp: `summarise() mit `cor()`.
 
 
 Solution
 ========
-  
-  # Vorbereitung
-  
-  ```{r}
+
+# Vorbereitung
+
+```{r}
 library(tidyverse)
 data(mtcars)
 ```
@@ -46,14 +45,14 @@ lm1
 # Ad 2
 
 Nicht einfach nur predicten:
-  
-  ```{r}
+
+```{r}
 predict(lm1)
 ```
 
 *Sondern* die Predictions als neue Spalte in `mtcars` anlegen. Viel sauberer!
-  
-  ```{r}
+
+```{r}
 mtcars2  <- 
   mtcars %>% 
   mutate(preds_lm1 = predict(lm1))
@@ -62,7 +61,7 @@ mtcars2  <-
 
 
 
-Ad 3
+# Ad 3
 
 ```{r}
 ggplot(mtcars2) +
@@ -72,8 +71,8 @@ ggplot(mtcars2) +
 ```
 
 Andere Visualisierung:
-  
-  ```{r}
+
+```{r}
 mtcars2 %>% 
   ggplot(aes(x = disp, y = preds_lm1)) +
   geom_point(size = 2, alpha = .8, color = "pink") +
@@ -83,4 +82,34 @@ mtcars2 %>%
 ```
 
 
+# Ad 4
 
+
+```{r}
+mtcars2 <- 
+  mtcars2 %>% 
+  mutate(e = abs(mpg - preds_lm1))  # abs steht für "Absolutwert"
+```
+
+
+Der "Absolutwert" kickt das Vorzeichen weg.
+Das machen wir, wenn wir meinen, dass das Vorzeichen egal ist.
+
+# Bonus-Aufgabe
+
+Berechnen Sie den mittleren Fehler über alle `e`!
+
+
+```{r}
+mtcars2 %>% 
+  summarise(e_avg = mean(e))
+```
+
+
+Meta-information
+================
+extype: string
+exsolution: NA
+exname: mtcars-regr01 
+expoints: 1
+s
