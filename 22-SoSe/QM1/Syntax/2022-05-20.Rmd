@@ -20,7 +20,7 @@ Anders gesagt: Wie gut kann man den Spritverbrauch vorhersagen auf Basis des Hub
 2. Berechnen Sie im Anschluss die Vorhersagen dieses Modells. Tipp: `predict()` mit `mutate()`
 3. Visualisieren Sie dann das Modell Tipp: `ggplot()` und `geom_smooth()`
 4. Berechnen Sie die Residuen: `e = echtem Y-Wert und vorhergesagtem Y-Wert`. Tipp: `mutate()`.
-6. Berechnen Sie die Korrelation der Vorhersagen mit den tatsächlichen Werten (des Spritverbrauchs)! Tipp: `summarise() mit `cor()`.
+5. Berechnen Sie die Korrelation zwischen Spritverbrauch und Hubraum! Tipp: `summarise() mit `cor()`.
 
 
 Solution
@@ -106,10 +106,12 @@ mtcars2 %>%
 ```
 
 
-Meta-information
-================
-extype: string
-exsolution: NA
-exname: mtcars-regr01 
-expoints: 1
-s
+# Ad 5
+
+
+```{r}
+mtcars %>% 
+  summarise(cor_mpg_disp = cor(mpg, disp))
+```
+
+
