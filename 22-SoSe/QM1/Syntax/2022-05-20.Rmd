@@ -1,0 +1,86 @@
+# 2022-05-20
+
+
+
+
+
+Question
+========
+  
+  ```{r}
+data("mtcars")
+```
+
+
+Betrachten Sie folgendes Modell (Datensatz `mtcars`):
+  
+  `mpg ~ disp`
+
+Anders gesagt: Wie gut kann man den Spritverbrauch vorhersagen auf Basis des Hubraums eines Autos?
+  
+  1. Berechnen Sie die Modellkoeffizienten! Tipp: `lm()`
+2. Berechnen Sie im Anschluss die Vorhersagen dieses Modells. Tipp: `predict()` mit `mutate()`
+3. Visualisieren Sie dann das Modell Tipp: `ggplot()` und `geom_smooth()`
+4. Berechnen Sie die Korrelation der Vorhersagen mit den tatsächlichen Werten (des Spritverbrauchs)! Tipp: `summarise() mit `cor()`.
+
+
+Solution
+========
+  
+  # Vorbereitung
+  
+  ```{r}
+library(tidyverse)
+data(mtcars)
+```
+
+
+# Ad 1
+
+```{r}
+lm1 <- lm(mpg ~ disp, data = mtcars)
+lm1
+```
+
+
+# Ad 2
+
+Nicht einfach nur predicten:
+  
+  ```{r}
+predict(lm1)
+```
+
+*Sondern* die Predictions als neue Spalte in `mtcars` anlegen. Viel sauberer!
+  
+  ```{r}
+mtcars2  <- 
+  mtcars %>% 
+  mutate(preds_lm1 = predict(lm1))
+```
+
+
+
+
+Ad 3
+
+```{r}
+ggplot(mtcars2) +
+  aes(y = mpg, x = disp) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+Andere Visualisierung:
+  
+  ```{r}
+mtcars2 %>% 
+  ggplot(aes(x = disp, y = preds_lm1)) +
+  geom_point(size = 2, alpha = .8, color = "pink") +
+  geom_line() +
+  labs(y = "Vorhergesagte MPG-Werte",
+       title = "Vorhersage-Modell lm1")
+```
+
+
+
