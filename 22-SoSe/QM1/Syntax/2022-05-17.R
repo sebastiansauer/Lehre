@@ -28,4 +28,6 @@ ggplot(mtcars2) +
 
 mein_erstes_lm <- lm(mpg ~  hp100, data = mtcars2)
 
-predict(mein_erstes_lm, newdata = tibble(hp100 = 2.5))
+predict(mein_erstes_lm, newdata = tibble(hp100 = c(2.5, 1, 3)))
+
+        
