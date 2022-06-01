@@ -6,14 +6,16 @@
 
 Vorhersagen sind eine praktische Sache, zumindest wenn Sie stimmen. 
 Wenn Sie den DAX-Stand von morgen genau vorhersagen können, 
-rufen Sie mich bitte sofort an. Genau das ist Ihre Aufgabe in dieser Prüfungsleistung: 
+rufen Sie mich bitte sofort an. 
+Genau das ist Ihre Aufgabe in dieser Prüfungsleistung: 
 Sie sollen Werte vorhersagen. 
 
 Etwas konkreter: Stellen Sie sich ein paar Studentis vor. 
 Von allen wissen Sie, wie lange die Person für die Statistikklausur gelernt hat. 
 Außerdem wissen Sie die Motivation jeder Person und vielleicht noch ein paar noten-relevante Infos. 
 Und Sie wissen die Note jeder Person in der Statistikklausur.
-Auf dieser Basis fragt sie ein Student (Alois), der im kommenden Semester die Prüfung in Statistik schreiben ~~muss~~ will:
+Auf dieser Basis fragt sie ein Student (Alois),
+der im kommenden Semester die Prüfung in Statistik schreiben ~~muss~~ will:
 "Sag mal, wenn ich 100 Stunden lerne und so mittel motiviert bin (bestenfalls), welche Note kann ich dann erwarten?".
 Mit Hilfe Ihrer Analyse können Sie diese Frage (und andere) beantworten. 
 Natürlich könnten Sie es sich leicht machen und antworten: 
@@ -50,17 +52,21 @@ Zum einen gibt es die Trainingsdaten (auch *Lerndaten* genannt) und zum anderen 
 1.  Bei den Trainingsdaten (Train-Sample) liegen sowohl die erklärenden Variablen ${\bf{x}} = (x_1, x_2, \ldots, x_n)$ als auch die Zielvariable $y$ vor. 
    Auf diesen Trainingsdaten wird das Modell $y=f({x})+\epsilon = f(x_1, x_2, \ldots, x_n)+\epsilon$ gebildet und durch $\hat{f}(\cdot)$ geschätzt. Es ist also die Variable $y$ vorherszusagen.
 
-2.  Dieses geschätzte Modell ($\hat{f}(\cdot)$) wird auf die Anwendungsdaten $\bf{x}_0$, für die (Ihnen) die Werte der Zielvariable $y$ unbekannt sind, angewendet, d.h., es wird $\hat{y}_0 :=\hat{f}({\bf{x}}_0)$ berechnet. 
-   Der unbekannte Wert $y_0$ der Zielvariable $y$ wird durch $\hat{y}_0$ prognostiziert.
+2.  Dieses geschätzte Modell ($\hat{f}(\cdot)$) wird auf die Anwendungsdaten $\bf{x}_0$, für die (Ihnen) die Werte der Zielvariable $y$ unbekannt sind,
+angewendet, d.h., es wird $\hat{y}_0 :=\hat{f}({\bf{x}}_0)$ berechnet. 
+  Der unbekannte Wert $y_0$ der Zielvariable $y$ wird durch $\hat{y}_0$ prognostiziert.
 
-Liegt zu einem noch späteren Zeitpunkt der eingetroffene Wert $y_0$ der Zielvariable $y$ vor, so  kann die eigene Vorhersage $\hat{y}_0$ evaluiert werden, 
+Liegt zu einem noch späteren Zeitpunkt der eingetroffene Wert $y_0$ der Zielvariable $y$ vor, 
+so  kann die eigene Vorhersage $\hat{y}_0$ evaluiert werden, 
 d.h. z.B. kann der Fehler $e=y_0-\hat{y}_0$ zwischen prognostiziertem Wert $\hat{y}_0$ und wahrem Wert $y_0$ analysiert werden.
 
 In der praktischen Anwendung können zeitlich drei aufeinanderfolgende Schritte unterschieden werden (vergleiche oben): 
 
-1. die *Trainingsphase*, d.h., die Phase für die sowohl erklärende (${\bf{x}}$) als auch die erklärte Variable ($y$) bekannt sind. Hier wird das Modell geschätzt (gelernt): $\hat{f}(\bf{x})$. Dafür wird der Trainingsdatensatz genutzt.
+1. die *Trainingsphase*, d.h., die Phase für die sowohl erklärende (${\bf{x}}$) als auch die erklärte Variable ($y$) bekannt sind. 
+Hier wird das Modell geschätzt (gelernt): $\hat{f}(\bf{x})$. Dafür wird der Trainingsdatensatz genutzt.
 
-2. In der folgenden *Anwendungsphase* sind nur die erklärenden Variablen (${\bf{x_0}}$) bekannt, nicht $y_0$. Auf Basis der Ergebnisses aus dem 1. Schritt wird $\hat{y}_0 :=\hat{f}({\bf{x}}_0)$ prognostiziert.
+2. In der folgenden *Anwendungsphase* sind nur die erklärenden Variablen (${\bf{x_0}}$) bekannt, nicht $y_0$. 
+Auf Basis der Ergebnisses aus dem 1. Schritt wird $\hat{y}_0 :=\hat{f}({\bf{x}}_0)$ prognostiziert.
 
 3. Evt. gibt es später noch die *Evaluierungsphase*, für die dann auch die Zielvariable ($y_0$) bekannt ist, so dass die Vorhersagegüte des Modells überprüft werden kann.
 
