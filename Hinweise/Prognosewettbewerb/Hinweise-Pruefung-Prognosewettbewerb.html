@@ -463,10 +463,10 @@ damit das Modell evaluiert werden.</p>
 ein Modell auf Basis der Trainingsdaten <span class="math inline">\((\bf{x},y\)</span>) und sagen Sie für die
 Anwendungsdaten (<span class="math inline">\(\bf{x_0}\)</span>) die
 Zielvariable möglichst genau voraus (<span class="math inline">\(\hat{y}_0\)</span>).</p>
-<p>Ihr(e) Dozent*in kennt den Wert der Zielvariable (<span class="math inline">\(y_0\)</span>).</p>
+<p>Ihr(e) Dozent*in kennt den Wert der Zielvariable (<span class="math inline">\(y_0\)</span>). Sie nicht.</p>
 <p>Von zwei Prognosemodellen zum gleichen Datensatz ist dasjenige Modell
-besser, das weniger Vorhersagefehler aufweist, also genauer vorhersagt.
-Kurz gesagt: Genauer ist besser.</p>
+besser, das weniger Vorhersagefehler aufweist (im Test-Datensatz), also
+genauer vorhersagt. Kurz gesagt: Genauer ist besser.</p>
 <!-- Zur Bewertung der Vorhersagegüte wird der mittlere absolute Fehler als Koeffizient $\text{MAE}$ (${\bf{m}}$ean ${\bf{a}}$bsolute ${\bf{e}}$rror) auf die Anwendungsdaten herangezogen: -->
 <!-- $$\text{MAE}_{\text{Test}}=\frac{1}{n_{\text{Test}}}\sum_{i=1}^{n_{\text{Test}}} |y_i-\hat{y}_i|$$ -->
 <!-- Dabei sind $y_i$ die wahren Werte, $\hat{y}_i$ die prognostizierten Werte des geschätzten Modells $\hat{f}(\cdot)$ und $n_{\text{Test}}$ die Anzahl der Beobachtungen des Testdatensatzes (Anwendungsdatensatz).
@@ -518,6 +518,83 @@ Rmd-Notebook-Datei)</li>
 <code>Sauer_Sebastian_0123456_Analyse.Rmd</code>.</p></li>
 </ol>
 </div>
+<div id="gliederung-ihrer-analyse" class="section level2">
+<h2>Gliederung Ihrer Analyse</h2>
+<p>Ihr Analysedokument stellt alle Ihre Schritte vor, die Sie im Rahmen
+der Bearbeitung der Prüfungsaufgabe unternommen haben, zumindest was die
+Analyse der Daten betrifft.</p>
+<p>Das Dokument mischt drei Textarten: R-Syntax, R-Ausgaben sowie Prosa
+(normale Sprache). Alle drei Aspekte sind gleichermaßen wichtig und
+unabdingbar für diese Analyse.</p>
+<p>Wenn Sie das Dokument als R-Markdown-Datei (Rmd-Datei) anlegen,
+müssen Sie R-Code in einem “R-Chunk” auszeichnen. Prosa wird in
+Rmd-Datei als Standard gesehen, sie brauchen ihn nicht extra
+auszuzeichnen (für R-Notebook-Dateien gilt das Gleiche). In
+R-Skript-Dateien ist es umgekehrt: Sie müssen R-Code nicht extra
+auszeichnen, da in R-Skripten R als “Standard-Text” gesehen wird.
+Hingegen müssen Sie Prosa als Kommentar einfügen. Es bleibt Ihnen
+überlassen, für welche Variante (R-, Rmd- oder R-Notebook) Sie sich
+entscheiden. Keine Option wird als besser oder schlechter gewertet
+(vermutlich ist Rmd für Sie am einfachsten).</p>
+<p>Sie können Ihr Analysedokument z.B. so gliedern:</p>
+<pre><code>1. Forschungsfrage und Hintergrund (Beschreiben Sie kurz, worum es geht)
+2. Vorbereitung (Pakete laden, Daten importieren, etc.)
+3. Explorative Datenanalyse (Untersuchen Sie den Datensatz nach Auffälligkeiten, die Sie dann beim Modellieren nutzen)
+4. Modellieren (Mehrere Prognosemodelle, z.B. via `lm(av ~ uv)`)
+5. Vorhersagen (Vorhersage der Test-Daten anhand des besten Vorhersagemodells und Einreichen)</code></pre>
+<p>Die Gliederung ist kein Muss; andere Gliederung sind auch möglich.
+Entscheidend ist die fachliche Angemessenheit und die
+Reproduzierbarkiet.</p>
+<div id="abschnitt-forschungsfrage-und-hintergrund" class="section level3">
+<h3>Abschnitt Forschungsfrage und Hintergrund</h3>
+<p>In diesem Abschnitt passiert noch keine Statistik bzw. keine Analyse.
+Stattdessen stellen Sie in “normaler Sprache”, also ohne intensiven
+Gebrauch vom (statistischem) Fachvokabular dar, was Ziel und was
+Hintergrund der Analyse ist. Sie können als Ziel bzw. Hintergrund den
+formalen Aspekt der Prüfung anführen, wichiger sind aber inhaltliche
+bzw. fachliche Überlegungen: Worum geht es in der Analyse? Warum ist die
+Frage wichtig? Was wird untersucht? Anhand welcher Methodik wird die
+Frage untersucht?</p>
+</div>
+<div id="vorbereitung" class="section level3">
+<h3>Vorbereitung</h3>
+<p>In diesem Abschnitt Ihres Analysedokuments führen Sie die technische
+Vorbereitung durch. Das betrifft vor allem das Importieren der Daten und
+das Starten aller R-Pakete, die in der Analyse verwendet werden.</p>
+</div>
+<div id="explorative-datenanalyse" class="section level3">
+<h3>Explorative Datenanalyse</h3>
+<p>Die explorative Datenanalyse (EDA) meint sowohl die deskriptive
+Statistik als auch die Datenvisualisierung. Typische Schritte sind: das
+Bearbeiten (oder Entfernen) von Extremwerten und fehlenden Werten, die
+Untersuchung von Verteilungsformen oder das Suchen nach Mustern
+(Korrelationen, Gruppenunterschieden). Ein nützliches Ergebnis ist z.B.
+zu erkennen, welche Variablen sich als Prädiktoren eignen (für den
+nächsten Abschnitt der Modellierung). Ziel ist, dass Sie den folgenden
+Schritt vorbereiten, also Schritte unternehmen, damit Sie die AV
+möglichst gut vorhersagen können.</p>
+</div>
+<div id="modellierung" class="section level3">
+<h3>Modellierung</h3>
+<p>In diesem Schritt berechnen Sie Prognosemodelle. Das sind oft lineare
+Modelle, also etwa <code>lm(av ~ uv)</code>. Es empfiehlt sich, mehrere
+Modelle zu berechnen und zu schauen, welches dieser Kandidaten am besten
+ist. Die Güte eines Prognosemodells bemisst sich letztlich <em>nur</em>
+an der Präzision der Vorhersage <em>neuer</em> Daten, also des
+Test-Datensatzes. Wie gut Ihre Vorhersagen also wirklich sind, erfahren
+Sie erst mit der Notenbekanntgabe. Allerdings können Sie die
+Trainingsdaten nutzen, um die Güte Ihrere Modell abzuschätzen.</p>
+</div>
+<div id="vorhersagen" class="section level3">
+<h3>Vorhersagen</h3>
+<p>Schließlich entscheiden Sie sich für einen Modellkandidaten. Diesen
+Modellkandidaten nehmen Sie her, um die (Ihenn unbekannten) Werte der AV
+(Zielvariablen) vorherzusagen. Diese Vorhersagen - zusammen mit der ID
+für jede Vorhersagen - speichern Sie als (reguläre) CSV-Datei ab und
+reichen Sie als Ihre Prüfungsleistung ein, zusammen mit Ihrer
+Analysedatei.</p>
+</div>
+</div>
 <div id="tipps" class="section level2">
 <h2>Tipps</h2>
 <div id="tipps-für-eine-gute-prognose" class="section level3">
@@ -534,6 +611,9 @@ R-Funktionen.</p></li>
 <li><p>Vermeiden Sie viele fehlende Werte bei Ihrer Prognose. Fehlende
 Werte werden bei der Benotung mit dem Mittelwert (der vorhandenen
 Prognosewerte Ihrer Einreichung) aufgefüllt.</p></li>
+<li><p>Arbeiten Sie die bereitgestellten Fallstudien durch. Wenn Sie
+mehr tun möchten, finden Sie im Internet eine Fülle von weiteren
+Fallstudien.</p></li>
 </ul>
 </div>
 <div id="tipps-zur-datenverarbeitung" class="section level3">
@@ -589,6 +669,11 @@ im R Code, ist sehr unwahrscheinlich und kann als
 Teilnoten ergeben.</p></li>
 <li><p>Es werden keine Teilnoten vergeben, sondern nur eine Gesamtnote
 wird vergeben.</p></li>
+<li><p>Es werden keine Hinweise vergeben, stattdessen gibt es einen
+Überblick an typischen Fehlern.</p></li>
+<li><p>Es wird keine Musterlösugn veröffentlicht, um nachfolgende
+Kohorten nicht zu bevorteilen bzw. die aktuelle Kohorte nicht zu
+benachteiligen.</p></li>
 </ul>
 </div>
 <div id="kennzahl-der-modellgüte" class="section level3">

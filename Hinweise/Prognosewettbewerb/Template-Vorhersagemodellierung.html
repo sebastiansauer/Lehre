@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Horst Vozeigestudent, Matrikelnummer 007007" />
 
+<meta name="date" content="2022-06-02" />
 
-<title>Hinweise-Pruefung-Prognosewettbewerb-child.knit</title>
+<title>Vorhersagemodellierung Gehalt</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -361,345 +363,168 @@ pre code {
 
 
 
+<h1 class="title toc-ignore">Vorhersagemodellierung Gehalt</h1>
+<h4 class="author">Horst Vozeigestudent, Matrikelnummer 007007</h4>
+<h4 class="date">2022-06-02</h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#einleitung" id="toc-einleitung"><span class="toc-section-number">1</span> Einleitung</a></li>
+<li><a href="#vorbereitung" id="toc-vorbereitung"><span class="toc-section-number">2</span> Vorbereitung</a></li>
+<li><a href="#explorative-datenanalyse" id="toc-explorative-datenanalyse"><span class="toc-section-number">3</span> Explorative Datenanalyse</a></li>
+<li><a href="#modellierung" id="toc-modellierung"><span class="toc-section-number">4</span> Modellierung</a></li>
+<li><a href="#vorhersage" id="toc-vorhersage"><span class="toc-section-number">5</span> Vorhersage</a></li>
+<li><a href="#literatur" id="toc-literatur"><span class="toc-section-number">6</span> Literatur</a></li>
+</ul>
+</div>
 
-<!-- CHILD Document -->
-<div id="tldr-zusammenfassung" class="section level2">
-<h2>tl;dr: Zusammenfassung</h2>
-<p>Vorhersagen sind eine praktische Sache, zumindest wenn Sie stimmen.
-Wenn Sie den DAX-Stand von morgen genau vorhersagen können, rufen Sie
-mich bitte sofort an. Genau das ist Ihre Aufgabe in dieser
-Prüfungsleistung: Sie sollen Werte vorhersagen.</p>
-<p>Etwas konkreter: Stellen Sie sich ein paar Studentis vor. Von allen
-wissen Sie, wie lange die Person für die Statistikklausur gelernt hat.
-Außerdem wissen Sie die Motivation jeder Person und vielleicht noch ein
-paar noten-relevante Infos. Und Sie wissen die Note jeder Person in der
-Statistikklausur. Auf dieser Basis fragt sie ein Student (Alois), der im
-kommenden Semester die Prüfung in Statistik schreiben <del>muss</del>
-will: “Sag mal, wenn ich 100 Stunden lerne und so mittel motiviert bin
-(bestenfalls), welche Note kann ich dann erwarten?”. Mit Hilfe Ihrer
-Analyse können Sie diese Frage (und andere) beantworten. Natürlich
-könnten Sie es sich leicht machen und antworten: “Mei, der
-Notendurchschnitt war beim letzten Mal 2.7. Also ist 2.7 kein ganz
-doofer Tipp für deine Note.” Ja, das ist keine doofe Antwort, aber man
-genauere Prognose machen, wenn man es geschickt anstellt. Da hilft Ihnen
-die Statistik (doch, wirklich).</p>
-<p>Kurz gesagt gehen Sie so vor: Importieren Sie die Daten in R, starten
-Sie die nötigen R-Pakete und schauen Sie sich die Daten unter
-verschiedenen Blickwinkeln an. Dann nehmen Sie die vielversprechendsten
-Prädiktoren in ein Regressionsmodell und schauen sich an, wie gut die
-Vorhersage ist. Wiederholen Sie das ein paar Mal, bis Sie ein Modell
-haben, das Sie brauchbar finden. Mit diesem Modell sagen Sie dann die
-Noten der neuen Studis (Alois und Co.) vorher. Je genauer Ihre
-Vorhersage, desto besser ist Ihr Prüfungsergebnis.</p>
+<!-- Sollten Umlaute falsch angezeigt werden: "File -> Reopen with Encoding -> UTF8" -->
+<div id="einleitung" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Einleitung</h1>
+<p>Stellen Sie hier die Forschungsfrage vor und skizzieren Sie Ihr
+Vorgehen.</p>
+<p>Ungefährer Umfang: 0,5–1,5 Seiten.</p>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+est Lorem ipsum dolor sit amet.</p>
 </div>
-<div id="vorhersage" class="section level2">
-<h2>Vorhersage</h2>
-<p>Neben der erklärenden, rückwärtsgerichteten Modellierung spielt
-insbesondere in der Praxis die <em>vorhersageorientierte</em>
-Modellierung eine wichtige Rolle: Ziel ist es, bei gegebenen, neuen
-Beobachtungen die noch unbekannten Werte der Zielvariablen <span class="math inline">\(y\)</span> <em>vorherzusagen</em>, z.B. für neue
-Kunden auf Basis von soziodemographischen Daten den <em>Kundenwert</em>
-– möglichst genau – zu prognostizieren. Dies geschieht auf Basis der
-vorhandenen Daten der Bestandskunden, d.h. inklusive des für diese
-Kunden bekannten Kundenwertes.</p>
-<p>Ihnen werden <em>zwei Teildatenmengen</em> zur Verfügung gestellt:
-Zum einen gibt es die Trainingsdaten (auch <em>Lerndaten</em> genannt)
-und zum anderen gibt es Anwendungsdaten (auch <em>Testdaten</em>
-genannt), auf die man das Modell anwendet.</p>
-<ol style="list-style-type: decimal">
-<li><p>Bei den Trainingsdaten (Train-Sample) liegen sowohl die
-erklärenden Variablen <span class="math inline">\({\bf{x}} = (x_1, x_2,
-\ldots, x_n)\)</span> als auch die Zielvariable <span class="math inline">\(y\)</span> vor. Auf diesen Trainingsdaten wird das
-Modell <span class="math inline">\(y=f({x})+\epsilon = f(x_1, x_2,
-\ldots, x_n)+\epsilon\)</span> gebildet und durch <span class="math inline">\(\hat{f}(\cdot)\)</span> geschätzt. Es ist also die
-Variable <span class="math inline">\(y\)</span> vorherszusagen.</p></li>
-<li><p>Dieses geschätzte Modell (<span class="math inline">\(\hat{f}(\cdot)\)</span>) wird auf die
-Anwendungsdaten <span class="math inline">\(\bf{x}_0\)</span>, für die
-(Ihnen) die Werte der Zielvariable <span class="math inline">\(y\)</span> unbekannt sind, angewendet, d.h., es
-wird <span class="math inline">\(\hat{y}_0
-:=\hat{f}({\bf{x}}_0)\)</span> berechnet. Der unbekannte Wert <span class="math inline">\(y_0\)</span> der Zielvariable <span class="math inline">\(y\)</span> wird durch <span class="math inline">\(\hat{y}_0\)</span> prognostiziert.</p></li>
-</ol>
-<p>Liegt zu einem noch späteren Zeitpunkt der eingetroffene Wert <span class="math inline">\(y_0\)</span> der Zielvariable <span class="math inline">\(y\)</span> vor, so kann die eigene Vorhersage
-<span class="math inline">\(\hat{y}_0\)</span> evaluiert werden, d.h.
-z.B. kann der Fehler <span class="math inline">\(e=y_0-\hat{y}_0\)</span> zwischen prognostiziertem
-Wert <span class="math inline">\(\hat{y}_0\)</span> und wahrem Wert
-<span class="math inline">\(y_0\)</span> analysiert werden.</p>
-<p>In der praktischen Anwendung können zeitlich drei aufeinanderfolgende
-Schritte unterschieden werden (vergleiche oben):</p>
-<ol style="list-style-type: decimal">
-<li><p>die <em>Trainingsphase</em>, d.h., die Phase für die sowohl
-erklärende (<span class="math inline">\({\bf{x}}\)</span>) als auch die
-erklärte Variable (<span class="math inline">\(y\)</span>) bekannt sind.
-Hier wird das Modell geschätzt (gelernt): <span class="math inline">\(\hat{f}(\bf{x})\)</span>. Dafür wird der
-Trainingsdatensatz genutzt.</p></li>
-<li><p>In der folgenden <em>Anwendungsphase</em> sind nur die
-erklärenden Variablen (<span class="math inline">\({\bf{x_0}}\)</span>)
-bekannt, nicht <span class="math inline">\(y_0\)</span>. Auf Basis der
-Ergebnisses aus dem 1. Schritt wird <span class="math inline">\(\hat{y}_0 :=\hat{f}({\bf{x}}_0)\)</span>
-prognostiziert.</p></li>
-<li><p>Evt. gibt es später noch die <em>Evaluierungsphase</em>, für die
-dann auch die Zielvariable (<span class="math inline">\(y_0\)</span>)
-bekannt ist, so dass die Vorhersagegüte des Modells überprüft werden
-kann.</p></li>
-</ol>
-<p>Im Computer kann man dieses Anwendungsszenario <em>simulieren</em>:
-man teilt die Datenmenge <em>zufällig</em> in eine Lern- bzw.
-Trainingsstichprobe (Trainingsdaten; <span class="math inline">\((\bf{x},y)\)</span>) und eine Teststichprobe
-(Anwendungsdaten, <span class="math inline">\((\bf{x_0})\)</span>) auf:
-Die Modellierung erfolgt auf den Trainingsdaten. Das Modell wird
-angewendet auf die Testdaten (Anwendungsdaten). Da man hier aber auch
-die Zielvariable (<span class="math inline">\(y_0\)</span>) kennt, kann
-damit das Modell evaluiert werden.</p>
+<div id="vorbereitung" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Vorbereitung</h1>
+<p>Führen Sie kurz die verwendete Software auf, idealerweise mit den
+verwendeten Versionsnummern.</p>
+<p>Folgende R-Pakete wurden verwendet:</p>
+<pre class="r"><code>library(tidyverse) </code></pre>
 </div>
-<div id="hauptziel-genaue-prognose" class="section level2">
-<h2>Hauptziel: Genaue Prognose</h2>
-<p>Ihre Aufgabe ist: Spielen Sie den Data-Scientist! Konstruieren Sie
-ein Modell auf Basis der Trainingsdaten <span class="math inline">\((\bf{x},y\)</span>) und sagen Sie für die
-Anwendungsdaten (<span class="math inline">\(\bf{x_0}\)</span>) die
-Zielvariable möglichst genau voraus (<span class="math inline">\(\hat{y}_0\)</span>).</p>
-<p>Ihr(e) Dozent*in kennt den Wert der Zielvariable (<span class="math inline">\(y_0\)</span>).</p>
-<p>Von zwei Prognosemodellen zum gleichen Datensatz ist dasjenige Modell
-besser, das weniger Vorhersagefehler aufweist, also genauer vorhersagt.
-Kurz gesagt: Genauer ist besser.</p>
-<!-- Zur Bewertung der Vorhersagegüte wird der mittlere absolute Fehler als Koeffizient $\text{MAE}$ (${\bf{m}}$ean ${\bf{a}}$bsolute ${\bf{e}}$rror) auf die Anwendungsdaten herangezogen: -->
-<!-- $$\text{MAE}_{\text{Test}}=\frac{1}{n_{\text{Test}}}\sum_{i=1}^{n_{\text{Test}}} |y_i-\hat{y}_i|$$ -->
-<!-- Dabei sind $y_i$ die wahren Werte, $\hat{y}_i$ die prognostizierten Werte des geschätzten Modells $\hat{f}(\cdot)$ und $n_{\text{Test}}$ die Anzahl der Beobachtungen des Testdatensatzes (Anwendungsdatensatz).
-Für eine gute Prognose sollte daher $\text{MAE}_{\text{Test}}$ möglichst klein sein. -->
-</div>
-<div id="zum-aufbau-ihrer-prognosedatei-im-csv-format" class="section level2">
-<h2>Zum Aufbau Ihrer Prognosedatei im CSV-Format</h2>
-<ol style="list-style-type: decimal">
-<li>Die CSV-Datei muss aus genau zwei Spalten mit (exakt) folgenden
-Spaltennamen bestehen:</li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li><code>id</code>: Den ID-Wert jedes vorhergesagten Wertes</li>
-<li><code>pred</code>: Der vorhergesagte Wert.</li>
-</ol>
-<ol start="3" style="list-style-type: decimal">
-<li><p>Umlaute sind zu ersetzen (also <code>Süß</code> wird
-<code>Suess</code> etc.).</p></li>
-<li><p>Die CSV-Datei muss als <em>Spaltentrennzeichen</em> ein
-<em>Komma</em> verwenden und als <em>Dezimaltrennzeichen</em> einen
-<em>Punkt</em> (d.h. also die <em>Standardformatierung</em> einer
-CSV-Datei; <em>nicht</em> die deutsche Formatierung).</p></li>
-<li><p>Die CSV-Datei muss genau die Anzahl an Zeilen aufweisen, die der
-Zeilenlänge im Test-Datensatz entspricht.</p></li>
-<li><p>Prüfen Sie, dass Ihre CSV-Datei sich problemlos lesen lässt.
-Falls keine (funktionstüchtige) CSV-Datei eingereicht (hochgeladen)
-wurde, ist die Prüfung nicht bestanden. Tipp: Öffnen Sie die CSV-Datei
-mit einem Texteditor und schauen Sie sich an, ob alles vernünftig
-aussieht. Achtung: Öffnen Sie die CSV-Datei besser nicht mit Excel, da
-Excel einen Bug hat, der CSV-Dateien verfälschen kann auch ohne dass man
-die Datei speichert.</p></li>
-</ol>
-</div>
-<div id="einzureichende-dateien" class="section level2">
-<h2>Einzureichende Dateien</h2>
-<ol style="list-style-type: decimal">
-<li><p>Folgende* Dateiarten* sind einzureichen:</p>
-<ol style="list-style-type: decimal">
-<li>Prognose: Ihre <em>Prognose-Datei</em> (CSV-Datei)</li>
-<li>Analyse: Ihr <em>Analyseskript</em> (R-, Rmd- oder
-Rmd-Notebook-Datei)</li>
-</ol></li>
-<li><p>Weitere Dateien sind nicht einzureichen.</p></li>
-<li><p>Komprimieren Sie die Dateien <em>nicht</em> (z.B. via
-<em>zip</em>).</p></li>
-<li><p>Der Name jeder eingereichnte Datei muss wie folgt lauten:
-<code>Nachname_Vorname_Matrikelnummer_Dateiart.Endung</code>. Beispiel:
-<code>Sauer_Sebastian_0123456_Prognose.csv</code> bzw.
-<code>Sauer_Sebastian_0123456_Analyse.Rmd</code>.</p></li>
-</ol>
-</div>
-<div id="tipps" class="section level2">
-<h2>Tipps</h2>
-<div id="tipps-für-eine-gute-prognose" class="section level3">
-<h3>Tipps für eine gute Prognose</h3>
-<ul>
-<li><p>Schauen Sie in die Literatur.</p></li>
-<li><p>Evtl. kann eine Datenvorverarbeitung (Variablentransformation,
-z.B. <span class="math inline">\(\log()\)</span> oder die Elimination
-von Ausreißern) helfen.</p></li>
-<li><p>Überlegen Sie sich Kriterien zur Modell- und/ oder
-Variablenauswahl. Auch hierfür gibt es Algorithmen und
-R-Funktionen.</p></li>
-<li><p>Vermeiden Sie Über-Anpassung (Overfitting).</p></li>
-<li><p>Vermeiden Sie viele fehlende Werte bei Ihrer Prognose. Fehlende
-Werte werden bei der Benotung mit dem Mittelwert (der vorhandenen
-Prognosewerte Ihrer Einreichung) aufgefüllt.</p></li>
-</ul>
-</div>
-<div id="tipps-zur-datenverarbeitung" class="section level3">
-<h3>Tipps zur Datenverarbeitung</h3>
-<ul>
-<li>Ein “deutsches” Excel kann Standard-CSV-Dateien nicht ohne Weiteres
-lesen. Online-Dienste wie Google Sheets können dies allerdings.</li>
-</ul>
-</div>
-<div id="tipps-zum-aufbau-des-analyseskripts" class="section level3">
-<h3>Tipps zum Aufbau des Analyseskripts</h3>
-<ul>
-<li><p>Zu Beginn des Skripts sollten alle verwendeten R-Pakete mittels
-<code>library()</code> gestartet werden.</p></li>
-<li><p>Zu Beginn des Skripts sollten die Daten von der vom Dozenten
-bereitgestellten URL importiert werden (<em>nicht</em> von der eigenen
-Festplatte, da das Skript sonst bei Dritten, wie Ihrem Prüfer, nicht
-lauffähig ist).</p></li>
-</ul>
-</div>
-<div id="sonstiges" class="section level3">
-<h3>Sonstiges</h3>
-<ul>
-<li><p>Legen Sie regelmäßig Sicherheitskopien Ihrer Arbeit an (ggf. auf
-einem anderen Datenträger).</p></li>
-<li><p>Achten Sie darauf, dass Sie nicht durcheinander kommen, in
-welcher Datei der aktuelle Stand Ihrer Arbeit liegt.</p></li>
-</ul>
-</div>
-</div>
-<div id="bewertung" class="section level2">
-<h2>Bewertung</h2>
-<div id="kriterien" class="section level3">
-<h3>Kriterien</h3>
-<ul>
-<li><p>Es gibt drei Bewertungskriterien:</p>
-<ul>
-<li><p><em>Formalia</em>: u.a. Reproduzierbarkeit der Analyse,
-Lesbarkeit der Syntax, Übersichtlichkeit der Analyse.</p></li>
-<li><p><em>Methode</em>: u.a. methodischer Anspruch und Korrektheit in
-der Explorativen Datenanalyse, Datenvorverarbeitung, Variablenauswahl
-und Modellierungsmethode.</p></li>
-<li><p><em>Inhalt</em>: <strong>Vorhersagegüte</strong>.</p></li>
-</ul></li>
-<li><p>Das zentrale Bewertungskriterium ist <em>Inhalt</em>; die übrigen
-beiden Kriterien fließen nur bei besonders guter oder schlechter
-Leistung in die Gesamtnote ein.</p></li>
-<li><p>Die quantitative Datenanalyse in Durchführung und Interpretation
-ist der Schwerpunkt dieser Arbeit. Zufälliges identisches Vorgehen, z.B.
-im R Code, ist sehr unwahrscheinlich und kann als
-<strong>Plagiat</strong> bewertet werden.</p></li>
-<li><p>Die Gesamtnote muss sich nicht als arithmetischer Mittelwert der
-Teilnoten ergeben.</p></li>
-<li><p>Es werden keine Teilnoten vergeben, sondern nur eine Gesamtnote
-wird vergeben.</p></li>
-</ul>
-</div>
-<div id="kennzahl-der-modellgüte" class="section level3">
-<h3>Kennzahl der Modellgüte</h3>
-<p>Die Güte der Vorhersage wird anhand des <em>mittleren
-Absolutfehlers</em> (mae) bemessen:</p>
-<p><span class="math display">\[\text{mae} = \frac{1}{n}
-\sum_{i=1}^n|(y_i - \hat{y}_i)|\]</span></p>
-</div>
-<div id="notenstufen" class="section level3">
-<h3>Notenstufen</h3>
-<p>Zur Vorhersagegüte: Die Vorhersagegüte eines einfachen Minimalmodells
-entspricht einer <span class="math inline">\(4,0\)</span>, die eines
-Referenzmodells des Dozenten einer <span class="math inline">\(2,0\)</span>.</p>
-<p>Ihre Bewertung erfolgt entsprechend Ihrer Vorhersagegüte, d.h., sind
-Sie besser als das Referenzmodell erhalten Sie hier in diesem Teilaspekt
-eine bessere Note als <span class="math inline">\(2,0\)</span>!</p>
-</div>
-<div id="bewertungsprozess" class="section level3">
-<h3>Bewertungsprozess</h3>
-<p>Der Gutachter legt im Nachgang der Prüfung alle Teilnehmis ihre
-jeweilige Wert der Kennzahl der Modellgüte offen. Außerdem werden die
-vorherzusagenden Daten veröffentlicht sowie die Grenzwerte für jede
-Notenstufe. Auf dieser Basis ist es allen Teilnehmis möglich, die
-Korrektheit Ihrer Note zu überprüfen.</p>
-</div>
-</div>
-<div id="hinweise" class="section level2">
-<h2>Hinweise</h2>
-<p>Sie haben freie Methodenwahl bei der Modellierung und
-Vorverarbeitung. Nutzen Sie den Stoff wie im Unterricht gelernt; Sie
-können aber auch auf weitere Inhalte, die nicht im Unterricht behandelt
-wurden, zugreifen.</p>
-<p>Eine Einführung in verschiedene Methoden gibt es z.B. bei Sebastian
-Sauer (2019): <em>Moderne Datenanalyse mit R</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> aber auch bei Max Kuhn
-und Julia Silge (2021): <em>Tidy Modeling with R</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Die Bücher beinhalten
-jeweils Beispiele und Anwendung mit R.</p>
-<p>Auch ist es Ihnen überlassen, welche Variablen Sie zur Modellierung
-heranziehen – und ob Sie diese eventuell vorverarbeiten, d.h.,
-transformieren, zusammenfassen, Ausreißer bereinigen o.Ä.. Denken Sie
-nur daran, die Datentransformation, die Sie auf den Trainingsdaten
-durchführen, auch auf den Testdaten (Anwendungsdaten) durchzuführen.</p>
-<p>Hinweise zur Modellwahl usw. gibt es auch in erwähnter Literatur,
-aber auch in vielen Büchern zum Thema Data-Science.</p>
-<p><strong>Alles, was Sie tun, Datenvorverarbeitung, Modellierung und
-Anwenden, muss transparent und reproduzierbar sein.</strong> Im Übrigen
-lautet die Aufgabe: Finden Sie ein Modell, von dem Sie glauben, dass es
-die Testdaten gut vorhersagt. <span class="math inline">\(\hat{y}=42\)</span> ist zwar eine schöne Antwort,
-trifft die Wirklichkeit aber leider nicht immer. Eine gute Modellierung
-auf den <em>Trainingsdaten</em> (z.B. hohes <span class="math inline">\(R^2\)</span>) bedeutet nicht zwangsläufig eine
-gute Vorhersage (<em>Test-Set</em>).</p>
-</div>
-<div id="formalia" class="section level2">
-<h2>Formalia</h2>
-<ol style="list-style-type: decimal">
-<li><p>Es sind nur Einzelarbeiten zulässig.</p></li>
-<li><p>In der Analyse muss als Ausgangspunkt der vom/von der Dozenten/in
-bereitgestellten Datensatz genutzt werden.</p></li>
-<li><p>Alle Analyseschritte bzw. alle Veränderungen an den Daten müssen
-im (eingereichten) <em>Analyseskript</em> nachvollziehbar (transparent
-und reproduzierbar) aufgeführt sein. Das Analyseskript ist als R-Skript,
-Rmd-Datei oder Rmd-Notebook-Datei abzugeben. Sie können die
-bereitgestellte Vorlage als Analyseskript nutzen
-(<code>Template-Dokumentation-Vorhersagemodellierung.Rmd</code>).</p></li>
-<li><p>Das Analyseskript muss funktionstüchtig für den Prüfer sein: Alle
-Befehle müssen ohne Fehlermeldung durchlaufen (abgesehen von etwaiger
-Installation fehlender Pakete).</p></li>
-<li><p>Es dürfen keine weiteren Informationen (Daten) als die vom
-Dozenten ausgegebenen verwendet werden. Sonstige Hilfe (z.B. von
-Dritten) ist ebenfalls unzulässig.</p></li>
-<li><p>Nichtbeachtung der für dieses Modul formulierten Regeln kann zu
-Nichtbestehen oder Punkteabzug führen.</p></li>
-<li><p>Der Schwerpunkt dieser Hausarbeit liegt auf der quantitativen
-Modellierung, der formale Anspruch liegt daher unter dem von anderen
-Hausarbeiten.</p></li>
-<li><p>Es muss keine Literatur zitiert werden.</p></li>
-<li><p>Ein ausgedrucktes Exemplar muss nicht abgegeben werden.</p></li>
-<li><p>Während der Prüfungsphase werden keine inhaltlichen Fragen (“wie
-macht man nochmal eine Log-Transformation?”) und keine technischen
-Fragen (“wie installiert man nochmal ein R-Paket?”)
-beantwortet.</p></li>
-</ol>
-</div>
-<div id="ich-brauche-hilfe" class="section level2">
-<h2>Ich brauche Hilfe!</h2>
-<div id="wo-finde-ich-beispiele" class="section level3">
-<h3>Wo finde ich Beispiele?</h3>
-<p>Eine Beispiel-Modellierung finden Sie in der Datei
-<code>Beispielanalyse-Prognose-Wettbewerb.Rmd</code>. Eine beispielhafte
-Vorlage (Template), die Sie als Richtschnur nutzen können, ist mit der
-Datei <code>Template-Vorhersagemodellierung.Rmd</code> <a href="https://github.com/sebastiansauer/vorhersagemodellierung/tree/main/Material">hier</a>
-bereitgestellt. Im Internet finden sich viele Fallstudien, von denen Sie
-sich inspirieren lassen können.</p>
-</div>
-<div id="videos" class="section level3">
-<h3>Videos</h3>
-<p><a href="https://youtube.com/playlist?list=PLRR4REmBgpIH6uG8LZWPTSMReX1OFxfUx">Diese
-Playlist</a> beinhaltet Videos, die die Rahmenbedingungen der
-Prüfungsleistung vorstellt.</p>
-</div>
-</div>
-<div id="plagiatskontrolle" class="section level2">
-<h2>Plagiatskontrolle</h2>
-<p>Die eingereichten Arbeiten können automatisiert auf Plagiate
-überprüft werden. Gibt es substanzielle Überschneidungen zwischen zwei
-(oder mehr) Arbeiten, werden alle betreffenden Arbeiten mit
-<em>ungenügend</em> bewertet oder es folgt eine Abwertung der Note.</p>
-</div>
-<div class="footnotes footnotes-end-of-document">
+<div id="explorative-datenanalyse" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Explorative
+Datenanalyse</h1>
+<p>Daten einlesen:</p>
 <hr />
-<ol>
-<li id="fn1"><p><a href="https://link.springer.com/book/10.1007/978-3-658-21587-3">https://link.springer.com/book/10.1007/978-3-658-21587-3</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p><a href="https://www.tmwr.org/">https://www.tmwr.org/</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
+<p><strong>ACHTUNG: Das sind noch NICHT die richtigen Daten. Die
+richtigen Daten werden Ihnen zu Beginn des Prüfungszeitraums zur
+Verfügung gestellt!</strong></p>
+<hr />
+<pre class="r"><code>train &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_train.csv&quot;)
+
+test &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_test.csv&quot;)</code></pre>
+<p>Testen, ob das Einlesen funktioniert hat:</p>
+<pre class="r"><code>glimpse(train)</code></pre>
+<pre><code>## Rows: 122
+## Columns: 8
+## $ id         &lt;dbl&gt; 1, 3, 5, 8, 11, 12, 13, 14, 15, 17, 18, 20, 21, 23, 25, 27,…
+## $ total_bill &lt;dbl&gt; 16.99, 21.01, 24.59, 26.88, 10.27, 35.26, 15.42, 18.43, 14.…
+## $ tip        &lt;dbl&gt; 1.01, 3.50, 3.61, 3.12, 1.71, 5.00, 1.57, 3.00, 3.02, 1.67,…
+## $ sex        &lt;chr&gt; &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Male…
+## $ smoker     &lt;chr&gt; &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;,…
+## $ day        &lt;chr&gt; &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Su…
+## $ time       &lt;chr&gt; &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;,…
+## $ size       &lt;dbl&gt; 2, 3, 4, 4, 2, 4, 2, 4, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 4, 2,…</code></pre>
+<pre class="r"><code>glimpse(test)</code></pre>
+<pre><code>## Rows: 122
+## Columns: 8
+## $ id         &lt;dbl&gt; 2, 4, 6, 7, 9, 10, 16, 19, 22, 24, 26, 29, 30, 36, 37, 39, …
+## $ total_bill &lt;dbl&gt; 10.34, 23.68, 25.29, 8.77, 15.04, 14.78, 21.58, 16.97, 20.2…
+## $ tip        &lt;dbl&gt; 1.66, 3.31, 4.71, 2.00, 1.96, 3.23, 3.92, 3.50, 2.75, 7.58,…
+## $ sex        &lt;chr&gt; &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Fe…
+## $ smoker     &lt;chr&gt; &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;,…
+## $ day        &lt;chr&gt; &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sa…
+## $ time       &lt;chr&gt; &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;,…
+## $ size       &lt;dbl&gt; 3, 2, 4, 2, 2, 2, 2, 3, 2, 4, 4, 2, 2, 3, 3, 3, 3, 3, 2, 4,…</code></pre>
+<p>Sieht alles gut aus.</p>
+<p>Führen Sie in diesem Abschnitt eine Explorative Datenanalyse der von
+Ihnen verwendeten Variablen der Trainingsdaten durch. Auch eine evtl.
+Datenvorverarbeitung erfolgt in diesem Abschnitt.</p>
+<p>Bei Einzelarbeiten sollte der reine Text dieses Abschnitts einen
+Umfang von ca. 2 Seiten haben; mehr Text ist immer erlaubt.</p>
+<pre class="r"><code>train %&gt;% 
+  ggplot(aes(x = tip)) + 
+  geom_histogram()</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="data:image/png;base64,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169vjgEbJYESBEaMGBHa2trCzp07w8qVK0vYo10QaA6BsvOdUaNGFZ64M0AL0+lIgAABAgQIECBAgAABAgQIECBAgEDqAgLQ1CtkfAQIECBAgAABAgQIECBAgAABAgQIFBYQgBam05EAAQIECBAgQIAAAQIECBAgQIAAgdQFBKCpV8j4CBAgQIAAAQIECBAgQIAAAQIECBAoLCAALUynIwECBAgQIECAAAECBAgQIECAAAECqQsIQFOvkPERIECAAAECBAgQIECAAAECBAgQIFBYQABamE5HAgQIECBAgAABAgQIECBAgAABAgRSFxCApl4h4yNAgAABAgQIECBAgAABAgQIECBAoLCAALQwnY4ECBAgQIAAAQIECBAgQIAAAQIECKQuIABNvULGR4AAAQIECBAgQIAAAQIECBAgQIBAYQEBaGE6HQkQIECAAAECBAgQIECAAAECBAgQSF1AAJp6hYyPAAECBAgQIECAAAECBAgQIECAAIHCAgLQwnQ6EiBAgAABAgQIECBAgAABAgQIECCQuoAANPUKGR8BAgQIECBAgAABAgQIECBAgAABAoUFBKCF6XQkQIAAAQIECBAgQIAAAQIECBAgQCB1AQFo6hUyPgIECBAgQIAAAQIECBAgQIAAAQIECgsIQAvT6UiAAAECBAgQIECAAAECBAgQIECAQOoCAtDUK2R8BAgQIECAAAECBAgQIECAAAECBAgUFhCAFqbTkQABAgQIECBAgAABAgQIECBAgACB1AUEoKlXyPgIECBAgAABAgQIECBAgAABAgQIECgsIAAtTKcjAQIECBAgQIAAAQIECBAgQIAAAQKpCwhAU6+Q8REgQIAAAQIECBAgQIAAAQIECBAgUFhAAFqYTkcCBAgQIECAAAECBAgQIECAAAECBFIXEICmXiHjI0CAAAECBAgQIECAAAECBAgQIECgsIAAtDCdjgQIECBAgAABAgQIECBAgAABAgQIpC4gAE29QsZHgAABAgQIECBAgAABAgQIECBAgEBhAQFoYTodCRAgQIAAAQIECBAgQIAAAQIECBBIXUAAmnqFjI8AAQIECBAgQIAAAQIECBAgQIAAgcICAtDCdDoSIECAAAECBAgQIECAAAECBAgQIJC6gAA09QoZHwECBAgQIECAAAECBAgQIECAAAEChQUEoIXpdCRAgAABAgQIECBA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1ltvDTEAffzxx7OvuD6eGXrllVeGiRMn7r65xwQIECBAgAABAgQIECBAgAABAgQINJFAJQLQ8ePHh4ULFxZmnzx5crj//vuzS95fffXVED8caeTIkaF378rcIaCwjY4ECBAgQIAAAQIECBAgQIAAAQIEmlmgEgFoWQU46qijQvyyECBAgAABAgQIECBAgAABAgQIECBQDQGnOFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI6AADQHRRMBAgQIECBAgAABAgQIECBAgAABAtUQEIBWo45mQYAAAQIECBAgQIAAAQIECBAgQIBAjoAANAdFEwECBAgQIECAAAECBAgQIECAAAEC1RAQgFajjmZBgAABAgQIECBAgAABAgQIECBAgECOgAA0B0UTAQIECBAgQIAAAQIECBAgQIAAAQLVEBCAVqOOZkGAAAECBAgQIECAAAECBAgQIECAQI5Ae06bphIF2trawoABA0rcY/V31d7eHnr16sWt+qU2w5IE/IwpCdJuDolA795v/19sv379Qp8+fQ7JGLwogYMtEN8f1pb4vsfP8ZqG760gEN/nO+5bodLmuLtAPO7j4vfc3VU8bgWBlPIdAWgPH3Gx2P379+/hV6nm7ocMGVLNiZkVgZIF/F0pGdTuDonAwIEDD8nrelECh1ogBv/C/0NdBa9/sAX69u0b4peFQCsKeO/eilU35xSOewFoDx+HHR0dYd26dT38KtXa/eDBg7PQeNWqVdWamNkQ6CGB119/vYf2bLcEel4g/kfh8OHDw+rVq8O2bdt6/gW9AoEEBGLgOWzYsGwkmzdv9l4xgZoYwsETiD/z4+9I69evP3gv6pUIHGKBESNGhHj2/65du8LKlSsP8Wi8PIGDJ1B2vjNq1KjCg3cP0MJ0OhIgQIAAAQIECBAgQIAAAQIECBAgkLqAADT1ChkfAQIECBAgQIAAAQIECBAgQIAAAQKFBQSghel0JECAAAECBAgQIECAAAECBAgQIEAgdQEBaOoVMj4CBAgQIECAAAECBAgQIECAAAECBAoLCEAL0+lIgAABAgQIECBAgAABAgQIECBAgEDqAgLQ1CtkfAQIECBAgAABAgQIECBAgAABAgQIFBYQgBam05EAAQIECBAgQIAAAQIECBAgQIAAgdQFBKCpV8j4CBAgQIAAAQIECBAgQIAAAQIECBAoLCAALUynIwECBAgQIECAAAECBAgQIECAAAECqQsIQFOvkPERIECAAAECBAgQIECAAAECBAgQIFBYQABamE5HAgQIECBAgAABAgQIECBAgAABAgRSFxCApl4h4yNAgAABAgQIECBAgAABAgQIECBAoLCAALQwnY4ECBAgQIAAAQIECBAgQIAAAQIECKQuIABNvULGR4AAAQIECBAgQIAAAQIECBAgQIBAYQEBaGE6HQkQIECAAAECBAgQIECAAAECBAgQSF1AAJp6hYyPAAECBAgQIECAAAECBAgQIECAAIHCAgLQwnQ6EiBAgAABAgQIECBAgAABAgQIECCQuoAANPUKGR8BAgQIECBAgAABAgQIECBAgAABAoUFBKCF6XQkQIAAAQIECBAgQIAAAQIECBAgQCB1AQFo6hUyPgIECBAgQIAAAQIECBAgQIAAAQIECgsIQAvT6UiAAAECBAgQIECAAAECBAgQIECAQOoCAtDUK2R8BAgQIECAAAECBAgQIECAAAECBAgUFhCAFqbTkQABAgQIECBAgAABAgQIECBAgACB1AUEoKlXyPgIECBAgAABAgQIECBAgAABAgQIECgsIAAtTKcjAQIECBAgQIAAAQIECBAgQIAAAQKpCwhAU6+Q8REgQIAAAQIECBAgQIAAAQIECBAgUFhAAFqYTkcCBAgQIECAAAECBAgQIECAAAECBFIXEICmXiHjI0CAAAECBAgQIECAAAECBAgQIECgsIAAtDCdjgQIECBAgAABAgQIECBAgAABAgQIpC4gAE29QsZHgAABAgQIECBAgAABAgQIECBAgEBhAQFoYTodCRAgQIAAAQIECBAgQIAAAQIECBBIXUAAmnqFjI8AAQIECBAgQIAAAQIECBAgQIAAgcICAtDCdDoSIECAAAECBAgQIECAAAECBAgQIJC6gAA09QoZHwECBAgQIECAAAECBAgQIECAAAEChQUEoIXpdCRAgAABAgQIECBAgAABAgQIECBAIHUBAWjqFTI+AgQIECBAgAABAgQIECBAgAABAgQKCwhAC9PpSIAAAQIECBAgQIAAAQIECBAgQIBA6gIC0NQrZHwECBAgQIAAAQIECBAgQIAAAQIECBQWEIAWptORAAECBAgQIECAAAECBAgQIECAAIHUBQSgqVfI+AgQIECAAAECBAgQIECAAAECBAgQKCwgAC1MpyMBAgQIECBAgAABAgQIECBAgAABAqkLCEBTr5DxESBAgAABAgQIECBAgAABAgQIECBQWEAAWphORwIECBAgQIAAAQIECBAgQIAAAQIEUhcQgKZeIeMjQIAAAQIECBAgQIAAAQIECBAgQKCwgAC0MJ2OBAgQIECAAAECBAgQIECAAAECBAikLiAATb1CxkeAAAECBAgQIECAAAECBAgQIECAQGEBAWhhOh0JECBAgAABAgQIECBAgAABAgQIEEhdQACaeoWMjwABAgQIECBAgAABAgQIECBAgACBwgIC0MJ0OhIgQIAAAQIECBAgQIAAAQIECBAgkLqAADT1ChkfAQIECBAgQIAAAQIECBAgQIAAAQKFBQSghel0JECAAAECBAgQIECAAAECBAgQIEAgdQEBaOoVMj4CBAgQIECAAAECBAgQIECAAAECBAoLCEAL0+lIgAABAgQIECBAgAABAgQIECBAgEDqAgLQ1CtkfAQIECBAgAABAgQIECBAgAABAgQIFBYQgBam05EAAQIECBAgQIAAAQIECBAgQIAAgdQFBKCpV8j4CBAgQIAAAQIECBAgQIAAAQIECBAoLCAALUynIwECBAgQIECAAAECBAgQIECAAAECqQsIQFOvkPERIECAAAECBAgQIECAAAECBAgQIFBYQABamE5HAgQIECBAgAABAgQIECBAgAABAgRSFxCApl4h4yNAgAABAgQIECBAgAABAgQIECBAoLCAALQwnY4ECBAgQIAAAQIECBAgQIAAAQIECKQuIABNvULGR4AAAQIECBAgQIAAAQIECBAgQIBAYQEBaGE6HQkQIECAAAECBAgQIECAAAECBAgQSF1AAJp6hYyPAAECBAgQIECAAAECBAgQIECAAIHCAgLQwnQ6EiBAgAABAgQIECBAgAABAgQIECCQuoAANPUKGR8BAgQIECBAgAABAgQIECBAgAABAoUFBKCF6XQkQIAAAQIECBAgQIAAAQIECBAgQCB1AQFo6hUyPgIECBAgQIAAAQIECBAgQIAAAQIECgsIQAvT6UiAAAECBAgQIECAAAECBAgQIECAQOoCAtDUK2R8BAgQIECAAAECBAgQIECAAAECBAgUFhCAFqbTkQABAgQIECBAgAABAgQIECBAgACB1AUEoKlXyPgIECBAgAABAgQIECBAgAABAgQIECgsIAAtTKcjAQIECBAgQIAAAQIECBAgQIAAAQKpCwhAU6+Q8REgQIAAAQIECBAgQIAAAQIECBAgUFhAAFqYTkcCBAgQIECAAAECBAgQIECAAAECBFIXEICmXiHjI0CAAAECBAgQIECAAAECBAgQIECgsIAAtDCdjgQIECBAgAABAgQIECBAgAABAgQIpC4gAE29QsZHgAABAgQIECBAgAABAgQIECBAgEBhAQFoYTodCRAgQIAAAQIECBAgQIAAAQIECBBIXUAAmnqFjI8AAQIECBAgQIAAAQIECBAgQIAAgcICAtDCdDoSIECAAAECBAgQIECAAAECBAgQIJC6gAA09QoZHwECBAgQIECAAAECBAgQIECAAAEChQUEoIXpdCRAgAABAgQIECBAgAABAgQIECBAIHWB9tQHeCDj27RpU7j66qvDyJEjw/XXX5+7q7jNV77yldx1tcZzzjknnHzyybWnvhMgQIAAAQIECBAgQIAAAQIECBAg0CQClQ1Ad+3aFebMmROef/750N7e9TRfeuml8MADD9Qt16RJkwSgdYWsJECAAAECBAgQIECAAAECBAgQIJCmQNfJYJrjbWhUmzdvDrfffnt46qmnut1+6dKl2TZTpkwJZ511Vu72Y8eOzW3XSIAAAQIECBAgQIAAAQIECBAgQIBA2gKVC0Cfe+658NnPfja8/vrroXfv3mHnzp11K1ALQGP4ee6559bd1koCBAgQIECAAAECBAgQIECAAAECBJpLoFIfgvT9738/XHnllVn4OXXq1HDVVVd1W414CXxcxo0b1+22NiBAgAABAgQIECBAgAABAgQIECBAoLkEKnUG6JtvvhmO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QIBAkgIC0CTLYlAECBAgQIAAAQIECBAgQIAAAQIECJQhIAAtQ9E+CBAgQIAAAQIECBAgQIAAAQIECBBIUkAAmmRZDIoAAQIECBAgQIAAAQIECBAgQIAAgTIEBKBlKNoHAQIECBAgQIAAAQIECBAgQIAAAQJJCghAkyyLQREgQIAAAQIECBAgQIAAAQIECBAgUIaAALQMRfsgQIAAAQIECBAgQIAAAQIECBAgQCBJAQFokmUxKAIECBAgQIAAAQIECBAgQIAAAQIEyhAQgJahaB8ECBAgQIAAAQIECBAgQIAAAQIECCQpIABNsiwGRYAAAQIECBAgQIAAAQIECBAgQIBAGQIC0DIU7YMAAQIECBAgQIAAAQIECBAgQIAAgSQF2pMclUERIECAAAECh1xg5syZh3wMew9g7ty5ezd5ToAAAQIECBAgQIAAgboCzgCty2MlAQIECBAgQIAAAQIECBAgQIAAAQLNLCAAbebqGTsBAgQIECBAgAABAgQIECBAgAABAnUFBKB1eawkQIAAAQIECBAgQIAAAQIECBAgQKCZBQSgzVw9YydAgAABAgQIECBAgAABAgQIECBAoK6AALQuj5UECBAgQIAAAQIECBAgQIAAAQIECDSzgAC0matn7AQIECBAgAABAgQIECBAgAABAgQI1BUQgNblsZIAAQIECBAgQIAAAQIECBAgQIAAgWYWEIA2c/WMnQABAgQIECBAgAABAgQIECBAgACBugIC0Lo8VhIgQIAAAQIECBAgQIAAAQIECBAg0MwCAtBmrp6xEyBAgAABAgQIECBAgAABAgQIECBQV0AAWpfHSgIECBAgQIAAAQIECBAgQIAAAQIEmllAANrM1TN2AgQIECBAgAABAgQIECBAgAABAgTqCghA6/JYSYAAAQIECBAgQIAAAQIECBAgQIBAMwsIQJu5esZOgAABAgQIECBAgAABAgQIECBAgEBdAQFoXR4rCRAgQIAAAQIECBAgQIAAAQIECBBoZgEBaDNXz9gJECBAgAABAgQIECBAgAABAgQIEKgrIACty2MlAQIECBAgQIAAAQIECBAgQIAAAQLNLNDezINvhrEfdthh4fDDD2+GoSY3xpEjRyY3JgMikKKAvyspVsWYekrA8d5TsvZ7qAT69+8f4peFQCsJDBgwIMQvC4FWE+jVq1fwXqbVqm6+USCF414A2sPH4vbt28OGDRt6+FWqtfsYGvfp0ye89dZb1ZqY2RDoIQE/Y3oI1m6TFHC8J1kWg9pPgba2tjBw4MCs17Zt28KWLVv2cw82J9C8AoMGDQrxuO/o6GjeSRg5gf0UiMd9DD/j4r3MfuLZvKkFys53hgwZUthDAFqYrrGOO3bs8Ka2MarOrXr37h3a29vDxo0bO9s8IECgawF/V7q2saZ6Ao736tW0FWcU/6O3FoDG/yx3XLfiUdC6c45nfjruW7f+rTrz2s/8Xbt2+ZnfqgdBi8677HznQAJQ9wBt0YPQtAkQIECAAAECBAgQIECAAAECBAi0goAAtBWqbI4ECBAgQIAAAQIECBAgQIAAAQIEWlRAANqihTdtAgQIECBAgAABAgQIECBAgAABAq0gIABthSqbIwECBAgQIECAAAECBAgQIECAAIEWFRCAtmjhTZsAAQIECBAgQIAAAQIECBAgQIBAKwgIQFuhyuZIgAABAgQIECBAgAABAgQIECBAoEUFBKAtWnjTJkCAAAECBAgQIECAAAECBAgQINAKAgLQVqiyORIgQIAAAQIECBAgQIAAAQIECBBoUQEBaIsW3rQJECBAgAABAgQIECBAgAABAgQItIKAALQVqmyOBAgQIECAAAECBAgQIECAAAECBFpUQADaooU3bQIECBAgQIAAAQIECBAgQIAAAQKtICAAbYUqmyMBAgQIECBAgAABAgQIECBAgACBFhUQgLZo4U2bAAECBAgQIECAAAECBAgQIECAQCsICEBbocrmSIAAAQIECBAgQIAAAQIECBAgQKBFBQSgLVp40yZAgAABAgQIECBAgAABAgQIECDQCgIC0FaosjkSIECAAAECBAgQIECAAAECBAgQaFGB9hadt2kTILCbwMyZM3d7lsbDuXPnpjEQoyBAgAABAgQIECBAgAABAgSaWsAZoE1dPoMnQIAAAQIECBAgQIAAAQIECBAgQKCegAC0no51BAgQIECAAAECBAgQIECAAAECBAg0tYAAtKnLZ/AECBAgQIAAAQIECBAgQIAAAQIECNQTEIDW07GOAAECBAgQIECAAAECBAgQIECAAIGmFhCANnX5DJ4AAQIECBAgQIAAAQIECBAgQIAAgXoCAtB6OtYRIECAAAECBAgQIECAAAECBAgQINDUAgLQpi6fwRMgQIAAAQIECBAgQIAAAQIECBAgUE9AAFpPxzoCBAgQIECAAAECBAgQIECAAAECBJpaQADa1OUzeAIECBAgQIAAAQIECBAgQIAAAQIE6gkIQOvpWEeAAAECBAgQIECAAAECBAgQIECAQFMLCECbunwGT4AAAQIECBAgQIAAAQIECBAgQIBAPQEBaD0d6wgQIECAAAECBAgQIECAAAECBAgQaGoBAWhTl8/gCRAgQIAAAQIECBAgQIAAAQIECBCoJyAAradjHQECBAgQIECAAAECBAgQIECAAAECTS0gAG3q8hk8AQIECBAgQIAAAQIECBAgQIAAAQL1BASg9XSsI0CAAAECBAgQIECAAAECBAgQIECgqQUEoE1dPoMnQIAAAQIECBAgQIAAAQIECBAgQKCegAC0no51BAgQIECAAAECBAgQIECAAAECBAg0tYAAtKnLZ/AECBAgQIAAAQIECBAgQIAAAQIECNQTEIDW07GOAAECBAgQIECAAAECBAgQIECAAIGmFig9AL3zzjvDFVdcEV544YWGYW688cZw2mmnhU9/+tMN97EhAQIECBAgQIAAAQIECBAgQIAAAQIEuhMoPQB98MEHw+233x5WrFjR3Wt3rl+wYEF45pln9is07ezsAQECBAgQIECAAAECBAgQIECAAAECBLoQaO+i/aA079ixIyxdujT8+Mc/zl5vwIABB+V1vQgBAgQIECBAgAABAgQIECBAgAABAq0hcEAB6DnnnBN+8IMf7CG1bdu27PmHPvSh0Lt3/RNM47Y7d+7s7H/qqad2PvaAAAECBAgQIECAAAECBAgQIECAAAECBypwQAHo3//934eJEyeGWui5+2Dy2nZfv/fjd7zjHeG8887bu9lzAgQIECBAgAABAgQIECBAgAABAgQIFBY4oAB0/Pjx4Utf+lL4j//4j84BzJs3L/z85z8P73//+8Pxxx/f2Z73oE+fPmHgwIHhxBNPDL//+78fjjjiiLzNtBEgQIAAAQIECBAgQIAAAQIECBAgQKCQwAEFoPEVL7nkkuyr9urxsvgYgH7yk58M8bGFAAECBAgQIECAAAECBAgQIECAAAECh0rggAPQvQf+sY99LJx22mlh3Lhxe6/ynAABAgQIECBAgAABAgQIECBAgAABAgdVoPQA9IILLjioE/BiBAgQIECAAAECBAgQIECAAAECBAgQ6Eqg9AB09xdatWpV+O///u+wadOmsH379t1X5T7+9V//9TB27NjcdRoJECBAgAABAgQIECBAgAABAgQIECCwvwI9EoDG0PO6664L3/72txsKPmuDnj17drjhhhtqT30nQIAAAQIECBAgQIAAAQIECBAgQIDAAQmUHoBu2LAhnHvuueHFF188oIHpTIAAAQIECBAgQIAAAQIECBAgQIAAgQMVKD0AnTNnTmf4GS9n/4M/+IMwevToMHLkyNCrV6+64z355JPrrreSAAECBAgQIECAAAECBAgQIECAAAEC+yNQegD65JNPZq8/efLkMH/+/HDkkUfuz3hsS4AAAQIECBAgQIAAAQIECBAgQIAAgdIEepe2p1/uaMeOHeHHP/5xtsuLL75Y+Fkmrn0RIECAAAECBAgQIECAAAECBAgQILDfAqUGoG1tbWHgwIHZIOIZoBYCBAgQIECAAAECBAgQIECAAAECBAgcSoFSA9A4kd/8zd/M5vPyyy9n3/1BgAABAgQIECBAgAABAgQIECBAgACBQyVQ+j1AzzrrrPDQQw+Fu+66K3z0ox89VPPyugQIECBAgEAFBWbOnJnkrObOnZvkuAyKAAECBAgQIECAAIEQSj8D9LLLLgvnn39+WLBgQbj88svDhg0bOBMgQIAAAQIECBAgQIAAAQIECBAgQOCQCJR+BuiSJUvCrFmzwrPPPhv+4R/+Idx3331hypQp4YQTTgjDhw+vO8l49uj06dPrbmMlAQIECBAgQIAAAQIECBAgQIAAAQIEGhUoPQD9i7/4i/Dd73638/X/93//Nzz66KOdz+s9aG9vF4DWA7KOAAECBAgQIECAAAECBAgQIECAAIH9Eij9Evj9enUbEyBAgAABAgQIECBAgAABAgQIECBAoAcFSj8D9Jvf/GbYvn17oSH369evUD+dCBAgQIAAAQIECBAgQIAAAQIECBAgkCdQegA6aNCgvNfRRoAAAQIECBAgQIAAAQIECBAgQIAAgYMu4BL4g07uBQkQIECAAAECBAgQIECAAAECBAgQOFgCAtCDJe11CBAgQIAAAQIECBAgQIAAAQIECBA46AKlXwK/dOnSsHbt2kITOfbYY8MxxxxTqK9OBAgQIECAAAECBAgQIECAAAECBAgQ2Fug9AD0iiuuCN/97nf3fp2Gnt9www1h9uzZDW1rIwIECBAgQIAAAQIECBAgQIAAAQIECHQn4BL47oSsJ0CAAAECBAgQIECAAAECBAgQIECgaQVKPwP0qquuCh/5yEe6BNmxY0dYv359WLFiRfjOd76Tff/ABz4QvvKVr4QhQ4Z02c8KAgQIECBAgAABAgQIECBAgAABAgQI7K9A6QHojBkzGh7DnDlzwvnnn59dMn/LLbeEW2+9teG+NiRAgAABAgQIECBAgAABAgQIECBAgEB3Aof0Evh4xme8X2j84KPbbrstPPbYY92N13oCBAgQIECAAAECBAgQIECAAAECBAg0LHBIA9A4yr59+4b3vve92YB/+MMfNjxwGxIgQIAAAQIECBAgQIAAAQIECBAgQKA7gUMegMYBvuMd78jGuXDhwu7Gaz0BAgQIECBAgAABAgQIECBAgAABAgQaFkgiAF2wYEE24D59+jQ8cBsSIECAAAECBAgQIECAAAECBAgQIECgO4FDHoDGe4DOnz8/G+epp57a3XitJ0CAAAECBAgQIECAAAECBAgQIECAQMMCpX8K/L/+67+G5cuX1x3A9u3bw6ZNm8LixYvDww8/nG3bq1ev8P73v79uPysJECBAgAABAgQIECBAgAABAgQIECCxwtD1AABAAElEQVSwPwKlB6Bf/epXs092359BxG2vueaa8Fu/9Vv72832BAgQIECAAAECBAgQIECAAAECBAgQ6FKg9AC0y1fqYsXkyZPDpZdeGj7+8Y93sYVmAgQIECBAgAABAgQIECBAgAABAgQIFBMoPQCdO3du2Lx5c7ejiR94dPjhh4cBAwZ0u60NCBAgQIAAAQIECBAgQIAAAQIECBAgUESg9AB0xIgRRcahDwECBAgQIECAAAECBAgQIECAAAECBEoXKD0A7WqEb731Vli2bFk47LDDQgxJjzjiiBA/+MhCgAABAgQIECBAgAABAgQIECBAgACBnhLo3VM7jvtdsmRJOO+888Jxxx0XBg8eHCZNmhQmTJgQjjrqqDB8+PAwa9assGjRop4cgn0TIECAAAECBAgQIECAAAECBAgQINDCAj0SgG7fvj186lOfCvEDjh588MHw2muv7UO8evXqcNddd4Vp06aFz33uc/us10CAAAECBAgQIECAAAECBAgQIECAAIEDFeiRS+D/9m//tjPUjJe5n3nmmWHcuHHhhBNOCJs2bQqvvPJK+NGPfhR+8pOfhFpYOnLkyHDhhRce6Hz0J0CAAAECBAgQIECAAAECBAgQIECAQKdA6QHo4sWLQwxA43LaaaeFL37xi9mZoJ2vuNuDhx56KPzZn/1ZWLFiRfjkJz8Zzj333OyT4XfbxEMCBAgQIECAAAECBAgQIECAAAECBAgUFig9AP3CF74Qtm3bFk488cTwyCOP1A00P/jBD4YxY8aEd73rXSF+SNI999yTBaGFZ7NXx3i26dVXXx3i2aXXX3/9Xmt/9bSjoyM88MAD4bnnngtr1qwJY8eOze5XevbZZ4e2trZfbegRAQIECBAgQIAAAQIECBAgQIAAAQJNJVD6PUDjZe1xmT17dt3ws6Z0yimnhEsuuSR7+vjjj9eaD/j7rl27wpw5c8Lzzz8f3njjjS73t3bt2jBz5sxwxx13dAagjz76aPjMZz6ThaZbt27tsq8VBAgQIECAAAECBAgQIECAAAECBAikLVBqALpjx47wwgsvZDOOZ3U2utS2jfcGLWPZvHlz+OxnPxueeuqpbnd34403hldffTVMnTo1PPzww9mHNt13333hpJNOCk888USIZ7RaCBAgQIAAAQIECBAgQIAAAQIECBBoToFSA9DevXuH9va3r6rfuHFjwyLxUvW4DB06tOE+XW0YL2OPH6YUL7+P46m3xLD22WefDf379w833XRT5+sfe+yx4fOf/3x2+fu8efPChg0b6u3GOgIECBAgQIAAAQIECBAgQIAAAQIEEhWonxDu56DjJ76PHz8+6/Xkk0823HvhwoXZtu985zsb7pO34fe///1w5ZVXhtdffz07o/Oqq67K26yzbcGCBdnjd7/73aFfv36d7fHBkUcemd2bNF4CH0NQCwECBAgQIECAAAECBAgQIECAAAECzSdQagAapx8vJY/LDTfcEJYvX549rvfH9773vezDj+I2kydPrrdpt+vefPPNcMwxx4Rrr7023HLLLeGII46o22fJkiXZ+tqY9964dml+7b6me6/3nAABAgQIECBAgAABAgQIECBAgACBtAVK/xT4v/qrvwrf+MY3wrp160I8s/Jv/uZvwkUXXbTPp6nHy8pvvfXWLKiMH1gUz/684IILDkhrxowZ4cMf/nDnZfjd7ewXv/hFtsnhhx+eu2mtPd4jtN7y9a9/PWzfvj13kxiijh49OnedxnyBPn36hHg28cCBA/M30NoSAurfeJlZNW5lSwI9JeDvYU/JVnO/bW1tnROLt49y/HRyeNACAvF9fny/77hvgWKbYqdAPO7j4vfcThIPWkQgpXyn9AB01KhR4dOf/nS47LLLwmuvvZZ9wvvVV18dxowZE0b/MgiMl5S//PLLYdmyZaF2788IEkPTvn37HtAhMGzYsP3qX7tPaS3o3LvzkCFDsqbadnuvrz2P9wvt6OioPd3je/w0+YkTJ+7R5kljAjX/xra2VdUE1L/xirJq3MqWBHpKwN/DnpKt/n7j+98DfQ9cfSUzrJpA/E8Ax33Vqmo+jQjEANR7hkakbFM1gRSO+9ID0FikP/3TPw3jxo0LF198cRaCrlmzJixatCj72ruIkyZNCl/84hcP+PL3vffb3fOdO3eGLVu2ZJsNHjw4d/NBgwZl7V2Fm7mdNBIgQIBA0gJnn312cuN79NFHkxuTAREgQIAAAQIECBAgQKAqAj0SgEac3/7t3w7/9V//Fb70pS9l33/605+Gn/3sZ9nlDmPHjg3x66yzzgozZ87c5/L4g4EbPyE+fvr75s2buzx7sxZ8dve/k3PmzOnyEvgYBK9du/ZgTKkyrxE/kCqar1+/vjJzMpH9F/D3pnEzVo1bpbqlGqZamcbHpYaNW9kyZO99a/8BH99vxvejFgKtIhCP/Xj7MMd9q1TcPKNAPPstZhDx9n/xdoEWAq0iUHa+09UV3I149lgAGl986NCh2QcS1QYS/7LX7n1RazuU3+Ml8/H+nvF+pHlLrb27+9Ocd955ed2ztnj2q3/cu+TJXRHvhRVvi8Atl6dlGtW/8VKzatwq1S3VMNXKND4uNWzcypYhe59TC0B37NjhPY+DoqUE4lV2AtCWKrnJ/lKg9jM/ZiLeMzgkWkmg7HznQALQ0j8Ffu9C1i4zj+27h5///u//3nkP0L37HKzntXuG1oLOvV+3dgZid58mv3c/zwkQIECAAAECBAgQIECAAAECBAgQSEOgxwLQhQsXhg9+8IPhN37jN3Jn+od/+IchBpAf/ehHw5tvvpm7TU83jhgxInuJ5cuX575UrX3ChAm56zUSIECAAAECBAgQIECAAAECBAgQIJC2QI8EoF/72tfCjBkzwsMPPxxefPHF7JPfd2eIH0D0yiuvZKd+33vvvWHKlClhyZIlu29yUB7HMcZl/vz5+7xeHONjjz2WtccParIQIECAAAECBAgQIECAAAECBAgQINB8AqUHoEuXLg1//Md/HLZt25ZpvO9979snAI0rvvWtb4U/+qM/ym4E/PLLL4eLLrooxNDxYC7Tpk0Lo0ePDnHM8+bN2+Ol77nnnrB69epwwgknhKlTp+6xzhMCBAgQIECAAAECBAgQIECAAAECBJpDoPQA9Kabbspuan300UeHH/zgB+GRRx4J8UbXuy/x08/OOeec8OUvfzk7+zLeFHXRokUhho4Hc4n3JJ01a1b2SZw333xzuP7668Pdd98drrnmmnDnnXdmN6iPj3e/d+nBHJ/XIkCAAAECBAgQIECAAAECBAgQIEDgwARKD0CffvrpbEQzZ84MZ511Vrejmz59evjEJz6RbffDH/6w2+3L3uCMM84It956axg5cmR4/PHHs+DzmWeeyc4M/bu/+7swceLEsl/S/ggQIECAAAECBAgQIECAAAECBAgQOEgC7WW+zo4dO0K8nD0uF1xwQfa9kT9OP/30cMcdd4Sf/vSnjWze8DYx3IwfxtTdMnny5HD//fdnl7y/+uqrIX44UgxE45mqFgIECBAgQIAAAQIECBAgQIAAAQIEmleg1AA0XipeCw23b9/esMqWLVuybfv169dwn57Y8Kijjgrxy0KAAAECBAgQIECAAAECBAgQIECAQDUESj3FMYafxx9/fCbzxBNPNCz01FNPZdu63LxhMhsSIECAAAECBAgQIECAAAECBAgQINCAQKkBaHy93/3d381edvbs2eHFF1/sdgjz588PX//617PtpkyZ0u32NiBAgAABAgQIECBAgAABAgQIECBAgECjAqUHoH/yJ38S4qXsGzZsCNOmTQvxU+FXrVq1x3h27dqV3Sv0iiuuCOeee27YuXNnOPXUU/frvqF77NATAgQIECBAgAABAgQIECBAgAABAgQI5AiUHoCefPLJ4R//8R+zl1qzZk3467/+63D00UeHQYMGhQkTJoSTTjop9O/fP5x44onh9ttvD5s3b86e33333aG9vdRbkuZMVxMBAgQIECBAgAABAgQIECBAgAABAq0kUHoAGvFmzpwZvv3tb4djjz2203Ljxo3hZz/7WVi+fHno6OjobP+d3/md8KMf/SiMHz++s80DAgQIECBAgAABAgQIECBAgAABAgQIlCHQY6dcxnuBvu997wvxHp+PPPJIFnyuXLkyDBgwIMSzROPX6aefHqZPn17GPOyDAAECBAgQIECAAAECBAgQIECAAAEC+wj0WAAaXyneCzSe4Rm/LAQIECBAgAABAgQIECBAgAABAgQIEDjYAj1yCfzBnoTXI0CAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQEIBWoowmQYAAAQIECBAgQIAAAQIECBAgQIBAnoAANE9FGwECBAgQIECAAAECBAgQIECAAAEClRAQgFaijCZBgAABAgQIECBAgAABAgQIECBAgECegAA0T0UbAQIECBAgQIAAAQIECBAgQIAAAQKVEBCAVqKMJkGAAAECBAgQIECAAAECBAgQIECAQJ6AADRPRRsBAgQIECBAgAABAgQIECBAgAABApUQaK/ELBKeRFtbWxg8eHDCI0xvaH379g29evXill5pDuqI/L1pnJtV41apbqmGqVam8XGpYeNWtgyhd+9fnYPQp08f73kcFC0lEI9/x31LldxkfykQf7+Ni99zMwZ/tJBASvmOALSHD7wYgPbr16+HX6Vau4//KMSv/v37V2tiZrNfAurfOBerxq1S3VINU61M4+NSw8atbLmnQHyv6PjZ08SzagvE9/nt7e0hHvsWAq0iEI/72uJnfk3C91YQSCnfEYD28BG3devWsH79+h5+lWrtPp5FE/9RWLVqVbUmZjb7JaD+jXOxatwq1S3VMNXKND4uNWzcypYhO/tt2LBhGcWWLVvCunXrsBBoGYHhw4eHjo4OvyO1TMVNNAqMGDEiC/137drl91yHREsJlJ3vjBo1qrDfr66/KbwLHQkQIECAAAECBAgQIECAAAECBAgQIJCmgAA0zboYFQECBAgQIECAAAECBAgQIECAAAECJQgIQEtAtAsCBAgQIECAAAECBAgQIECAAAECBNIUEICmWRejIkCAAAECBAgQIECAAAECBAgQIECgBAEBaAmIdkGAAAECBAgQIECAAAECBAgQIECAQJoCAtA062JUBAgQIECAAAECBAgQIECAAAECBAiUICAALQHRLggQIECAAAECBAgQIEDg/9q7E2Ct6vp/4N8Ll01ZRBYBAU1lkDTD0YJsXCHHfdKxacZyIcfJbDLbtbQS0yEzNdOJ0IYydJy0jIwwNaVy0AyXycElcUlEw40tkf3+POf/vwzIs6HPuc/5nvN6Zm4893zP8z2f7+tzvMH7nvM8BAgQIECAQD4FBKD57IuqCBAgQIAAAQIECBAgQIAAAQIECBBogoAAtAmIpiBAgAABAgQIECBAgAABAgQIECBAIJ8CAtB89kVVBAgQIECAAAECBAgQIECAAAECBAg0QUAA2gREUxAgQIAAAQIECBAgQIAAAQIECBAgkE8BAWg++6IqAgQIECBAgAABAgQIECBAgAABAgSaICAAbQKiKQgQIECAAAECBAgQIECAAAECBAgQyKeAADSffVEVAQIECBAgQIAAAQIECBAgQIAAAQJNEBCANgHRFAQIECBAgAABAgQIECBAgAABAgQI5FNAAJrPvqiKAAECBAgQIECAAAECBAgQIECAAIEmCAhAm4BoCgIECBAgQIAAAQIECBAgQIAAAQIE8inQns+yVEWAAAECBAgQIECg6wSmTJnSdQdr8EgzZ85scE+7ESBAgAABAgQI1BJwBWgtHWMECBAgQIAAAQIECBAgQIAAAQIECEQtIACNun2KJ0CAAAECBAgQIECAAAECBAgQIECgloAAtJaOMQIECBAgQIAAAQIECBAgQIAAAQIEohYQgEbdPsUTIECAAAECBAgQIECAAAECBAgQIFBLQABaS8cYAQIECBAgQIAAAQIECBAgQIAAAQJRCwhAo26f4gkQIECAAAECBAgQIECAAAECBAgQqCUgAK2lY4wAAQIECBAgQIAAAQIECBAgQIAAgagFBKBRt0/xBAgQIECAAAECBAgQIECAAAECBAjUEhCA1tIxRoAAAQIECBAgQIAAAQIECBAgQIBA1AIC0Kjbp3gCBAgQIECAAAECBAgQIECAAAECBGoJCEBr6RgjQIAAAQIECBAgQIAAAQIECBAgQCBqAQFo1O1TPAECBAgQIECAAAECBAgQIECAAAECtQQEoLV0jBEgQIAAAQIECBAgQIAAAQIECBAgELWAADTq9imeAAECBAgQIECAAAECBAgQIECAAIFaAgLQWjrGCBAgQIAAAQIECBAgQIAAAQIECBCIWkAAGnX7FE+AAAECBAgQIECAAAECBAgQIECAQC0BAWgtHWMECBAgQIAAAQIECBAgQIAAAQIECEQtIACNun2KJ0CAAAECBAgQIECAAAECBAgQIECgloAAtJaOMQIECBAgQIAAAQIECBAgQIAAAQIEohYQgEbdPsUTIECAAAECBAgQIECAAAECBAgQIFBLQABaS8cYAQIECBAgQIAAAQIECBAgQIAAAQJRCwhAo26f4gkQIECAAAECBAgQIECAAAECBAgQqCUgAK2lY4wAAQIECBAgQIAAAQIECBAgQIAAgagFBKBRt0/xBAgQIECAAAECBAgQIECAAAECBAjUEhCA1tIxRoAAAQIECBAgQIAAAQIECBAgQIBA1AIC0Kjbp3gCBAgQIECAAAECBAgQIECAAAECBGoJCEBr6RgjQIAAAQIECBAgQIAAAQIECBAgQCBqAQFo1O1TPAECBAgQIECAAAECBAgQIECAAAECtQQEoLV0jBEgQIAAAQIECBAgQIAAAQIECBAgELWAADTq9imeAAECBAgQIECAAAECBAgQIECAAIFaAgLQWjrGCBAgQIAAAQIECBAgQIAAAQIECBCIWkAAGnX7FE+AAAECBAgQIECAAAECBAgQIECAQC0BAWgtHWMECBAgQIAAAQIECBAgQIAAAQIECEQtIACNun2KJ0CAAAECBAgQIECAAAECBAgQIECgloAAtJaOMQIECBAgQIAAAQIECBAgQIAAAQIEohYQgEbdPsUTIECAAAECBAgQIECAAAECBAgQIFBLoL3WoDECBAgQIECAAIF4BaZMmZK74mfOnJm7mhREgAABAgQIECBQbAFXgBa7v1ZHgAABAgQIECBAgAABAgQIECBAoNQCAtBSt9/iCRAgQIAAAQIECBAgQIAAAQIECBRbQABa7P5aHQECBAgQIECAAAECBAgQIECAAIFSCwhAS91+iydAgAABAgQIECBAgAABAgQIECBQbAEBaLH7a3UECBAgQIAAAQIECBAgQIAAAQIESi0gAC11+y2eAAECBAgQIECAAAECBAgQIECAQLEFBKDF7q/VESBAgAABAgQIECBAgAABAgQIECi1gAC01O23eAIECBAgQIAAAQIECBAgQIAAAQLFFhCAFru/VkeAAAECBAgQIECAAAECBAgQIECg1AIC0FK33+IJECBAgAABAgQIECBAgAABAgQIFFtAAFrs/lodAQIECBAgQIAAAQIECBAgQIAAgVILCEBL3X6LJ0CAAAECBAgQIECAAAECBAgQIFBsAQFosftrdQQIECBAgAABAgQIECBAgAABAgRKLSAALXX7LZ4AAQIECBAgQIAAAQIECBAgQIBAsQUEoMXur9URIECAAAECBAgQIECAAAECBAgQKLWAALTU7bd4AgQIECBAgAABAgQIECBAgAABAsUWEIAWu79WR4AAAQIECBAgQIAAAQIECBAgQKDUAgLQUrff4gkQIECAAAECBAgQIECAAAECBAgUW0AAWuz+Wh0BAgQIECBAgAABAgQIECBAgACBUgsIQEvdfosnQIAAAQIECBAgQIAAAQIECBAgUGwBAWix+2t1BAgQIECAAAECBAgQIECAAAECBEotIAAtdfstngABAgQIECBAgAABAgQIECBAgECxBQSgxe6v1REgQIAAAQIECBAgQIAAAQIECBAotYAAtNTtt3gCBAgQIECAAAECBAgQIECAAAECxRYQgBa7v1ZHgAABAgQIECBAgAABAgQIECBAoNQCAtBSt9/iCRAgQIAAAQIECBAgQIAAAQIECBRbQABa7P5aHQECBAgQIECAAAECBAgQIECAAIFSCwhAS91+iydAgAABAgQIECBAgAABAgQIECBQbIH2Yi+v/upWr14drr/++po7HnvssWGvvfaquY9BAgQIECBAgAABAgQIECBAgAABAgTyJ1D6AHTRokXhtttuq9mZ8ePHC0BrChkkQIAAAQIECBAgQIAAAQIECBAgkE+B0gegzzzzTNqZAw44IBxxxBEVuzRmzJiK220kQIAAAQIECBAgQIAAAQIECBAgQCDfAgLQ/x+AJuHnCSeckO9uqY4AAQIECBAgQIAAAQIECBAgQIAAge0SKP2HICW3wCePsWPHbhecnQkQIECAAAECBAgQIECAAAECBAgQyL9AqQPQDRs2hOeeey60t7eHPfbYI+3WypUrw9q1a/PfORUSIECAAAECBAgQIECAAAECBAgQIFBXoNS3wP/nP/8J69evD6NHjw4333xzuP3228Mbb7wRunXrlm479dRTw5FHHlkXMdmho6Ojof3sRIAAAQIECBAgQIAAAQIECBAgQIBA1wmUOgDt/ACkF198Mdxwww1h8ODBIfkwpBdeeCH9uuSSS8IjjzwSzj///Jod2W+//apeNTpt2rRw4okn1ny9wcoCw4cPrzxgaykE9L/xNrNq3Cqve+phXjvTeF16yKpxgcb3dF41bmXPuASSO/B23HHHuIpWLYEmCCQXW/nZ3gRIU0QnkIfzvtQBaOf7f/br1y9cdtllYfz48elJlFzNmVwNevXVV4c5c+aEiRMnhsMOOyy6E0zBBAgQIECAAAECBAgQIECAAAECBMouUOoA9PTTTw+TJk0KAwYMCCNGjNh8LrS1tYWTTjopvQo0CUJnzZpVMwBN3j+02vuGJr/ZTG6z92hcoHv37iHpQfIerR7lFfDfTeO9Z9W4VV731MO8dqbxuvSQVeMCje/pvGrcyp7xCCRXfyYXnGzcuDGeolVK4H0KJOd98m/c5Nz379z3ienlUQk0O9/p0aPHe15/qQPQ5MrPcePGVcWbPHlyeiXo888/HzZt2pS+N2ilnX//+99X2pxuW7ZsWXj99derjhvYViDpS58+fbhtS1OqLf67abzdrBq3yuueepjXzjRelx6yalyg8T2dV41b2TMegSFDhqQXjyQfPutBoCwCQ4cODUkQlASgfraXpevWmQg0O995P7fSl/pT4Oudjrvssku6y7p168Jbb71Vb3fjBAgQIECAAAECBAgQIECAAAECBAjkTKDUV4Deeuut6ae+H3XUUWH33XffpjVLly5Nt/Xv3z9NrbfZwQYCBAgQIECAAAECBAgQIECAAAECBHItUOorQO+5555w0003hV/96lcVm3T//fen2/fZZ5+K4zYSIECAAAECBAgQIECAAAECBAgQIJBvgVIHoIcffnjanXvvvTc8++yzW3Xq4YcfDskVosnjzDPP3GrMNwQIECBAgAABAgQIECBAgAABAgQIxCFQ6lvgP/WpT4X58+eHRx99NJxxxhnhgAMOSL8WLVoU7rvvvrSD55xzThg7dmwc3VQlAQIECBAgQIAAAQIECBAgQIAAAQJbCZQ6AE0+he3yyy9Pb4O/+eabQ3LVZ/KVPEaNGhXOPffcMHHixK3AfEOAAAECBAgQIECAAAECBAgQIECAQDwCpQ5Akzb17t07vcX99NNPDy+//HJYvnx52GOPPULfvn3j6aJKCRAgQIAAAQIECBAgQIAAAQIECBCoKFD6ALRTpb29PYwePTr96tzmTwIECBAgQIAAAQIECBAgQIAAAQIE4hYo9Ycgxd061RMgQIAAAQIECBAgQIAAAQIECBAgUE9AAFpPyDgBAgQIECBAgAABAgQIECBAgAABAtEKCECjbZ3CCRAgQIAAAQIECBAgQIAAAQIECBCoJyAArSdknAABAgQIECBAgAABAgQIECBAgACBaAUEoNG2TuEECBAgQIAAAQIECBAgQIAAAQIECNQTEIDWEzJOgAABAgQIECBAgAABAgQIECBAgEC0AgLQaFuncAIECBAgQIAAAQIECBAgQIAAAQIE6gkIQOsJGSdAgAABAgQIECBAgAABAgQIECBAIFoBAWi0rVM4AQIECBAgQIAAAQIECBAgQIAAAQL1BASg9YSMEyBAgAABAgQIECBAgAABAgQIECAQrYAANNrWKZwAAQIECBAgQIAAAQIECBAgQIAAgXoCAtB6QsYJECBAgAABAgQIECBAgAABAgQIEIhWQAAabesUToAAAQIECBAgQIAAAQIECBAgQIBAPQEBaD0h4wQIECBAgAABAgQIECBAgAABAgQIRCsgAI22dQonQIAAAQIECBAgQIAAAQIECBAgQKCegAC0npBxAgQIECBAgAABAgQIECBAgAABAgSiFRCARts6hRMgQIAAAQIECBAgQIAAAQIECBAgUE9AAFpPyDgBAgQIECBAgAABAgQIECBAgAABAtEKCECjbZ3CCRAgQIAAAQIECBAgQIAAAQIECBCoJyAArSdknAABAgQIECBAgAABAgQIECBAgACBaAUEoNG2TuEECBAgQIAAAQIECBAgQIAAAQIECNQTEIDWEzJOgAABAgQIECBAgAABAgQIECBAgEC0AgLQaFuncAIECBAgQIAAAQIECBAgQIAAAQIE6gkIQOsJGSdAgAABAgQIECBAgAABAgQIECBAIFoBAWi0rVM4AQIECBAgQIAAAQIECBAgQIAAAQL1BASg9YSMEyBAgAABAgQIECBAgAABAgQIECAQrYAANNrWKZwAAQIECBAgQIAAAQIECBAgQIAAgXoC7fV2ME4gRoEpU6bEWLaatxDQwy0w6jzNq9XMmTPrVG6YAAECBAgQaIWAvzu0Qt0xCRAgQKCVAq4AbaW+YxMgQIAAAQIECBAgQIAAAQIECBAgkKmAADRTXpMTIECAAAECBAgQIECAAAECBAgQINBKAQFoK/UdmwABAgQIECBAgAABAgQIECBAgACBTAUEoJnympwAAQIECBAgQIAAAQIECBAgQIAAgVYKCEBbqe/YBAgQIECAAAECBAgQIECAAAECBAhkKiAAzZTX5AQIECBAgAABAgQIECBAgAABAgQItFJAANpKfccmQIAAAQIECBAgQIAAAQIECBAgQCBTAQFoprwmJ0CAAAECBAgQIECAAAECBAgQIECglQIC0FbqOzYBAgQIECBAgAABAgQIECBAgAABApkKCEAz5TU5AQIECBAgQIAAAQIECBAgQIAAAQKtFBCAtlLfsQkQIECAAAECBAgQIECAAAECBAgQyFRAAJopr8kJECBAgAABAgQIECBAgAABAgQIEGilgAC0lfqOTYAAAQIECBAgQIAAAQIECBAgQIBApgIC0Ex5TU6AAAECBAgQIECAAAECBAgQIECAQCsFBKCt1HdsAgQIECBAgAABAgQIECBAgAABAgQyFRCAZsprcgIECBAgQIAAAQIECBAgQIAAAQIEWikgAG2lvmMTIECAAAECBAgQIECAAAECBAgQIJCpgAA0U16TEyBAgAABAgQIECBAgAABAgQIECDQSgEBaCv1HZsAAQIECBAgQIAAAQIECBAgQIAAgUwFBKCZ8pqcAAECBAgQIECAAAECBAgQIECAAIFWCghAW6nv2AQIECBAgAABAgQIECBAgAABAgQIZCogAM2U1+QECBAgQIAAAQIECBAgQIAAAQIECLRSQADaSn3HJkCAAAECBAgQIECAAAECBAgQIEAgUwEBaKa8JidAgAABAgQIECBAgAABAgQIECBAoJUCAtBW6js2AQIECBAgQIAAAQIECBAgQIAAAQKZCghAM+U1OQECBAgQIECAAAECBAgQIECAAAECrRQQgLZS37EJECBAgAABAgQIECBAgAABAgQIEMhUQACaKa/JCRAgQIAAAQIECBAgQIAAAQIECBBopYAAtJX6jk2AAAECBAgQIECAAAECBAgQIECAQKYCAtBMeU1OgAABAgQIECBAgAABAgQIECBAgEArBQSgrdR3bAIECBAgQIAAAQIECBAgQIAAAQIEMhUQgGbKa3ICBAgQIECAAAECBAgQIECAAAECBFopIABtpb5jEyBAgAABAgQIECBAgAABAgQIECCQqYAANFNekxMgQIAAAQIECBAgQIAAAQIECBAg0EoBAWgr9R2bAAECBAgQIECAAAECBAgQIECAAIFMBQSgmfKanAABAgQIECBAgAABAgQIECBAgACBVgq0t/Lgjk2AAAECBAiEMGXKFAwESiPgfG+81Xm1mjlzZuOLsCcBAgQIECBAIAcCrgDNQROUQIAAAQIECBAgQIAAAQIECBAgQIBANgIC0GxczUqAAAECBAgQIECAAAECBAgQIECAQA4EBKA5aIISCBAgQIAAAQIECBAgQIAAAQIECBDIRkAAmo2rWQkQIECAAAECBAgQIECAAAECBAgQyIGAADQHTVACAQIECBAgQIAAAQIECBAgQIAAAQLZCAhAs3E1KwECBAgQIECAAAECBAgQIECAAAECORAQgOagCUogQIAAAQIECBAgQIAAAQIECBAgQCAbAQFoNq5mJUCAAAECBAgQIECAAAECBAgQIEAgBwIC0Bw0QQkECBAgQIAAAQIECBAgQIAAAQIECGQjIADNxtWsBAgQIECAAAECBAgQIECAAAECBAjkQEAAmoMmKIEAAQIECBAgQIAAAQIECBAgQIAAgWwEBKDZuJqVAAECBAgQIECAAAECBAgQIECAAIEcCAhAc9AEJRAgQIAAAQIECBAgQIAAAQIECBAgkI2AADQbV7MSIECAAAECBAgQIECAAAECBAgQIJADAQFoDpqgBAIECBAgQIAAAQIECBAgQIAAAQIEshEQgGbjalYCBAgQIECAAAECBAgQIECAAAECBHIg0J6DGgpfQltbW+HXmMUCuWWhak4CXSfgv+Gus3ak1gs431vfAxV0nYDzveusy3Yk51bZOl7O9TrPy9n3sq86D+e9ADTjs7BXr15h4MCBGR+lmNMPGzasmAuzKgIlEfDfcEkabZmpgPPdiVAmAed7mbrdtWt1bnWtt6N1vUC3bt2C87zr3R2x9QJ5OO8FoBmfB+vXrw/Lli3L+CjFmr53794hCY5XrFhRrIVZDYGSCfjZV7KGl3y5zveSnwAlW77zvWQN78LlOre6ENuhulRgwIABIQk/Ozo6wvLly7v02A5GoJUCzc533s8FhgLQjM+ETZs2hTVr1mR8lGJN36NHj/T/GLgVq69WUz4B/w2Xr+dlXrHzvczdL9/ane/l63lXrdi51VXSjtPVAv37908PmQSgzvOu1ne8VgrkKd/xIUitPBMcmwABAgQIECBAgAABAgQIECBAgACBTAUEoJnympwAAQIECBAgQIAAAQIECBAgQIAAgVYKCEBbqe/YBAgQIECAAAECBAgQIECAAAECBAhkKiAAzZTX5AQIECBAgAABAgQIECBAgAABAgQItFJAANpKfccmQIAAAQIECBAgQIAAAQIECBAgQCBTAQFoprwmJ0CAAAECBAgQIECAAAECBAgQIECglQIC0FbqOzYBAgQIECBAgAABAgQIECBAgAABApkKCEAz5TU5AQIECBAgQIAAAQIECBAgQIAAAQKtFBCAtlLfsQkQIECAAAECBAgQIECAAAECBAgQyFRAAJopr8kJECBAgAABAgQIECBAgAABAgQIEGilgAC0lfqOTYAAAQIECBAgQIAAAQIECBAgQIBApgIC0Ex5TU6AAAECBAgQIECAAAECBAgQIECAQCsFBKCt1HdsAgQIECBAgAABAgQIECBAgAABAgQyFRCAZsprcgIECBAgQIAAAQIECBAgQIAAAQIEWikgAG2lvmMTIECAAAECBAgQIECAAAECBAgQIJCpgAA0U16TEyBAgAABAgQIECBAgAABAgQIECDQSoH2Vh7csQkQIECAAAECRRCYMmVKEZZhDQQaEsjr+T5z5syG6u/KnfJq1ZUG23OsPHrl8bzaHlP7EiCQjUAef14lK/Uzq3q/XQFa3cYIAQIECBAgQIAAAQIECBAgQIAAAQKRCwhAI2+g8gkQIECAAAECBAgQIECAAAECBAgQqC4gAK1uY4QAAQIECBAgQIAAAQIECBAgQIAAgcgFBKCRN1D5BAgQIECAAAECBAgQIECAAAECBAhUFxCAVrcxQoAAAQIECBAgQIAAAQIECBAgQIBA5AIC0MgbqHwCBAgQIECAAAECBAgQIECAAAECBKoLCECr2xghQIAAAQIECBAgQIAAAQIECBAgQCByAQFo5A1UPgECBAgQIECAAAECBAgQIECAAAEC1QUEoNVtjBAgQIAAAQIECBAgQIAAAQIECBAgELmAADTyBiqfAAECBAgQIECAAAECBAgQIECAAIHqAgLQ6jZGCBAgQIAAAQIECBAgQIAAAQIECBCIXEAAGnkDlU+AAAECBAgQIECAAAECBAgQIECAQHUBAWh1GyMECBAgQIAAAQIECBAgQIAAAQIECEQuIACNvIHKJ0CAAAECBAgQIECAAAECBAgQIECguoAAtLqNEQIECBAgQIAAAQIECBAgQIAAAQIEIhcQgEbeQOUTIECAAAECBAgQIECAAAECBAgQIFBdQABa3cYIAQIECBAgQIAAAQIECBAgQIAAAQKRCwhAI2+g8gkQIECAAAECBAgQIECAAAECBAgQqC4gAK1uY4QAAQIECBAgQIAAAQIECBAgQIAAgcgFBKCRN1D5BAgQIECAAAECBAgQIECAAAECBAhUFxCAVrcxQoAAAQIECBAgQIAAAQIECBAgQIBA5AIC0MgbqHwCBAgQIECAAAECBAgQIECAAAECBKoLCECr2xghQIAAAQIECBAgQIAAAQIECBAgQCByAQFo5A1UPgECBAgQIECAAAECBAgQIECAAAEC1QUEoNVtjBAgQIAAAQIECBAgQIAAAQIECBAgELmAADTyBiqfAAECBAgQIECAAAECBAgQIECAAIHqAgLQ6jZGCBAgQIAAAQIECBAgQIAAAQIECBCIXEAAGnkDlU+AAAECBAgQIECAAAECBAgQIECAQHUBAWh1GyMECBAgQIAAAQIECBAgQIAAAQIECEQuIACNvIHKJ0CAAAECBAgQIECAAAECBAgQIECguoAAtLqNEQIECBAgQIAAAQIECBAgQIAAAQIEIhcQgEbeQOUTIECAAAECBAgQIECAAAECBAgQIFBdQABa3cYIAQIECBAgQIAAAQIECBAgQIAAAQKRCwhAI2+g8gkQIECAAAECBAgQIECAAAECBAgQqC4gAK1uY4QAAQIECBAgQIAAAQIECBAgQIAAgcgFBKCRN1D5BAgQIECAAAECBAgQIECAAAECBAhUFxCAVrcxQoAAAQIECBAgQIAAAQIECBAgQIBA5ALtkdev/BwITJkyJQdVKIEAgbwJ+NmQt46ohwABAgQIECBAgEB8Av5dEV/P8lixK0Dz2BU1ESBAgAABAgQIECBAgAABAgQIECDQFAEBaFMYTUKAAAECBAgQIECAAAECBAgQIECAQB4FBKB57IqaCBAgQIAAAQIECBAgQIAAAQIECBBoioAAtCmMJiFAgAABAgQIECBAgAABAgQIECBAII8CAtA8dkVNBAgQIECAAAECBAgQIECAAAECBAg0RUAA2hRGkxAgQIAAAQIECBAgQIAAAQIECBAgkEcBAWgeu6ImAgQIECBAgAABAgQIECBAgAABAgSaIiAAbQqjSQgQIECAAAECBAgQIECAAAECBAgQyKOAADSPXVETAQIECBAgQIAAAQIECBAgQIAAAQJNERCANoXRJAQIECBAgAABAgQIECBAgAABAgQI5FFAAJrHrqiJAAECBAgQIECAAAECBAgQIECAAIGmCAhAm8JoEgIECBAgQIAAAQIECBAgQIAAAQIE8iggAM1jV9REgAABAgQIECBAgAABAgQIECBAgEBTBASgTWE0CQECBAgQIECAAAECBAgQIECAAAECeRQQgOaxK2oiQIAAAQIECBAgQIAAAQIECBAgQKApAgLQpjCahAABAgQIECBAgAABAgQIECBAgACBPAoIQPPYFTURIECAAAECBAgQIECAAAECBAgQINAUAQFoUxhNQoAAAQIECBAgQIAAAQIECBAgQIBAHgUEoHnsipoIECBAgAABAgQIECBAgAABAgQIEGiKgAC0KYwmIUCAAAECBAgQIECAAAECBAgQIEAgjwIC0Dx2RU0ECBAgQIAAAQIECBAgQIAAAQIECDRFQADaFEaTECBAgAABAgQIECBAgAABAgQIECCQRwEBaB67oiYCBAgQIECAAAECBAgQIECAAAECBJoiIABtCqNJCBAgQIAAAQIECBAgQIAAAQIECBDIo4AANI9dURMBAgQIECBAgAABAgQIECBAgAABAk0REIA2hdEkBAgQIECAAAECBAgQIECAAAECBAjkUUAAmseuqIkAAQIECBAgQIAAAQIECBAgQIAAgaYICECbwmgSAgQIECBAgAABAgQIECBAgAABAgTyKNCex6K6uqa1a9eG2267LSxYsCAsW7YsjBkzJowfPz4cddRRoXv37l1djuMRIECAAAECBAgQIECAAAECBAgQINAkgdIHoMuXLw/nnHNOWLx4cUq68847hzvvvDP9mj9/fvje974Xevbs2SRu0xAgQIAAAQIECBAgQIAAAQIECBAg0JUCpb8F/pJLLknDzwkTJoQ//vGPYfbs2eGWW24Je+65Z/jb3/4Wrrnmmq7sh2MRIECAAAECBAgQIECAAAECBAgQINBEgVIHoE888UR46KGHQp8+fcIPfvCDMGDAgJR21113DVdeeWV6+/vcuXPDqlWrmkhuKgIECBAgQIAAAQIECBAgQIAAAQIEukqg1AHovHnzUudDDz009O7deyvz5Fb4j370o2HdunUhCUE9CBAgQIAAAQIECBAgQIAAAQIECBCIT6DUAejChQvTjiW3v1d6JAFo8vjXv/5Vadg2AgQIECBAgAABAgQIECBAgAABAgRyLlDqD0FasmRJ2p6ddtqpYps6t3d+QFLFnd7ZeMUVV4QNGzZUHJ48eXLYe++9K47ZSIAAAQIECBAgQIBAcwT69evXnInMQmALAefVFhievmeBtra29LXJn86p98zohQ0I5O38Sj5UPC/nfakD0Lfeeis9fTqDznefS/379083de737vHO72+88cawdu3azm+3+nPs2LHhwAMP3GqbbwgQIECAAAECBAgQaK5A3759mzuh2Qi8I+C8cho0UyAJgpxTzRQ117sF8np+5aGu0gagmzZtCmvWrEnPlWoJeWeDqoWb7z7Ryvr9nXfeWdalWzcBAgQIECBAgACBqgL+nlyVxgABAgQaFvCztGEqO9YQKG0A2q1bt/TT399+++2qV292Bp/JJbu1Htddd11IAtVKj5EjR4Y333yz0pBtVQT69OkTEvMVK1ZU2cNmAsUT2GGHHTZ/GNvKlSurvq1G8VZuRWUX6N69exgwYED6M3/jxo1l57D+kgi0t7eHzjuNkr9v1rvbqCQsllkSgeRn/vr168Pq1atLsmLLJBBCctdpkkF0dHSEZcuWISFQGoFm5zvJB5a/10dpA9AEbPDgwSF5f89Vq1ZV9OvcvuOOO1Yc79x48MEHdz7d5s/kh1vnlabbDNpQUaAzcO4MoCvuZCOBggn06tVr84qSfxSsW7du8/eeECiyQBIEJY/kvE++PAiUQWDLX5wnwb+/85Sh69bYKZAEQM77Tg1/lkUgOe+TR/Knn/ll6bp1JgJ5yndK/SnwSQCaPDqDzvSbLf4nuQoreQwcOHCLrZ4SIECAAAECBAgQIECAAAECBAgQIBCLQKkD0KFDh6Z9eu655yr2q3P7uHHjKo7bSIAAAQIECBAgQIAAAQIECBAgQIBAvgVKHYBOmjQp7c4999yzTZeSW5PuvffedPv48eO3GbeBAAECBAgQIECAAAECBAgQIECAAIH8C5Q6AJ04cWLYfffdwzPPPBPmzp27Vbduuumm8MYbb4TddtstTJgwYasx3xAgQIAAAQIECBAgQIAAAQIECBAgEIdAqT8Eqa2tLZx11lnhu9/9brjsssvCAw88EMaMGRMef/zx9HmPHj3CN7/5zZDs50GAAAECBAgQIECAAAECBAgQIECAQHwCpb4CNGnXIYccEq666qowbNiwcN9994UZM2ak4WdyZegVV1wR9ttvv/i6qmICBAgQIECAAAECBAgQIECAAAECBFKBUl8B2nkO7L///uHWW29Nb3lfvHhxSD4cKQlEu3UrfT7cSeRPAgQIECBAgAABAgQIECBAgAABAlEKCEC3aNugQYNC8uVBgAABAgQIECBAgAABAgQIECBAgEAxBFziWIw+WgUBAgQIECBAgAABAgQIECBAgAABAhUEBKAVUGwiQIAAAQIECBAgQIAAAQIECBAgQKAYAgLQYvTRKggQIECAAAECBAgQIECAAAECBAgQqCAgAK2AYhMBAgQIECBAgAABAgQIECBAgAABAsUQEIAWo49WQYAAAQIECBAgQIAAAQIECBAgQIBABQEBaAUUmwgQIECAAAECBAgQIECAAAECBAgQKIaAALQYfbQKAgQIECBAgAABAgQIECBAgAABAgQqCAhAK6DYRIAAAQIECBAgQIAAAQIECBAgQIBAMQQEoMXoo1UQIECAAAECBAgQIECAAAECBAgQIFBBQABaAcUmAgQIECBAgAABAgQIECBAgAABAgSKISAALUYfrYIAAQIECBAgQIAAAQIECBAgQIAAgQoCAtAKKDYRIECAAAECBAgQIECAAAECBAgQIFAMAQFoMfpoFQQIECBAgAABAgQIECBAgAABAgQIVBAQgFZAsYkAAQIECBAgQIAAAQIECBAgQIAAgWIICECL0UerIECAAAECBAgQIECAAAECBAgQIECggoAAtAKKTQQIECBAgAABAgQIECBAgAABAgQIFENAAFqMPloFAQIECBAgQIAAAQIECBAgQIAAAQIVBASgFVBsIkCAAAECBAgQIECAAAECBAgQIECgGAIC0GL00SoIECBAgAABAgQIECBAgAABAgQIEKggIACtgGITAQIECBAgQIAAAQIECBAgQIAAAQLFEBCAFqOPVkGAAAECBAgQIECAAAECBAgQIECAQAUBAWgFFJsIECBAgAABAgQIECBAgAABAgQIECiGgAC0GH20CgIEQo+MLAAAE9hJREFUCBAgQIAAAQIECBAgQIAAAQIEKggIQCug2ESAAAECBAgQIECAAAECBAgQIECAQDEEBKDF6KNVECBAgAABAgQIECBAgAABAgQIECBQQUAAWgHFJgIECBAgQIAAAQIECBAgQIAAAQIEiiEgAC1GH62CAAECBAgQIECAAAECBAgQIECAAIEKAgLQCig2ESBAgAABAgQIECBAgAABAgQIECBQDIG2jncexViKVRAgQCBegWnTpoVZs2alC5gxY0Y46KCD4l2MygkQIECgpsAjjzwSTjvttHSfk046KUydOrXm/gYJECBAIG6Bww8/PLz22muhb9++4cEHH4x7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Sf70/s/bMNlAgACBaAQ6A9Dhw4dXrTl5r//k/x/++9//Vt3HAAECzRUQgDbX02wECBBoWGDlypXh3HPPDc8++2z6iZCXX355GDVqVMOvtyMBAgQIxCHQvXv3tNDkl17VHm+99VY61HnrZLX9bCdAgACBfAsMHTo0LXDx4sUhuQug8/8Dtqy685dfe+yxx5abPSdAIEMBAWiGuKYmQIBANYGOjo5w/vnnp+Hn2LFjw49//OMwYMCAarvbToAAAQKRCiQ/45NP+632OP7440PyD+HkbVD8Eqyaku0ECBCIR2DfffcNSQiafBp8cgfAu9/XP/llWHL1ZxKMjhs3Lp6FqZRA5ALeAzTyBiqfAIE4Be64447w+OOPh8GDB4cf/ehHws8426hqAgQIECBAgAABAlsJJB92dMopp6TbLr744vDGG29sHk+uCL322mtDctX/hAkTQu/evTePeUKAQLYCrgDN1tfsBAgQ2EZg7dq1Yfr06en2119/PZx44onb7NO5IXmD9BtuuKHzW38SIECAAAECBAgQIJBzgeOOOy69+v+xxx4LZ5xxRvj4xz8ekvcEnT9/fnjiiSfCnnvuGSq9L3TOl6U8AlELCECjbp/iCRCIUeD5558PW74PXPKb4GqPDRs2VBuynQABAgQIECBAgACBHAr06tUrXH311eEXv/hFuP3228OcOXPSKpNPhj/00EPDeeedF/r27ZvDypVEoLgCbe+8D11HcZdnZQQIECBAgAABAgQIECBAgACB1ggkkcuSJUvS297HjBkTunXzToSt6YSjll1AAFr2M8D6CRAgQIAAAQIECBAgQIAAAQIECBRYwK8eCtxcSyNAgAABAgQIECBAgAABAgQIECBQdgEBaNnPAOsnQIAAAQIECBAgQIAAAQIECBAgUGABAWiBm2tpBAgQIECAAAECBAgQIECAAAECBMouIAAt+xlg/QQIECBAgAABAgQIECBAgAABAgQKLCAALXBzLY0AAQIECBAgQIAAAQIECBAgQIBA2QUEoGU/A6yfAAECBAgQIECAAAECBAgQIECAQIEFBKAFbq6lESBAgAABAgQIECBAgAABAgQIECi7gAC07GeA9RMgQIAAAQIECBAgQIAAAQIECBAosIAAtMDNtTQCBAgQIECAAAECBAgQIECAAAECZRcQgJb9DLB+AgQIECBAgAABAgQIECBAgAABAgUWEIAWuLmWRoAAAQIECBAgQIAAAQIECBAgQKDsAgLQsp8B1k+AAAECBAgQKKDA/PnzK67q61//emhra0u/1q1bV3EfGwkQIECAAAECBIolIAAtVj+thgABAgQIECBQaoGlS5eGU089NUyaNKmiQ0dHR8XtNhIgQIAAAQIECBRXoL24S7MyAgQIECBAgACBsgl8//vfD7NmzQq9evWquPQePXqE3r17VxyzkQABAgQIECBAoJgCrgAtZl+tigABAgQIECBAoILAtGnTwttvv51+9ezZs8IeNhEgQIAAAQIECBRNQABatI5aDwECBAgQIECAAAECBAgQIECAAAECmwXcAr+ZwhMCBAgQIECAAIFYBV5++eXw0ksvhVdffTVdQvJenw899FD6fNiwYWH06NHp88WLF4dXXnklff6Rj3wk/TCk5JuNGzeGhx9+ON0+duzYMGDAgLBixYrwwAMPpPP069cv7LvvvmHy5MmbX5Pu7H8IECBAgAABAgRyL9D2zl8OvRN87tukQAIECBAgQIAAgVoCl156abjwwgsr7nLeeeeFq666Kh372te+Fq688sr0+dq1a0PnbfDLly8PAwcOTLfPnTs3DVLPPPPMsGHDhq3m3HvvvcOMGTPCwQcfvNV23xAgQIAAAQIECORXwC3w+e2NyggQIECAAAECBBoUGD58eDjwwAPDkCFD0le0tbWl3yfbRo0a1eAs/2+36dOnhzPOOCN07949HHfcceGCCy4IxxxzTGhvbw9PPfVUOPLII8Ndd921XXPamQABAgQIECBAoHUCrgBtnb0jEyBAgAABAgQINFngC1/4QkgCzORT4NesWbPN7I1cAZq8aOjQoWH27Nlh4sSJm+e49957w8knnxyWLVsWRo4cGZ5++umwww47bB73hAABAgQIECBAIJ8CrgDNZ19URYAAAQIECBAg0EKBX/7yl1uFn0kpRxxxREg+RT55JO83euONN6bP/Q8BAgQIECBAgEC+BQSg+e6P6ggQIECAAAECBLpYYMKECeHoo4+ueNTk1vgRI0akYwsWLKi4j40ECBAgQIAAAQL5EhCA5qsfqiFAgAABAgQIEGixQPIen9UeyYcm7b///unwo48+Wm032wkQIECAAAECBHIkIADNUTOUQoAAAQIECBAg0HqB3XbbrWYRo0ePTscXLly4zafE13yhQQIECBAgQIAAgZYICEBbwu6gBAgQIECAAAECeRXYZZddapbWv3//dHzt2rVh6dKlNfc1SIAAAQIECBAg0HoBAWjre6ACAgQIECBAgACBHAnUCzWXLFmyudohQ4Zsfu4JAQIECBAgQIBAPgUEoPnsi6oIECBAgAABAgRaJLB48eKaR37xxRfT8eHDh4fkPUE9CBAgQIAAAQIE8i0gAM13f1RHgAABAgQIECCwHQJtbW3p3h0dHdvxqq13nTNnztYbtvguCUcffPDBdMsxxxyzxYinBAgQIECAAAECeRUQgOa1M+oiQIAAAQIECBDYboHevXunr1m3bl343//+t92vT16wYMGCMHv27IqvnTp1akjmTh6f+cxnKu5jIwECBAgQIECAQL4EBKD56odqCBAgQIAAAQIE3ofAwIEDN7/64osvDn//+9/DE088sXlbo09OOeWUcNNNN4WNGzemL1m1alX4/Oc/H2644Yb0+5NPPjkcfvjhjU5nPwIECBAgQIAAgRYKCEBbiO/QBAgQIECAAAECzRU49NBDQ+dt8FdccUU45JBDwgUXXLBdB/nwhz+cXuX52c9+Nuy0007hgx/8YPrnjBkz0nkOOuigMH369O2a084ECBAgQIAAAQKtExCAts7ekQkQIECAAAECBJoskASe1157bRgxYsTmmZ988snNzxt5csIJJ4S777477Lnnnult9MnrN23aFHbeeedw4YUXhr/85S9h0KBBjUxlHwIECBAgQIAAgRwItL3zBvHv/R3ic7AAJRAgQIAAAQIECBCoJPDKK6+E1atXh5EjR4ZevXpV2mXztuXLl4fO2+cvuuiikLzXZ/JYsmRJeOyxx8KwYcPSK0H79Omz+TWeECBAgAABAgQIxCHQHkeZqiRAgAABAgQIECCwfQLDhw/fvhdU2HvXXXcNyZcHAQIECBAgQIBAvAJugY+3dyonQIAAAQIECBAgQIAAAQIECBAgQKCOgAC0DpBhAgQIECBAgAABAgQIECBAgAABAgTiFRCAxts7lRMgQIAAAQIECBAgQIAAAQIECBAgUEfAe4DWATJMgAABAgQIECBQfIFu3bqFffbZJ13o0KFDi79gKyRAgAABAgQIlEjAp8CXqNmWSoAAAQIECBAgQIAAAQIECBAgQKBsAm6BL1vHrZcAAQIECBAgQIAAAQIECBAgQIBAiQQEoCVqtqUSIECAAAECBAgQIECAAAECBAgQKJuAALRsHbdeAgQIECBAgAABAgQIECBAgAABAiUSEICWqNmWSoAAAQIECBAgQIAAAQIECBAgQKBsAgLQsnXcegkQIECAAAECBAgQIECAAAECBAiUSEAAWqJmWyoBAgQIECBAgAABAgQIECBAgACBsgkIQMvWceslQIAAAQIECBAgQIAAAQIECBAgUCIBAWiJmm2pBAgQIECAAAECBAgQIECAAAECBMomIAAtW8etlwABAgQIECBAgAABAgQIECBAgECJBASgJWq2pRIgQIAAAQIECBAgQIAAAQIECBAom4AAtGwdt14CBAgQIECAAAECBAgQIECAAAECJRIQgJao2ZZKgAABAgQIECBAgAABAgQIECBAoGwCAtCyddx6CRAgQIAAAQIECBAgQIAAAQIECJRI4P8AjSuhtHRS/x4AAAAASUVORK5CYII=" width="672" /></p>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+est Lorem ipsum dolor sit amet.</p>
+</div>
+<div id="modellierung" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Modellierung</h1>
+<p>Wenden Sie hier Ihr Modell an und interpretieren Sie Ihr Ergebnis.
+Bei Einzelarbeiten sollte der reine Text (ohne Code, Abbildungen etc.)
+einen Umfang von ca. 1–2 Seiten haben.</p>
+<p>Mein Lieblingsmodell bla bla bla:</p>
+<pre class="r"><code>lm.model &lt;- lm(tip ~ total_bill, data = train)
+summary(lm.model)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = tip ~ total_bill, data = train)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.6231 -0.5626 -0.0968  0.4616  3.3015 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.08801    0.19319   5.632  1.2e-07 ***
+## total_bill   0.09108    0.00922   9.879  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.8826 on 120 degrees of freedom
+## Multiple R-squared:  0.4485, Adjusted R-squared:  0.4439 
+## F-statistic:  97.6 on 1 and 120 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+est Lorem ipsum dolor sit amet.</p>
+</div>
+<div id="vorhersage" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Vorhersage</h1>
+<p>Modell zur Vorhersage auf Testdatensatz anwenden und als neue Spalte
+im Test-Datensatz speichern:</p>
+<pre class="r"><code>test_mit_vorhersage &lt;-
+  test %&gt;% 
+  mutate(pred = predict(lm.model, newdata = test))</code></pre>
+<p>Kontrolle, ob alles gut aussieht:</p>
+<pre class="r"><code>glimpse(test_mit_vorhersage)</code></pre>
+<pre><code>## Rows: 122
+## Columns: 9
+## $ id         &lt;dbl&gt; 2, 4, 6, 7, 9, 10, 16, 19, 22, 24, 26, 29, 30, 36, 37, 39, …
+## $ total_bill &lt;dbl&gt; 10.34, 23.68, 25.29, 8.77, 15.04, 14.78, 21.58, 16.97, 20.2…
+## $ tip        &lt;dbl&gt; 1.66, 3.31, 4.71, 2.00, 1.96, 3.23, 3.92, 3.50, 2.75, 7.58,…
+## $ sex        &lt;chr&gt; &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Fe…
+## $ smoker     &lt;chr&gt; &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;,…
+## $ day        &lt;chr&gt; &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sun&quot;, &quot;Sa…
+## $ time       &lt;chr&gt; &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;, &quot;Dinner&quot;,…
+## $ size       &lt;dbl&gt; 3, 2, 4, 2, 2, 2, 2, 3, 2, 4, 4, 2, 2, 3, 3, 3, 3, 3, 2, 4,…
+## $ pred       &lt;dbl&gt; 2.029832, 3.244909, 3.391556, 1.886828, 2.457933, 2.434250,…</code></pre>
+<p>Prognosedaten als CSV-Datei schreiben:</p>
+<pre class="r"><code>test_mit_vorhersage %&gt;% 
+  select(id, pred) %&gt;% 
+  write_csv(&quot;Raetsel_Rudi_0123456_Prognose.csv&quot;)</code></pre>
+<p><em>Achtung</em>: Der obigen Chunk wird nicht evaluiert (ausgeführt),
+da <code>eval=FALSE</code> gesetzt ist.</p>
+</div>
+<div id="literatur" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Literatur</h1>
+<p>Sie müssen keine Quellen zitieren, können aber.</p>
 </div>
 
 

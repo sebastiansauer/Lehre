@@ -1,0 +1,162 @@
+---
+title: "Beispiel für Vorhersagemodellierung"
+author: "ses"
+date: "5/10/2021"
+output: html_document
+---
+
+# Einleitung
+
+Wie gut kann man das Trinkgeld eines Kellners im Datensatz `tips` vorhersagen? Welche Prädiktoren sind dabei besonders informativ?
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+
+# Analysewerkzeuge
+
+```{r message = FALSE}
+library(tidyverse)
+```
+
+
+#  Explorative Datenanalyse und Datenvorverarbeitung
+
+## Daten importieren
+
+
+```{r}
+tips_train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_train.csv")
+```
+
+
+```{r}
+library(reshape2)
+help(tips)
+```
+
+
+```{r}
+glimpse(tips_train)
+```
+
+
+## Überblick über abhängige Variable
+
+
+```{r}
+tips %>% 
+  ggplot() +
+  aes(x = tip) +
+  geom_histogram()
+```
+
+
+
+## Welche Variablen sind stark mit der AV verbunden?
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+# Analyse und Ergebnis
+
+
+
+```{r}
+lm1 <- lm(tip ~ total_bill + size, data = tips)
+summary(lm1)
+```
+
+
+
+
+
+```{r}
+lm2 <- lm(tip ~ total_bill + time + total_bill:time, 
+          data = tips)
+summary(lm2)
+```
+
+
+
+# Vorhersage
+
+## Vorhersage der Train-Daten
+
+*Achtung* Nur zur Anschauung!
+
+
+```{r}
+predict(lm2)
+```
+
+
+```{r}
+tips_train2 <- 
+  tips_train %>% 
+  mutate(pred = predict(lm2, newdata = tips_train))
+```
+
+
+## Vorhersage mit den Test-Daten!
+
+*Achtung* Vorhersagegüte im Test-Datensatz immer schlechter als im Train-Datensatz!
+
+
+### Test-Daten importieren
+
+
+```{r}
+tips_test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_test.csv")
+```
+
+
+```{r}
+glimpse(tips_test)
+```
+
+
+
+### Vorhersage
+
+
+```{r}
+tips_test2 <- 
+  tips_test %>% 
+  mutate(pred = predict(lm2, newdata = tips_test))
+```
+
+
+
+
+```{r}
+glimpse(tips_test2)
+```
+
+# Speichern der Prognosedaten
+
+```{r}
+tips_test2 %>% 
+  select(id, pred) %>% 
+  write_csv(file = "Raetsel_Rudi_0123456_Prognose.csv")
+```
+
+
+```{r}
+tips_submission <-
+  tips_test2 %>% 
+  select(id, pred)
+```
+
+
+```{r}
+glimpse(tips_submission)
+write_csv(x = tips_submission, file = "Raetsel_Rudi_0123456_Prognose.csv")
+```
+
+# Zusammenfassung
+
+Fassen Sie gemeinsam kurz die zentralen Ergebnisse zusammen (0,5--1 Seite). Gehen Sie auch auf die Grenzen Ihrer Analyse ein.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+

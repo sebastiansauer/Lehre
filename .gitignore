@@ -5,6 +5,7 @@
 # Session Data files
 .RData
 
+
 # User-specific files
 .Ruserdata
 
@@ -44,6 +45,13 @@ vignettes/*.pdf
 */trials.Rmd
 Untitled.*
 trials/
+
+
+# data
+*.rds
+**/*.rds
+
+
 
 
 
