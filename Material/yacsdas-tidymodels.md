@@ -1,66 +1,8 @@
 
 
 
-YACSDA: Yet Another Case Study on Data Analysis
 
-
-...
-
-**NUR EXPLORATIVE DATENANALYSE**
-
-- [Datenjudo mit Pinguinen](https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome)
-
-- [Data-Wranglinng-Aufgaben zur Lebenserwartung](https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/)
-
-- [Aufgabe zur Datenvisualisierung des Diamantenpreises](https://data-se.netlify.app/2020/12/07/ex-visualizing-diamonds/)
-
-- [Fallstudie Flugverspätungen - EDA](https://data-se.netlify.app/2021/03/08/eda-zu-flugversp%C3%A4tungen/)
-
-- [Fallstudie zur EDA: Top-Gear](https://data-se.netlify.app/2021/02/11/yacda-topgear/)
-
-- [Fallstudie zur EDA:  OECD-Wellbeing-Studie](https://data-se.netlify.app/2021/02/11/explorative-datenanalyse-zum-datensatz-oecd-wellbeing/)
-
-- [Fallstudie zur EDA: Movie Rating](https://minimaxir.com/2018/07/imdb-data-analysis/)
-
-- [Fallstudie zur EDA: Women in Parliament](https://github.com/saghirb/WiP-tidyverse/blob/master/doc/WiP-tidyverse.pdf)
-
-- [Finde den Tag mit den meisten Flugverspätungen, Datensatz 'nycflights13'](https://data-se.netlify.app/2021/05/27/datensatz-flights-finde-den-tag-mit-den-meisten-abfl%C3%BCgen/)
-
-
-
-
-**NUR LINEARE MODELL**
-
-- [Beispiel für Prognosemodellierung 1, grundlegender Anspruch, Video](https://youtu.be/5pBTHrnRIZY)
-
-- [Beispiel für Ihre Prognosemodellierung 2, mittlerer  Anspruch](https://data-se.netlify.app/2020/11/13/fallstudie-zur-regressionsanalyse-ggplot2movies/)
-
-- [Beispiel für Ihre Prognosemodellierung 3, hoher Anspruch](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
-
-- [Fallstudie: Modellierung von Flugverspätungen](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
-
-
-- [Movies](https://data-se.netlify.app/2020/11/13/fallstudie-zur-regressionsanalyse-ggplot2movies/)
-
-
-- [Fallstudie Einfache lineare Regression in Base-R, Anfängerniveau, Kaggle-Competition TMDB](https://www.kaggle.com/code/ssauer/tmdb-simple-regression-beginners)
-
-
-- [Fallstudie Sprit sparen](https://data-se.netlify.app/2022/05/02/fallstudie-spritverbrauch/)
-
-
-**YouTube-PLAYLISTS**
-
-- [Playlist YACSDAs](https://youtube.com/playlist?list=PLRR4REmBgpIGet_lcNf2wOd0W8j4c9hYN)
-
-- [Playlist zur Prüfungsleistung Prognosewettbewerb](https://youtube.com/playlist?list=PLRR4REmBgpIH6uG8LZWPTSMReX1OFxfUx)
-
-- [Kaggle-Fallstudie TMDB: einfache lineare Regression](https://youtu.be/vR9l-k50I1M)
-
-- [Playlist zum statistischen Modellieren](https://www.youtube.com/playlist?list=PLRR4REmBgpIGWcSjrtt0m36aXHLaiTgdF)
-
-
-**MASCHINELLES LERNEN MIT TIDYMODELS**
+**FALLSTUDIEN - MASCHINELLES LERNEN MIT TIDYMODELS**
 
 - [Experimenting with machine learning in R with tidymodels and the Kaggle titanic dataset](https://www.r-bloggers.com/2021/08/experimenting-with-machine-learning-in-r-with-tidymodels-and-the-kaggle-titanic-dataset/)
 
