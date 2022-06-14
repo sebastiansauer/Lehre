@@ -86,30 +86,18 @@ d_train %>%
 
 
 
+# Modell 1
+
+lm1 <- lm(revenue ~ budget + popularity, 
+          data = d_train)
+summary(lm1)
 
 
 
 
+# Modell 2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Modell
-
-lm1 <- lm(revenue ~ budget_log, popularity, data = d_train2)
+lm1 <- lm(revenue ~ budget_log + popularity, data = d_train2)
 
 
 # Vorhersagen im Test-Sample
