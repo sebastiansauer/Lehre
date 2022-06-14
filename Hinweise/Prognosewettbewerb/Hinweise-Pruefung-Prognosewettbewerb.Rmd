@@ -9,7 +9,7 @@ params:
 
 # Prüfung
 
-```{r child1, echo = FALSE, child="Hinweise/Hinweise-Pruefung-Prognosewettbewerb-child.Rmd"}
+```{r child1, echo = FALSE, child="Hinweise/Prognosewettbewerb/Hinweise-Pruefung-Prognosewettbewerb-child.Rmd"}
 ```
 
 

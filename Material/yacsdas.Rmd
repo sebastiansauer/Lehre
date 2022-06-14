@@ -1,0 +1,72 @@
+
+---
+title: "YACSDAS: Yet another Case Study on Data Analysixs"
+subtitle: "Fallstudien zur Datenanalyse"
+author: "Sebastian Sauer"
+date: "Letzte Aktualisierung: `r Sys.time()`"
+output:
+   
+  rmdformats::downcute:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+    number_sections: TRUE
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r global-knitr-options, include=FALSE}
+  knitr::opts_chunk$set(
+  fig.pos = 'H',
+  fig.asp = 0.618,
+  fig.align='center',
+  fig.width = 5,
+  out.width = "100%",
+  fig.cap = "", 
+  fig.path = "chunk-img/",
+  dpi = 300,
+  # tidy = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  fig.show = "hold")
+```
+
+
+
+
+# Fallstudien zur EDA
+
+```{r child1, echo = FALSE, child="Material/yacsdas-EDA.md"}
+```
+
+
+
+# Fallstudien zu linearen Modellen
+
+```{r child2, echo = FALSE, child="Material/yacsdas-lm.md"}
+```
+
+
+# Fallstudien als YouTube-Videos
+
+```{r child4, echo = FALSE, child="Material/yacsdas-youtube.md"}
+```
+
+
+
+
+
+
+# Fallstudien zum maschinellen Lernen mit Tidymodels
+
+```{r child3, echo = FALSE, child="Material/yacsdas-tidymodels.md"}
+```
+
+
+
+

@@ -1,0 +1,133 @@
+---
+title: "Vorhersagemodellierung Gehalt"
+author: "Horst Vozeigestudent, Matrikelnummer 007007"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    number_sections: true
+---
+
+
+<!-- Sollten Umlaute falsch angezeigt werden: "File -> Reopen with Encoding -> UTF8" -->
+
+# Einleitung 
+
+Stellen Sie hier die Forschungsfrage vor und skizzieren Sie Ihr Vorgehen.
+
+Ungefährer Umfang: 0,5--1,5 Seiten. 
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+# Vorbereitung
+
+Führen Sie kurz die verwendete Software auf, idealerweise mit den verwendeten Versionsnummern.
+
+Folgende R-Pakete wurden verwendet:
+
+```{r knitr-setup, message = FALSE}
+library(tidyverse) 
+```
+
+
+# Explorative Datenanalyse
+
+Daten einlesen:
+
+
+---
+
+**ACHTUNG: Das sind noch NICHT die richtigen Daten. Die richtigen Daten werden Ihnen zu Beginn des Prüfungszeitraums zur Verfügung gestellt!**
+
+---
+
+
+
+```{r message = FALSE}
+train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_train.csv")
+
+test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_test.csv")
+```
+
+
+
+
+
+Testen, ob das Einlesen funktioniert hat:
+
+```{r}
+glimpse(train)
+glimpse(test)
+```
+
+Sieht alles gut aus.
+
+
+Führen Sie in diesem Abschnitt eine Explorative Datenanalyse der von Ihnen verwendeten Variablen der Trainingsdaten durch. Auch eine evtl. Datenvorverarbeitung erfolgt in diesem Abschnitt.
+
+Bei Einzelarbeiten sollte der reine Text dieses Abschnitts einen Umfang von ca. 2 Seiten haben; mehr Text ist immer erlaubt.
+
+```{r}
+train %>% 
+  ggplot(aes(x = tip)) + 
+  geom_histogram()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+
+
+# Modellierung
+
+Wenden Sie hier Ihr Modell an und interpretieren Sie Ihr Ergebnis. Bei Einzelarbeiten sollte der reine Text (ohne Code, Abbildungen etc.) einen Umfang von ca. 1--2 Seiten haben.
+
+Mein Lieblingsmodell bla bla bla:
+
+```{r}
+lm.model <- lm(tip ~ total_bill, data = train)
+summary(lm.model)
+```
+
+
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+# Vorhersage
+
+Modell zur Vorhersage auf Testdatensatz anwenden und als neue Spalte im Test-Datensatz speichern:
+
+```{r}
+test_mit_vorhersage <-
+  test %>% 
+  mutate(pred = predict(lm.model, newdata = test))
+```
+
+Kontrolle, ob alles gut aussieht:
+
+```{r}
+glimpse(test_mit_vorhersage)
+```
+
+
+Prognosedaten als CSV-Datei schreiben:
+
+```{r eval=FALSE}
+test_mit_vorhersage %>% 
+  select(id, pred) %>% 
+  write_csv("Raetsel_Rudi_0123456_Prognose.csv")
+```
+
+*Achtung*: Der obigen Chunk wird nicht evaluiert (ausgeführt), da `eval=FALSE` gesetzt ist.
+
+
+
+
+# Literatur
+
+Sie müssen keine Quellen zitieren, können aber.
+
+
