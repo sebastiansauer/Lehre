@@ -86,23 +86,52 @@ d_train %>%
 
 
 
-# Modell 1
+# Modell 1:
 
 lm1 <- lm(revenue ~ budget + popularity, 
           data = d_train)
 summary(lm1)
 
 
+lm1a <- lm(revenue ~ budget, 
+          data = d_train)
+summary(lm1a)
+
+
+ggplot(d_train) +
+  aes(x = budget, y = revenue) +
+  geom_point() +
+  geom_smooth(method = "lm")
 
 
 # Modell 2
 
-lm1 <- lm(revenue ~ budget_log + popularity, data = d_train2)
+lm2 <- lm(revenue ~ budget_log + popularity, data = d_train2)
 
 
 # Vorhersagen im Test-Sample
 
 
+
+predict(lm1, newdata = tibble(budget = 3e+08, popularity = 5))
+predict(lm1, newdata = d_test)
+
+
+d_test2a <- 
+  d_test %>% 
+  mutate(revenue = predict(lm1, newdata = d_test))
+
+
+submission_df2 <- 
+  d_test2a %>% 
+  select(id, revenue)
+
+
+# Einreichen:
+write_csv(submission_df2, file = "submission_df2.csv")
+
+
+# Andres Modell predicten:
 d_test2 <- 
   d_test %>% 
   mutate(budget = case_when(
