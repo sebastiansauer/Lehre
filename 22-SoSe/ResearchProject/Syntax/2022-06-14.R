@@ -56,14 +56,20 @@ alpha(tab)
 model2 <- stan_glm(mpg ~ am, data = mtcars)
 
 # Schritt 2: Lass dir die Koeffizienten ausgeben:
-model2
+model2  # Koeffizienten
 
-hdi(model2)
+hdi(model2)  # Schätzbereich
 
 plot(model2)
 
 plot(parameters(model2))
 
-# Schritt 3: ROPE
+# Schritt 3: ROPE (optional, analog zum Nullhypothesentesten)
 rope(model2)
 plot(rope(model2))
+
+
+# z-Standardisierung (Paket `easystats`)
+mtcars2 <- 
+mtcars %>% 
+  standardise(select = c("mpg", "hp"))
