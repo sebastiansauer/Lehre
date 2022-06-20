@@ -460,10 +460,10 @@ damit das Modell evaluiert werden.</p>
 ein Modell auf Basis der Trainingsdaten <span class="math inline">\((\bf{x},y\)</span>) und sagen Sie für die
 Anwendungsdaten (<span class="math inline">\(\bf{x_0}\)</span>) die
 Zielvariable möglichst genau voraus (<span class="math inline">\(\hat{y}_0\)</span>).</p>
-<p>Ihr(e) Dozent*in kennt den Wert der Zielvariable (<span class="math inline">\(y_0\)</span>).</p>
+<p>Ihr(e) Dozent*in kennt den Wert der Zielvariable (<span class="math inline">\(y_0\)</span>). Sie nicht.</p>
 <p>Von zwei Prognosemodellen zum gleichen Datensatz ist dasjenige Modell
-besser, das weniger Vorhersagefehler aufweist, also genauer vorhersagt.
-Kurz gesagt: Genauer ist besser.</p>
+besser, das weniger Vorhersagefehler aufweist (im Test-Datensatz), also
+genauer vorhersagt. Kurz gesagt: Genauer ist besser.</p>
 <!-- Zur Bewertung der Vorhersagegüte wird der mittlere absolute Fehler als Koeffizient $\text{MAE}$ (${\bf{m}}$ean ${\bf{a}}$bsolute ${\bf{e}}$rror) auf die Anwendungsdaten herangezogen: -->
 <!-- $$\text{MAE}_{\text{Test}}=\frac{1}{n_{\text{Test}}}\sum_{i=1}^{n_{\text{Test}}} |y_i-\hat{y}_i|$$ -->
 <!-- Dabei sind $y_i$ die wahren Werte, $\hat{y}_i$ die prognostizierten Werte des geschätzten Modells $\hat{f}(\cdot)$ und $n_{\text{Test}}$ die Anzahl der Beobachtungen des Testdatensatzes (Anwendungsdatensatz).
@@ -534,14 +534,20 @@ Hingegen müssen Sie Prosa als Kommentar einfügen. Es bleibt Ihnen
 entscheiden. Keine Option wird als besser oder schlechter gewertet
 (vermutlich ist Rmd für Sie am einfachsten).</p>
 <p>Sie können Ihr Analysedokument z.B. so gliedern:</p>
-<pre><code>1. Forschungsfrage und Hintergrund (Beschreiben Sie kurz, worum es geht)
-2. Vorbereitung (Pakete laden, Daten importieren, etc.)
-3. Explorative Datenanalyse (Untersuchen Sie den Datensatz nach Auffälligkeiten, die Sie dann beim Modellieren nutzen)
-4. Modellieren (Mehrere Prognosemodelle, z.B. via `lm(av ~ uv)`)
-5. Vorhersagen (Vorhersage der Test-Daten anhand des besten Vorhersagemodells und Einreichen)</code></pre>
+<ol style="list-style-type: decimal">
+<li>Forschungsfrage und Hintergrund (Beschreiben Sie kurz, worum es
+geht)</li>
+<li>Vorbereitung (Pakete laden, Daten importieren, etc.)</li>
+<li>Explorative Datenanalyse (Untersuchen Sie den Datensatz nach
+Auffälligkeiten, die Sie dann beim Modellieren nutzen)</li>
+<li>Modellieren (Mehrere Prognosemodelle, z.B. via
+<code>lm(av ~ uv)</code>)</li>
+<li>Vorhersagen (Vorhersage der Test-Daten anhand des besten
+Vorhersagemodells und Einreichen)</li>
+</ol>
 <p>Die Gliederung ist kein Muss; andere Gliederung sind auch möglich.
 Entscheidend ist die fachliche Angemessenheit und die
-Reproduzierbarkiet.</p>
+Reproduzierbarkeit.</p>
 <div id="abschnitt-forschungsfrage-und-hintergrund" class="section level3">
 <h3>Abschnitt Forschungsfrage und Hintergrund</h3>
 <p>In diesem Abschnitt passiert noch keine Statistik bzw. keine Analyse.
@@ -666,6 +672,11 @@ im R Code, ist sehr unwahrscheinlich und kann als
 Teilnoten ergeben.</p></li>
 <li><p>Es werden keine Teilnoten vergeben, sondern nur eine Gesamtnote
 wird vergeben.</p></li>
+<li><p>Es werden keine Hinweise vergeben, stattdessen gibt es einen
+Überblick an typischen Fehlern.</p></li>
+<li><p>Es wird keine Musterlösugn veröffentlicht, um nachfolgende
+Kohorten nicht zu bevorteilen bzw. die aktuelle Kohorte nicht zu
+benachteiligen.</p></li>
 </ul>
 </div>
 <div id="kennzahl-der-modellgüte" class="section level3">
@@ -743,22 +754,30 @@ Modellierung, der formale Anspruch liegt daher unter dem von anderen
 Hausarbeiten.</p></li>
 <li><p>Es muss keine Literatur zitiert werden.</p></li>
 <li><p>Ein ausgedrucktes Exemplar muss nicht abgegeben werden.</p></li>
-<li><p>Während der Prüfungsphase werden keine inhaltlichen Fragen (“wie
-macht man nochmal eine Log-Transformation?”) und keine technischen
-Fragen (“wie installiert man nochmal ein R-Paket?”)
-beantwortet.</p></li>
+<li><p>Während der Prüfungsphase werden <em>keine</em>
+<em>inhaltlichen</em> Fragen (“wie macht man nochmal eine
+Log-Transformation?”) und keine <em>technischen</em> Fragen (“wie
+installiert man nochmal ein R-Paket?”) beantwortet.</p></li>
 </ol>
 </div>
 <div id="ich-brauche-hilfe" class="section level2">
 <h2>Ich brauche Hilfe!</h2>
-<div id="wo-finde-ich-beispiele" class="section level3">
-<h3>Wo finde ich Beispiele?</h3>
+<div id="wo-finde-ich-beispiele-und-vorlagen" class="section level3">
+<h3>Wo finde ich Beispiele und Vorlagen?</h3>
+<p>Im Rahmen des Unterrichts wurden mehrere Fallstudien erarbeitet bzw.
+bereitgestellt, diese dienen Ihnen als ideale Vorlage.</p>
 <p>Eine Beispiel-Modellierung finden Sie in der Datei
 <code>Beispielanalyse-Prognose-Wettbewerb.Rmd</code>. Eine beispielhafte
 Vorlage (Template), die Sie als Richtschnur nutzen können, ist mit der
-Datei <code>Template-Vorhersagemodellierung.Rmd</code> <a href="https://github.com/sebastiansauer/vorhersagemodellierung/tree/main/Material">hier</a>
-bereitgestellt. Im Internet finden sich viele Fallstudien, von denen Sie
-sich inspirieren lassen können.</p>
+Datei <code>Template-Vorhersagemodellierung.Rmd</code> <a href="https://github.com/sebastiansauer/Lehre/blob/main/Hinweise/Prognosewettbewerb/Template-Vorhersagemodellierung.Rmd">hier</a>
+bereitgestellt.</p>
+<p>Im Internet finden sich viele Fallstudien, von denen Sie sich
+inspirieren lassen können.</p>
+</div>
+<div id="materialsammlung" class="section level3">
+<h3>Materialsammlung</h3>
+<p>In <a href="https://github.com/sebastiansauer/Lehre/tree/main/Hinweise/Prognosewettbewerb">diesem
+Ordner</a> finden Sie eine Materialsammlung zum Prognosewettbewerb.</p>
 </div>
 <div id="videos" class="section level3">
 <h3>Videos</h3>
