@@ -1,7 +1,9 @@
 ---
 title: "Vorlage Seminararbeit ResProj"
-output: word_document
+output: html_document
 date: '2022-06-21'
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -44,4 +46,33 @@ library(apaTables)
 apa.cor.table(mtcars_short, filename = "apa_test1.docx", table.number = 1)
 ```
 
+
+# Diagramme
+
+
+```{r}
+library(rstanarm)
+lm1 <- stan_glm(mpg ~ hp, data = mtcars, refresh = 0)
+```
+
+
+```{r}
+library(easystats)
+```
+
+```{r}
+parameters(lm1)
+```
+
+
+```{r }
+plot1  <- plot(parameters(lm1))
+plot1
+```
+
+Bild explizit abspeichern:
+
+```{r}
+ggsave(plot = plot1, filename = "plot1.png")
+```
 
