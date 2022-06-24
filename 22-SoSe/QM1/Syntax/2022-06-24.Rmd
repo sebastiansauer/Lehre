@@ -67,7 +67,23 @@ Um diese Frage zu beantworten,
 kann man deskriptive Statistik oder Visualisierung(en) bemühen.
 
 
+```{r}
+flights %>% 
+  ggplot() +
+  aes(x = dep_delay) +
+  geom_histogram() +
+  facet_wrap(~ origin)
+```
 
 
+
+Vielleicht besser mit Boxplots:
+
+```{r}
+flights %>% 
+  ggplot() +
+  aes(x = origin, y = dep_delay) +
+  geom_boxplot()
+```
 
 
