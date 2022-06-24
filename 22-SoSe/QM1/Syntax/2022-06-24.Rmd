@@ -106,4 +106,29 @@ flights %>%
             n())
 ```
 
+Nehmen wir mal eine Convenience-Funktion:
+
+```{r}
+library(easystats)
+```
+
+Achtug! `easystats` kann man nicht wie üblich installieren.
+
+
+```{r}
+flights %>% 
+  select(origin, dep_delay) %>% 
+  group_by(origin) %>% 
+  describe_distribution()
+```
+
+Das Paket `DataExplorer` ist auch ganz cool. Können Sie ja mal ausprobieren.
+
+```{r}
+library(DataExplorer)
+```
+
+```{r}
+plot_missing(flights)
+```
 
