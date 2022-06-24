@@ -132,3 +132,18 @@ library(DataExplorer)
 plot_missing(flights)
 ```
 
+[Hier](https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html) findet sich eine Einführung in das Paket.
+
+
+Wie wiele Zeilen ohne fehlende Werte gibt es im Datensatz (absolut und anteilig)?
+
+
+```{r}
+flights %>% 
+  drop_na() %>% 
+  nrow() 
+```
+
+
+Identifizieren Sie alle Flüge, deren Verspätung (Abflug) mehr als 3 SD über dem Mittelwer (aller Flüge) liegt!
+
