@@ -87,3 +87,23 @@ flights %>%
 ```
 
 
+
+Geben Sie die typischen deskriptiven Statistiken für `dep_delay` an, am besten runtergebrochen pro Abflugsort (`origin`).
+
+
+```{r}
+summary(flights)
+```
+
+Oder so:
+
+```{r}
+flights %>% 
+  drop_na(origin, dep_delay) %>% 
+  group_by(origin) %>% 
+  summarise(median(dep_delay),
+            IQR(dep_delay),
+            n())
+```
+
+
