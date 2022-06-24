@@ -1,6 +1,6 @@
 ---
 title: "Übung Extremwerte raushauen"
-output: word_document
+output: html_document
 date: '2022-06-24'
 author: Sebastian Sauer
 ---
@@ -145,5 +145,24 @@ flights %>%
 ```
 
 
-Identifizieren Sie alle Flüge, deren Verspätung (Abflug) mehr als 3 SD über dem Mittelwer (aller Flüge) liegt!
+Identifizieren Sie alle Flüge, deren Verspätung (Abflug) mehr als 3 SD über dem Mittelwert (aller Flüge) liegt!
+
+
+Tipp:
+
+```{r}
+is_extreme = dep_delay > mean(dep_delay) + 3*sd(dep_delay)
+```
+
+Weitere Tipps:
+
+Hey R,
+nimm Flights, und dann
+erzeuge eine Spalte "is_extreme" und zwar so wie oben definiert und dann
+filtere so, dass bei is_extreme nur TRUE steht
+
+
+
+
+
 
