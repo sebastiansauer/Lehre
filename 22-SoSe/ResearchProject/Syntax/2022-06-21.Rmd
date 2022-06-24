@@ -76,3 +76,50 @@ Bild explizit abspeichern:
 ggsave(plot = plot1, filename = "plot1.png")
 ```
 
+
+# Theme minimal bei ggplot
+
+
+
+```{r}
+ggplot(mtcars, aes(x = mpg)) + geom_density() +
+  theme_minimal()
+```
+
+
+
+
+# Faktorstufen umsortieren
+
+
+
+```{r}
+d <-
+  tibble(i01 = c("stimme voll und ganz zu", "stimme eher zu", "stimme überhaupt nicht zu"),
+         i01f = factor(i01, levels = c("stimme überhaupt nicht zu", "stimme eher nicht zu", "stimme eher zu", "stimme voll und ganz zu")))
+```
+
+
+
+# ANOVA und Signifikanz
+
+```{r}
+aov1 <- aov(mpg ~  hp + cyl, data = mtcars)
+aov1
+```
+
+
+```{r}
+apa.aov.table(aov1, filename = "Table4_APA.doc", table.number = 4)
+```
+
+# LM berichten mit APA-Tables
+
+
+```{r}
+lm1 <- lm(mpg ~  hp + cyl, data = mtcars)
+lm1
+apa.reg.table(lm1, filename = "table5_apa.doxc", table.number = 5)
+```
+
+
