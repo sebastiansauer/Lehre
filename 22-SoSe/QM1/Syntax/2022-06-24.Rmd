@@ -1,0 +1,73 @@
+---
+title: "Übung Extremwerte raushauen"
+output: word_document
+date: '2022-06-24'
+author: Sebastian Sauer
+---
+
+
+
+Hallo, R! Wie geht's!
+Mensch, immer diese STatistik. Wer 
+hat sich das eigentlich ausgedacht?
+Hätte ich gewusst, dass
+es so viel Statistik gibt im Studium
+
+Pakete starten:
+
+```{r}
+library(tidyverse)
+```
+
+
+Daten laden:
+
+```{r}
+data("flights", package = "nycflights13")
+```
+
+
+Was ist der Flug mit der größten Verspätung?
+
+```{r}
+flights %>% 
+  arrange(-dep_delay)
+```
+
+Sie könnten synonym auch schreiben:
+
+
+```{r}
+arrange(flights, -dep_delay)
+```
+
+Synonym:
+
+```{r}
+flights %>% 
+  drop_na(dep_delay) %>% 
+  filter(dep_delay == max(dep_delay))
+```
+
+Visualisieren Sie die Verteilung von `dep_delay` und entscheiden Sie, ob Extremwerte vorkommen, die
+besonderer Behandlung bedürfen!
+
+
+```{r}
+flights %>% 
+  ggplot() +
+  aes(x = dep_delay) +
+  geom_histogram()
+```
+
+
+Unterscheiden sich die New Yorker Flughäfen in ihrer (Verteilung) der Verspätung?
+
+Um diese Frage zu beantworten,
+kann man deskriptive Statistik oder Visualisierung(en) bemühen.
+
+
+
+
+
+
