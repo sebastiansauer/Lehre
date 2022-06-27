@@ -107,7 +107,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
     
 2. Inhaltliche Mängel
 
-  - Das Literaturverzeichnis ist sehr kurz (weniger als 10 Quellen).
+  - Das Literaturverzeichnis ist sehr kurz (weniger als 50% der empfohlenen Zahl von Quellen).
   - Die Qualität des Literaturverzeichnisses ist gering (über 50 % Quellen von zweifelhafter Qualität, z. B. aus Ratgeber-Büchern).
   - Die Lesbarkeit ist aufgrund der optischen Gestaltung oder gravierender Sprachmängel stark eingeschränkt (z. B. viele Rechtschreibfehler).
     
@@ -116,7 +116,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
   - Es wird keine Inferenzstatistik verwendet.
   - Zentrale Koeffizienten werden falsch interpretiert.
   - Es wird keine/kaum Deskriptiv-Statistik berichtet.
-  - Hypothesen und Datenanalyse passen nicht zusammen.
+  - Forschungsfragen bzw. Hypothese und Datenanalyse passen nicht zusammen.
     
     
     
