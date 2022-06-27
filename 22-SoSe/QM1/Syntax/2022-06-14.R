@@ -35,15 +35,25 @@ glimpse(d_test)
 # Datenjudo
 
 
+# Verteilung von Budget?
+
+ggplot(d_train, aes(x = budget)) + geom_density()
+
+
 d_train2 <-
   d_train %>%
   mutate(budget = case_when(
-    budget <= 0 ~ 10,
+    budget == 0 ~ 10,
     budget > 0 ~ budget
   )) %>% 
   mutate(budget_log = log(budget)) %>%
   select(budget_log, status, popularity, revenue) %>%
   drop_na()
+
+
+
+d_train2 %>% 
+  ggplot(aes(x = budget_log)) + geom_density()
 
 # Haben wir (viele) Zeilen verloren durch `drop_na()?
 nrow(d_train2)  # Nein, zum Glück nicht
@@ -54,7 +64,7 @@ head(d_train2)
 # Verteilung der Variablen betrachten:
 library(easystats)
 
-describe_distribution(d_train)
+describe_distribution(d_train2)
 
 ggplot(d_train) +
   aes(x = revenue) +

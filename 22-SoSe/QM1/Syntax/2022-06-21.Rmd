@@ -1,0 +1,47 @@
+---
+title: "Vorlage Seminararbeit ResProj"
+output: word_document
+date: '2022-06-21'
+---
+
+
+Hallo, hier spricht ein Mensch.
+
+# Tabellen exportieren
+
+
+## mit `kable()`
+
+```{r}
+library(tidyverse)
+library(knitr)
+```
+
+
+```{r}
+data(mtcars)
+```
+
+```{r}
+mtcars_short <- 
+mtcars %>% 
+  slice(1:10) %>% 
+  select(1:3)
+  
+mtcars %>% 
+  kable()
+```
+
+
+## Mit `apatables`
+
+
+```{r}
+library(apaTables)
+```
+
+```{r}
+apa.cor.table(mtcars_short, filename = "apa_test1.docx", table.number = 1)
+```
+
+
