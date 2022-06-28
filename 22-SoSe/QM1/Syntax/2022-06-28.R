@@ -33,5 +33,13 @@ lm0 <- lm(dep_delay ~ 1, data = flights_train2)
 
 lm1 <- lm(dep_delay ~ origin, data = flights_train2)
 
+# R2 bekommt man z.B. so:
+library(easystats)
+r2(lm1)
 
 
+
+
+flights_train2 %>% 
+  count(dest) %>% 
+  arrange(-n)
