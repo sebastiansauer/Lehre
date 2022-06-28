@@ -163,6 +163,24 @@ filtere so, dass bei is_extreme nur TRUE steht
 
 
 
+```{r}
+flights2 <- 
+  flights %>% 
+  drop_na(dep_delay) %>% 
+  mutate(is_extreme = dep_delay > mean(dep_delay) + 3*sd(dep_delay)) 
+```
+
+
+Legen wir mal einen Datensatz an, der nur Flüge ohne extreme Verspätung (wie oben definiert) enthält.
+
+```{r}
+flights3 <-
+  flights2 %>% 
+  filter(is_extreme == FALSE)
+```
+
+
+
 
 
 
