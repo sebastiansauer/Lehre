@@ -46,3 +46,24 @@ fit1 <-
   wf1 %>% 
   tune_grid(resamples = cv_scheme)
 
+
+show_best(fit1)
+
+wf1_final <-
+  wf1 %>% 
+  finalize_workflow(show_best(fit1))
+
+
+wf1_final
+
+
+# Modellgüte --------------------------------------------------------------
+
+
+
+fit1_final <-
+  wf1_final %>% 
+  last_fit(d_split)
+
+
+collect_metrics(fit1_final)
