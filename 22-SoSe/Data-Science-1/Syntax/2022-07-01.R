@@ -108,6 +108,8 @@ fit1_test <-
 
 head(fit1_test)
 
+# vgl: https://workflows.tidymodels.org/reference/predict-workflow.html
+
 
 # Submitten ---------------------------------------------------------------
 
@@ -119,3 +121,4 @@ subm_df <-
   select(id, .pred) %>% 
   rename(pred = .pred)
 
+#write_csv(subm_df, file = "submission_blabla.csv")
