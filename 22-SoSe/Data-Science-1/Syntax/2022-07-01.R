@@ -25,8 +25,24 @@ d_assessment <- testing(d_split)
 m1 <- 
   linear_reg()
 
+rec1 <-
+  recipe(body_mass_g ~ ., data = d_analysis) %>% 
+  step_impute_knn()
+
 
 wf1 <-
-  workflow(body_mass_g ~ .) %>% 
+  workflow() %>% 
+  add_recipe(rec1) %>% 
   add_model(m1)
-  
+
+
+cv_scheme <- vfold_cv(d_analysis)
+
+
+# Fitting ----------------------------------------------------------------
+
+
+fit1 <-
+  wf1 %>% 
+  tune_grid(resamples = cv_scheme)
+
