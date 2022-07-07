@@ -158,6 +158,10 @@ build_master_course_table <- function(course_dates_file,
     }  
   }
   
+  master_table <- 
+  master_table %>% 
+    mutate(KW = ifelse(KW > 52, KW-52, KW))
+  
   return(master_table)
   
 }
