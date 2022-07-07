@@ -1,368 +1,227 @@
-Thema1:
-  Titel: ERRRstkontakt
-
-  Lernziele:
-    - Sie kennen zentrale Begriffe im Kontext der Datenanalyse.
-    - Sie können den Unterschied zwischen Signal und Rauschen erklären.
-    - Sie können zentrale Kompetenzen im Berufsfeld Data Science nennen.
-    - Sie können R starten (installieren).
-    - Sie wissen, was R-Pakete sind und können sie installieren und starten.
-    - Sie können grundlegende Operationen in R durchführen, wie Variablen zuweisen und auslesen.
+thema1:
+  Titel: "Inferenz"
+  UnterTitel: "Was ist Inferenzstatistik und wozu ist sie gut?"
   Vorbereitung:
-    - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. die Videos an.
-    - Installieren Sie R, RStudio und die benötigten Pakete, falls noch nicht getan. Alternativ können Sie sich ein Konto bei RStudio Cloud anlegen und das RStudio Cloud Projekt zu diesem Modul nutzen (dann benötigen Sie keine Installation von R auf Ihrem Computer).
+    - Lesen Sie die Hinweise zum Modul.
+    - Installieren (oder Updaten) Sie die für dieses Modul angegeben Software.
+    - Lesen Sie die angegebene Literatur.
+  Lernziele:
+    - die Definition von Inferenzstatistik sowie Beispiele für inferenzstatistische Fragestellungen nennen
+    - zentrale Begriffe der Inferenzstatistik nennen und in Grundzügen erklären
+    - den Nutzen von Inferenzstatistik nennen
+    - erläutern, in welchem Zusammenhang Ungewissheit zur Inferenzstatistik steht
+    - Unterschiede zwischen klassischer und Bayes-Inferenz benennen
+    - Vor- und Nachteile der klassischen vs. Bayes-Inferenz diskutieren
+    - Die grundlegende Herangehensweise zur Berechnung des p-Werts informell erklären können
+
 
   Literatur:
-    - MODAR, Kap. 1-4
-  Videos:
-    - "[Playlist Lerntechniken](https://youtube.com/playlist?list=PLRR4REmBgpIFDcr72hs_Dp5lQbIPbDkz7)"
-    - "[Playlist ERRRstkontakt](https://youtube.com/playlist?list=PLRR4REmBgpIGlsCMQykiRsF6TH7PCqIIK)"
-    - "[umfangreiche, teils fortgeschrittene Playlist zu R](https://youtube.com/playlist?list=PLRR4REmBgpIEaIyeNBgNGPgmhQJ_T1y8_)"
-
-  Skript:
-    - "[Folienskript Thema 1](https://docs.google.com/presentation/d/1RWUE8nq835JdHveTymFvcYPH16J_V7PaNMQJcTCkUSs/edit?usp=sharing)"
-  Syntax:
-    - "[Syntax zu den Folien von Thema 1](https://sebastiansauer.github.io/vorhersagemodellierung/Skript-Syntax/QM1-Thema1-Skript-Syntax.html)"
-  Aufgaben:
-    - "Stellen Sie das Berufsbild 'Data Scientist' vor!"
-    - "Erstellen Sie ein Meme zum Thema Statistik bzw. Data Science!"
-    - "Erklären Sie die Installation von R (und seiner Freunde)!"
-    - "Erklären Sie, was man in der Mathe unter einer Funktion versteht!"
-    - "Fassen Sie die Literatur zum heutigen Thema zusammen (z.B. im Rahmen eines Mindmaps oder einer geteilten Dokuments)!"
-  Vertiefung:
-    - "[Berufsbild Data Scientist]()"
-    - "[Video: Data Science vs. Statistics](https://www.youtube.com/watch?v=uHGlCi9jOWY)"
-    - "[Zehn unverzichtbare Fertigkeiten für jeden Data Scientist](https://www.tableau.com/de-de/learn/articles/data-science-skills)"
-    - "[Data Science Memes](https://data-se.netlify.app/2021/02/23/data-science-memes/)"
-    - "[Data Science und das Scharnier zwischen Theorie und Praxis](https://towardsdatascience.com/the-anatomy-of-a-data-science-use-case-4fba716eeb5a)"
-    - "[Data Science Skills](https://www.udacity.com/blog/2014/11/data-science-job-skills.html)"
-    - "[Anatomie von Data Science](https://www.sames.io/the-anatomy-of-data-science-2/)"
-    - "[Infografik Data Scientist](https://cdn-infographic.pressidium.com/wp-content/uploads/Data-Scientist.jpg)"
-    - "[Video: Learning from eight years of data science mistakes](https://www.youtube.com/watch?v=O5lP6XcopdQ&list=PL9HYL-VRX0oQchs7dqFICoxMgnvFO10tC&index=13&t=1s)"
-    - "[Verdienst einer deutschen Data Scientistin](https://www.zeit.de/arbeit/2020-10/data-scientist-gehalt-geldanlage-programmieren-kontoauszug)"
-    - "[Hilfe zur Installation von R und RStudio](https://moderndive.com/1-getting-started.html#r-rstudio)"
-    - "[Einstieg in R mit dem 'R-Blitzkurs'](https://sebastiansauer.github.io/r-blitzkurs/)"
-    - "[Einführung in R von OpenIntro](http://openintrostat.github.io/oilabs-tidy/01_intro_to_r/intro_to_r.html)"
-    - "[Installationsanleitung für R und RStudio von ModernDive](https://moderndive.com/1-getting-started.html#r-rstudio)"
-    - "[Was sind R-Pakete? (ModernDive)](https://moderndive.com/1-getting-started.html#packages)"
-    - "[RStudio Cloud Project für dieses Modul](https://rstudio.cloud/project/3421620)"
-    - "[Tiefer gehender Online-Kurs zu R via Coursera (Johns Hopkins University)](https://www.coursera.org/learn/r-programming-environment#syllabus)"
-
+    - ROS, Kap. 1
 
   Hinweise:
     - "Bitte beachten Sie die Hinweise zum Präsenzunterricht und der Streamingoption."
-    - "Bitte stellen Sie sicher, dass Sie einen einsatzbereiten Computer haben und dass die angegebene Software läuft."
+    - "Bitte stellen Sie sicher, dass Sie einen einsatzbereiten Computer haben und dass die angegebene Software (in aktueller Version) läuft."
+  Vertiefung:
+  Aufgaben:
+  Videos:
 
 
-
-
-
-
-Thema2:
-
-  Titel: Datenimport
+thema2:
+  Titel: Wahrscheinlichkeit
   Lernziele:
-    - Sie können Daten (verschiedener Formate) in R importieren.
-    - Sie kennen einige Datenstrukturen in R.
-    - "Sie wissen, was 'tidy Data' ist."
-    - "Sie können 'unaufgeräumte' Datensätze bereinigen."
+    - Wahrscheinlichkeit definieren und relevante Begriffe anführen und in Grundzügen erklären
+    - einfache Fragen aus der Wahrscheinlichkeitstheorie berechnen
+
+
+
+
+
+
+thema3:
+  Titel: "Wissen updaten"
+
+  Literatur:
+    - "Rhys, Kap. 2"
+    - "MODAR, Kap. 5"
+
+  Lernziele:
+    - die Unterschiede zwischen einem Modell und der Realität erkären und anhand eines Beispiels verdeutlichen
+    - das rechnerische Prinzip des Wissen updaten an einem konkreten Beispiel erläutern und nachrechnen
+    - Die Posteriori-Wahrscheinlichkeit eines einfaches Bayes-Modells berechnen, in R programmieren und die wesentlichen Schritte erläutern
   Vorbereitung:
     - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. die Videos an.
-  Literatur:
-    - MODAR, Kap. 5-6
-    - "[Data Organization in Spreadsheets](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)"
-  Videos:
-    - "[Playlist Datenstrukturen in R](https://youtube.com/playlist?list=PLRR4REmBgpIGet_lcNf2wOd0W8j4c9hYN)"
-  Vertiefung:
-    - "[Warum kann man mit dieser (Excel-)Tabelle schlecht arbeiten, obwohl sie schön anzuschauen ist?](https://miro.medium.com/max/1400/1*-dgXuTPTQGXMQNrvgVa5UA.png)"
-    - "[Wie Excel nicht zur Hölle wird](https://github.com/datascibc/Data-Science-for-Docs/wiki/Excel-hell)"
-    - "[Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)"
-  Skript:
-  Syntax:
-  Uebung:
-    - "[Fassen Sie das Paper 'Data Organization in Spreadsheets' zusammen](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)"
   Aufgaben:
-    - "[Fassen Sie das Paper 'Data Organization in Spreadsheets' zusammen](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)"
-    - "[Aufgaben HTML](https://sebastiansauer.github.io/vorhersagemodellierung/Aufgaben/Thema2-Aufgaben1.html)"
-    - "[Lösungen HTML](https://sebastiansauer.github.io/vorhersagemodellierung/Aufgaben/Thema2-Loesungen1.html)"
-    - "[Aufgaben PDF](https://sebastiansauer.github.io/vorhersagemodellierung/Aufgaben/Thema2-Aufgaben1.pdf)"
+
+  Vertiefung:
+
+
+
+
+
+
+
+
+
+
+thema4:
+  Titel: "Postverteilung"
+  Lernziele:
+    - erläutern und mit R berechnen, wie man eine Posteriori-Verteilung erstellt
+    - erläutern und mit R berechnen, wie man Stichproben aus der Posteriori-Verteilung zieht
+    - wesentliche Forschungsfragen, wie nach Intervallen und Punktschätzwerten, anhand der Stichproben aus der Posteriori-Verteilung beantworten
+    - erläutern, was eine Posteriori-Prädiktiv-Verteilung ist, und inwiefern Sie vor Übergewissheit schützt
+    - eine Modellprüfung für das Beispiel aus dem Unterricht anhand der Posteriori-Prädiktiv-Verteilung durchführen
+
+  Vorbereitung:
+  Literatur:
+  Aufgaben:
+
+
+
+
+
+
+thema5:
+  Titel: "Gaussmodelle"
+  Lernziele:
+     - erklären, was eine Verteilung ist und welche Varianten es gibt
+     - wissen um den ontologischen Bedingungszusammenhang einer Normalverteilung; sie können erklären, wie eine Normalverteilung entsteht
+     - ein Gaussmodell spezifizieren und R berechnen
+     - an Beispielen verdeutlichen, wie sich eine vage bzw. eine informationsreiche Priori-Verteilung auf die Posteriori-Verteilung auswirkt
+  Literatur:
+  Aufgaben:
+
+
+
+thema6:
+  Titel: "Lineare Modelle"
 
   Hinweise:
-
-
-
-Thema3:
-
-  Titel: Datenjudo
   Lernziele:
-    - Sie können Daten in R aufbereiten mit dem Tidyverse.
+    - die Post-Verteilung für einfache lineare Modelle in R berechnen
+    - zentrale Informationen zu Modellparametern - wie Lage- oder Streuungsmaße und auch Schätzintervalle - aus der Post-Verteilung herauslesen
+    - künftige, laut Modell zu erwartende Beobachtungen mit der PPV simulieren
+  Aufgaben:
+
+
+
+
+thema7:
+  Titel: "Metrische AV"
+  Lernziele:
+     - typische, deskriptive Forschungsfragen spezifizieren als Regression
+     - Forschungsfragen in Regressionsterme übersetzen
+     - typische Forschungsfragen auswerten
   Vorbereitung:
     - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
+
   Literatur:
-    - MODAR, Kap. 7
-  Videos:
-    - "[Playlist Datenjudo](https://youtube.com/playlist?list=PLRR4REmBgpIGet_lcNf2wOd0W8j4c9hYN)"
+
   Vertiefung:
-    - "[Kurs bei datacamp zum Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse)"
-    - "[learnr-Tutorial zu dplyr](https://allisonhorst.shinyapps.io/dplyr-learnr/)"
-    - "[R4DS, Kap. 5](https://r4ds.had.co.nz/transform.html)"
-  Skript:
-  Syntax:
+    - "[Fields arranged by purity, xkcd 435](https://xkcd.com/435/)"
   Aufgaben:
-  Hinweise:
+    - "Arbeiten Sie sich so gut als möglich durch [diese Analyse zum Verlauf von Covid-Fällen](https://github.com/sebastiansauer/covid-icu)"
+    - "[Fallstudie zur Modellierung einer logististischen Regression mit tidymodels](https://onezero.blog/modelling-binary-logistic-regression-using-tidymodels-library-in-r-part-1/)"
+    - "[Fallstudie zu Vulkanausbrüchen](https://juliasilge.com/blog/multinomial-volcano-eruptions/)"
+    - "[Fallstudie Himalaya](https://juliasilge.com/blog/himalayan-climbing/)"
 
 
 
+thema8:
+  Titel: "Projektwoche"
+  Hinweise: "Kein regulärer Unterricht"
 
-Thema5:
-  Titel: Deskriptive Statistik, Teil 1
-
-  Lernziele:
-    - Sie beherrschen grundlegende Operationen der univariaten deskriptiven Statistik sowohl für Lage- als auch Streuungsmaße.
-  Literatur:
-    - MODAR, Kap. 8
-  Vorbereitung:
-    - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
-  Hinweise:
-    - In dieser Woche fällt die Übung aus (Ostern)
-  Videos:
-    - "[Playlist zur deskriptiven Statistik](https://www.youtube.com/playlist?list=PLRR4REmBgpIFLDj6SFpwOKnfGVbkoI9JI)"
-    - "[Playlist Explorative Datenenanalyse (EDA)](https://youtube.com/playlist?list=PLRR4REmBgpIFFmLRZvyPcI07CPn7OnmqH)"
-  Skript:
-  Syntax:
-  Aufgaben:
-  Vertiefung:
-
-
-Thema5a:
-  Titel: Deskriptive Statistik, Teil 2
-  Lernziele:
-    - Sie verstehen die Grundkonzepte der Korrelation und können diese in R berechnen.
-  Literatur:
-    - MODAR, Kap. 8
-  Vorbereitung:
-    - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
-
-  Hinweise:
-    -
-  Videos:
-    - "[Playlist zur deskriptiven Statistik](https://www.youtube.com/playlist?list=PLRR4REmBgpIFLDj6SFpwOKnfGVbkoI9JI)"
-    - "[Playlist Explorative Datenenanalyse (EDA)](https://youtube.com/playlist?list=PLRR4REmBgpIFFmLRZvyPcI07CPn7OnmqH)"
-  Skript:
-  Syntax:
-  Aufgaben:
-  Vertiefung:
-
-
-
-Thema6:
-  Titel: Aufholwoche
-
-  Lernziele:
-    - Sie vertiefen Ihr Wissen in den bisher gelernten Themen.
-    - Sie schließen etwaige Lernlücken individuell und selbständig.
-  Hinweise:
-    - In dieser Woche fällt die Vorlesung aus (Ostern).
-  Skript:
-  Syntax:
-  Aufgaben:
-  Vertiefung:
-  Literatur:
+thema9:
+  Titel: "Fallstudien"
   Vorbereitung:
 
-
-
-Thema7:
-  Titel: Praxisprobleme der Datenaufbereitung
-
   Lernziele:
-    - Sie wissen mit typischen Problemen der Datenaufbereitung umzugehen, wie mit fehlenden Werten, Datenanomalien oder Formatänderung der Tabelle.
-    - Sie kennen die grundlegenden Eigenschaften der Normalverteilung.
-  Vorbereitung:
-    - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
+    - Bayes-Modellierung in einen angewandten Kontext anwenden können und die Grenzen aufzeigen können
+    - aktuelle Themen - am Beispiel hier der Corona-Pandemie - aufgreifen können und zentrale Statistiken nachprüfen können
+
   Literatur:
-    - MODAR, Kap. 9
-  Videos:
-    - "[Playlist Praxisprobleme der Datenanalyse](https://youtube.com/playlist?list=PLRR4REmBgpIEEt2fWPz_UovZsXFfr5HJT)"
-  Skript:
-  Syntax:
+    - "Rhys, Kap. 4"
   Aufgaben:
+    - "[Fallstudien zu Studiengebühren](https://juliasilge.com/blog/tuition-resampling/)"
+    - "[1. Modell der Fallstudie Hotel Bookings](https://www.tidymodels.org/start/case-study/)"
+    - "[Aufgaben zur logistischen Regression, PDF](https://github.com/sebastiansauer/datascience1/blob/main/Aufgaben/Thema8-Loesungen1.pdf)"
   Vertiefung:
-  Hinweise:
+    - "[Fallstudie Diabetes mit logististischer Regression](https://medium.com/the-researchers-guide/modelling-binary-logistic-regression-using-tidymodels-library-in-r-part-1-c1bdce0ac055)"
 
 
-Thema8:
-  Titel: Datenvisualisierung
 
+
+thema10:
+  Titel: "Kausalanalyse 1"
   Lernziele:
-    - Sie können Daten visualisieren, um wesentliche Einsichten zu vermitteln.
-  Literatur:
-    - MODAR, Kap. 11
-    - "Wilke: [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)"
-  Vorbereitung:
-    - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
-  Videos:
-    - "[Playlist Data-Viz/ggplot](https://youtube.com/playlist?list=PLRR4REmBgpIHzLSsI45bCoiBWOqXgD6Dy)"
-  Vertiefung:
-    - "[From Data to Viz](https://www.data-to-viz.com/)"
-    - "[The R Graph Gallery](https://www.r-graph-gallery.com/index.html)"
-  Skript:
-  Syntax:
+    - erklären, wann eine Kausalaussage gegeben eines DAGs berechtigt ist
+    - die Atome der Kausalität eines DAGs benennen
+
+
+
+
+
+thema11:
+  Titel: "Kausalanalyse 2"
+  Lernziele:
+    - kausale Hintertüren schließen
+
+
+
+
+thema12:
+  Titel: "Binäre AV"
+  Lernziele:
+    - Regressionsmodelle für binäre AV berechnen
+    - einen Logit in Wahrscheinlichkeit umrechnen
+    - logistische Regressionsmodelle interpretieren und kritisieren
+
+
   Aufgaben:
+
   Hinweise:
 
-
-Thema9:
-  Titel: Fallstudie zur EDA
-
-  Lernziele:
-    - Sie können die gelernten Techniken der explorativen Datenanalyse praktisch anwenden.
-  Vorbereitung:
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
   Literatur:
-    NA: NA
-  Videos:
-    - "[Playlist YACSDAs](https://youtube.com/playlist?list=PLRR4REmBgpIGet_lcNf2wOd0W8j4c9hYN)"
+  Vertiefung:
+
+
+thema13:
+  Titel: "Weihnachten"
+  Hinweise: "Weihnachten. Kein Unterricht"
+  
+  
+thema14:
+  Titel: "Neujahr"
+  Hinweise: "Kein Unterricht"
+
+
+
+
+
+
+
+
+
+
+thema15:
+  Titel: "Abschluss"
+  Lernziele:
+    - erläutern, wie Sie eine typische, sozialwissenschaftliche Forschungsfrage (quantitativ) untersuchen
+    - typische "Lieblingsfehler" benennen und Wege aufzeigen, um die Fehler zu umgehen
+    - zwischen den Grundkonzepten der Frequentististischen Statistik und der Bayes-Statistik übersetzen
+    - die Grundideen der Bayes-Statistik in eine Gesamtzusammenhang einordnen
+
+  Literatur:
+    - "Rhys, Kap. 11"
+
   Aufgaben:
-    - "[TopGear](https://data-se.netlify.app/2021/02/11/yacda-topgear/)"
-    - "[OECD Wellbeing](https://data-se.netlify.app/2021/02/11/explorative-datenanalyse-zum-datensatz-oecd-wellbeing/)"
-    - "[IMDB Filmbewertungen](https://minimaxir.com/2018/07/imdb-data-analysis/)"
-    - "[Women in Parliament](https://github.com/saghirb/WiP-tidyverse/blob/master/doc/WiP-tidyverse.pdf)  "
+    - "[Fallstudie Serie The Office](https://juliasilge.com/blog/lasso-the-office/)"
+    - "[Fallstudie NBER Papers](https://juliasilge.com/blog/nber-papers/)"
 
-  Skript:
-  Syntax:
-  Vertiefung:
   Hinweise:
+    - "Rhys und ISLR sind eine gute Quelle zum Einstieg in das Thema"
 
 
-Thema10:
-  Titel: Modellieren
-
-  Lernziele:
-    - Sie verstehen die Methoden des Modellierens.
-  Literatur:
-    - MODAR, Kap. 15
-  Vorbereitung:
-    - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
-
-  Videos:
-    - "[Playlist zum statistischen Modellieren](https://www.youtube.com/playlist?list=PLRR4REmBgpIGWcSjrtt0m36aXHLaiTgdF)"
-  Skript:
-  Syntax:
-  Aufgaben:
-  Vertiefung:
-  Hinweise:
-
-
-Thema11:
-  Titel: Regression
-
-  Lernziele:
-    - Sie verstehen die Grundkonzepte der Regression und können diese in R anwenden.
-  Literatur:
-    - MODAR, Kap. 18
-  Vorbereitung:
-    - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
-  Videos:
-    - "[Playlist Vorhersage-Modellierung](https://youtube.com/playlist?list=PLRR4REmBgpIH6uG8LZWPTSMReX1OFxfUx)"
-  Hinweise:
-    - Nächste Woche ist Blockwoche; es findet kein regulärer Unterricht statt.
-    - Diese Woche fällt die Übung aus.
-  Vertiefung:
-    - "[App zur Verdeutlichung der Minimierung der Fehlerbalken](https://paternogbc.shinyapps.io/SS_regression/)"
-    - "[Playlist von OpenIntro zur Regression](https://www.youtube.com/playlist?list=PLkIselvEzpM63ikRfN41DNIhSgzboELOM)"
-    - "[Studie auf Basis einer Regressionsanalyse zu Vorurteilen bei Corona](https://journals.sagepub.com/doi/10.1177/1090198120957949)"
-    - "[Korrelationen raten](https://gallery.shinyapps.io/correlation_game/)"
-  Skript: NA
-  Syntax: NA
-  Aufgaben: NA
-
-
-Thema11a:
-  Titel: KEIN UNTERRICHT in dieser Woche
-
-
-
-Thema12:
-  Titel: Wiederholung
-
-  Lernziele:
-    - Sie vertiefen Ihr Wissen in den bisher gelernten Themen.
-  Hinweise:
-    - In dieser Woche fällt die Vorlesung aus (Pfingsten).
-  Skript:
-  Syntax:
-  Aufgaben:
-  Vertiefung:
-  Literatur:
-  Vorbereitung:
-  Videos:
-
-
-
-
-
-Thema13:
-  Titel: Fallstudie zur Regression
-
-  Lernziele:
-    - Sie können die gelernten Techniken der Regressionsanalyse praktisch anwenden.
-  Vorbereitung:
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
-  Literatur:
-    NA: NA
-  Videos:
-    - "[Playlist YACSDAs](https://youtube.com/playlist?list=PLRR4REmBgpIGet_lcNf2wOd0W8j4c9hYN)"
-  Aufgaben:
-    - "[Movies](https://data-se.netlify.app/2020/11/13/fallstudie-zur-regressionsanalyse-ggplot2movies/)"
-    - "[Playlist YACSDAs](https://youtube.com/playlist?list=PLRR4REmBgpIGet_lcNf2wOd0W8j4c9hYN)"
-  Skript:
-  Syntax:
-  Vertiefung:
-  Hinweise:
-
-
-
-Thema14:
-  Titel: Klassifikation
-
-  Lernziele:
-    - Sie verstehen die Grundkonzepte der logistischen Regression und können diese in R anwenden.
-  Literatur:
-    - MODAR, Kap. 19
-  Vorbereitung:
-    - Lesen Sie die Literatur.
-    - Sehen Sie sich ggf. das Video zum Folienskript an.
-  Skript:
-  Syntax:
-  Aufgaben:
-  Vertiefung:
-  Hinweise:
-  Videos:
-
-Thema15:
-  Titel: Vertiefung
-
-  Lernziele:
-    - Sie erwerben tieferes Wissen in den Stoffgebieten dieses Kurses.
-  Hinweise:
-    - Nach dieser Woche endet der Unterricht.
-  Skript:
-  Syntax:
-  Aufgaben:
-  Vertiefung:
-  Literatur:
-  Videos:
-  Vorbereitung:
 
 
 

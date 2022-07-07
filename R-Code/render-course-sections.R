@@ -48,6 +48,7 @@ compute_course_dates <- function(dates_file,  # input yaml file with dates
   
   #new:
   which_id_no_teaching <- match(weeks_vec, dates$weeks_off) %>% (negate(is.na)) %>% which()
+  teaching_vec[which_id_no_teaching] <- FALSE
   
   # old:
   #teaching_vec[dates$weeks_off] <- FALSE
