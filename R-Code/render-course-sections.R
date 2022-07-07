@@ -45,7 +45,13 @@ compute_course_dates <- function(dates_file,  # input yaml file with dates
   week1 <-  week(ymd(dates$first_day))
   weeks_vec <- week(ymd(dates$first_day)):(week(ymd(dates$first_day))+dates$weeks_n-1)
   teaching_vec <- rep(TRUE, dates$weeks_n)
-  teaching_vec[dates$weeks_off] <- FALSE
+  
+  #new:
+  which_id_no_teaching <- match(weeks_vec, dates$weeks_off) %>% (negate(is.na)) %>% which()
+  
+  # old:
+  #teaching_vec[dates$weeks_off] <- FALSE
+  
   teaching_comments <- rep(NA, dates$weeks_n)
   
   # compute the comments for each week:
