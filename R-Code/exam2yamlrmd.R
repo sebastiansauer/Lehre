@@ -5,6 +5,7 @@ exam2yamlrmd <- function(examfile,
                          ex_sol_str = c("Exercise", "Solution", "Categories"),
                          print_categories = FALSE,
                          separate_ex_sol = rep("</br>", 10),
+                         verbose = TRUE,
                          header_level = 1){
   # This function reads a R/exams exercise file and converts it to a yaml-headed Rmd file.
   
@@ -16,6 +17,7 @@ exam2yamlrmd <- function(examfile,
     
     require(stringr) 
     
+    stopifnot(file.exists(examfile))
     ex_str <- readLines(examfile)
     
     
@@ -60,6 +62,8 @@ exam2yamlrmd <- function(examfile,
     
     return(examfile_info)
     
+    if (verbose) cat("Exam exercise file has been parsed.\n")
+    
   }
   
 
@@ -87,9 +91,11 @@ exam2yamlrmd <- function(examfile,
     paste0(path_output_ex, "/", ex_parsed$ex_metadata_yaml$exname,".Rmd")
   
   if (!file.exists(path_output_ex)) 
-      dir.create(path = path_output)
+      dir.create(path = path_output_ex)
   
   write_lines(yamlrmdfile, filename_output)
+  
+  if (verbose) cat("Yaml-Rmd-Exercise file has been written to output dir.\n")
 
 }
 

@@ -3,7 +3,7 @@ source()
 
 examfile <- "/Users/sebastiansaueruser/github-repos/rexams-exercises/exercises/sebastiansauer/de/Statistical-Learning/predictioncontest1.Rmd"
 
-
+examfile <- "/Users/sebastiansaueruser/github-repos/rexams-exercises/exercises/sebastiansauer/de/Regression/adjustieren1.Rmd"
 
 path_output <- "/Users/sebastiansaueruser/github-repos/datenwerk/content/post"
 
