@@ -54,6 +54,13 @@ exam2yamlrmd <- function(examfile,
     ex_metadata_yaml$slug <- title
     ex_metadata_yaml$title <- title
     
+    # we need at least 2 values, otherwise yaml won't take it as a vector, which will then in turn not work in blogdown:
+    if (length(ex_metadata_yaml$tags) == 1) ex_metadata_yaml$tags <- 
+      c(ex_metadata_yaml$tags, "stats")
+    if (length(ex_metadata_yaml$categories) == 1) ex_metadata_yaml$categories <- 
+      c(ex_metadata_yaml$categories, "stats")
+    
+    
     examfile_info <- 
       list(ex_question = ex_question,
            ex_solution = ex_solution,
