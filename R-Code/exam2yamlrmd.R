@@ -17,6 +17,8 @@ exam2yamlrmd <- function(examfile,
     
     require(stringr) 
     
+    require(lubridate)
+    
     stopifnot(file.exists(examfile))
     ex_str <- readLines(examfile)
     
@@ -58,7 +60,7 @@ exam2yamlrmd <- function(examfile,
     if (length(ex_metadata_yaml$tags) == 1) ex_metadata_yaml$tags <- 
       c(ex_metadata_yaml$tags, "stats")
     if (length(ex_metadata_yaml$categories) == 1) ex_metadata_yaml$categories <- 
-      c(ex_metadata_yaml$categories, "stats")
+      c(ex_metadata_yaml$categories, Sys.Date() %>% lubridate::year())
     
     
     examfile_info <- 
