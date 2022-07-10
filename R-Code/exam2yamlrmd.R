@@ -95,7 +95,7 @@ exam2yamlrmd <- function(examfile,
   
   write_lines(yamlrmdfile, filename_output)
   
-  if (verbose) cat("Yaml-Rmd-Exercise file has been written to output dir.\n")
+  if (verbose) cat(paste0("Yaml-Rmd-Exercise file has been written to output dir: ",filename_output, "\n"))
 
 }
 
