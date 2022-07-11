@@ -58,7 +58,9 @@ exam2yamlrmd <- function(examfile,
     title <- str_extract(examfile, "([^/]+$)") %>% 
       str_remove("\\.Rmd")
     
-    ex_metadata_yaml <- ex_metadata %>% yaml.load()
+    # remove backticks from metadata, as it cannot be parsed:
+    ex_metadata_clean <- str_remove_all(ex_metadata, "`")
+    ex_metadata_yaml <- ex_metadata_clean %>% yaml.load()
     
     ex_metadata_yaml$date <- as.character(Sys.Date())
     ex_metadata_yaml$slug <- title
