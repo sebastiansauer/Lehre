@@ -26,16 +26,18 @@ write_yamlrmdfile <- function(ex_parsed,
       str_c(c(header_level_hashes, " ", ex_sol_str[2]), collapse = ""), "",
       ex_parsed$ex_solution, "")
   
+  # add "categories" if desired:
   if (print_categories) {
     yamlrmdfile <-
       c(yamlrmdfile,"", "---", "", paste0(ex_sol_str[3], ": "), "", as.yaml(ex_parsed$ex_metadata_yaml$categories))
   }
   
+  # build path:
+  path_output_ex <- paste0(path_output,"/", ex_parsed$ex_metadata_yaml$title)
   
-  path_output_ex <- paste0(path_output,"/", ex_parsed$ex_metadata_yaml$exname)
-  
+  # add filename
   filename_output <- 
-    paste0(path_output_ex, "/", ex_parsed$ex_metadata_yaml$exname,".Rmd")
+    paste0(path_output_ex, "/", ex_parsed$ex_metadata_yaml$title,".Rmd")
   
   if (!file.exists(path_output_ex)) 
     dir.create(path = path_output_ex)

@@ -13,8 +13,7 @@ exam2yamlrmd <- function(examfile,
   
   ex_parsed <- parse_examfile(examfile = examfile)
   
- source("")
-  
+ source("https://raw.githubusercontent.com/sebastiansauer/Lehre/main/R-Code/write_yamlrmdfile.R")
 
   write_yamlrmdfile(ex_parsed, 
                     path_output, 
