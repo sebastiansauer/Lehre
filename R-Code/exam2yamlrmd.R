@@ -23,6 +23,14 @@ exam2yamlrmd <- function(examfile,
     ex_str <- readLines(examfile)
     
     
+    # get pre-question:
+    
+    start_pos <- 1
+    end_pos <- which(ex_str == "Question")
+    ex_pre_question <-
+      ex_str[1:(end_pos-1)]
+    
+    
     # get question:
     
     start_pos <- which(ex_str == "Question")
@@ -64,10 +72,12 @@ exam2yamlrmd <- function(examfile,
     
     
     examfile_info <- 
-      list(ex_question = ex_question,
-           ex_solution = ex_solution,
-           ex_metadata = ex_metadata_yaml %>% as.yaml(),
-           ex_metadata_yaml = ex_metadata_yaml)
+      list(
+        ex_pre_question = ex_pre_question,
+        ex_question = ex_question,
+        ex_solution = ex_solution,
+        ex_metadata = ex_metadata_yaml %>% as.yaml(),
+        ex_metadata_yaml = ex_metadata_yaml)
     
     return(examfile_info)
     
@@ -79,14 +89,24 @@ exam2yamlrmd <- function(examfile,
   ex_parsed <- parse_examfile(examfile = examfile)
 
     header_level_hashes <- rep("#", header_level) %>% str_c(collapse = "")
-  
-  yamlrmdfile <- 
-    c("---", ex_parsed$ex_metadata, "---", "", "", 
-      str_c(c(header_level_hashes, " ", ex_sol_str[1]), collapse = ""), "",
-      ex_parsed$ex_question, "", 
-      separate_ex_sol, "",
-      str_c(c(header_level_hashes, " ", ex_sol_str[2]), collapse = ""), "",
-      ex_parsed$ex_solution, "")
+    
+    
+    
+  # now build the yaml-rmd file:
+    yamlrmdfile <- 
+      # metadata:
+      c("---", ex_parsed$ex_metadata, "---", "", "",
+        # pre-question:
+        ex_parsed$ex_pre_question, "",
+        # header for "Exercise":
+        str_c(c(header_level_hashes, " ", ex_sol_str[1]), collapse = ""), "",
+        # exercise:
+        ex_parsed$ex_question, "", 
+        # separation between exercise and solution:
+        separate_ex_sol, "",
+        # solution:
+        str_c(c(header_level_hashes, " ", ex_sol_str[2]), collapse = ""), "",
+        ex_parsed$ex_solution, "")
   
   if (print_categories) {
     yamlrmdfile <-
@@ -102,7 +122,7 @@ exam2yamlrmd <- function(examfile,
   if (!file.exists(path_output_ex)) 
       dir.create(path = path_output_ex)
   
-  write_lines(yamlrmdfile, filename_output)
+  writeLines(text = yamlrmdfile, con = filename_output)
   
   if (verbose) cat(paste0("Yaml-Rmd-Exercise file has been written to output dir: ",filename_output, "\n"))
 
