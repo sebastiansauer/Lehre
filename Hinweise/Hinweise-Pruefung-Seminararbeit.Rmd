@@ -64,14 +64,17 @@ params:
 
 ### Aspekte der Benotung
 
-1. Es wird eine Gesamtnote und drei Teilnoten vergeben.
+1. Es wird eine Gesamtnote vergeben und ggf. drei Teilnoten.
 
-2. Die Gesamtnote muss sich nicht als arithmetisches Mittel der Teilnoten ergeben.
+2. Die Gesamtnote setzt sich aus drei Teilaspekten zusammen.
 
-2. Die Teilnoten sind
+2. Die drei Teilaspekte sind
     - *Formalia* (u.a. Aufbau, Gestaltung, Rechtschreibung, Zitierweise, Literaturverzeichnis, Umfang)
     - *Methodik* (u.a. Methodenauswahl, Methodenanwendung, Interpetation)
     - *Inhalt* (u.a. Gliederung, Argumentation, Literaturnutzung, sprachlicher Ausdruck, Problemlösung, Reflexion)
+    
+2. Falls Teilnoten vergeben werden, muss sich die Gesamtnote *nicht* als arithmetisches Mittel der Teilnoten ergeben.
+
     
     
 ### Anspruch
@@ -86,7 +89,7 @@ params:
       - Experimentell: 2-3 Variablen
       - Beobachtend: 3-4 Variablen
 
-2. Nichteinhaltung der Regeln bzw. der Hinweise kann zum Durchfallen oder schlechterer Note führen.
+2. Nichteinhaltung der Regeln bzw. der Hinweise kann zu Nichtbestehen oder einer schlechterer Note führen.
 
 
 
@@ -279,6 +282,23 @@ Hier sind einige typische Fragen, die sich Lesis - implizit oder explizit - stel
 - *Was nützt es mir?* --> Sinn, Zweck, Ziel und Bedeutung in der Einleitung aufzeigen, Praxisnutzen herausstellen, ggf. Checklisten, Leitfäden etc. erstellen
 - *Was soll ich jetzt tun?* --> Geben Sie Handlungsempfehlungen, ggf. „Kochrezepte“, wie in einer bestimmten Situation vorzugehen ist, z. B. Typologien beschreiben
 - *So what?*  -->  Tja, und nun :-)
+
+
+
+### Hinweise zur Benotung
+
+
+- Wenn es sich um eine Gruppenarbeit handelt, sind alle Kommentare des Gutachters mit dem Namen (bzw. Namenskürzel) derjenigen Person versehen, an die der Kommentar gerichtet ist.
+- In die Note (eines bestimmten Gutachtens) fließen nur Abschnitt ein, die von der/dem angegebenen Verfasser:in verfasst wurden sowie diejenigen Abschnitte, die nicht namentlich gekennzeichnet wurden (nur relevant bei Gruppenarbeiten).
+- Ein Teil des Gesamteindrucks der Arbeit spiegelt sich in den Kommentaren des Gutachters wider. Jedoch spiegelt die Summe der Kommentare nicht (zwangsläufig) die Gesamtnote wider, sondern nur denjenigen Teil, für den der Gutachter es für sinnvoll befunden hat, explizite Kommentare anzugeben.
+- Es ist insbesondere nicht möglich, von der Anzahl der positiven oder negativen Kommentare auf eine bestimmte Note zurückzuschließen.
+- Auch Vergleiche zwischen Gutachten verschiedener Student/innen ist nicht rein auf Basis der Kommentare möglich, da die Kommentare nur einen Ausschnitt des Meinungsbilds des Gutachters widerspiegeln.
+- Die Kommentare des Gutachters verfolgen erstens den Zweck einer Rückmeldung zum Leistungsstand und zweitens Hilfestellung zur Verbesserung, damit der/die entsprechend Student/in den eigenen Leistungsstand verbessern kann.
+- Weitere Hinweise zur Notengebung und Beurteilung sind auf der Modulseite bzw. den offiziellen Regularien und Hinweisen zu finden.
+
+
+
+
 
 
 
