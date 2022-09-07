@@ -16,7 +16,6 @@ acht <- 4+4
 
 
 die_antwort <- 42
-
 die_antwort
 
 
@@ -45,4 +44,30 @@ beste_freunde <- c("Schorsch", "Willy")
 neuer_freund <- "Anna"
 
 alle_freunde <- c(beste_freunde, neuer_freund)
+
+# Aufgaben 
+# 1) Definieren Sie eine Liste (Vektor) mit den Werten 1,2,3!
+# 2) Wenden Sie den Befehl `mean()` auf diesen Vektor an!
+
+
+# ad 1:
+mein_vektor <- c(1, 2, 3)  # Strng-Enter
+
+# ad 2:
+mean(mein_vektor)
+
+# Beachten Sie die Unterordner:
+kidiq <- read_csv("data/kidiq.csv")
+
+
+# AUFGABE:
+# Finden Sie die Datei "penguins.csv" im Internet ("PalmerPenguins")!
+# Verstehen Sie, worum es da geht.
+# Laden Sie diese Datei herunter und speichern Sie sie in einem geeigneten Ordner.
+# Importieren Sie diese Datendatei in Ihr R.
+
+
+
+
+
 
