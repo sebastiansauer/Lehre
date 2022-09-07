@@ -119,6 +119,27 @@ Im Falle eines technischen Problems auf Seiten der *Prüfungsinfrastruktur* ist 
 Für die Open-Book-Prüfungg gilt die aktuelle Prüfungsordnung; die Open-Book-Prüfung fällt *nicht* unter die BayFEV. 
 
 
+## Bitte formulieren Sie Beanstandungen nachvollziehbar
+
+Falls Sie einen Fehler in einer Aufgabenstellung finden (die der Prüfer zu bestanden hat): Freuen Sie sich! In diesem Fall wird zu Ihren Gunsten entschieden.
+
+Damit ich Ihre Beanstandung prüfen kann, ist es nötig, dass ich Ihre *Beanstandung* nachprüfen kann: *Zeigen* Sie mir meinen Fehler. 
+Es reicht *nicht* zu sagen "es hat bei mir nicht funktioniert". 
+Wenn Sie etwa der Meinung sind, dass es die Variable "year" im Datensatz "penguins" nicht gebe, dann schicken Sie mir den R-Code,
+der an ansprechender Stelle einen Fehler aufwirft (aber *ansonsten lauffähig* ist). 
+Ein Screenshot kann in einigen Situationen helfen,
+wenn aber nur ein Teil der Syntax zu sehen ist, ist er nicht ausreichend: Wenn der Befehl `data(penguins)` nicht funktioniert, 
+so ist zu prüfen, ob Sie vorab mit `library(palmerpenguins)` das relevante Paket gestartet haben. 
+Andernfalls kann `data(penguins)` nicht funktionieren und der Fehler läge damit bei Ihnen.
+
+[Hier](https://data-se.netlify.app/2022/01/31/erbie-einfache-reproduzierbare-beispiele-ihres-problems-mit-r-syntax/) finden Sie Hinweise für *e*infache, *r*eproduzierbare *Bei*spiele (ERBies); vgl. Sauer (2019), Kap. 3.8.2 (S. 33).
+
+
+Die gleiche Messlatte lege ich an mich an: Ich stelle eine Musterlösung (bei der Einsichtnahme) zur Verfügung, die reproduzierbar die Lösung aufzeigt. Sprich: Wenn der R-Code bei mir durchläuft, so wird er auch bei Ihnen durchlaufen.
+
+
+
+
 
 
 ## Datenschutz

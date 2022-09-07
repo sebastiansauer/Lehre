@@ -13,7 +13,10 @@ write_yamlrmdfile <- function(ex_parsed,
   # now build the yaml-rmd file:
   yamlrmdfile <- 
     # metadata:
-    c("---", ex_parsed$ex_metadata, "---", "", "",
+    # starting with 3 dashes, opening yaml header:
+    c("---", 
+      ex_parsed$ex_metadata,  # meta data
+      "---", "", "",  # 3 dashed closing metadata
       # pre-question:
       ex_parsed$ex_pre_question, "",
       # header for "Exercise":

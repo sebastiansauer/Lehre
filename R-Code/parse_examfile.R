@@ -17,7 +17,7 @@ parse_examfile <- function(examfile) {
   start_pos <- 1
   end_pos <- which(ex_str == "Question")
   ex_pre_question <-
-    ex_str[1:(end_pos-1)]
+    ex_str[1:(end_pos-1)]  # ends when 'Question' as new header appears
   
   
   # get question:

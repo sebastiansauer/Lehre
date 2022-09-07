@@ -17,8 +17,11 @@ exam2yamlrmd(examfile = examfile,
 
 ex_parsed <- parse_examfile(examfile)
 ex_parsed
-ex_parsed$ex_metadata
+more <- 'cover:
+    image: "https://raw.githubusercontent.com/sebastiansauer/datenwerk/main/static/img/cups3.png"'
 
+ex_parsed$ex_metadata <- str_c(ex_parsed$ex_metadata, NULL, collapse = "\n")
+ex_parsed$ex_metadata
 
 write_yamlrmdfile(ex_parsed, 
                   path_output = path_output, 
