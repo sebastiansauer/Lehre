@@ -1,0 +1,215 @@
+---
+title: "FoPro - Handystudie"
+author: "ses"
+date: "4/5/2022"
+output: html_document
+---
+
+
+
+# Einleitung
+
+Analysieren Sie die Daten der Handystudie von letzter Woche (Live-Experiment)! 
+
+Hinweise:
+
+- Formulieren Sie vorab Ihre Forschungsfrage.
+- Sie können sich zunächst auf Deskriptivstatistik beschränken (noch keine Inferenzstatistik).
+- Die Daten (bzw. einen Link zu den Daten) finden Sie auf der offenen Lehrmittelseite des Modul.
+
+```{r}
+data_path <- "https://raw.githubusercontent.com/sebastiansauer/fopra/main/data/Handystudie-2022-04-05.csv"
+```
+
+# Tipps
+
+Spaltennamen ändern:
+
+```{r eval = FALSE}
+names(df) <- c("Name1", "Name2", "etc") # auf die richtige Anzahl der Spalten achten
+```
+
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(rstanarm)  # Bayes
+library(broom)  # schöner Output lm
+library(broom.mixed)  # schöner Output stan_glm
+library(rstatix)  # EDA, desk. Stats
+```
+
+
+# Daten importieren
+
+
+```{r}
+d <- read_csv(data_path)
+```
+
+# Daten aufbereiten
+
+```{r}
+names(d) <- c("Timestamp", "usage_time", "rt", "correct_perc", "pickups_n", "sex")
+```
+
+
+# EDA
+
+```{r}
+get_summary_stats(d)
+```
+
+
+
+# Operationalisierung
+
+`usage_time` $u$ ist die Operationalisierung der Handynutzung pro Tag in Minuten gemittelt über die letzten 7 Tage, so wie es von der iOS-Funktion "Bildschirmzeit" oder einer Android-App (nicht weiter geprüft) übermittelt wird.
+
+`correct_perc` $c$ ist die Operationalisierung des Anteils*100 korrekter Antworten in einem Stroop-Test wie er auf [dieser Webseite](https://www.bernhard-gaul.de/spiele/stroop-test/stroop.php) angeboten wurde zum Zeitpunkt Ende März 2022. Die Messgüte dieses Instruments ist unbekannt. 
+
+
+# Hypothese
+
+
+$u$ hat einen kausalen, linearen Effekt auf $c$:
+
+- $c \sim u$
+- $\beta_u < 0$
+
+
+# Visualisierung
+
+
+
+```{r}
+d %>% 
+  filter(between(correct_perc, 0, 100)) %>% 
+  ggplot() +
+  aes(x = usage_time, y = correct_perc) +
+  geom_point()
+```
+
+
+
+```{r}
+d %>% 
+  filter(between(correct_perc, 0, 100)) %>% 
+  filter(usage_time < 500) %>% 
+  ggplot() +
+  aes(x = usage_time, y = correct_perc) +
+  geom_jitter() +
+  geom_smooth(method = "lm")
+```
+
+
+# Korrelation
+
+```{r}
+d %>% 
+  select(usage_time, correct_perc) %>% 
+  correlate()
+```
+
+
+
+```{r}
+d %>% 
+  drop_na(correct_perc, usage_time) %>% 
+  summarise(cor_c_u = cor(correct_perc, usage_time))
+```
+
+
+
+
+# Lineares Modell mit `lm`
+
+
+```{r}
+lm1 <- lm(correct_perc ~ usage_time, data = d)
+```
+
+Modellkoeffizienten:
+
+
+Dazu könnte man `summary(lm1)` benutzen:
+
+```{r}
+summary(lm1)
+```
+
+
+
+
+Aber schicker ist die Ausgabe so:
+
+```{r}
+tidy(lm1)  # aus dem Paket `broom`
+```
+
+
+Modellgüte:
+
+```{r}
+glance(lm1)
+```
+
+
+
+# Lineares Modell mit `stan_glm`
+
+
+```{r}
+slm1 <- stan_glm(correct_perc ~ usage_time, data = d, refresh = 0)
+```
+
+
+```{r}
+tidy(slm1)
+```
+
+```{r}
+glance(slm1)
+```
+
+```{r}
+bayes_R2(slm1) %>% mean()
+```
+
+
+
+# Inferenzstatistik
+
+
+```{r}
+posterior_interval(slm1)
+```
+
+
+# Handyzeit in Stunden?
+
+Vielleicht ist es cleverer, die Handyzeit in Stunden anstelle von Minuten zu betrachten? Kann man sich viel besser vorstellen, 5 Stunden anstelle von 300 Minuten etc.
+
+Rechnen Sie die Handyzeit in Stunden um und wiederholen Sie dann die Analyse!
+
+
+```{r}
+d2 <-
+  d %>% 
+  mutate(usage_time_h = usage_time / 60)
+```
+
+
+
+# lm2
+
+
+```{r}
+lm2 <- stan_glm(correct_perc ~ usage_time_h, data = d2, refresh = 0)
+```
+
+```{r}
+posterior_interval(lm2)
+```
+

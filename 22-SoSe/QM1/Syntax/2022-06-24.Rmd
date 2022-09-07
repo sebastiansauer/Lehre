@@ -1,0 +1,186 @@
+---
+title: "Übung Extremwerte raushauen"
+output: html_document
+date: '2022-06-24'
+author: Sebastian Sauer
+---
+
+
+
+Hallo, R! Wie geht's!
+Mensch, immer diese STatistik. Wer 
+hat sich das eigentlich ausgedacht?
+Hätte ich gewusst, dass
+es so viel Statistik gibt im Studium
+
+Pakete starten:
+
+```{r}
+library(tidyverse)
+```
+
+
+Daten laden:
+
+```{r}
+data("flights", package = "nycflights13")
+```
+
+
+Was ist der Flug mit der größten Verspätung?
+
+```{r}
+flights %>% 
+  arrange(-dep_delay)
+```
+
+Sie könnten synonym auch schreiben:
+
+
+```{r}
+arrange(flights, -dep_delay)
+```
+
+Synonym:
+
+```{r}
+flights %>% 
+  drop_na(dep_delay) %>% 
+  filter(dep_delay == max(dep_delay))
+```
+
+Visualisieren Sie die Verteilung von `dep_delay` und entscheiden Sie, ob Extremwerte vorkommen, die
+besonderer Behandlung bedürfen!
+
+
+```{r}
+flights %>% 
+  ggplot() +
+  aes(x = dep_delay) +
+  geom_histogram()
+```
+
+
+Unterscheiden sich die New Yorker Flughäfen in ihrer (Verteilung) der Verspätung?
+
+Um diese Frage zu beantworten,
+kann man deskriptive Statistik oder Visualisierung(en) bemühen.
+
+
+```{r}
+flights %>% 
+  ggplot() +
+  aes(x = dep_delay) +
+  geom_histogram() +
+  facet_wrap(~ origin)
+```
+
+
+
+Vielleicht besser mit Boxplots:
+
+```{r}
+flights %>% 
+  ggplot() +
+  aes(x = origin, y = dep_delay) +
+  geom_boxplot()
+```
+
+
+
+Geben Sie die typischen deskriptiven Statistiken für `dep_delay` an, am besten runtergebrochen pro Abflugsort (`origin`).
+
+
+```{r}
+summary(flights)
+```
+
+Oder so:
+
+```{r}
+flights %>% 
+  drop_na(origin, dep_delay) %>% 
+  group_by(origin) %>% 
+  summarise(median(dep_delay),
+            IQR(dep_delay),
+            n())
+```
+
+Nehmen wir mal eine Convenience-Funktion:
+
+```{r}
+library(easystats)
+```
+
+Achtug! `easystats` kann man nicht wie üblich installieren.
+
+
+```{r}
+flights %>% 
+  select(origin, dep_delay) %>% 
+  group_by(origin) %>% 
+  describe_distribution()
+```
+
+Das Paket `DataExplorer` ist auch ganz cool. Können Sie ja mal ausprobieren.
+
+```{r}
+library(DataExplorer)
+```
+
+```{r}
+plot_missing(flights)
+```
+
+[Hier](https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html) findet sich eine Einführung in das Paket.
+
+
+Wie wiele Zeilen ohne fehlende Werte gibt es im Datensatz (absolut und anteilig)?
+
+
+```{r}
+flights %>% 
+  drop_na() %>% 
+  nrow() 
+```
+
+
+Identifizieren Sie alle Flüge, deren Verspätung (Abflug) mehr als 3 SD über dem Mittelwert (aller Flüge) liegt!
+
+
+Tipp:
+
+```{r}
+is_extreme = dep_delay > mean(dep_delay) + 3*sd(dep_delay)
+```
+
+Weitere Tipps:
+
+Hey R,
+nimm Flights, und dann
+erzeuge eine Spalte "is_extreme" und zwar so wie oben definiert und dann
+filtere so, dass bei is_extreme nur TRUE steht
+
+
+
+```{r}
+flights2 <- 
+  flights %>% 
+  drop_na(dep_delay) %>% 
+  mutate(is_extreme = dep_delay > mean(dep_delay) + 3*sd(dep_delay)) 
+```
+
+
+Legen wir mal einen Datensatz an, der nur Flüge ohne extreme Verspätung (wie oben definiert) enthält.
+
+```{r}
+flights3 <-
+  flights2 %>% 
+  filter(is_extreme == FALSE)
+```
+
+
+
+
+
+

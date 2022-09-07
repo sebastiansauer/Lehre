@@ -1,0 +1,358 @@
+---
+title: "Beispielanalyse zum Prognose-Wettbewerb"
+author: "Sebastian Sauer"
+output: 
+  html_document:
+    number_sections: TRUE
+    toc: TRUE
+---
+
+
+---
+
+Sie können sich an Ablauf und Aufbau dieser beispielhaften Analyse zur Prüfungsleistung Prognosewettbewerb orientieren.
+Auch andere Vorgehensweisen sind möglich.
+Beachten Sie, dass die dargestellte Vorgehensweise eine einfache, grundlegende Analyse darstellt,
+die keineswegs eine optimale Lösung vermittelt.
+Beachten Sie auch, dass pro Abschnitt eine Erläuterung, die Ihnen helfen soll dargestellt ist,
+übernehmen Sie nicht diese Inhalte, sondern setzen Sie die dargestellen Erläuterungen um.
+Wenn Sie nach Beispielen suchen, empfiehlt es sich, einschlägige Fallstudien durchzuarbeiten.
+
+---
+
+
+# Einleitung
+
+
+Im Datensatz `tips` soll die Zielvariable `tip` im *Test*-Datensatz vorhergesagt werden. Dazu können alle übrigen Variablen im Trainings-Datensatz als Prädiktoren herangezogen werden.
+
+Die Forschungsfrage lautet also: "Wie gut kann man die Variable `tip` in diesem Datensatz vorhersagen? Welche Prädiktoren helfen dazu?"
+
+In Ihrer Prüfungsleistung wird ein anderer Datensatz verwendet; das Beispiel mit dem Datensatz `tips` illustriert einige wesentliche Aspekte der Analyse.
+
+Informationen ("Codebook") zum Datensatz `tips` finden Sie [hier](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html).
+
+
+# Vorbereitung
+
+## Pakete laden
+
+```{r message = FALSE}
+library(tidyverse)
+library(corrr)  # Korrelationen
+```
+
+
+
+
+
+## Daten importieren
+
+Den Train-Datensatz haben Sie vorliegen; dort sind X- und Y-Variablen bekannt. Den Test-Datensatz nutzen Sie, um die Zielvariable (Y) vorherzusagen. Die "Lösung" -- die vorherzusagenden Y-Werte -- sind nur der Lehrperson bekannt.
+
+
+```{r message = FALSE}
+tips_train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_train.csv")
+tips_test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_test.csv")
+```
+
+
+*Ihr* Skript sollte zu Beginn den Datensatz *Ihrer* Prüfungsleistung importieren. Dieser Datensatz soll von der vom Dozenten ausgewiesenen Webseite bezogen werden. Lokal gespeicherte Datensätze dürfen (aus Gründen der Nachprüfgbarkeit der Ergebnisse) nicht verwendet werden.
+
+
+
+
+# Vorverarbeitung
+
+
+
+Z.B. Analyse nach Extremwerten, Datentransformation etc.
+
+
+## Unbekannte Variable auf NA setzen
+
+Das Trinkgeld (`tip`) ist vorherzusagen, daher unbekannt. Löschen wir also die Werte dieser Variablen. Die harte Wirklichkeit ...
+
+
+Zuerst ein Backup:
+
+```{r}
+tips_test_mit_Loesung <- tips_test
+```
+
+
+Dann das Löschen:
+
+```{r}
+tips_test$tip <- NA
+```
+
+
+Keine Sorge: Dieser Schritt wird von der Lehrperson erledigt. Sie bekommen schon den "richtigen" Test-Datensatz (wo die vorherzusagende Variable auf NA gesetzt ist).
+
+
+
+
+
+## Ein Blick in die Daten
+
+Es bietet sich an, zu Beginn zu prüfen, ob die Daten korrekt importiert wurden.
+
+```{r}
+head(tips_train)
+```
+
+
+```{r}
+head(tips_test)
+```
+
+
+
+
+
+## Verteilung der Zielvariablwen
+
+
+```{r}
+ggplot(tips_train, aes(x = tip)) +
+  geom_density()
+```
+
+
+Die Verteilung ist rechtsschief. Kann man durch eine Log-Transformation eine "normalere" Form erreichen?
+
+```{r}
+ggplot(tips_train, aes(x = log(tip))) +
+  geom_density()
+```
+
+
+Ja, sieht besser. Mit der log-transformierten Variablen könnten bessere Vorhersagen möglich sein.
+
+Boxplots erlauben ebenfalls eine Visualisierung einer Verteilung einer Variablen:
+
+```{r}
+ggplot(tips_train, aes(y = tip, x = 1)) +
+  geom_boxplot()
+```
+
+
+Der Boxplot zeigt zwei Ausreißer mit gut 6 Dollar Trinkgeld. Sollte man diese entfernen? Schwer zu sagen; vertagen wir die Frage an dieser Stelle.
+
+## Korrelationen der Prädiktoren mit der Zielvariablen
+
+Das kann man so machen:
+
+```{r}
+tips_train %>% 
+  summarise(korr_tip_total_bill = cor(tip, total_bill))
+```
+
+... Ist aber auf Dauer umständlich, wenn man das für jede Variable machen möchte.
+
+So geht es komfortabler:
+
+```{r}
+tips_train %>% 
+  select(where(is.numeric)) %>% 
+  correlate() %>% 
+  focus(tip)
+```
+
+
+Die Variable `id` ist natürlich keine nützliche Variable, aber `total_bill` und `size` sind offenbar (oder möglicherweise) nützlich, um `tip` vorherzusagen, was wir aus der Korrelation erschließen.
+
+
+# Modellierung im Trainings-Datensatz (Phase 1)
+
+## Modell 1
+
+```{r}
+modell1 <- lm(tip ~ smoker, data = tips_train)
+summary(modell1)
+```
+
+
+Hm, das $R^2$ ist noch nicht so gut...
+
+## Modell 2
+
+```{r}
+modell2 <- lm(tip ~ smoker + size, data = tips_train)
+summary(modell2)
+```
+
+Schon viel besser!
+
+
+
+
+## Modell 3
+
+
+
+```{r}
+modell3 <- lm(tip ~ smoker + size + sex, data = tips_train)
+summary(modell3)
+```
+
+Scheint nicht mehr besser zu werden ?!
+
+
+
+
+Oder probieren wir doch noch ein anderes Modell ...
+
+
+## Modell 4 - mit Log-Transformation
+
+```{r}
+modell4 <- lm(log(tip) ~ smoker + size + sex, data = tips_train)
+summary(modell4)
+```
+
+*Tipp:* Es gibt auch Funktionen zur automatischen Modellwahl.
+
+
+### Achtung bei transformierten AV!
+
+Haben Sie in Ihrem Modell die AV (Ziel-Variable) transformiert (z.B. logarithmiert), so müssen Sie *trotzdem* die untransformierten Vorhersagen einreichen!
+
+
+Vorhersagen in der Log-Skala:
+
+```{r}
+modell4_predictions_log <- predict(modell4, newdata = tips_test)
+head(modell4_predictions_log)
+```
+
+Vorhersagen rücktransformiert in die "normale" Skalierung.
+
+
+```{r}
+modell4_predictions <- exp(modell4_predictions_log)
+
+head(modell4_predictions)
+```
+
+
+
+*Hinweis*: Die Exponentialfunktion ist die Umkehrfunktion zur Logarithmus-Funktion.
+
+Einzureichen ist also `modell4_predictions` -- *nicht* die logarithmierten Vorhersagen!
+
+
+
+# Vorhersage der Zielvariablen im Test-Datendatz (Phase 2)
+
+## Entscheidung für ein Modell
+
+Wir nehmen unser bestes Modell, um die Zielvariable im Test-Datensatz vorherzusagen.
+
+```{r}
+tips_test_mit_vorhersage <-
+  tips_test %>% 
+  mutate(pred = predict(modell3, newdata = tips_test))
+```
+
+*Diese* Daten reichen Sie dann ein.
+
+
+## CSV-Datei mit den vorgesagten Werten erstellen
+
+Reichen Sie nur die relevanten Spalten ein, also `id` und `tip`. 
+
+
+```{r}
+tips_test_mit_vorhersage %>% 
+  select(id, pred) %>% 
+  write_csv("Raetsel_Rudi_0123456_Prognose.csv")
+```
+
+
+## Einreichen
+
+Diese CSV-Datei `Raetsel_Rudi_0123456_Prognose.csv` reichen Sie ein!
+
+
+## Güte der Vorhersage bemessen (Phase 3, von der Lehrperson durchgeführt)
+
+Diese Phase wird vom Dozenten durchgeführt. Sie müssen diese Phase *nicht* durchführen.
+Die folgenden Hinweise dienen nur Ihrem tieferen Verständnis.
+
+
+## Funktionen zur Berechnung der Modellgüte
+
+
+Der Dozent berechnet die Güte Ihrer Vorhersage anhand einer der folgenden Kenngrößen.
+
+$R^2$:
+
+```{r}
+r2 <- function(predicted, observed) {
+  
+  rss <- sum((predicted - observed) ^ 2)  ## residual sum of squares
+  tss <- sum((observed - mean(observed)) ^ 2)  ## total sum of squares
+  rsq <- 1 - rss/tss
+  
+  rsq <- c(rsq = rsq)
+
+  return(rsq)
+
+}
+
+```
+
+
+
+$MAE$:
+
+```{r mae-fun}
+mae <- function(predicted, observed)
+{
+  error_abs <- abs(predicted - observed)
+  mae <- mean(error_abs)
+  mae <- c(mae = mae)
+  
+  return(mae)
+}
+```
+
+
+
+
+$RMSE$:
+
+
+```{r rmse-fun}
+rmse <- function(predicted, observed){
+  error_squared <- (predicted - observed)^2 
+  rmse <- mean(error_squared)
+  rmse <- c(rmse)
+  return(rmse)
+}
+```
+
+
+
+Für das Modell 3:
+
+
+```{r}
+modell3_r2 <- r2(tips_test_mit_vorhersage$pred, tips_test_mit_Loesung$tip)
+modell3_r2
+
+modell3_mae <- mae(tips_test_mit_vorhersage$pred, tips_test_mit_Loesung$tip)
+modell3_mae
+```
+
+
+
+Hm, die Vorhersagequalität war noch nicht so gut. 
+Vielleicht hätten wir den Datensatz noch besser aufbereiten sollen? 
+Oder mehr/andere Prädiktoren in das Modell aufnehmen sollen? Oder ...
+
+
+
+

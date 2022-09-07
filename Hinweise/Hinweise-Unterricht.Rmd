@@ -94,7 +94,8 @@
 ## Videokonferenzen
 
 
-- -Für Videokonferenzen/Webinare in diesem Modul wird die Software Zoom verwendet.
+- Ihr Dozent informiert Sie, ob Videokonferenzen in diesem Modul angeboten werden.
+- Für Videokonferenzen/Webinare in diesem Modul wird die Software Zoom verwendet.
  Zur Einwahl benötigen Sie eine Zoom-Meeting-ID bzw. die dazu gehörige URL (Link); außerdem benötigen Sie ggf. ein zugehöriges Passwort. Diese Informationen werden Ihnen vom Dozenten zugestellt-.
 - Für die Teilnahme an der Videokonferenz können Sie einen internetfähigen Rechner oder Tablet/Smartphone verwenden. Alternativ können Sie den Zoom-Client auf Ihrem Computer installieren (die Installation auf dem Rechner ist zu empfehlen).
 - Ein paar Minuten vor Unterrichtsbeginn da sein, hilft beim Ankommen und um etwaige technische Probleme auszuräumen. 
@@ -128,6 +129,7 @@ In diesem Fall gelten folgende Hinweise:
 ## Didaktik
 
 ### Lehrkonzept
+
 - In der "Vorlesung" wird im Schwerpunkt *nicht* ein Folienskript "vorgelesen". Dieser Vortrag steht oft vorab als Video zur Verfügung (s. Links im Themenüberblick).
 - Stattdessen steht in der "Vorlesung" die Durcharbeiten und Vertiefen des Stoffes im Vordergrund, nicht aber das Vortragen des Stoffes.
 - Warum wird die Literatur oder das Folienskript nicht im Unterricht vorgetragen? Zum einen können Sie das alleine besser (in eigener Geschwindigkeit, mit Pausen nach Gusto, zu beliebiger Zeit und beliebigem Ort, so oft wiederholt wie Sie mögen). Zum anderen ist der Lerngewinn beim passiven Zuhören gering. Das Durchdenken, Durcharbeiten, "Durchfragen" des Stoffes ist es, was Ihnen den meisten Gewinn beschwert. Entsprechend liegt auf dem aktiven, gemeinsamen Arbeiten der Schwerpunkt.
@@ -158,6 +160,13 @@ In diesem Fall gelten folgende Hinweise:
 - In Breakout-Sessions (in Zoom) sollte aktiv mitgearbeitet werden, wer das nicht möchte, betritt den Breakout-Room nicht.
 - Spricht man eine Person in einer Videokonferenz an, sollte die Kamera angeschaltet sein.
 
+
+## Wenn der Unterricht ausfällt
+
+- Im Krankheitsfall werden Sie möglichst frühzeitig informiert (via Moodle); das kann bedeuten, dass Sie am Morgen eine Nachricht bekommen, dass der Unterricht des jeweiligen Tages ausfällt.
+- Leider muss der Unterricht in einigen Fällen aufgrund anderer Dienstverpflichtungen des Dozenten entfallen; ein Beispiel sind Berungskomissionen (Auswahlgespräche für neu einzustellende Professor:innen).
+- Aufgrund gesetzlicher Feiertage sowie hochschulweit geltenden lehrfreien Tagen fallen jedes Semester einige Tage für den Unterricht aus. Bitte informieren Sie sich auf der zentralen Hochschulseite dazu.
+- Falls der Unterricht ausfällt, heißt das *nicht*, dass der für die jeweilige Woche geplante Stoff obsolet ist. Viel mehr ist Ihre Pflicht, den Stoff selbständig zu erarbeiten. Natürlich können Sie bei Fragen jederzeit Ihren Dozenten kontaktieren.
 
 
 ## Salvatorische Klausel

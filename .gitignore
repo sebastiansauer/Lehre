@@ -5,6 +5,7 @@
 # Session Data files
 .RData
 
+
 # User-specific files
 .Ruserdata
 
@@ -37,3 +38,21 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+
+# div
+*/trials.R
+*/trials.Rmd
+Untitled.*
+trials/
+
+
+# data
+*.rds
+**/*.rds
+
+
+
+
+
+

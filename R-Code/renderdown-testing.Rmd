@@ -1,0 +1,76 @@
+---
+title: "Test Renderdown"
+author: "ses"
+date: "4/21/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Testing
+
+## Load libs
+
+```{r}
+library(tidyverse)
+library(gt)
+```
+
+
+```{r}
+source("R-Code/render-course-sections.R")
+```
+
+
+
+## Constants
+
+```{r}
+dates_file <- "R-Code/course-dates.yaml"
+content_file <- "R-Code/modul-inhalte.yaml"
+
+link_stump <- "https://sebastiansauer.github.io/vorhersagemodellierung/index.html#"
+```
+
+
+## Compute tables
+
+```{r}
+dates <- compute_course_dates(dates_file = dates_file)
+
+undebug(build_master_course_table)
+master_table <- build_master_course_table(dates_file, 
+                                          content_file,
+                                          link_stump = link_stump)
+```
+
+
+## Render Table
+
+```{r}
+master_table_short <- 
+  master_table %>% 
+  select(1,2,6, Titel_Link) 
+```
+
+
+```{r }
+knitr::kable(master_table_short)
+```
+
+
+## Test
+
+dsjfkl
+
+
+```{r}
+urls <- rep("https://stackoverflow.com/", 10)
+# use paste0 to compose markdown-formatted hyperlinks
+mtcars$mpg <- paste0("[", mtcars$mpg, "](", urls, ")")
+# print the table, with hyperlinked text
+knitr::kable(head(mtcars))
+```
+

@@ -1,0 +1,162 @@
+
+
+
+
+## Grundsätzlichkeit
+
+Die folgenden Hinweise gelten *grundsätzlich*, 
+d.h. soweit nicht anders in der jeweiligen Prüfung bzw. der jeweiligen Aufgabe angegeben.
+
+Nichtbeachten von Prüfungshinweisen kann zu Punkteabzug oder Nichtbestehen führen.
+
+
+
+## Wiederholungsprüfungen
+
+- Wenn Sie bei einer Prüfung durchgefallen sein sollten, so haben Sie grundsätzlich die Möglichkeit, die Prüfung zu wiederholen.
+- Denken Sie daran, sich rechtzeitig für Prüfungsleistungen anzumelden; beachten Sie die Fristen.
+- Die Termine für die Wiederholungsprüfungen werden stets zusammen/zeitgleich mit denen der regulären Prüfungen in Primuss bekannt gegeben. 
+- Wird ein Modul im laufenden Semester nicht angeboten, gibt es eine Wiederholungsprüfung nur für Studentis, die durchgefallen sind. Abweichend davon kann ei Dozenti die Prüfung für alle Studentis anbieten. Die Entscheidung, ob eine Wiederholungsprüfung in diesem Fall angeboten wird, obliegt der Dozentin bzw. dem Dozenten des Moduls. 
+- Relevanter Stoff und formale Bedingungen (wie Prüfungsform) sind grundsätzlich identisch zur letzten abgehaltenen Prüfung des Moduls (d.h. sofern nicht anders angegeben). Daher sind Wiederholungsprüfungen vom Anspruch vergleichbar wie die reguläre Klausur. Die Prüfungen sollen möglichst gleich vom Anspruch sein, um Fairness zu gewährleisten.
+- Beachten Sie immer die Hinweise, die für die Wiederholungsprüfung angegeben sind. Im Einzelfall keine eine Wiederholungsprüfung von der vorherigen Prüfung stärker abweichen. Es gelten immer die Regeln, die dis Dozenti bei der jeweiligen Wiederholungsprüfung veröffentlicht hat.
+- Wird ein Modul im laufenden Semester angeboten, so gibt es keine Wiederholungsprüfung. Stattdessen können Sie ggf. an der regulären Klausur des Moduls teilnehmen. Es gilt der aktuelle Stoff bzw. die aktuellen formalen Bedingungen. Es ist möglich, dass der Stoff sich dann substanziell ändert; meist halten sich die Änderungen (im Stoff) aber in Rahmen.
+- Sprechen Sie die Moduldozentis an für Details zur Prüfung (bzw. lesen Sie vorab auf jeweiligen Modulseite in Moodle nach).
+- Manchmal fragen Studentis nach einer Empfehlung, ob es besser ist, eine Prüfung zu verschieben, wenn man sich nicht ausreichend vorbereiten konnte. Es ist schwer, eine Empfehlung pauschal abzugeben, es kommt auf den Einzelfall an. Grundsätzlich rate ich aber dazu, Prüfungen nicht zu verschieben: Schließlich könnte in einem folgenden Semester wieder ein unvorhergesehenes Problem auftreten.
+- Bei Fragen zum Prüfungsrecht sprechen Sie bitte die Studienberatung an.
+
+
+
+## Bearbeitungshinweise
+
+- Verwenden Sie *Standardwerte* (defaults) der R-Funktionen.
+- Runden Sie ggf. auf *eine Dezimalstelle*.
+- Verwenden Sie Methoden der *Bayes*-Statistik für inferenzstatistische Analysen.
+- Geben Sie keine Prozentzahlen an, sondern *Anteile* (also nicht “50%”, sondern “0.5” bzw. "0,5").
+- Findet sich in einer Auswahlliste möglicher Antworten nicht die exakte Lösung, wählen Sie die *am besten passende*.
+- *Treffen Sie Annahmen*, wo nötig. 
+- Die Prüfung besteht zu einem großen Teil aus *Multiple-Choice*- (MC-)-Aufgaben mit mehreren Antwortoptionen.
+- Bei Multiple-Choice-Aufgaben (MC-Aufgaben) ist zumeist genau *eine* Antwortoption auszuwählen aus vier oder fünf Antwortoptionen.
+- Im Zweifel ist eine Aussage auf den Stoff, so wie im *Unterricht* behandelt, zu beziehen.
+- Bei Fragen zu R-Syntax spielen Aspekte wie Enter-Taste o.Ä. bei der Beantwortung der Frage keine Rolle; diese Aspekte dürfen zu ignorieren.
+- Jede Aussage einer MC-Aufgabe ist entweder richtig oder falsch (aber nicht beides oder keines).
+- Die MC-Aufgaben sind *nur mit Kreuzen* zu beantworten; Text wird bei der Korrektur nicht berücksichtigt.
+- Jede Aussage gilt *ceteris paribus* (unter sonst gleichen Umständen). Aussagen der Art „A ist B“ (z.B. "Menschen sind sterblich") sind *nur* dann als richtig auszuwählen, wenn die Aussage *immer* richtig ist.
+- Bei Aufgaben, die eine Zahl als Antwort verlangen, ist *nur eine Zahl anzugeben* (nicht etwa Buchstaben).
+- Falls Sie bei einer Aufgabe mehrere Antworten finden, aber nur nach einer gefragt ist, geben Sie nur eine an. 
+- Falls mehrere (widersprüchliche) Antworten gegeben wurden, wird im Zweifel die *erst genannte* gewertet.
+- Die Aufgabenstellung in einer Moodle-Prüfung wird erst sichtbar, wenn Sie den Prüfungsbedingungen zugestimmt haben und die Prüfungszeit begonnen hat.
+- Je nach Spracheinstellung in Moodle kann es sein, dass Sie als *Dezimaltrennzeichen* ein Komma oder einen Punkt verwenden müssen. Moodle weist Sie, wenn Sie die Aufgabe verlassen, darauf hin, falls eine Zahl nicht als Zahl erkannt wurde.
+
+
+
+
+## Teilnahmebedingungen
+
+- Die Prüfung ist selbständig, also alleine nur durch Sie, *ohne Hilfe Dritter*, zu absolvieren.
+- Die *Bearbeitungszeiten* der Prüfung sind einzuhalten.
+- Es dürfen nur die explizit als zulässig gekennzeichneten *Hilfsmittel* verwendet werden.
+- Die *zulässigen* Hilfsmittel sind: Notizpapier, Stifte, Taschenrechner, Vorlesungsfolien, Skripte, eigene Notizen, Bücher sowie Quellen aus dem Internet.
+- Die Übernahme von Inhalten Dritter muss also solche gekennzeichnet (*zitiert*) werden. 
+- Eine wörtliche Übernahme ("*copy-paste*") von Inhalten Dritter (etwa aus einer Quelle aus dem Internet) ist unzulässig.
+- Bei *technischen Problemen* ist sofort der Prüfer bzw. die Prüferin zu verständigen und das technische Problem zu dokumentieren. Aus der Dokumentation muss der Fehler erkenntlich sein. 
+- Es ist *untersagt*, die *Prüfung* bzw. Teile daraus (z.B. Prüfungsfragen) zu speichern oder *weiterzugeben.*
+- Im Übrigen gelten die allgemeinen *Prüfungsregeln*.
+- Es darf *nicht* mit anderen Personen, insbesondere nicht Prüflingen, *kommuniziert* werden während der Prüfung. Dies gilt auch für den Fall von (vermeintlichen) technischen Problemen. Kontaktieren Sie den Prüfer, wenn Sie meinen, es liege ein technisches Problem vor.
+- Das Nichtbeachten der Regeln kann zu Notenabzug oder *Nichtbestehen* führen.
+
+
+
+##  Organisatorische Hinweise
+
+
+- Etwaige weitere *Stoffeingrenzungen* werden schriftlich bekannt gemacht (auf der Modulseite). Besondere Schwerpunkte gibt es nicht.
+- Soweit bestimmte Inhalte nicht explizit ausgeschlossen sind, sind alle Inhalte, die im Rahmen des Moduls bearbeitet wurden, *prüfungsrelevant.*
+- Im Übrigen gelten die Hinweise der *offiziellen Regularien* wie SPO, auf dem Modulsteckbrief und der APO. Bitte kontaktieren Sie die Studienberatung für formale oder rechtliche Fragen. 
+- Während der Prüfung werden nur Fragen beantwortet, die für die Bearbeitung zwingend nötig sind (etwa bei technischen Problemen).
+- Es werden keine Fragen der Art "Ist diese Aufgabe klar formuliert?" beantwortet während der Prüfung. Sollten Sie der Meinung sein, eine Frage ist unklar formuliert oder fehlerhaft, so notieren Sie dies bitte (z.B. im Kommentarfeld der Prüfung=. Der Prüfer untersucht im Nachgang die Angelegenheit. Stellt sich eine Frage als fehlerhaft oder unklar formuliert heraus, so wird sie von der Beurteilung herausgenommen.
+- Eine Teilnahme an der Prüfung ist nur möglich, wenn Sie den Teilnahmebedingungen der Prüfung zustimmen.
+- Die Aufgabenstellung der Prüfung wird nur während des Prüfungszeitraumes angezeigt.
+- Beachten Sie eine etwaige Gruppenteilung (zu welcher Gruppe Sie zugeteilt sind). 
+- Beachten Sie die exakte Prüfungsuhrzeit (Beginn, Ende). 
+- Prüfungszeitraum, Aufgabenstellung und sonstige Materialien können variieren zwischen den Prüflingen etwa aufgrund von Gruppeneinteilungen oder Nachteilsausgleich.
+- Die zusätzliche Bearbeitungszeit bei Studentis mit Nachteilsausgleich ist in der Aufgabenstellung bzw. der Prüfung in Moodle hinterlegt. Die Zeit wird automatisch um den jeweiligen Faktor erhöht.
+
+
+
+## Open-Book-Prüfungen 
+
+Einige Prüfungen werden als “Take-home-Prüfung” im “Open-Book-Format” geschrieben. Was bedeutet dies?
+
+“Take-home-Prüfung”: Sie bearbeiten die Prüfung in Ihrem privaten Umgebung in Moodle oder in Räumlichkeiten der Hochschule. Eine Überwachung per Kamera findet nicht statt.
+
+“Open-Book-Prüfung”: Sie dürfen Hilfsmittel wie Bücher und Folien während der Prüfung nutzen. 
+
+Ihre Prüferin/Ihr Prüfer informiert Sie über das Format Ihrer Prüfung.
+
+
+
+
+
+## Zeitrahmen der Prüfung
+
+Die Prüfung beginnt und endet zu einem festen Zeitpunkt. Sie sind selber verantwortlich, die Prüfung zur korrekten Zeit zu beginnen und zu beenden (einzureichen). Verspätete Abgaben werden u.U. als nicht bestanden gewertet. Die Dauer der Prüfung wird Ihnen von Ihrer Prüferin bzw. Ihrem Prüfer bekannt gegeben. 
+
+
+
+## Technische und organisatorische Anforderungen einer Open-Book-Prüfung
+
+Um an einer Open-Book-Prüfung teilzunehmen, benötigen Sie IT-Ausstattung sowie Räumlichkeiten. An IT-Ausstattung benötigen Sie einen Computer mit Internetanschluss; ein Smartphone reicht nicht aus. Nutzen Sie Ihr eigenes Gerät (Computer) für die Prüfung; die Hochschule stellt Ihnen keinen Computer zur Verfügung. Sie benötigen keine Webcam und kein Mikrofon. Ein Tablett oder Smartphone reicht nicht für die Prüfung. An Software benötigen Sie Zugang zu Ihrem Moodle-Konto, was einen aktuellen Internet-Browser voraussetzt. Zu den organisatorischen Anforderungen gehören ein Raum, in dem Sie die Prüfung ungestört bearbeiten können sowie ein Internetanschluss zum Bearbeiten der Klausur in Moodle. Bitte benutzen Sie während der Prüfung nicht den Zurück-Button in Ihrem Browser, wenn Sie zu einer vorherigen Frage zurückgehen wollen. Nutzen Sie die in der Prüfung zur Verfügung gestellten Funktionen/Buttons dafür.
+
+
+## Technische Probleme während der Prüfung
+
+Im Falle eines technischen Problems auf Seiten der *Prüfungsinfrastruktur* ist sofort der Prüfer zu informieren. Ein Beispiel für so ein Problem wäre etwa der Ausfall von Moodle. Der technische Fehler ist zu dokumentieren (z.B. Screenshot) und die Dokumentation ist einzureichen. Bitte beachten Sie, dass der Prüfer bzw. die Hochschule keine Gewähr übernimmt für Probleme mit Ihrer eigenen Ausstattung. 
+
+
+
+## Prüfungsrecht
+
+Für die Open-Book-Prüfungg gilt die aktuelle Prüfungsordnung; die Open-Book-Prüfung fällt *nicht* unter die BayFEV. 
+
+
+## Bitte formulieren Sie Beanstandungen nachvollziehbar
+
+Falls Sie einen Fehler in einer Aufgabenstellung finden (die der Prüfer zu bestanden hat): Freuen Sie sich! In diesem Fall wird zu Ihren Gunsten entschieden.
+
+Damit ich Ihre Beanstandung prüfen kann, ist es nötig, dass ich Ihre *Beanstandung* nachprüfen kann: *Zeigen* Sie mir meinen Fehler. 
+Es reicht *nicht* zu sagen "es hat bei mir nicht funktioniert". 
+Wenn Sie etwa der Meinung sind, dass es die Variable "year" im Datensatz "penguins" nicht gebe, dann schicken Sie mir den R-Code,
+der an ansprechender Stelle einen Fehler aufwirft (aber *ansonsten lauffähig* ist). 
+Ein Screenshot kann in einigen Situationen helfen,
+wenn aber nur ein Teil der Syntax zu sehen ist, ist er nicht ausreichend: Wenn der Befehl `data(penguins)` nicht funktioniert, 
+so ist zu prüfen, ob Sie vorab mit `library(palmerpenguins)` das relevante Paket gestartet haben. 
+Andernfalls kann `data(penguins)` nicht funktionieren und der Fehler läge damit bei Ihnen.
+
+[Hier](https://data-se.netlify.app/2022/01/31/erbie-einfache-reproduzierbare-beispiele-ihres-problems-mit-r-syntax/) finden Sie Hinweise für *e*infache, *r*eproduzierbare *Bei*spiele (ERBies); vgl. Sauer (2019), Kap. 3.8.2 (S. 33).
+
+
+Die gleiche Messlatte lege ich an mich an: Ich stelle eine Musterlösung (bei der Einsichtnahme) zur Verfügung, die reproduzierbar die Lösung aufzeigt. Sprich: Wenn der R-Code bei mir durchläuft, so wird er auch bei Ihnen durchlaufen.
+
+
+
+
+
+
+## Datenschutz
+
+Persönliche Daten werden an eine Stellen übermittelt: Moodle (über bzw. in Ihre Konto). Es findet keine Überwachung statt, weder kamaragestützt, akustisch oder softwaregestützt.
+
+
+
+
+## Plagiatskontrolle
+
+
+Ihre Prüfungsarbeiten können auf Plagiate hin untersucht werden. Dabei kommen auch automatisierte Verfahren zum Einsatz. Ihre Arbeiten werden dabei nicht online gestellt und auch nicht Dritten zugänglich gemacht. Alle Prüfungen finden auf Rechnern statt, zu denen nur die Prüfer/innen Zugang habe. Es werden keine persönlichen Daten (von Ihnen) weitergegeben.
+
+Bitte beachten: Angenommen in den Projektarbeiten von Studenti A und B werden (substanzielle) Überlappungen gefunden. In dem Fall ist davon auszugehen, dass beide Studentis getäuscht haben: eine/r hat abgeschrieben, der/die andere hat die eigene Arbeit dafür bereitgestellt. Daher wird in diesem Fall u.U.  bei beiden Studentis der Plagiatsfall festgestellt und geahndet (z.B. mit "nicht  bestanden" bewertet). Die genauen Konsequenzen legt die Prüfungskommission im Einzelfall fest.
+
+Lassen Sie es auf keinen Fall soweit kommen: Schreiben Sie nicht ab und lassen Sie niemanden von Ihrer Arbeit abschreiben. 
+
+Eine faire Prüfung heißt: Gleiche Chancen für alle, und gute Leistung soll belohnt werden, Täuschung nicht.
+

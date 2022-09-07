@@ -1,0 +1,21 @@
+
+---
+title: "Prüfungshinweise"
+params:
+  pruefungsleistung: Prognosewettbewerb
+---    
+
+
+
+# Prüfung
+
+```{r child1, echo = FALSE, child="Hinweise/Prognosewettbewerb/Hinweise-Pruefung-Prognosewettbewerb-child.Rmd"}
+```
+
+
+
+
+
+
+
+
