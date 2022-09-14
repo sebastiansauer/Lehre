@@ -1,7 +1,7 @@
 
 
 
-## Prüfungsform Datenanalyse
+<!-- ## Prüfungsform Datenanalyse -->
 
 
 Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders lautenden Hinweise gegeben hat (schriftlich).
@@ -9,10 +9,10 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 
 
-### Allgemeines
+## Allgemeines
 
 
-1. Gegenstand der Prüfungsleistung ist die *Analyse* eines Datensatzes nach einer *Forschungsfrage* und die *Dokumentation* dieser Analyse.
+1. Gegenstand dieser Prüfungsform ist die *Analyse* eines Datensatzes nach einer *Forschungsfrage* und die *Dokumentation* dieser Analyse.
 
 
 4. Schreiben Sie Ihre Datenanalyse in Form eines *Berichts*, der sich an den Gliederungspunkten wie unten dargestellt orientiert.
@@ -32,16 +32,16 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 12. Es hat *keinen Einfluss* auf Ihre Note, ob sich ein (erwarteter) *Effekt* zeigt und wie stark dieser Effekt ggf ist.
 
 
-### Beurteilungskriterien
+## Beurteilungskriterien
 
 
 Die Arbeit wird im Hinblick auf *drei Kriterien* bewertet:
 
-1. *Formalia* (z. B. Vollständigkeit der Abarbeitung, äußere Gestaltung)
+1. *Formalia* (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliches)
 
 2. *Methodik* (z. B. Richtige Auswahl und Anwendung der Verfahren)
 
-3. *Inhalt* (z. B. Verständlichkeit, Breite und Tiefe der Problemlösung)
+3. *Inhalt* (z. B. Verständlichkeit, Breite und Tiefe der Problemlösung, Korrektheit der Interpretation)
 
 
 
@@ -53,14 +53,14 @@ Die Gesamtnote muss sich nicht als Mittelwert der Teilnoten ergeben.
 Insbesondere kann eine Fünf in einem Kriterium zum Durchfallen führen, auch wenn die anderen beiden Kriterien gut oder sehr gut beurteilt wurden.
 
 
-### Beispiele für Aspekte der Beurteilungskriterien
+## Beispiele für Aspekte der Beurteilungskriterien
 
 
-2. Wurden deskriptive Statistiken (an angemessenen Ort) berichtet?
+1. Wurden deskriptive Statistiken (an angemessenen Ort) berichtet?
 
-3. Wurden Diagramme und Tabellen angemessen eingesetzt?
+2. Wurden Diagramme und Tabellen angemessen eingesetzt?
 
-4. Wurde Inferenzstatistik (angemessen) eingesetzt?
+3. Wurde Inferenzstatistik (angemessen) eingesetzt?
 
 5. Wurden Effektstärkemaße (idealerweise mit Konfidenzintervallen dazu) berichtet?
 
@@ -72,15 +72,15 @@ Insbesondere kann eine Fünf in einem Kriterium zum Durchfallen führen, auch we
 
 9. Wurde angemessen gerundet (inkl. konsistente Anzahl von Nachkommastellen)?
 
-10.Passen die statistischen Verfahren zu den Hypothesen?
+10. Passen die statistischen Verfahren zu den Hypothesen?
 
-11.Wurden die Voraussetzungen der statistischen Verfahren geprüft?
+11. Wurden die Voraussetzungen der statistischen Verfahren geprüft?
 
-12.Sind die Ergebnisse reproduzierbar (Daten und Syntax eingereicht)?
+12. Sind die Ergebnisse reproduzierbar (Daten und Syntax eingereicht)?
 
 
 
-### Beispiele für Fehler
+## Beispiele für Fehler
 
 
 Schwere Fehler, die zum Durchfallen oder deutlichem Abwerten der Note führen können, sind z.B.:
@@ -98,13 +98,13 @@ Schwere Fehler, die zum Durchfallen oder deutlichem Abwerten der Note führen k�
 
 Häufige kleinere Mängel sind z. B.
 
--︎ pixelige Abbildungen 
+- pixelige Abbildungen 
 - R-Ausgaben oder R-Syntax als Screenshot 
--︎ fehlende Seitenzahlen (nur bei paginierten Formaten, nicht bei HTML) 
--︎ unübersichtliche Diagramme 
+- fehlende Seitenzahlen (nur bei paginierten Formaten, nicht bei HTML) 
+- unübersichtliche Diagramme 
 - kein (verlinktes) Inhaltsverzeichnis ︎
 - fehlende oder unverständliche Achsenbeschriftung bei Diagrammen 
--︎ fehlende oder falsche Beschreibung der/des Skalenniveau(s) der untersuchten Variablen
+- fehlende oder falsche Beschreibung der/des Skalenniveau(s) der untersuchten Variablen
 
 
 
