@@ -157,11 +157,27 @@ d %>%   # Contrl-Shift-M, the "and then do" command called "pipe"
 
 
 
+# Sub groups!
+
+d %>% 
+  select(sex, bill_length_mm) %>% 
+  drop_na() %>% 
+  group_by(sex) %>%  # split female and male penguins in a separate spread sheet
+  summarise(bill_length_md = median(bill_length_mm))
 
 
 
 # Exercise
-# Same as last, but group for each specie
+# Same as last, but group for each specie!
+# --> Compute different stats for variation (sd, IQR) of bill length!
+
+
+
+d %>% 
+  select(species, bill_length_mm) %>% 
+  drop_na() %>% 
+  group_by(species) %>%  # split female and male penguins in a separate spread sheet
+  summarise(bill_length_md = sd(bill_length_mm))
 
 
 
