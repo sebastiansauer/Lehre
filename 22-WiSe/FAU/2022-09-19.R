@@ -138,13 +138,30 @@ d %>%
 # Robust stats on bil length (penguins data)
 
 
-d %>%   # Contrl-Shift-M, the "and then do" command
+d %>%   # Contrl-Shift-M, the "and then do" command called "pipe"
   select(bill_length_mm) %>% 
   drop_na() %>% 
   summarise(bill_length_md = median(bill_length_mm))
 
 
+# Exercise:
+# Compute different stats for variation (sd, IQR) of bill length!
 
+
+
+d %>%   # Contrl-Shift-M, the "and then do" command called "pipe"
+  select(bill_length_mm) %>% 
+  drop_na() %>% 
+  summarise(bill_length_sd = sd(bill_length_mm),
+            bill_length_iqr = IQR(bill_length_mm))
+
+
+
+
+
+
+# Exercise
+# Same as last, but group for each specie
 
 
 
