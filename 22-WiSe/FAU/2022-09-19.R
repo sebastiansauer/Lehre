@@ -132,5 +132,19 @@ d %>%
 
 
 
+# MORE TIDYVERSE!
+
+
+# Robust stats on bil length (penguins data)
+
+
+d %>%   # Contrl-Shift-M, the "and then do" command
+  select(bill_length_mm) %>% 
+  drop_na() %>% 
+  summarise(bill_length_md = median(bill_length_mm))
+
+
+
+
 
 
