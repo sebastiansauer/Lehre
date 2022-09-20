@@ -52,14 +52,39 @@ plot(lm4a_means)
 
 
 # Ex: Use the data set "palmer penguins"
-# compute Model: weight as a function of species
-# Report group means
+# compute Model: weight as a function of species 
+# Report group means along with 95% CI
 
 d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
 
 
 
 
+lm_pengis <- lm(body_mass_g ~ species, data = d)
+parameters(lm_pengis)
+
+lm_pengis_means <- estimate_means(lm_pengis)
+lm_pengis_means 
+
+plot(lm_pengis_means)
+
+
+
+
+
+lm_pengis_bayes <- stan_glm(body_mass_g ~ species, data = d)
+parameters(lm_pengis_bayes)
+
+lm_pengis_means_bayes <- estimate_means(lm_pengis_bayes)
+lm_pengis_means_bayes 
+
+plot(lm_pengis_means_bayes)
+
+
+
+# Ex (penguins)
+# Compute: weight as function of species and bill length
+# Report typical stats and interpret it
 
 
 
@@ -67,12 +92,27 @@ d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins
 
 
 
-lm5 <- lm(body_mass_g ~ species, data = d)
-lm5_means <- estimate_means(lm5)
-plot(lm5_means)
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+lm6 <- lm(body_mass_g ~ bill_length_mm + species, data = d)
+parameters(lm6)
+
+lm6_means <- estimate_means(lm6)
+lm6_means 
+plot(lm6_means)
+
+lm6_preds <- estimate_relation(lm6)
+plot(lm6_preds)
