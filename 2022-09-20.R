@@ -25,3 +25,19 @@ parameters(lm2_bayes)
 r2(lm2_bayes)
 
 plot(parameters(lm2_bayes))
+
+
+
+data(mtcars)
+
+
+# Ex:
+# Compute this model: mpg ~ vs
+# Report the group means with their 95% CI
+
+
+
+
+
+
+
