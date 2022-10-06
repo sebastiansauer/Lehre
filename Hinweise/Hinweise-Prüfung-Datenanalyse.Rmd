@@ -1,0 +1,19 @@
+
+---
+title: "Prüfungshinweise - Datenanalyse"
+params:
+  pruefungsleistung: datenanalyse
+output:
+  html_document:
+    number_sections: true 
+---    
+
+
+
+# Prüfungsform
+
+```{r child1, echo = FALSE, child="Hinweise/Hinweise-Prüfung-Datenanalyse-Child.Rmd"}
+```
+
+
+

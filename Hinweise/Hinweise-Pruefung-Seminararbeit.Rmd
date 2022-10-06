@@ -24,17 +24,27 @@ params:
 
 3. *Abschnittsverantwortliche*: Jedes Kapitel/Teilkapitel muss mit genau einem Namen ausgewiesen sein. Der Namen der/des Autor*in soll als Fußnote an die jeweilige Überschrift angefügt sein.
 
-4. *Formale Anforderungen* an die Seminararbeit:
-    - Der Umfang der Arbeit umfasst 6000 Wörter (im Hauptteil), plus/minus 10%.
-    - Die Methoden des wissenschaftlichen Arbeiten in Recherche, Zitat und Darstellung werden angewandt.
-    - Wenden Sie die Methoden quantitativer Datenanalyse an.
-    - Textsatz und Gestaltung der Seminararbeit orientieren sich an dem bereitgestellten Leitfaden.
-    - Gestaltungsaspekte, die nicht im bereitgestellten Leitfaden aufgeführt sind, sind nach den Vorgaben der APA (neueste Version) anzulegen.
-    - Die Arbeit kann in deutscher oder englischer Sprache eingereicht werden.
+
+## Formale Anfordungen 
+
+1. Der Umfang der Arbeit umfasst 6000 Wörter (im Hauptteil), plus/minus 10%.
+
+2. Die Methoden des *wissenschaftlichen Arbeiten* in Recherche, Zitat und Darstellung werden angewandt.
+
+3. Wenden Sie die Methoden *quantitativer* Datenanalyse an.
+
+4. Textsatz und (gestalterische) *Formatierung* der Seminararbeit orientieren sich an dem bereitgestellten *Leitfaden* bzw. den Hinweisen.
+
+5. Gestaltungsaspekte, die nicht im bereitgestellten Leitfaden aufgeführt sind, sind nach den Vorgaben der APA (neueste Version) anzulegen.
+
+6.- Die Arbeit kann in *deutscher* oder englischer Sprache eingereicht werden.
 
 5. Aus formalen Gründen darf die Seminararbeit *pro Arbeitsgruppe* nur *einmalig* eingereicht werden. Im Falle mehrerer Einreichungen zählt die erste.
 
-6. Die *Anzahl der Wörter* des Hauptteils ist auf dem Deckblatt anzugeben.
+6. Auf dem Titelblatt ist u.a. anzugeben
+    - Matrikelnummer/n sowie Nach- und Vorname/n aller Autoris (wichtig!)
+    - Titel der Arbeit
+    - Modulname
 
 7. Wenn die Prüfung aus einer Seminarbeit besteht oder eine Seminarleistung beinhaltet, ist diese *nur online*, nicht ausgedruckt einzureichen.
 
@@ -57,6 +67,8 @@ params:
 
 17. Bitte sprechen Sie Ihr:e Dozenten/in für Fragen des Nachteilsausgleichs.
 
+18. Nichteinhaltung der Regeln bzw. der Hinweise kann zu Nichtbestehen oder einer schlechterer Note führen.
+
 
 
 ## Benotung
@@ -64,29 +76,32 @@ params:
 
 ### Aspekte der Benotung
 
-1. Es wird eine Gesamtnote und drei Teilnoten vergeben.
+1. Es wird eine Gesamtnote vergeben und ggf. drei Teilnoten.
 
-2. Die Gesamtnote muss sich nicht als arithmetisches Mittel der Teilnoten ergeben.
+2. Die Gesamtnote setzt sich aus drei Teilaspekten zusammen.
 
-2. Die Teilnoten sind
+2. Die drei Teilaspekte sind
     - *Formalia* (u.a. Aufbau, Gestaltung, Rechtschreibung, Zitierweise, Literaturverzeichnis, Umfang)
     - *Methodik* (u.a. Methodenauswahl, Methodenanwendung, Interpetation)
     - *Inhalt* (u.a. Gliederung, Argumentation, Literaturnutzung, sprachlicher Ausdruck, Problemlösung, Reflexion)
+    
+2. Falls Teilnoten vergeben werden, muss sich die Gesamtnote *nicht* als arithmetisches Mittel der Teilnoten ergeben.
+
     
     
 ### Anspruch
 
 1. Anspruch an eine gute Seminararbeit
     - Überwiegende Verwendung von Literatur hoher Qualität (Fachartikel, peer-reviewed)
-    - Ca. 30 Quellen oder mehr im Literaturverzeichnis
+    - Ca. 30 Quellen oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Stichprobengröße (ca.)
-      - Experimentell: Between-Design 50 Fälle, Within-Design: 20 Fälle
-     - Beobachtend: 100 Fälle
+      - Experimentell: Between-Design 50 Fälle, Within-Design: 20 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+     - Beobachtend: 100 Fällebei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Designumfang (ca.)
       - Experimentell: 2-3 Variablen
-      - Beobachtend: 3-4 Variablen
+      - Beobachtend: 3-4 Variablen bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
 
-2. Nichteinhaltung der Regeln bzw. der Hinweise kann zum Durchfallen oder schlechterer Note führen.
+
 
 
 
@@ -282,20 +297,36 @@ Hier sind einige typische Fragen, die sich Lesis - implizit oder explizit - stel
 
 
 
+## Gutachtenerstellung
+
+
+- Wenn es sich um eine Gruppenarbeit handelt, sind alle Kommentare des Gutachters mit dem Namen (bzw. Namenskürzel) derjenigen Person versehen, an die der Kommentar gerichtet ist.
+- In die Note (eines bestimmten Gutachtens) fließen nur Abschnitt ein, die von der/dem angegebenen Verfasser:in verfasst wurden sowie diejenigen Abschnitte, die nicht namentlich gekennzeichnet wurden (nur relevant bei Gruppenarbeiten). Kommentare zu Abschnitten, die ohne Namen in der Prüfungsleistung angegeben sind, werden auch ohne Namenshinweis aufgeführt.
+- Ein Teil des Gesamteindrucks der Arbeit spiegelt sich in den Kommentaren des Gutachters wider. Jedoch spiegelt die Summe der Kommentare nicht (zwangsläufig) die Gesamtnote wider, sondern nur denjenigen Teil, für den der Gutachter es für sinnvoll befunden hat, explizite Kommentare anzugeben.
+- Es ist insbesondere nicht möglich, von der Anzahl der positiven oder negativen Kommentare auf eine bestimmte Note zurückzuschließen.
+- Auch Vergleiche zwischen Gutachten verschiedener Student/innen ist nicht rein auf Basis der Kommentare möglich, da die Kommentare nur einen Ausschnitt des Meinungsbilds des Gutachters widerspiegeln.
+- Die Kommentare des Gutachters verfolgen erstens den Zweck einer Rückmeldung zum Leistungsstand und zweitens Hilfestellung zur Verbesserung, damit der/die entsprechend Student/in den eigenen Leistungsstand verbessern kann.
+- Weitere Hinweise zur Notengebung und Beurteilung sind auf der Modulseite bzw. den offiziellen Regularien und Hinweisen zu finden.
+- Sollten Sie Fragen an den Gutachter stellen wollen zu Ihrem Gutachten, so melden Sie sich zur Sprechstunde an.
+
+
+
+
+
+
+
 ## Anmeldung
 
-- Bitte beachten Sie etwaige Anmeldefristen für die Anemeldung zur Prüfung als auch ggf. zur Anmeldung in einzelne Arbeitsgruppen.
-- Die Dozentis informieren Sie separat zu den Anmeldefristen.
-- Soweit nicht anders vom Dozenten gesagt, gelten die offiziellen Anmeldefristen der Hochschule.
+- Bitte beachten Sie etwaige *Anmeldefristen* für die Aemeldung zur Prüfung als auch ggf. zur Anmeldung in einzelne Arbeitsgruppen.
+- Soweit nicht anders vom Dozenten gesagt, gelten die *offiziellen* Anmeldefristen der Hochschule.
 
 
 
 ## Sonstiges
 
 
-- Vermeiden Sie den Upload von Prüfungsleistungen kurz vor der Frist – falls technische Probleme auftreten, können diese u. U. nicht mehr gelöst werden.
-- Die Dozentis führen keine Vorab-Korrektur von laufenden Prüfungsleistungen durch. Fragen, die einer VorabKorrektur Ihrer Arbeit nahe kommen (und daher nicht beantwortet werden), sind z. B.: „Ist mein Fragebogen so o.k.?“, „Passt das so?“, „Können Sie mal drüber schauen, ob ich so anfangen kann?“, „Passen meine Hypothesen zur Theorie?“, „Hab ich was vergessen?“, „Ist die Gliederung so richtig/vollständig?“ ...
-- Fachliche Fragen werden jederzeit beantwortet.
+- Vermeiden Sie *kurzfristigen* Upload von Prüfungsleistungen kurz vor dem Verstreichen der  Einreichefrist – falls technische Probleme auftreten, können diese u. U. nicht mehr gelöst werden.
+- Die Dozentis führen *keine Vorab-Korrektur* von laufenden Prüfungsleistungen durch. Fragen, die einer VorabKorrektur Ihrer Arbeit nahe kommen (und daher nicht beantwortet werden), sind z. B.: „Ist mein Fragebogen so o.k.?“, „Passt das so?“, „Können Sie mal drüber schauen, ob ich so anfangen kann?“, „Passen meine Hypothesen zur Theorie?“, „Hab ich was vergessen?“, „Ist die Gliederung so richtig/vollständig?“ ...
 - Fragen zum Stoff werden im Unterricht jederzeit beantwortet. Sprechen Sie die Dozentis auch gerne vor oder nach dem Unterricht persönlich an.
 - Aus Gründen der Fairness werden inhaltliche Fragen von Studierenden nur öffentlich, z. B. im Unterricht oder im Online-Forum, beantwortet (nicht per Mail).
 

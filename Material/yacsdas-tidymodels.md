@@ -95,6 +95,8 @@
 - [Einfache Fallstudie mit Tidymodels bei Kaggle](https://www.kaggle.com/code/benthecoder/tidymodels-in-r-using-measles-data/notebook)
 
 
+- [Exploring the Star Wars “Prequel Renaissance” Using tidymodels and workflowsets](https://www.r-bloggers.com/2021/04/exploring-the-star-wars-prequel-renaissance-using-tidymodels-and-workflowsets/)
+
 
 
 
