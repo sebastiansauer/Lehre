@@ -52,3 +52,29 @@ hcandersen_en %>%
   count(word, sort = TRUE)
 ```
 
+
+
+
+```{r}
+hcandersen_sentences <- 
+  hcandersen_en %>%
+  nest(data = c(text))
+  
+tale1 <- hcandersen_sentences$data[[1]]
+
+tale1 %>% 
+  select(1) %>% 
+  slice_head(n = 1)
+
+# synonym:
+tale1[[1]][1]
+
+```
+
+
+```{r}
+hcandersen_sentences %>% 
+  mutate(data = map_chr(data, ~ paste(.x$text, collapse = " "))) %>% 
+  unnest_sentences(sentences, data)
+```
+
