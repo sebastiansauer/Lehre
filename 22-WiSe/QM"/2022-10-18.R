@@ -11,3 +11,10 @@ x_simu_df <-
 
 x_simu_df %>% 
   count(x <= 5)
+
+
+
+# Wie viele Möglichkeiten gibt es,
+# bei 4 Zügen 2 Treffer zu erzielen
+# (bei einer Binomialverteilung)?
+choose(4, 2)
