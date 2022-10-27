@@ -1,0 +1,123 @@
+---
+title: "Textmining-Aufgaben"
+format: html
+editor: source 
+date: "2022-10-26"
+---
+
+
+# A1
+
+## Aufgabe
+
+Laden Sie $n=10$ Tweets herunter (mit $k=2$) via der Twitter API; Suchterm "@karl_lauterbach".
+Bereiten Sie die Textdaten mit grundlegenden Methoden des Textminings auf (Tokenisieren, Stopwörter entfernen, Zahlen entfernen, ...).
+Berichten Sie dann die 10 häufigsten Wörter als Schätzer für die Dinge, die an Karl Lauterbach getweetet werden.
+
+
+## Lösung
+
+
+```{r}
+library(rtweet)
+library(tidyverse)
+library(tidytext)
+library(lsa)  # Stopwörter
+library(SnowballC)  # Stemming
+```
+
+
+```{r}
+source("/home/sebastian/Documents/credentials/hate-speech2-twitter.R")
+```
+
+```{r}
+auth <- rtweet_bot(api_key = api_key,
+                   api_secret = api_secret,
+                   access_token = access_token,
+                   access_secret = access_secret)
+```
+
+
+
+
+```{r}
+karl1 <- search_tweets("@karl_lauterbach", n = 1e2, include_rts = FALSE)
+#write_rds(karl1, file = "karl1.rds", compress = "gz")
+```
+
+
+```{r}
+karl2 <- 
+  karl1 %>% 
+  select(full_text)
+```
+
+
+```{r}
+karl3 <- 
+  karl2 %>% 
+  unnest_tokens(output = word, input = full_text)
+```
+
+
+```{r}
+karl4 <- 
+karl3 %>% 
+  anti_join(tibble(word = lsa::stopwords_de)) 
+```
+
+
+```{r}
+karl5 <- 
+  karl4 %>% 
+  mutate(word = str_replace_na(word, "^[:digit:]+$")) %>% 
+  mutate(word = str_replace_na(word, "hptts?://\\w+")) %>% 
+  mutate(word = str_replace_na(word, " +")) %>% 
+  drop_na()
+```
+
+
+```{r}
+karl6 <-
+  karl5 %>% 
+  mutate(word = wordStem(word))
+```
+
+
+
+```{r}
+karl6 %>% 
+  count(word, sort = TRUE) %>% 
+  slice_head(n=10)
+```
+
+
+# A2
+
+## Aufgabe
+
+Nutzen Sie die Daten der letzten Aufgabe,
+um eine Sentimentanalyse zu erstellen.
+
+
+
+```{r}
+data(sentiws, package = "pradadata")
+```
+
+
+```{r}
+karl7 <-
+  karl6 %>% 
+  inner_join(sentiws)
+```
+
+
+```{r}
+karl7 %>% 
+  group_by(neg_pos) %>% 
+  summarise(senti_avg = mean(value, na.rm = TRUE),
+            senti_sd = sd(value, na.rm = TRUE))
+```
+
