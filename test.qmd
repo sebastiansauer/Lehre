@@ -1,0 +1,11 @@
+John, Smith
+Stuart, Miller
+
+
+
+```{r}
+library(tidyverse)
+ggplot(mtcars) + aes(x=hp) + geom_bar()
+
+```
+
