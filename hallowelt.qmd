@@ -1,0 +1,18 @@
+---
+title: "Hallo, Welt!"
+format: html
+editor: visual
+---
+
+# Hallo, Welt!
+
+
+Was ist die 23. Primzahl?
+
+```{r}
+library(primes)
+primes[23]
+```
+
+
+
