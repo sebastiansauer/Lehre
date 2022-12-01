@@ -1,9 +1,9 @@
 ---
 title: "Untitled"
 format: pdf
-header-includes:
-  - \usepackage{mathtools} 
- 
+# header-includes:
+#   - \usepackage{mathtools} 
+#  
 editor: visual
 ---
 
@@ -11,11 +11,14 @@ editor: visual
 
 
 
-$$\begin{aligned}
-\text{kid_score}  \sim \mathcal{N}(0,2.5)\\
-\mu_i = \alpha + \beta_1\text{mom_iq}_i + \beta_2\text{mom_age}_i \\
-\alpha \sim \mathcal{N}(0,2.5)\\
-\beta_1 \sim \mathcal{N}(0,2.5)\\
-\beta_2 \sim \mathcal{N}(0,2.5)\\
-\sigma \sim \mathcal{E}(1)
-\end{aligned}$$
+
+$$
+\begin{aligned}
+\text{kidscore}  &\sim \mathcal{N}(0,2.5)\\
+\mu_i &= \alpha + \beta_1\text{momiq}_i + \beta_2\text{momage}_i \\
+\alpha &\sim \mathcal{N}(0,2.5)\\
+\beta_1 &\sim \mathcal{N}(0,2.5)\\
+\beta_2 &\sim \mathcal{N}(0,2.5)\\
+\sigma &\sim \mathcal{E}(1)
+\end{aligned}
+$$
