@@ -28,6 +28,9 @@ Hinweise:
 - Nutzen Sie den Datensatz zu den *Palmer Penguins*.
 - Verwenden Sie Methoden der Bayes-Statistik und die Software Stan.
 - Fixieren Sie die Zufallszahlen auf den Startwert 42!
+- Sie können den Datensatz z.B. [hier](https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv) beziehen oder über das R-Paket `palmerpenguins`.
+
+
 
 
 
