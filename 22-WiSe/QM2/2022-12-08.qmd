@@ -1,0 +1,36 @@
+---
+title: "2022-12-08 Syntax"
+---
+
+
+# Aufgabe 1
+
+
+
+Question
+========
+
+
+Wir untersuchen Einflussfaktoren bzw. Prädiktoren auf das Körpergewicht von Pinguinen.
+In dieser Aufgabe untersuchen wir in dem Zusammenhang den Zusammenhang von *Schnabellänge* (als UV) und Körpergewicht (als AV).
+
+
+*Wie groß ist der statistische Einfluss der UV auf die AV?*
+
+a) Berechnen Sie den Punktschätzer des Effekts!
+b) Wie viele Parameter hat das Modell?
+c) Geben Sie die Breite eines 90%-HDI an!
+d) Wie groß ist die Wahrscheinlichkeit, dass der Effekt vorhanden ist (also größer als Null ist)?
+
+
+Hinweise:
+
+- Nutzen Sie den Datensatz zu den *Palmer Penguins*.
+- Verwenden Sie Methoden der Bayes-Statistik und die Software Stan.
+- Fixieren Sie die Zufallszahlen auf den Startwert 42!
+
+
+
+Solution
+========
+
