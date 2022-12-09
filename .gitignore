@@ -45,11 +45,16 @@ vignettes/*.pdf
 */trials.Rmd
 Untitled.*
 trials/
+test*.*
+test*/
+test*
 
 
 # data
 *.rds
 **/*.rds
+*.feather
+**/*.feather
 
 
 
