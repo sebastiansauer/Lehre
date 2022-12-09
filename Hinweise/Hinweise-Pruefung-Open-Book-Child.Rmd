@@ -57,16 +57,23 @@ Prüfungsrelevanter Stoff ist alles, was im Unterricht behandelt wurde, sofern e
 
 - Je nach Spracheinstellung in Moodle kann es sein, dass Sie als *Dezimaltrennzeichen* ein Komma oder einen Punkt verwenden müssen. Moodle weist Sie, wenn Sie die Aufgabe verlassen, darauf hin, falls eine Zahl nicht als Zahl erkannt wurde.
 - Runden Sie ggf. auf *eine Dezimalstelle*.
-- Verwenden Sie Methoden der *Bayes*-Statistik für inferenzstatistische Analysen.
 - Geben Sie keine Prozentzahlen an, sondern *Anteile* (also nicht “50%”, sondern “0.5” bzw. "0,5").
 - Bei Aufgaben, die eine Zahl als Antwort verlangen, ist *nur eine Zahl anzugeben* (nicht etwa Buchstaben).
-- Bei Aufgaben zur "Bayes-Box" (Erstellung einer Gitterwert-Tabelle) gelten folgende Maßgaben:
-  - Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie etwa Anteile), so ist der ganze Wertebereich zu modellieren. Es sind 100 verschiedene Parameterwerte zu berechnen.
-  - Handelt es sich um Parameter $X$ mit einem unbegrenzten Wertebereich (wie normalverteilte Variablen), so ist der Wertebereich $X-2\sigma \le  X \le X+2\sigma$ zu simulieren.
 - Alle Berechnungen, die Zufallszahlen beinhalten, sollen mit fixierten Startwert der Zufallszahlen durchgeführt werden. Es ist die Zahl `42` zu verwenden.
 - Wie auch bei den übrigen Hinweisen gelten diese Maßgaben nur soweit in der Prüfung nicht *explizit andere Hinweise* gegeben wurden.
 - Wenn *Stichproben simuliert* werden sollen, ziehen Sie $10^3$ Zufallsstichproben.
 - In einigen Aufgaben kann verlangt sein, dass Sie einen *bestimmten Datensatz in R importieren* sollen. In diesem Fall wird vorausgesetzt, dass Ihnen [diese Bezugsquelle](https://vincentarelbundock.github.io/Rdatasets/articles/data.html) von Datensätzen bekannt ist und dass Sie wissen, wie man einen Datensatz in R importiert.
+- Achten Sie darauf, R und R-Pakete sowie R-Studio *in aktueller Version* zu verwenden. Das Verwenden älterer Versionen kann (in seltenen Fällen) zu abweichenden Lösungen führen. Im Zweifel beziehen sich alle Aufgaben auf die jweils aktuellste Version der verwendeten Software.
+
+
+
+Speziell zur Bayes-Statistik:
+
+- Verwenden Sie Methoden der *Bayes*-Statistik für inferenzstatistische Analysen.
+- Bei Aufgaben zur "*Bayes-Box*" (Erstellung einer Gitterwert-Tabelle) gelten folgende Maßgaben:
+  - Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie etwa *Anteile*), so ist der ganze Wertebereich zu modellieren. Es sind 100 verschiedene Parameterwerte zu berechnen.
+  - Handelt es sich um Parameter $X$ mit einem unbegrenzten Wertebereich (wie *normalverteilte* Variablen), so ist der Wertebereich $X-2\sigma \le  X \le X+2\sigma$ zu simulieren.
+- Nutzen Sie die Software *Stan* in Form des R-Paket `rstanarm` für Regressionsmodelle auf Basis der Bayes-Methode.
 
 
 

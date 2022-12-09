@@ -452,23 +452,10 @@ Prüfungszeit begonnen hat.</li>
 müssen. Moodle weist Sie, wenn Sie die Aufgabe verlassen, darauf hin,
 falls eine Zahl nicht als Zahl erkannt wurde.</li>
 <li>Runden Sie ggf. auf <em>eine Dezimalstelle</em>.</li>
-<li>Verwenden Sie Methoden der <em>Bayes</em>-Statistik für
-inferenzstatistische Analysen.</li>
 <li>Geben Sie keine Prozentzahlen an, sondern <em>Anteile</em> (also
 nicht “50%”, sondern “0.5” bzw. “0,5”).</li>
 <li>Bei Aufgaben, die eine Zahl als Antwort verlangen, ist <em>nur eine
 Zahl anzugeben</em> (nicht etwa Buchstaben).</li>
-<li>Bei Aufgaben zur “Bayes-Box” (Erstellung einer Gitterwert-Tabelle)
-gelten folgende Maßgaben:
-<ul>
-<li>Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie
-etwa Anteile), so ist der ganze Wertebereich zu modellieren. Es sind 100
-verschiedene Parameterwerte zu berechnen.</li>
-<li>Handelt es sich um Parameter <span class="math inline">\(X\)</span>
-mit einem unbegrenzten Wertebereich (wie normalverteilte Variablen), so
-ist der Wertebereich <span class="math inline">\(X-2\sigma \le X \le
-X+2\sigma\)</span> zu simulieren.</li>
-</ul></li>
 <li>Alle Berechnungen, die Zufallszahlen beinhalten, sollen mit
 fixierten Startwert der Zufallszahlen durchgeführt werden. Es ist die
 Zahl <code>42</code> zu verwenden.</li>
@@ -481,6 +468,30 @@ wurden.</li>
 wird vorausgesetzt, dass Ihnen <a href="https://vincentarelbundock.github.io/Rdatasets/articles/data.html">diese
 Bezugsquelle</a> von Datensätzen bekannt ist und dass Sie wissen, wie
 man einen Datensatz in R importiert.</li>
+<li>Achten Sie darauf, R und R-Pakete sowie R-Studio <em>in aktueller
+Version</em> zu verwenden. Das Verwenden älterer Versionen kann (in
+seltenen Fällen) zu abweichenden Lösungen führen. Im Zweifel beziehen
+sich alle Aufgaben auf die jweils aktuellste Version der verwendeten
+Software.</li>
+</ul>
+<p>Speziell zur Bayes-Statistik:</p>
+<ul>
+<li>Verwenden Sie Methoden der <em>Bayes</em>-Statistik für
+inferenzstatistische Analysen.</li>
+<li>Bei Aufgaben zur “<em>Bayes-Box</em>” (Erstellung einer
+Gitterwert-Tabelle) gelten folgende Maßgaben:
+<ul>
+<li>Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie
+etwa <em>Anteile</em>), so ist der ganze Wertebereich zu modellieren. Es
+sind 100 verschiedene Parameterwerte zu berechnen.</li>
+<li>Handelt es sich um Parameter <span class="math inline">\(X\)</span>
+mit einem unbegrenzten Wertebereich (wie <em>normalverteilte</em>
+Variablen), so ist der Wertebereich <span class="math inline">\(X-2\sigma \le X \le X+2\sigma\)</span> zu
+simulieren.</li>
+</ul></li>
+<li>Nutzen Sie die Software <em>Stan</em> in Form des R-Paket
+<code>rstanarm</code> für Regressionsmodelle auf Basis der
+Bayes-Methode.</li>
 </ul>
 </div>
 </div>
