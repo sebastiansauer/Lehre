@@ -1,0 +1,170 @@
+
+
+Question
+========
+
+
+Wir untersuchen Einflussfaktoren bzw. Prädiktoren auf das Körpergewicht von Pinguinen.
+In dieser Aufgabe untersuchen wir in dem Zusammenhang den Zusammenhang von *Schnabellänge* (als UV) und Körpergewicht (als AV).
+
+
+*Wie groß ist der statistische Einfluss der UV auf die AV?*
+
+a) Berechnen Sie den *Punktschätzer* des Effekts!
+b) *Wie viele Parameter* hat das Modell?
+c) Geben Sie die *Breite eines 90%-HDI* an (zum Effekt)!
+d) Wie groß ist die Wahrscheinlichkeit, dass der Effekt vorhanden ist (also größer als Null ist), die "*Effektwahrscheinlichkeit*"?
+e) Wie groß ist das 90%-HDI, wenn Sie *nur* die Spezies *Adelie* untersuchen?
+f) Geben Sie die Prioris an für `m1` für die Regressionskoeffizienten!
+
+
+Hinweise:
+
+- Nutzen Sie den Datensatz zu den *Palmer Penguins*.
+- Verwenden Sie Methoden der Bayes-Statistik und die Software Stan.
+- Fixieren Sie die Zufallszahlen auf den Startwert 42!
+- Sie können den Datensatz z.B. [hier](https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv) beziehen oder über das R-Paket `palmerpenguins`.
+
+
+
+
+Solution
+========
+
+Zentrieren ist eigentlich immer nützlich,
+aber hier streng genommen nicht unbedingt nötig.
+Der Hauptgrund ist, dass Stan für uns den Prior für den Intercept festlegt,
+und zwar auf Basis der Daten,
+wir uns also nicht um die komische Frage zu kümmern brauchen,
+welchen Prior wir für den unzentrierten Achsenabschnitt vergeben wollten:
+Wie schwer sind Pinguins der Schnabellänge Null?
+Mit zentrierten Prädiktoren ist die Frage nach dem Prior viel einfacher zu beantworten:
+Wie schwer ist ein Pinguin mit mittelgroßem Schnabel?
+
+Setup:
+
+```{r message=FALSE}
+library(tidyverse)
+library(easystats)
+library(rstanarm)
+
+data("penguins", package = "palmerpenguins")
+```
+
+
+a) Punktschätzer
+
+
+```{r}
+m1 <- stan_glm(body_mass_g ~  bill_length_mm,  # Regressionsgleichung
+               data = penguins, #  Daten
+               seed = 42,  # Repro.
+               refresh = 0)  # nicht so viel Output
+```
+
+
+```{r}
+parameters(m1, ci_method = "hdi", ci = .9)
+```
+
+
+b) Anzahl Parameter
+
+Das Modell hat 3 Paramter:
+
+- $\beta_0$ (oder $\alpha$)
+- $\beta_01$
+- $\sigma$
+
+
+c) Breite des Intervalls
+
+```{r}
+98.11  - 77.15
+```
+
+Einheit: mm
+
+
+d) Effektwahrscheinlichkeit
+
+
+
+```{r}
+m1_post <-
+  m1 %>% 
+  as_tibble()
+
+m1_post %>% 
+  count(bill_length_mm > 0)
+```
+
+Also: 100% oder 1.
+
+Man kann diesen Wert aus der Tabelle oben (Ausgabe von `parameters()`) einfach in der Spalte `pd` ablesen.
+`pd` steht für *probability of direction*, s. [Details hier](https://easystats.github.io/blog/posts/bayestestr_pd/).
+
+
+Oder so, ist auch einfach:
+
+
+```{r}
+p_direction(m1) # aus Paket easystats
+```
+
+Und plotten ist meist hilfreich:
+
+```{r}
+plot(p_direction(m1))
+```
+
+
+e) Nur Adelie:
+
+Filtern:
+
+```{r}
+penguins_adelie <-
+  penguins %>% 
+  filter(species == "Adelie")
+```
+
+
+Modell berechnen:
+
+```{r}
+m2 <- stan_glm(body_mass_g ~  bill_length_mm,  # Regressionsgleichung
+               data = penguins, #  Daten
+               seed = 42,  # Repro.
+               refresh = 0)  # nicht so viel Output
+```
+
+Das Modell ist - bis auf die Daten - identisch zu `m1`.
+
+```{r}
+parameters(m2)
+```
+
+
+```{r}
+hdi(m2, parameters = "bill_length_mm")
+```
+
+S. auch Tabelle oben.
+
+
+```{r}
+99.15 - 74.46
+```
+
+f) Prioris
+
+```{r}
+describe_prior(m1, component = "auxiliary")
+```
+
+Steht auch in der Tabelle,
+die von `parameters` ausgegeben wird.
+
+
+
