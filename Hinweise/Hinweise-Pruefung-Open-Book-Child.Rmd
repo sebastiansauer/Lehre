@@ -34,12 +34,12 @@ Prüfungsrelevanter Stoff ist alles, was im Unterricht behandelt wurde, sofern e
 
 ## Bearbeitungshinweise 
 
-#### Allgemeine Hinweise
+### Allgemeine Hinweise
 
-- Verwenden Sie *Standardwerte* (defaults) der R-Funktionen.
+- Verwenden Sie *Standardwerte* (defaults) der R-Funktionen, soweit nicht anders in der jeweiligen Aufgabe verlangt.
 - Findet sich in einer Auswahlliste möglicher Antworten nicht die exakte Lösung, wählen Sie die *am besten passende*.
-- *Treffen Sie Annahmen*, wo nötig. 
-- Die Prüfung besteht auch aus *Single- bzw. Multiple-Choice*- (MC-)-Aufgaben mit mehreren Antwortoptionen.
+- *Treffen Sie Annahmen*, (nur) wo nötig. 
+- Die Prüfung besteht auch aus *Single- bzw. Multiple-Choice*- (MC)-Aufgaben mit mehreren Antwortoptionen.
 - Bei Multiple-Choice-Aufgaben (MC-Aufgaben) ist zumeist genau *eine* Antwortoption auszuwählen aus vier oder fünf Antwortoptionen.
 - Im Zweifel ist eine Aussage auf den Stoff, so wie im *Unterricht* behandelt, zu beziehen.
 - Bei Fragen zu R-Syntax spielen Aspekte wie Enter-Taste o.Ä. bei der Beantwortung der Frage keine Rolle; diese Aspekte dürfen zu ignorieren.
@@ -56,14 +56,15 @@ Prüfungsrelevanter Stoff ist alles, was im Unterricht behandelt wurde, sofern e
 
 
 - Je nach Spracheinstellung in Moodle kann es sein, dass Sie als *Dezimaltrennzeichen* ein Komma oder einen Punkt verwenden müssen. Moodle weist Sie, wenn Sie die Aufgabe verlassen, darauf hin, falls eine Zahl nicht als Zahl erkannt wurde.
-- Runden Sie ggf. auf *eine Dezimalstelle*.
+- *Runden* Sie bei Fragen, die auf Anteile abzielen auf *zwei* Dezimalstellen, ansonsten auf eine.
 - Geben Sie keine Prozentzahlen an, sondern *Anteile* (also nicht “50%”, sondern “0.5” bzw. "0,5").
 - Bei Aufgaben, die eine Zahl als Antwort verlangen, ist *nur eine Zahl anzugeben* (nicht etwa Buchstaben).
-- Alle Berechnungen, die Zufallszahlen beinhalten, sollen mit fixierten Startwert der Zufallszahlen durchgeführt werden. Es ist die Zahl `42` zu verwenden.
+- Alle Berechnungen, die *Zufallszahlen* beinhalten, sollen mit *fixierten Startwert* der Zufallszahlen durchgeführt werden. Es ist die Zahl `42` zu verwenden.
 - Wie auch bei den übrigen Hinweisen gelten diese Maßgaben nur soweit in der Prüfung nicht *explizit andere Hinweise* gegeben wurden.
 - Wenn *Stichproben simuliert* werden sollen, ziehen Sie $10^3$ Zufallsstichproben.
 - In einigen Aufgaben kann verlangt sein, dass Sie einen *bestimmten Datensatz in R importieren* sollen. In diesem Fall wird vorausgesetzt, dass Ihnen [diese Bezugsquelle](https://vincentarelbundock.github.io/Rdatasets/articles/data.html) von Datensätzen bekannt ist und dass Sie wissen, wie man einen Datensatz in R importiert.
-- Achten Sie darauf, R und R-Pakete sowie R-Studio *in aktueller Version* zu verwenden. Das Verwenden älterer Versionen kann (in seltenen Fällen) zu abweichenden Lösungen führen. Im Zweifel beziehen sich alle Aufgaben auf die jweils aktuellste Version der verwendeten Software.
+- Achten Sie darauf, R und R-Pakete sowie R-Studio *in aktueller Version* zu verwenden. Das Verwenden älterer Versionen kann (in seltenen Fällen) zu abweichenden Lösungen führen. Im Zweifel beziehen sich alle Aufgaben auf die jeweils aktuellste Version der verwendeten Software.
+- Wenn Sie *Text eingeben* sollen: Geben Sie *nur Kleinbuchstaben ein*. Geben Sie nur ein einziges Wort ein. Geben Sie keine Leerzeichen ein.
 
 
 
@@ -73,7 +74,7 @@ Speziell zur Bayes-Statistik:
 - Bei Aufgaben zur "*Bayes-Box*" (Erstellung einer Gitterwert-Tabelle) gelten folgende Maßgaben:
   - Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie etwa *Anteile*), so ist der ganze Wertebereich zu modellieren. Es sind 100 verschiedene Parameterwerte zu berechnen.
   - Handelt es sich um Parameter $X$ mit einem unbegrenzten Wertebereich (wie *normalverteilte* Variablen), so ist der Wertebereich $X-2\sigma \le  X \le X+2\sigma$ zu simulieren.
-- Nutzen Sie die Software *Stan* in Form des R-Paket `rstanarm` für Regressionsmodelle auf Basis der Bayes-Methode.
+- Nutzen Sie die Software *Stan* in Form des R-Pakets `rstanarm` für Regressionsmodelle auf Basis der Bayes-Methode.
 
 
 
@@ -90,7 +91,6 @@ Speziell zur Bayes-Statistik:
 - Es ist *untersagt*, die *Prüfung* bzw. Teile daraus (z.B. Prüfungsfragen) zu speichern oder *weiterzugeben.*
 - Im Übrigen gelten die allgemeinen *Prüfungsregeln*.
 - Es darf *nicht* mit anderen Personen, insbesondere nicht Prüflingen, *kommuniziert* werden während der Prüfung. Dies gilt auch für den Fall von (vermeintlichen) technischen Problemen. Kontaktieren Sie den Prüfer, wenn Sie meinen, es liege ein technisches Problem vor.
-- Das Nichtbeachten der Regeln kann zu Notenabzug oder *Nichtbestehen* führen.
 
 
 
