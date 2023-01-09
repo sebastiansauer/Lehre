@@ -5,7 +5,7 @@
 ## Grundsätzliches
 
 Die folgenden Hinweise gelten *grundsätzlich*, 
-d.h. soweit nicht anders in der jeweiligen Prüfung bzw. der jeweiligen Aufgabe angegeben.
+d.h. *soweit nicht anders* in der jeweiligen Prüfung bzw. der jeweiligen Aufgabe angegeben.
 
 Nichtbeachten von Prüfungshinweisen kann zu Punkteabzug oder Nichtbestehen führen.
 
@@ -13,39 +13,68 @@ Nichtbeachten von Prüfungshinweisen kann zu Punkteabzug oder Nichtbestehen füh
 
 ## Wiederholungsprüfungen
 
-- Wenn Sie bei einer Prüfung durchgefallen sein sollten, so haben Sie grundsätzlich die Möglichkeit, die Prüfung zu wiederholen.
-- Denken Sie daran, sich rechtzeitig für Prüfungsleistungen anzumelden; beachten Sie die Fristen.
-- Die Termine für die Wiederholungsprüfungen werden stets zusammen/zeitgleich mit denen der regulären Prüfungen in Primuss bekannt gegeben. 
-- Wird ein Modul im laufenden Semester nicht angeboten, gibt es eine Wiederholungsprüfung nur für Studentis, die durchgefallen sind. Abweichend davon kann ei Dozenti die Prüfung für alle Studentis anbieten. Die Entscheidung, ob eine Wiederholungsprüfung in diesem Fall angeboten wird, obliegt der Dozentin bzw. dem Dozenten des Moduls. 
-- Relevanter Stoff und formale Bedingungen (wie Prüfungsform) sind grundsätzlich identisch zur letzten abgehaltenen Prüfung des Moduls (d.h. sofern nicht anders angegeben). Daher sind Wiederholungsprüfungen vom Anspruch vergleichbar wie die reguläre Klausur. Die Prüfungen sollen möglichst gleich vom Anspruch sein, um Fairness zu gewährleisten.
-- Beachten Sie immer die Hinweise, die für die Wiederholungsprüfung angegeben sind. Im Einzelfall keine eine Wiederholungsprüfung von der vorherigen Prüfung stärker abweichen. Es gelten immer die Regeln, die dis Dozenti bei der jeweiligen Wiederholungsprüfung veröffentlicht hat.
-- Wird ein Modul im laufenden Semester angeboten, so gibt es keine Wiederholungsprüfung. Stattdessen können Sie ggf. an der regulären Klausur des Moduls teilnehmen. Es gilt der aktuelle Stoff bzw. die aktuellen formalen Bedingungen. Es ist möglich, dass der Stoff sich dann substanziell ändert; meist halten sich die Änderungen (im Stoff) aber in Rahmen.
-- Sprechen Sie die Moduldozentis an für Details zur Prüfung (bzw. lesen Sie vorab auf jeweiligen Modulseite in Moodle nach).
-- Manchmal fragen Studentis nach einer Empfehlung, ob es besser ist, eine Prüfung zu verschieben, wenn man sich nicht ausreichend vorbereiten konnte. Es ist schwer, eine Empfehlung pauschal abzugeben, es kommt auf den Einzelfall an. Grundsätzlich rate ich aber dazu, Prüfungen nicht zu verschieben: Schließlich könnte in einem folgenden Semester wieder ein unvorhergesehenes Problem auftreten.
-- Bei Fragen zum Prüfungsrecht sprechen Sie bitte die Studienberatung an.
+- Wenn Sie bei einer Prüfung durchgefallen sein sollten, so haben Sie grundsätzlich die Möglichkeit, die *Prüfung zu wiederholen*.
+- Denken Sie daran, sich *rechtzeitig* für Prüfungsleistungen *anzumelden*; beachten Sie die Fristen.
+- Die Termine für die Wiederholungsprüfungen werden stets zusammen/zeitgleich mit denen der regulären Prüfungen bekannt gegeben. 
+- Wird ein Modul im laufenden Semester nicht angeboten, gibt es eine Wiederholungsprüfung. 
+- Relevanter Stoff und formale Bedingungen (wie Prüfungsform) sind *grundsätzlich identisch zur letzten abgehaltenen Prüfung des Moduls* (d.h. sofern nicht anders angegeben). Daher sind Wiederholungsprüfungen vom Anspruch vergleichbar wie die reguläre Klausur. Die Prüfungen sollen möglichst gleich vom Anspruch sein, um Fairness zu gewährleisten.
+- Beachten Sie immer die *Hinweise*, die für die Wiederholungsprüfung angegeben sind. Im Einzelfall keine eine Wiederholungsprüfung von der vorherigen Prüfung stärker abweichen. Es gelten immer die Regeln, die dis Dozenti bei der jeweiligen Wiederholungsprüfung veröffentlicht hat.
+- Wird ein *Modul im laufenden Semester* angeboten, so gibt es keine Wiederholungsprüfung. Stattdessen können Sie ggf. an der regulären Klausur des Moduls teilnehmen. Es gilt der aktuelle Stoff bzw. die aktuellen formalen Bedingungen. Es ist möglich, dass der Stoff sich dann substanziell ändert; meist halten sich die Änderungen (im Stoff) aber in Rahmen.
+- Sprechen Sie die *Moduldozentis an für Details zur Prüfung* (bzw. lesen Sie vorab auf jeweiligen Modulseite in Moodle nach).
+- Manchmal fragen Studentis nach einer *Empfehlung*, ob es besser ist, eine Prüfung zu verschieben, wenn man sich nicht ausreichend vorbereiten konnte. Es ist schwer, eine Empfehlung pauschal abzugeben, es kommt auf den Einzelfall an. Grundsätzlich rate ich aber dazu, Prüfungen nicht zu verschieben: Schließlich könnte in einem folgenden Semester wieder ein unvorhergesehenes Problem auftreten.
+- Bei Fragen zum *Prüfungsrecht* sprechen Sie bitte die *Studienberatung* an.
+
+
+## Prüfungsstoff
+
+Prüfungsrelevanter Stoff ist alles, was im Unterricht behandelt wurde, sofern es nicht explizit (und schriftlich) als "nicht prüfungsrelevant" gekennzeichnet ist.
 
 
 
-## Bearbeitungshinweise
 
-- Verwenden Sie *Standardwerte* (defaults) der R-Funktionen.
-- Runden Sie ggf. auf *eine Dezimalstelle*.
-- Verwenden Sie Methoden der *Bayes*-Statistik für inferenzstatistische Analysen.
-- Geben Sie keine Prozentzahlen an, sondern *Anteile* (also nicht “50%”, sondern “0.5” bzw. "0,5").
+## Bearbeitungshinweise 
+
+### Allgemeine Hinweise
+
+- Verwenden Sie *Standardwerte* (defaults) der R-Funktionen, soweit nicht anders in der jeweiligen Aufgabe verlangt.
 - Findet sich in einer Auswahlliste möglicher Antworten nicht die exakte Lösung, wählen Sie die *am besten passende*.
-- *Treffen Sie Annahmen*, wo nötig. 
-- Die Prüfung besteht zu einem großen Teil aus *Multiple-Choice*- (MC-)-Aufgaben mit mehreren Antwortoptionen.
+- *Treffen Sie Annahmen*, (nur) wo nötig. 
+- Die Prüfung besteht auch aus *Single- bzw. Multiple-Choice*- (MC)-Aufgaben mit mehreren Antwortoptionen.
 - Bei Multiple-Choice-Aufgaben (MC-Aufgaben) ist zumeist genau *eine* Antwortoption auszuwählen aus vier oder fünf Antwortoptionen.
 - Im Zweifel ist eine Aussage auf den Stoff, so wie im *Unterricht* behandelt, zu beziehen.
 - Bei Fragen zu R-Syntax spielen Aspekte wie Enter-Taste o.Ä. bei der Beantwortung der Frage keine Rolle; diese Aspekte dürfen zu ignorieren.
 - Jede Aussage einer MC-Aufgabe ist entweder richtig oder falsch (aber nicht beides oder keines).
 - Die MC-Aufgaben sind *nur mit Kreuzen* zu beantworten; Text wird bei der Korrektur nicht berücksichtigt.
 - Jede Aussage gilt *ceteris paribus* (unter sonst gleichen Umständen). Aussagen der Art „A ist B“ (z.B. "Menschen sind sterblich") sind *nur* dann als richtig auszuwählen, wenn die Aussage *immer* richtig ist.
-- Bei Aufgaben, die eine Zahl als Antwort verlangen, ist *nur eine Zahl anzugeben* (nicht etwa Buchstaben).
 - Falls Sie bei einer Aufgabe mehrere Antworten finden, aber nur nach einer gefragt ist, geben Sie nur eine an. 
 - Falls mehrere (widersprüchliche) Antworten gegeben wurden, wird im Zweifel die *erst genannte* gewertet.
-- Die Aufgabenstellung in einer Moodle-Prüfung wird erst sichtbar, wenn Sie den Prüfungsbedingungen zugestimmt haben und die Prüfungszeit begonnen hat.
+- Die Aufgabenstellung in einer Moodle-Prüfung wird erst sichtbar, wenn Sie den *Prüfungsbedingungen* zugestimmt haben und die Prüfungszeit begonnen hat.
+
+
+
+### Aufgaben zur Datenanalyse
+
+
 - Je nach Spracheinstellung in Moodle kann es sein, dass Sie als *Dezimaltrennzeichen* ein Komma oder einen Punkt verwenden müssen. Moodle weist Sie, wenn Sie die Aufgabe verlassen, darauf hin, falls eine Zahl nicht als Zahl erkannt wurde.
+- *Runden* Sie bei Fragen, die auf Anteile abzielen auf *zwei* Dezimalstellen, ansonsten auf eine.
+- Geben Sie keine Prozentzahlen an, sondern *Anteile* (also nicht “50%”, sondern “0.5” bzw. "0,5").
+- Bei Aufgaben, die eine Zahl als Antwort verlangen, ist *nur eine Zahl anzugeben* (nicht etwa Buchstaben).
+- Alle Berechnungen, die *Zufallszahlen* beinhalten, sollen mit *fixierten Startwert* der Zufallszahlen durchgeführt werden. Es ist die Zahl `42` zu verwenden.
+- Wie auch bei den übrigen Hinweisen gelten diese Maßgaben nur soweit in der Prüfung nicht *explizit andere Hinweise* gegeben wurden.
+- Wenn *Stichproben simuliert* werden sollen, ziehen Sie $10^3$ Zufallsstichproben.
+- In einigen Aufgaben kann verlangt sein, dass Sie einen *bestimmten Datensatz in R importieren* sollen. In diesem Fall wird vorausgesetzt, dass Ihnen [diese Bezugsquelle](https://vincentarelbundock.github.io/Rdatasets/articles/data.html) von Datensätzen bekannt ist und dass Sie wissen, wie man einen Datensatz in R importiert.
+- Achten Sie darauf, R und R-Pakete sowie R-Studio *in aktueller Version* zu verwenden. Das Verwenden älterer Versionen kann (in seltenen Fällen) zu abweichenden Lösungen führen. Im Zweifel beziehen sich alle Aufgaben auf die jeweils aktuellste Version der verwendeten Software.
+- Wenn Sie *Text eingeben* sollen: Geben Sie *nur Kleinbuchstaben ein*. Geben Sie nur ein einziges Wort ein. Geben Sie keine Leerzeichen ein.
+
+
+
+Speziell zur Bayes-Statistik:
+
+- Verwenden Sie Methoden der *Bayes*-Statistik für inferenzstatistische Analysen.
+- Bei Aufgaben zur "*Bayes-Box*" (Erstellung einer Gitterwert-Tabelle) gelten folgende Maßgaben:
+  - Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie etwa *Anteile*), so ist der ganze Wertebereich zu modellieren. Es sind 100 verschiedene Parameterwerte zu berechnen.
+  - Handelt es sich um Parameter $X$ mit einem unbegrenzten Wertebereich (wie *normalverteilte* Variablen), so ist der Wertebereich $X-2\sigma \le  X \le X+2\sigma$ zu simulieren.
+- Nutzen Sie die Software *Stan* in Form des R-Pakets `rstanarm` für Regressionsmodelle auf Basis der Bayes-Methode.
 
 
 
@@ -62,7 +91,6 @@ Nichtbeachten von Prüfungshinweisen kann zu Punkteabzug oder Nichtbestehen füh
 - Es ist *untersagt*, die *Prüfung* bzw. Teile daraus (z.B. Prüfungsfragen) zu speichern oder *weiterzugeben.*
 - Im Übrigen gelten die allgemeinen *Prüfungsregeln*.
 - Es darf *nicht* mit anderen Personen, insbesondere nicht Prüflingen, *kommuniziert* werden während der Prüfung. Dies gilt auch für den Fall von (vermeintlichen) technischen Problemen. Kontaktieren Sie den Prüfer, wenn Sie meinen, es liege ein technisches Problem vor.
-- Das Nichtbeachten der Regeln kann zu Notenabzug oder *Nichtbestehen* führen.
 
 
 
