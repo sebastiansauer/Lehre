@@ -31,8 +31,27 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 12. Es hat *keinen Einfluss* auf Ihre Note, ob sich ein (erwarteter) *Effekt* zeigt und wie stark dieser Effekt ggf. ist.
 
+13. Zu Beginn der Analyse müssen folgende *Metadaten* *gut ersichtlich* platziert sein (z.B. auf einem Deckblatt):
+ 
+ - Vorname Nachname der Autors/der Autorin
+ - Matrikelnummer
+ - Modulname
+ - Abgabedatum
 
 
+14. Die *Abgabefrist endet mit Verstreichen des regulären Prüfungszeitraums* (soweit nicht vom Prüfer anderweitig angegeben).
+
+15. Studentis mit *Nachteilsausgleich* melden sich beim Prüfer und zeigen ihren Antrag auf Nachteilsausgleich an.
+
+
+## Einzureichende Dateien
+
+1. Einzureichen sind
+
+  - der Bericht in menschenlesbarer Form (s. Formatierungshinweise)
+  - alle Dateien, die Quellcode der Analyse beinhalten. 
+  
+2. Der Name der Dateien kann frei gewählt werden (bzw. folgt technischen Restriktionen).
 
 
 

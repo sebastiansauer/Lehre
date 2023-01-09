@@ -138,7 +138,7 @@ Für eine gute Prognose sollte daher $\text{MAE}_{\text{Test}}$ möglichst klein
 
 9. Komprimieren Sie die Dateien *nicht* (z.B. via *zip*). 
 
-2. Der Name jeder eingereichnte Datei muss wie folgt lauten: `Nachname_Vorname_Matrikelnummer_Dateiart.Endung`. Beispiel: `Sauer_Sebastian_0123456_Prognose.csv` bzw. `Sauer_Sebastian_0123456_Analyse.Rmd`.
+2. Der Name jeder eingereichten Datei muss wie folgt lauten: `Nachname_Vorname_Matrikelnummer_Dateiart.Endung`. Beispiel: `Sauer_Sebastian_0123456_Prognose.csv` bzw. `Sauer_Sebastian_0123456_Analyse.Rmd`.
 
 
 ## Gliederung Ihrer Analyse

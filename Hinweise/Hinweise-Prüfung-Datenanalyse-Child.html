@@ -11,7 +11,7 @@
 
 
 
-<title>Hinweise-Prüfung-Datenanalyse-Child.knit</title>
+<title>Hinweise-Prüfung-Datenanalyse-Child.knit</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -297,23 +297,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -387,6 +381,35 @@ Regressionsanalyse).</p></li>
 <li><p>Es hat <em>keinen Einfluss</em> auf Ihre Note, ob sich ein
 (erwarteter) <em>Effekt</em> zeigt und wie stark dieser Effekt ggf.
 ist.</p></li>
+<li><p>Zu Beginn der Analyse müssen folgende <em>Metadaten</em> <em>gut
+ersichtlich</em> platziert sein (z.B. auf einem Deckblatt):</p></li>
+</ol>
+<ul>
+<li>Vorname Nachname der Autors/der Autorin</li>
+<li>Matrikelnummer</li>
+<li>Modulname</li>
+<li>Abgabedatum</li>
+</ul>
+<ol start="14" style="list-style-type: decimal">
+<li><p>Die <em>Abgabefrist endet mit Verstreichen des regulären
+Prüfungszeitraums</em> (soweit nicht vom Prüfer anderweitig
+angegeben).</p></li>
+<li><p>Studentis mit <em>Nachteilsausgleich</em> melden sich beim Prüfer
+und zeigen ihren Antrag auf Nachteilsausgleich an.</p></li>
+</ol>
+</div>
+<div id="einzureichende-dateien" class="section level2">
+<h2>Einzureichende Dateien</h2>
+<ol style="list-style-type: decimal">
+<li>Einzureichen sind</li>
+</ol>
+<ul>
+<li>der Bericht in menschenlesbarer Form (s. Formatierungshinweise)</li>
+<li>alle Dateien, die Quellcode der Analyse beinhalten.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Der Name der Dateien kann frei gewählt werden (bzw. folgt
+technischen Restriktionen).</li>
 </ol>
 </div>
 <div id="formatierung-des-berichts" class="section level2">
