@@ -1,0 +1,81 @@
+---
+title: "Sind beide Varianten identisch?"
+format: html
+---
+
+# Setup
+
+
+
+```{r include=FALSE}
+library(tidyverse)
+
+n <- 10
+n_success <- 6
+n_trials  <- 9
+```
+
+
+# Post-Verteilung
+
+```{r}
+d <-
+  tibble(p_grid = seq(from = 0, to = 1, length.out = n),
+         prior  = 1) %>% 
+  mutate(likelihood = dbinom(n_success, 
+                             size = n_trials, 
+                             prob = p_grid)) %>% 
+  mutate(unstand_post = (likelihood * prior),
+         post = unstand_post / sum(unstand_post))
+
+
+samples <-
+  d %>%  # nimmt die Tabelle mit Posteriori-Daten,
+  slice_sample(  # Ziehe daraus eine Stichprobe,
+    n = 1e4,  # mit insgesamt n=10000 Zeilen,
+    weight_by = post,  # Gewichte nach Post-Wskt.,
+    replace = T)  %>%  # Ziehe mit Zurücklegen
+  select(p_grid)
+
+```
+
+
+
+# Methode 1
+
+```{r}
+samples %>%
+  filter(p_grid > .65)%>%
+  filter(p_grid < .75)%>%
+  count()%>%
+  summarise(`Anteil in Prozent` = n / 10000 * 100)
+
+```
+
+
+
+
+# Methode 2
+
+```{r}
+samples %>%
+  filter(p_grid  > .65 & p_grid < .75) %>%
+  count() %>%
+  summarise(`Anteil in Prozent` = n / 10000 * 100)
+```
+
+
+# Fazit
+
+JA, beide Methoden sind identisch
+
+
+# Technische Details
+
+```{r}
+sessionInfo()
+```
+
+  
+
+
