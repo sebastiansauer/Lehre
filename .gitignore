@@ -40,16 +40,21 @@ vignettes/*.pdf
 .Renviron
 
 
-# div
+# Testing 
 */trials.R
 */trials.Rmd
 Untitled.*
 trials/
+test*.*
+test*/
+test*
 
 
 # data
 *.rds
 **/*.rds
+*.feather
+**/*.feather
 
 
 

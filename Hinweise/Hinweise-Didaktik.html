@@ -11,7 +11,7 @@
 
 
 
-<title>Prüfungshinweise - Datenanalyse</title>
+<title>Hinweise-Didaktik.knit</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -297,23 +297,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -354,158 +348,89 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Prüfungshinweise - Datenanalyse</h1>
 
 </div>
 
 
-<div id="prüfungsform" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Prüfungsform</h1>
-<!-- ## Prüfungsform Datenanalyse -->
-<p>Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen
-keine anders lautenden Hinweise gegeben hat (schriftlich).</p>
-<div id="allgemeines" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Allgemeines</h2>
+<div id="didaktik" class="section level2">
+<h2>Didaktik</h2>
+<div id="grundlagen" class="section level3">
+<h3>Grundlagen</h3>
 <ol style="list-style-type: decimal">
-<li><p>Gegenstand dieser Prüfungsform ist die <em>Analyse</em> eines
-Datensatzes nach einer <em>Forschungsfrage</em> und die
-<em>Dokumentation</em> dieser Analyse.</p></li>
-<li><p>Schreiben Sie Ihre Datenanalyse in Form eines <em>Berichts</em>,
-der sich an den Gliederungspunkten wie unten dargestellt
-orientiert.</p></li>
-<li><p>Wenden Sie die passenden, im Unterricht eingeführten,
-<em>statistischen Verfahren</em> an. Es steht Ihnen frei, andere (nicht
-im Unterricht behandelte) Verfahren zur Analyse der Daten anzuwenden,
-nach Maßgabe der fachlichen Angemessenheit.</p></li>
-<li><p>Werten Sie die Daten mit <em>R</em> aus.</p></li>
-<li><p>Die <em>R-Syntax</em> soll im Hauptteil des Berichts dokumentiert
-werden. R-Output darf ggf. gekürzt wiedergegeben werden.</p></li>
-<li><p>Fügen Sie <em>keine Erklärungen</em> oder Definitionen von
-statistischen Verfahren an.</p></li>
-<li><p><em>Beschreiben</em> und <em>interpretieren</em> Sie jede Analyse
-bzw. jeden R-Code bzw. jedes Ergebnis (jede R-Ausgabe).</p></li>
-<li><p>Von hoher Bedeutung ist die <em>Korrektheit</em> der Beschreibung
-und Interpretation der <em>statistischen Modellierung</em> (z.B. mit der
-Regressionsanalyse).</p></li>
-<li><p>Es hat <em>keinen Einfluss</em> auf Ihre Note, ob sich ein
-(erwarteter) <em>Effekt</em> zeigt und wie stark dieser Effekt ggf.
-ist.</p></li>
+<li>Alle Lehrmaterialien stelle ich vor dem Unterricht online
+bereit</li>
+<li>Alles prüfungsrelevante Material ist verschriftlicht</li>
+<li>Die Prüfungsmodalitäten sind frühzeitig (schriftlich) bekannt
+gemacht</li>
+<li>Jedes Modul ist auch ohne Besuchen des Unterrichts studierbar</li>
+<li>Wenn möglich, wird der Präsenzunterricht durch Live-Streaming
+ergänzt</li>
+<li>Für den Stoff existiert eine Gliederung und Lernziele, so dass ein
+roter Faden ersichtlich ist</li>
+<li>Für jede Unterrichtseinheit ist ein Thema vorgegeben</li>
+<li>Es werden für (möglichst) alle Unterrichtseinheiten Aufgaben
+bereitgestellt</li>
+<li>Praxisbezug wird sichergestellt, z.B. durch Fallstudien</li>
+<li>Infos an die Studierenden eines Moduls werden durch ein
+Nachrichtensystem zugestellt.</li>
 </ol>
 </div>
-<div id="formatierung-des-berichts" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Formatierung des
-Berichts</h2>
-<ol style="list-style-type: decimal">
-<li><p>Der Bericht ist <em>nur elektronisch</em>, nicht ausgedruckt
-einzureichen.</p></li>
-<li><p>Der Bericht kann als <em>paginiertes Dokument</em> oder als
-<em>nicht-paginiertes</em> Dokument (d.h. als HTML-Dokument) eingereicht
-werden.</p></li>
-<li><p>Paginierte Formate sind als PDF-Datei einzureichen. HTML-Formate
-sind entweder in HTML-Form oder (nur bei Bedarf) als PDF-Druck eines
-HTML-Dokuments einzureichen.</p></li>
-<li><p>Die Wahl eines bestimmten Stylesheets ist nicht von Bedeutung.
-<em>Lesbarkeit</em> und <em>Übersichtlichkeit</em> in der Formatierung
-sind unabhängig davon anzustreben.</p></li>
-<li><p>Im <em>Kopfbereich</em> (oder auf einem Deckblatt) sind die
-relevanten <em>Metadatan</em> anzugeben wie Name (Nachname, Vorname) der
-Autorin/des Autors, Abgabedatum, Titel der Arbeit, Modul.</p></li>
-</ol>
-</div>
-<div id="formalia" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Formalia</h2>
-<ol style="list-style-type: decimal">
-<li><p>Richtlinien einer <em>Wortzahl</em> gibt es nicht. Entscheidend
-ist, dass relevante Analysen durchgeführt und beschrieben
-wurden.</p></li>
-<li><p>Der <em>Anspruch</em> richtet sich nach dem Inhalt und Niveau der
-auf dieses Modul vorbereitenden Module. Oft sind das Module in
-quantitativer Datenanalyse (und wissenschaftliches Arbeiten). Deren
-Inhalte sollen im Rahmen dieser Prüfungsleistung als selbständig und
-flüssig verfügbare Kompetenz von den Studentis demonstriert
-werden.</p></li>
-<li><p>Die <em>Gliederung</em> der Arbeit kann sich an den <a href="https://stats-nutshell.netlify.app/basics.html#ppdac">PPDAC-Zyklus</a>
-und am <a href="https://r4ds.had.co.nz/introduction.html#what-you-will-learn">Data
-Science Model von Wickham und Grolemund</a> orientieren.</p></li>
-</ol>
-</div>
-<div id="beurteilungskriterien" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span>
-Beurteilungskriterien</h2>
-<p>Die Arbeit wird im Hinblick auf <em>drei Kriterien</em> bewertet:</p>
-<ol style="list-style-type: decimal">
-<li><p><em>Formalia</em> (z. B. Vollständigkeit der Abarbeitung,
-Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliches)</p></li>
-<li><p><em>Methodik</em> (z. B. Richtige Auswahl und Anwendung der
-Verfahren)</p></li>
-<li><p><em>Inhalt</em> (z. B. Verständlichkeit, Breite und Tiefe der
-Problemlösung, Korrektheit der Interpretation)</p></li>
-</ol>
-<p>Sie erhalten für jedes der drei Kriterien eine Teilnote sowie eine
-Gesamtnote. Außerdem erhalten Sie ggf. für die Kriterien noch
-ausformulierte Hinweise.</p>
-<p>Die Gesamtnote muss sich <em>nicht</em> als Mittelwert der Teilnoten
-ergeben.</p>
-<p>Insbesondere kann eine Fünf in einem der Kriterien zum Durchfallen
-führen, auch wenn die anderen beiden Kriterien gut oder sehr gut
-beurteilt wurden.</p>
-</div>
-<div id="beispiele-für-aspekte-der-beurteilungskriterien" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Beispiele für Aspekte
-der Beurteilungskriterien</h2>
-<ol style="list-style-type: decimal">
-<li><p>Wurden deskriptive Statistiken (an angemessenen Ort)
-berichtet?</p></li>
-<li><p>Wurden Diagramme und Tabellen angemessen eingesetzt?</p></li>
-<li><p>Wurde Inferenzstatistik (angemessen) eingesetzt?</p></li>
-<li><p>Wurden Effektstärkemaße (idealerweise mit Konfidenzintervallen
-dazu) berichtet?</p></li>
-<li><p>Wurden alle relevanten Informationen für ein statistisches
-Verfahren angegeben (z.B. zum gewählten Prior)?</p></li>
-<li><p>Wurde die Aussagekraft von Modellergebnissen richtig
-eingeschätzt?</p></li>
-<li><p>Waren die Schlussfolgerungen, die aus den statistischen
-Ergebnissen gezogen wurden, angemessen (z. B. wurde erkannt, dass ein
-Nicht-Verwerfeen einer Hypothese nicht automatisch ein Bestätigen
-derselben bedeutet)?</p></li>
-<li><p>Wurde angemessen gerundet (inkl. konsistente Anzahl von
-Nachkommastellen)?</p></li>
-<li><p>Passen die statistischen Verfahren zu den Hypothesen?</p></li>
-<li><p>Wurden die Voraussetzungen der statistischen Verfahren
-geprüft?</p></li>
-<li><p>Sind die Ergebnisse reproduzierbar (Daten und Syntax
-eingereicht)?</p></li>
-</ol>
-</div>
-<div id="beispiele-für-fehler" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Beispiele für
-Fehler</h2>
-<p>Schwere Fehler, die zum Durchfallen oder deutlichem Abwerten der Note
-führen können, sind z.B.:</p>
+<div id="lehrkonzept" class="section level3">
+<h3>Lehrkonzept</h3>
 <ul>
-<li>fehlende Inferenzstatistik (oder adäquatem Ersatz)</li>
-<li>falsche Interpretation von Posteriori-Verteilungen oder
-p-Werten</li>
-<li>keine Angabe von Konfidenzintervallen</li>
-<li>falsche Interpretation von Konfidenzintervallen</li>
-<li>Wahl des falschen Intervalls (Vorhersageintervall
-vs. Perzentilintervall vs. HDI)</li>
-<li>falsche Entscheidung zum Hypothesentest auf Basis entsprechender
-Kennwerte (wie ROPE-Wahrscheinlichkeit oder p-Wert)</li>
-<li>falsche Wahl des statistischen Verfahrens</li>
-<li>fehlende Deskriptivstatistik</li>
+<li>In der “Vorlesung” wird im Schwerpunkt <em>nicht</em> ein
+Folienskript “vorgelesen”. Dieser Vortrag steht oft vorab als Video zur
+Verfügung (s. Links im Themenüberblick).</li>
+<li>Stattdessen steht in der “Vorlesung” die Durcharbeiten und Vertiefen
+des Stoffes im Vordergrund, nicht aber das Vortragen des Stoffes.</li>
+<li>Warum wird die Literatur oder das Folienskript nicht im Unterricht
+vorgetragen? Zum einen können Sie das alleine besser (in eigener
+Geschwindigkeit, mit Pausen nach Gusto, zu beliebiger Zeit und
+beliebigem Ort, so oft wiederholt wie Sie mögen). Zum anderen ist der
+Lerngewinn beim passiven Zuhören gering. Das Durchdenken, Durcharbeiten,
+“Durchfragen” des Stoffes ist es, was Ihnen den meisten Gewinn
+beschwert. Entsprechend liegt auf dem aktiven, gemeinsamen Arbeiten der
+Schwerpunkt.</li>
+<li>Das heißt nicht, dass es nie Vorträge vom Dozenten im Unterricht
+gäbe; manchmal schon. Aber aus genannten Gründen liegt der Fokus des
+Unterrichts im aktivierenden Arbeiten.</li>
+<li>Natürlich können im Unterricht jederzeit die Fragen der Studentis
+zum Stoff besprochen werden. Seien Sie ausdrücklich ermuntert, Ihre
+Fragen im Unterricht zu formulieren, vorzugsweise im direkten Gespräch,
+aber alternativ anonym (wie Frag-Jetzt).</li>
+<li>In der Übung liegt der Schwerpunkt zumeist auf dem Bearbeiten von
+Aufgaben.</li>
 </ul>
-<p>Häufige kleinere Mängel sind z. B.</p>
+</div>
+<div id="lerntipps" class="section level3">
+<h3>Lerntipps</h3>
 <ul>
-<li>pixelige Abbildungen</li>
-<li>R-Ausgaben oder R-Syntax als Screenshot</li>
-<li>fehlende Seitenzahlen (nur bei paginierten Formaten, nicht bei
-HTML)</li>
-<li>unübersichtliche Diagramme</li>
-<li>kein (verlinktes) Inhaltsverzeichnis ︎</li>
-<li>fehlende oder unverständliche Achsenbeschriftung bei Diagrammen</li>
-<li>fehlende oder falsche Beschreibung der/des Skalenniveau(s) der
-untersuchten Variablen</li>
+<li>Damit Sie vom Unterricht maximal profitieren, ist es essenziell,
+dass Sie aktiv mitarbeiten. Ein “Nur-Zuhören” nimmt Ihnen einen Gutteil
+des Nutzens des Unterrichts. Sie lernen nur zum kleinen Teil vom
+Zuhören; der größte Teil des Lernerfolgs kommt vom
+Selber-Erarbeiten!</li>
+<li>Bitte stellen Sie Ihre Kamera (Webcam) an, wenn Sie Kommilitonis
+oder den Dozenten ansprechen. Das ist der Güte der Kommunikation
+zuträglich.</li>
+<li>Bereiten Sie den Stoff vor und arbeiten Sie ihn gewissenhaft
+nach.</li>
+<li>Das gemeinsame Arbeiten in einer (virtuellen) Lerngruppe ist sehr
+nützlich.</li>
+<li>Tauschen Sie sich im Diskussionsforum auf unserer Modulseite aus;
+gehen Sie in den Diskurs mit den Kommiliton/innen. Falls Sie (im
+Internet) nützliches Material gefunden haben, können Sie es auch in das
+Forum einstellen.</li>
+<li>Nutzen Sie das Diskussionsforum auch, um den Dozenten Fragen zu
+stellen.</li>
+<li>Meine Erfahrung zeigt mir, dass der Lernerfolg zwar auch von der
+Lehrperson abhängt, aber entscheidend ist der Wille eines/r
+Studierenden/r, selbst aktiv zu lernen. Ich glaube, dass Sie gut mit
+Material ausgestattet sind, um selbständig und mit Erfolg zu
+lernen.</li>
+<li>Anbieter wie Google stellen (teilweise) kostenfreie Angebote zum
+kollaborativen Arbeiten zur Verfügung (Google Docs). Behalten Sie hier
+den Datenschutz im Blick.</li>
 </ul>
 </div>
 </div>

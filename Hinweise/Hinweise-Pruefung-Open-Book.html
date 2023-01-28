@@ -11,7 +11,7 @@
 
 
 
-<title>Prüfungshinweise - Datenanalyse</title>
+<title>Prüfungshinweise - Open-Book-Prüfung (Take-home-Examen)</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -297,23 +297,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -354,159 +348,346 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Prüfungshinweise - Datenanalyse</h1>
+<h1 class="title toc-ignore">Prüfungshinweise - Open-Book-Prüfung
+(Take-home-Examen)</h1>
 
 </div>
 
 
-<div id="prüfungsform" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Prüfungsform</h1>
-<!-- ## Prüfungsform Datenanalyse -->
-<p>Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen
-keine anders lautenden Hinweise gegeben hat (schriftlich).</p>
-<div id="allgemeines" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Allgemeines</h2>
-<ol style="list-style-type: decimal">
-<li><p>Gegenstand dieser Prüfungsform ist die <em>Analyse</em> eines
-Datensatzes nach einer <em>Forschungsfrage</em> und die
-<em>Dokumentation</em> dieser Analyse.</p></li>
-<li><p>Schreiben Sie Ihre Datenanalyse in Form eines <em>Berichts</em>,
-der sich an den Gliederungspunkten wie unten dargestellt
-orientiert.</p></li>
-<li><p>Wenden Sie die passenden, im Unterricht eingeführten,
-<em>statistischen Verfahren</em> an. Es steht Ihnen frei, andere (nicht
-im Unterricht behandelte) Verfahren zur Analyse der Daten anzuwenden,
-nach Maßgabe der fachlichen Angemessenheit.</p></li>
-<li><p>Werten Sie die Daten mit <em>R</em> aus.</p></li>
-<li><p>Die <em>R-Syntax</em> soll im Hauptteil des Berichts dokumentiert
-werden. R-Output darf ggf. gekürzt wiedergegeben werden.</p></li>
-<li><p>Fügen Sie <em>keine Erklärungen</em> oder Definitionen von
-statistischen Verfahren an.</p></li>
-<li><p><em>Beschreiben</em> und <em>interpretieren</em> Sie jede Analyse
-bzw. jeden R-Code bzw. jedes Ergebnis (jede R-Ausgabe).</p></li>
-<li><p>Von hoher Bedeutung ist die <em>Korrektheit</em> der Beschreibung
-und Interpretation der <em>statistischen Modellierung</em> (z.B. mit der
-Regressionsanalyse).</p></li>
-<li><p>Es hat <em>keinen Einfluss</em> auf Ihre Note, ob sich ein
-(erwarteter) <em>Effekt</em> zeigt und wie stark dieser Effekt ggf.
-ist.</p></li>
-</ol>
+<div id="prüfungleistung" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Prüfungleistung</h1>
+<p>Die Prüfungsleistung besteht aus einer
+<em>Open-Book-Prüfung</em>.</p>
 </div>
-<div id="formatierung-des-berichts" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Formatierung des
-Berichts</h2>
-<ol style="list-style-type: decimal">
-<li><p>Der Bericht ist <em>nur elektronisch</em>, nicht ausgedruckt
-einzureichen.</p></li>
-<li><p>Der Bericht kann als <em>paginiertes Dokument</em> oder als
-<em>nicht-paginiertes</em> Dokument (d.h. als HTML-Dokument) eingereicht
-werden.</p></li>
-<li><p>Paginierte Formate sind als PDF-Datei einzureichen. HTML-Formate
-sind entweder in HTML-Form oder (nur bei Bedarf) als PDF-Druck eines
-HTML-Dokuments einzureichen.</p></li>
-<li><p>Die Wahl eines bestimmten Stylesheets ist nicht von Bedeutung.
-<em>Lesbarkeit</em> und <em>Übersichtlichkeit</em> in der Formatierung
-sind unabhängig davon anzustreben.</p></li>
-<li><p>Im <em>Kopfbereich</em> (oder auf einem Deckblatt) sind die
-relevanten <em>Metadatan</em> anzugeben wie Name (Nachname, Vorname) der
-Autorin/des Autors, Abgabedatum, Titel der Arbeit, Modul.</p></li>
-</ol>
+<div id="prüfungsform" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Prüfungsform</h1>
+<div id="grundsätzliches" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Grundsätzliches</h2>
+<p>Die folgenden Hinweise gelten <em>grundsätzlich</em>, d.h. <em>soweit
+nicht anders</em> in der jeweiligen Prüfung bzw. der jeweiligen Aufgabe
+angegeben.</p>
+<p>Nichtbeachten von Prüfungshinweisen kann zu Punkteabzug oder
+Nichtbestehen führen.</p>
 </div>
-<div id="formalia" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Formalia</h2>
-<ol style="list-style-type: decimal">
-<li><p>Richtlinien einer <em>Wortzahl</em> gibt es nicht. Entscheidend
-ist, dass relevante Analysen durchgeführt und beschrieben
-wurden.</p></li>
-<li><p>Der <em>Anspruch</em> richtet sich nach dem Inhalt und Niveau der
-auf dieses Modul vorbereitenden Module. Oft sind das Module in
-quantitativer Datenanalyse (und wissenschaftliches Arbeiten). Deren
-Inhalte sollen im Rahmen dieser Prüfungsleistung als selbständig und
-flüssig verfügbare Kompetenz von den Studentis demonstriert
-werden.</p></li>
-<li><p>Die <em>Gliederung</em> der Arbeit kann sich an den <a href="https://stats-nutshell.netlify.app/basics.html#ppdac">PPDAC-Zyklus</a>
-und am <a href="https://r4ds.had.co.nz/introduction.html#what-you-will-learn">Data
-Science Model von Wickham und Grolemund</a> orientieren.</p></li>
-</ol>
-</div>
-<div id="beurteilungskriterien" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span>
-Beurteilungskriterien</h2>
-<p>Die Arbeit wird im Hinblick auf <em>drei Kriterien</em> bewertet:</p>
-<ol style="list-style-type: decimal">
-<li><p><em>Formalia</em> (z. B. Vollständigkeit der Abarbeitung,
-Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliches)</p></li>
-<li><p><em>Methodik</em> (z. B. Richtige Auswahl und Anwendung der
-Verfahren)</p></li>
-<li><p><em>Inhalt</em> (z. B. Verständlichkeit, Breite und Tiefe der
-Problemlösung, Korrektheit der Interpretation)</p></li>
-</ol>
-<p>Sie erhalten für jedes der drei Kriterien eine Teilnote sowie eine
-Gesamtnote. Außerdem erhalten Sie ggf. für die Kriterien noch
-ausformulierte Hinweise.</p>
-<p>Die Gesamtnote muss sich <em>nicht</em> als Mittelwert der Teilnoten
-ergeben.</p>
-<p>Insbesondere kann eine Fünf in einem der Kriterien zum Durchfallen
-führen, auch wenn die anderen beiden Kriterien gut oder sehr gut
-beurteilt wurden.</p>
-</div>
-<div id="beispiele-für-aspekte-der-beurteilungskriterien" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Beispiele für Aspekte
-der Beurteilungskriterien</h2>
-<ol style="list-style-type: decimal">
-<li><p>Wurden deskriptive Statistiken (an angemessenen Ort)
-berichtet?</p></li>
-<li><p>Wurden Diagramme und Tabellen angemessen eingesetzt?</p></li>
-<li><p>Wurde Inferenzstatistik (angemessen) eingesetzt?</p></li>
-<li><p>Wurden Effektstärkemaße (idealerweise mit Konfidenzintervallen
-dazu) berichtet?</p></li>
-<li><p>Wurden alle relevanten Informationen für ein statistisches
-Verfahren angegeben (z.B. zum gewählten Prior)?</p></li>
-<li><p>Wurde die Aussagekraft von Modellergebnissen richtig
-eingeschätzt?</p></li>
-<li><p>Waren die Schlussfolgerungen, die aus den statistischen
-Ergebnissen gezogen wurden, angemessen (z. B. wurde erkannt, dass ein
-Nicht-Verwerfeen einer Hypothese nicht automatisch ein Bestätigen
-derselben bedeutet)?</p></li>
-<li><p>Wurde angemessen gerundet (inkl. konsistente Anzahl von
-Nachkommastellen)?</p></li>
-<li><p>Passen die statistischen Verfahren zu den Hypothesen?</p></li>
-<li><p>Wurden die Voraussetzungen der statistischen Verfahren
-geprüft?</p></li>
-<li><p>Sind die Ergebnisse reproduzierbar (Daten und Syntax
-eingereicht)?</p></li>
-</ol>
-</div>
-<div id="beispiele-für-fehler" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Beispiele für
-Fehler</h2>
-<p>Schwere Fehler, die zum Durchfallen oder deutlichem Abwerten der Note
-führen können, sind z.B.:</p>
+<div id="wiederholungsprüfungen" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span>
+Wiederholungsprüfungen</h2>
 <ul>
-<li>fehlende Inferenzstatistik (oder adäquatem Ersatz)</li>
-<li>falsche Interpretation von Posteriori-Verteilungen oder
-p-Werten</li>
-<li>keine Angabe von Konfidenzintervallen</li>
-<li>falsche Interpretation von Konfidenzintervallen</li>
-<li>Wahl des falschen Intervalls (Vorhersageintervall
-vs. Perzentilintervall vs. HDI)</li>
-<li>falsche Entscheidung zum Hypothesentest auf Basis entsprechender
-Kennwerte (wie ROPE-Wahrscheinlichkeit oder p-Wert)</li>
-<li>falsche Wahl des statistischen Verfahrens</li>
-<li>fehlende Deskriptivstatistik</li>
+<li>Wenn Sie bei einer Prüfung durchgefallen sein sollten, so haben Sie
+grundsätzlich die Möglichkeit, die <em>Prüfung zu wiederholen</em>.</li>
+<li>Denken Sie daran, sich <em>rechtzeitig</em> für Prüfungsleistungen
+<em>anzumelden</em>; beachten Sie die Fristen.</li>
+<li>Die Termine für die Wiederholungsprüfungen werden stets
+zusammen/zeitgleich mit denen der regulären Prüfungen bekannt
+gegeben.</li>
+<li>Wird ein Modul im laufenden Semester nicht angeboten, gibt es eine
+Wiederholungsprüfung.</li>
+<li>Relevanter Stoff und formale Bedingungen (wie Prüfungsform) sind
+<em>grundsätzlich identisch zur letzten abgehaltenen Prüfung des
+Moduls</em> (d.h. sofern nicht anders angegeben). Daher sind
+Wiederholungsprüfungen vom Anspruch vergleichbar wie die reguläre
+Klausur. Die Prüfungen sollen möglichst gleich vom Anspruch sein, um
+Fairness zu gewährleisten.</li>
+<li>Beachten Sie immer die <em>Hinweise</em>, die für die
+Wiederholungsprüfung angegeben sind. Im Einzelfall keine eine
+Wiederholungsprüfung von der vorherigen Prüfung stärker abweichen. Es
+gelten immer die Regeln, die dis Dozenti bei der jeweiligen
+Wiederholungsprüfung veröffentlicht hat.</li>
+<li>Wird ein <em>Modul im laufenden Semester</em> angeboten, so gibt es
+keine Wiederholungsprüfung. Stattdessen können Sie ggf. an der regulären
+Klausur des Moduls teilnehmen. Es gilt der aktuelle Stoff bzw. die
+aktuellen formalen Bedingungen. Es ist möglich, dass der Stoff sich dann
+substanziell ändert; meist halten sich die Änderungen (im Stoff) aber in
+Rahmen.</li>
+<li>Sprechen Sie die <em>Moduldozentis an für Details zur Prüfung</em>
+(bzw. lesen Sie vorab auf jeweiligen Modulseite in Moodle nach).</li>
+<li>Manchmal fragen Studentis nach einer <em>Empfehlung</em>, ob es
+besser ist, eine Prüfung zu verschieben, wenn man sich nicht ausreichend
+vorbereiten konnte. Es ist schwer, eine Empfehlung pauschal abzugeben,
+es kommt auf den Einzelfall an. Grundsätzlich rate ich aber dazu,
+Prüfungen nicht zu verschieben: Schließlich könnte in einem folgenden
+Semester wieder ein unvorhergesehenes Problem auftreten.</li>
+<li>Bei Fragen zum <em>Prüfungsrecht</em> sprechen Sie bitte die
+<em>Studienberatung</em> an.</li>
 </ul>
-<p>Häufige kleinere Mängel sind z. B.</p>
+</div>
+<div id="prüfungsstoff" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Prüfungsstoff</h2>
+<p>Prüfungsrelevanter Stoff ist alles, was im Unterricht behandelt
+wurde, sofern es nicht explizit (und schriftlich) als “nicht
+prüfungsrelevant” gekennzeichnet ist.</p>
+</div>
+<div id="bearbeitungshinweise" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span>
+Bearbeitungshinweise</h2>
+<div id="allgemeine-hinweise" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Allgemeine
+Hinweise</h3>
 <ul>
-<li>pixelige Abbildungen</li>
-<li>R-Ausgaben oder R-Syntax als Screenshot</li>
-<li>fehlende Seitenzahlen (nur bei paginierten Formaten, nicht bei
-HTML)</li>
-<li>unübersichtliche Diagramme</li>
-<li>kein (verlinktes) Inhaltsverzeichnis ︎</li>
-<li>fehlende oder unverständliche Achsenbeschriftung bei Diagrammen</li>
-<li>fehlende oder falsche Beschreibung der/des Skalenniveau(s) der
-untersuchten Variablen</li>
+<li>Verwenden Sie <em>Standardwerte</em> (defaults) der R-Funktionen,
+soweit nicht anders in der jeweiligen Aufgabe verlangt.</li>
+<li>Findet sich in einer Auswahlliste möglicher Antworten nicht die
+exakte Lösung, wählen Sie die <em>am besten passende</em>.</li>
+<li><em>Treffen Sie Annahmen</em>, (nur) wo nötig.</li>
+<li>Die Prüfung besteht auch aus <em>Single- bzw. Multiple-Choice</em>-
+(MC)-Aufgaben mit mehreren Antwortoptionen.</li>
+<li>Bei Multiple-Choice-Aufgaben (MC-Aufgaben) ist zumeist genau
+<em>eine</em> Antwortoption auszuwählen aus vier oder fünf
+Antwortoptionen.</li>
+<li>Im Zweifel ist eine Aussage auf den Stoff, so wie im
+<em>Unterricht</em> behandelt, zu beziehen.</li>
+<li>Bei Fragen zu R-Syntax spielen Aspekte wie Enter-Taste o.Ä. bei der
+Beantwortung der Frage keine Rolle; diese Aspekte dürfen zu
+ignorieren.</li>
+<li>Jede Aussage einer MC-Aufgabe ist entweder richtig oder falsch (aber
+nicht beides oder keines).</li>
+<li>Die MC-Aufgaben sind <em>nur mit Kreuzen</em> zu beantworten; Text
+wird bei der Korrektur nicht berücksichtigt.</li>
+<li>Jede Aussage gilt <em>ceteris paribus</em> (unter sonst gleichen
+Umständen). Aussagen der Art „A ist B“ (z.B. “Menschen sind sterblich”)
+sind <em>nur</em> dann als richtig auszuwählen, wenn die Aussage
+<em>immer</em> richtig ist.</li>
+<li>Falls Sie bei einer Aufgabe mehrere Antworten finden, aber nur nach
+einer gefragt ist, geben Sie nur eine an.</li>
+<li>Falls mehrere (widersprüchliche) Antworten gegeben wurden, wird im
+Zweifel die <em>erst genannte</em> gewertet.</li>
+<li>Die Aufgabenstellung in einer Moodle-Prüfung wird erst sichtbar,
+wenn Sie den <em>Prüfungsbedingungen</em> zugestimmt haben und die
+Prüfungszeit begonnen hat.</li>
 </ul>
+</div>
+<div id="aufgaben-zur-datenanalyse" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Aufgaben zur
+Datenanalyse</h3>
+<ul>
+<li>Je nach Spracheinstellung in Moodle kann es sein, dass Sie als
+<em>Dezimaltrennzeichen</em> ein Komma oder einen Punkt verwenden
+müssen. Moodle weist Sie, wenn Sie die Aufgabe verlassen, darauf hin,
+falls eine Zahl nicht als Zahl erkannt wurde.</li>
+<li><em>Runden</em> Sie bei Fragen, die auf Anteile abzielen auf
+<em>zwei</em> Dezimalstellen, ansonsten auf eine.</li>
+<li>Geben Sie keine Prozentzahlen an, sondern <em>Anteile</em> (also
+nicht “50%”, sondern “0.5” bzw. “0,5”).</li>
+<li>Bei Aufgaben, die eine Zahl als Antwort verlangen, ist <em>nur eine
+Zahl anzugeben</em> (nicht etwa Buchstaben).</li>
+<li>Alle Berechnungen, die <em>Zufallszahlen</em> beinhalten, sollen mit
+<em>fixierten Startwert</em> der Zufallszahlen durchgeführt werden. Es
+ist die Zahl <code>42</code> zu verwenden.</li>
+<li>Wie auch bei den übrigen Hinweisen gelten diese Maßgaben nur soweit
+in der Prüfung nicht <em>explizit andere Hinweise</em> gegeben
+wurden.</li>
+<li>Wenn <em>Stichproben simuliert</em> werden sollen, ziehen Sie <span class="math inline">\(10^3\)</span> Zufallsstichproben.</li>
+<li>In einigen Aufgaben kann verlangt sein, dass Sie einen
+<em>bestimmten Datensatz in R importieren</em> sollen. In diesem Fall
+wird vorausgesetzt, dass Ihnen <a href="https://vincentarelbundock.github.io/Rdatasets/articles/data.html">diese
+Bezugsquelle</a> von Datensätzen bekannt ist und dass Sie wissen, wie
+man einen Datensatz in R importiert.</li>
+<li>Achten Sie darauf, R und R-Pakete sowie R-Studio <em>in aktueller
+Version</em> zu verwenden. Das Verwenden älterer Versionen kann (in
+seltenen Fällen) zu abweichenden Lösungen führen. Im Zweifel beziehen
+sich alle Aufgaben auf die jeweils aktuellste Version der verwendeten
+Software.</li>
+<li>Wenn Sie <em>Text eingeben</em> sollen: Geben Sie <em>nur
+Kleinbuchstaben ein</em>. Geben Sie nur ein einziges Wort ein. Geben Sie
+keine Leerzeichen ein.</li>
+</ul>
+<p>Speziell zur Bayes-Statistik:</p>
+<ul>
+<li>Verwenden Sie Methoden der <em>Bayes</em>-Statistik für
+inferenzstatistische Analysen.</li>
+<li>Bei Aufgaben zur “<em>Bayes-Box</em>” (Erstellung einer
+Gitterwert-Tabelle) gelten folgende Maßgaben:
+<ul>
+<li>Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie
+etwa <em>Anteile</em>), so ist der ganze Wertebereich zu modellieren. Es
+sind 100 verschiedene Parameterwerte zu berechnen.</li>
+<li>Handelt es sich um Parameter <span class="math inline">\(X\)</span>
+mit einem unbegrenzten Wertebereich (wie <em>normalverteilte</em>
+Variablen), so ist der Wertebereich <span class="math inline">\(X-2\sigma \le X \le X+2\sigma\)</span> zu
+simulieren.</li>
+</ul></li>
+<li>Nutzen Sie die Software <em>Stan</em> in Form des R-Pakets
+<code>rstanarm</code> für Regressionsmodelle auf Basis der
+Bayes-Methode.</li>
+</ul>
+</div>
+</div>
+<div id="teilnahmebedingungen" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span>
+Teilnahmebedingungen</h2>
+<ul>
+<li>Die Prüfung ist selbständig, also alleine nur durch Sie, <em>ohne
+Hilfe Dritter</em>, zu absolvieren.</li>
+<li>Die <em>Bearbeitungszeiten</em> der Prüfung sind einzuhalten.</li>
+<li>Es dürfen nur die explizit als zulässig gekennzeichneten
+<em>Hilfsmittel</em> verwendet werden.</li>
+<li>Die <em>zulässigen</em> Hilfsmittel sind: Notizpapier, Stifte,
+Taschenrechner, Vorlesungsfolien, Skripte, eigene Notizen, Bücher sowie
+Quellen aus dem Internet.</li>
+<li>Die Übernahme von Inhalten Dritter muss also solche gekennzeichnet
+(<em>zitiert</em>) werden.</li>
+<li>Eine wörtliche Übernahme (“<em>copy-paste</em>”) von Inhalten
+Dritter (etwa aus einer Quelle aus dem Internet) ist unzulässig.</li>
+<li>Bei <em>technischen Problemen</em> ist sofort der Prüfer bzw. die
+Prüferin zu verständigen und das technische Problem zu dokumentieren.
+Aus der Dokumentation muss der Fehler erkenntlich sein.</li>
+<li>Es ist <em>untersagt</em>, die <em>Prüfung</em> bzw. Teile daraus
+(z.B. Prüfungsfragen) zu speichern oder <em>weiterzugeben.</em></li>
+<li>Im Übrigen gelten die allgemeinen <em>Prüfungsregeln</em>.</li>
+<li>Es darf <em>nicht</em> mit anderen Personen, insbesondere nicht
+Prüflingen, <em>kommuniziert</em> werden während der Prüfung. Dies gilt
+auch für den Fall von (vermeintlichen) technischen Problemen.
+Kontaktieren Sie den Prüfer, wenn Sie meinen, es liege ein technisches
+Problem vor.</li>
+</ul>
+</div>
+<div id="organisatorische-hinweise" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Organisatorische
+Hinweise</h2>
+<ul>
+<li>Etwaige weitere <em>Stoffeingrenzungen</em> werden schriftlich
+bekannt gemacht (auf der Modulseite). Besondere Schwerpunkte gibt es
+nicht.</li>
+<li>Soweit bestimmte Inhalte nicht explizit ausgeschlossen sind, sind
+alle Inhalte, die im Rahmen des Moduls bearbeitet wurden,
+<em>prüfungsrelevant.</em></li>
+<li>Im Übrigen gelten die Hinweise der <em>offiziellen Regularien</em>
+wie SPO, auf dem Modulsteckbrief und der APO. Bitte kontaktieren Sie die
+Studienberatung für formale oder rechtliche Fragen.</li>
+<li>Während der Prüfung werden nur Fragen beantwortet, die für die
+Bearbeitung zwingend nötig sind (etwa bei technischen Problemen).</li>
+<li>Es werden keine Fragen der Art “Ist diese Aufgabe klar formuliert?”
+beantwortet während der Prüfung. Sollten Sie der Meinung sein, eine
+Frage ist unklar formuliert oder fehlerhaft, so notieren Sie dies bitte
+(z.B. im Kommentarfeld der Prüfung=. Der Prüfer untersucht im Nachgang
+die Angelegenheit. Stellt sich eine Frage als fehlerhaft oder unklar
+formuliert heraus, so wird sie von der Beurteilung herausgenommen.</li>
+<li>Eine Teilnahme an der Prüfung ist nur möglich, wenn Sie den
+Teilnahmebedingungen der Prüfung zustimmen.</li>
+<li>Die Aufgabenstellung der Prüfung wird nur während des
+Prüfungszeitraumes angezeigt.</li>
+<li>Beachten Sie eine etwaige Gruppenteilung (zu welcher Gruppe Sie
+zugeteilt sind).</li>
+<li>Beachten Sie die exakte Prüfungsuhrzeit (Beginn, Ende).</li>
+<li>Prüfungszeitraum, Aufgabenstellung und sonstige Materialien können
+variieren zwischen den Prüflingen etwa aufgrund von Gruppeneinteilungen
+oder Nachteilsausgleich.</li>
+<li>Die zusätzliche Bearbeitungszeit bei Studentis mit
+Nachteilsausgleich ist in der Aufgabenstellung bzw. der Prüfung in
+Moodle hinterlegt. Die Zeit wird automatisch um den jeweiligen Faktor
+erhöht.</li>
+</ul>
+</div>
+<div id="open-book-prüfungen" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span>
+Open-Book-Prüfungen</h2>
+<p>Einige Prüfungen werden als “Take-home-Prüfung” im “Open-Book-Format”
+geschrieben. Was bedeutet dies?</p>
+<p>“Take-home-Prüfung”: Sie bearbeiten die Prüfung in Ihrem privaten
+Umgebung in Moodle oder in Räumlichkeiten der Hochschule. Eine
+Überwachung per Kamera findet nicht statt.</p>
+<p>“Open-Book-Prüfung”: Sie dürfen Hilfsmittel wie Bücher und Folien
+während der Prüfung nutzen.</p>
+<p>Ihre Prüferin/Ihr Prüfer informiert Sie über das Format Ihrer
+Prüfung.</p>
+</div>
+<div id="zeitrahmen-der-prüfung" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> Zeitrahmen der
+Prüfung</h2>
+<p>Die Prüfung beginnt und endet zu einem festen Zeitpunkt. Sie sind
+selber verantwortlich, die Prüfung zur korrekten Zeit zu beginnen und zu
+beenden (einzureichen). Verspätete Abgaben werden u.U. als nicht
+bestanden gewertet. Die Dauer der Prüfung wird Ihnen von Ihrer Prüferin
+bzw. Ihrem Prüfer bekannt gegeben.</p>
+</div>
+<div id="technische-und-organisatorische-anforderungen-einer-open-book-prüfung" class="section level2" number="2.9">
+<h2><span class="header-section-number">2.9</span> Technische und
+organisatorische Anforderungen einer Open-Book-Prüfung</h2>
+<p>Um an einer Open-Book-Prüfung teilzunehmen, benötigen Sie
+IT-Ausstattung sowie Räumlichkeiten. An IT-Ausstattung benötigen Sie
+einen Computer mit Internetanschluss; ein Smartphone reicht nicht aus.
+Nutzen Sie Ihr eigenes Gerät (Computer) für die Prüfung; die Hochschule
+stellt Ihnen keinen Computer zur Verfügung. Sie benötigen keine Webcam
+und kein Mikrofon. Ein Tablett oder Smartphone reicht nicht für die
+Prüfung. An Software benötigen Sie Zugang zu Ihrem Moodle-Konto, was
+einen aktuellen Internet-Browser voraussetzt. Zu den organisatorischen
+Anforderungen gehören ein Raum, in dem Sie die Prüfung ungestört
+bearbeiten können sowie ein Internetanschluss zum Bearbeiten der Klausur
+in Moodle. Bitte benutzen Sie während der Prüfung nicht den
+Zurück-Button in Ihrem Browser, wenn Sie zu einer vorherigen Frage
+zurückgehen wollen. Nutzen Sie die in der Prüfung zur Verfügung
+gestellten Funktionen/Buttons dafür.</p>
+</div>
+<div id="technische-probleme-während-der-prüfung" class="section level2" number="2.10">
+<h2><span class="header-section-number">2.10</span> Technische Probleme
+während der Prüfung</h2>
+<p>Im Falle eines technischen Problems auf Seiten der
+<em>Prüfungsinfrastruktur</em> ist sofort der Prüfer zu informieren. Ein
+Beispiel für so ein Problem wäre etwa der Ausfall von Moodle. Der
+technische Fehler ist zu dokumentieren (z.B. Screenshot) und die
+Dokumentation ist einzureichen. Bitte beachten Sie, dass der Prüfer bzw.
+die Hochschule keine Gewähr übernimmt für Probleme mit Ihrer eigenen
+Ausstattung.</p>
+</div>
+<div id="prüfungsrecht" class="section level2" number="2.11">
+<h2><span class="header-section-number">2.11</span> Prüfungsrecht</h2>
+<p>Für die Open-Book-Prüfungg gilt die aktuelle Prüfungsordnung; die
+Open-Book-Prüfung fällt <em>nicht</em> unter die BayFEV.</p>
+</div>
+<div id="bitte-formulieren-sie-beanstandungen-nachvollziehbar" class="section level2" number="2.12">
+<h2><span class="header-section-number">2.12</span> Bitte formulieren
+Sie Beanstandungen nachvollziehbar</h2>
+<p>Falls Sie einen Fehler in einer Aufgabenstellung finden (die der
+Prüfer zu bestanden hat): Freuen Sie sich! In diesem Fall wird zu Ihren
+Gunsten entschieden.</p>
+<p>Damit ich Ihre Beanstandung prüfen kann, ist es nötig, dass ich Ihre
+<em>Beanstandung</em> nachprüfen kann: <em>Zeigen</em> Sie mir meinen
+Fehler. Es reicht <em>nicht</em> zu sagen “es hat bei mir nicht
+funktioniert”. Wenn Sie etwa der Meinung sind, dass es die Variable
+“year” im Datensatz “penguins” nicht gebe, dann schicken Sie mir den
+R-Code, der an ansprechender Stelle einen Fehler aufwirft (aber
+<em>ansonsten lauffähig</em> ist). Ein Screenshot kann in einigen
+Situationen helfen, wenn aber nur ein Teil der Syntax zu sehen ist, ist
+er nicht ausreichend: Wenn der Befehl <code>data(penguins)</code> nicht
+funktioniert, so ist zu prüfen, ob Sie vorab mit
+<code>library(palmerpenguins)</code> das relevante Paket gestartet
+haben. Andernfalls kann <code>data(penguins)</code> nicht funktionieren
+und der Fehler läge damit bei Ihnen.</p>
+<p><a href="https://data-se.netlify.app/2022/01/31/erbie-einfache-reproduzierbare-beispiele-ihres-problems-mit-r-syntax/">Hier</a>
+finden Sie Hinweise für <em>e</em>infache, <em>r</em>eproduzierbare
+<em>Bei</em>spiele (ERBies); vgl. Sauer (2019), Kap. 3.8.2 (S. 33).</p>
+<p>Die gleiche Messlatte lege ich an mich an: Ich stelle eine
+Musterlösung (bei der Einsichtnahme) zur Verfügung, die reproduzierbar
+die Lösung aufzeigt. Sprich: Wenn der R-Code bei mir durchläuft, so wird
+er auch bei Ihnen durchlaufen.</p>
+</div>
+<div id="datenschutz" class="section level2" number="2.13">
+<h2><span class="header-section-number">2.13</span> Datenschutz</h2>
+<p>Persönliche Daten werden an eine Stellen übermittelt: Moodle (über
+bzw. in Ihre Konto). Es findet keine Überwachung statt, weder
+kamaragestützt, akustisch oder softwaregestützt.</p>
+</div>
+<div id="plagiatskontrolle" class="section level2" number="2.14">
+<h2><span class="header-section-number">2.14</span>
+Plagiatskontrolle</h2>
+<p>Ihre Prüfungsarbeiten können auf Plagiate hin untersucht werden.
+Dabei kommen auch automatisierte Verfahren zum Einsatz. Ihre Arbeiten
+werden dabei nicht online gestellt und auch nicht Dritten zugänglich
+gemacht. Alle Prüfungen finden auf Rechnern statt, zu denen nur die
+Prüfer/innen Zugang habe. Es werden keine persönlichen Daten (von Ihnen)
+weitergegeben.</p>
+<p>Bitte beachten: Angenommen in den Projektarbeiten von Studenti A und
+B werden (substanzielle) Überlappungen gefunden. In dem Fall ist davon
+auszugehen, dass beide Studentis getäuscht haben: eine/r hat
+abgeschrieben, der/die andere hat die eigene Arbeit dafür
+bereitgestellt. Daher wird in diesem Fall u.U. bei beiden Studentis der
+Plagiatsfall festgestellt und geahndet (z.B. mit “nicht bestanden”
+bewertet). Die genauen Konsequenzen legt die Prüfungskommission im
+Einzelfall fest.</p>
+<p>Lassen Sie es auf keinen Fall soweit kommen: Schreiben Sie nicht ab
+und lassen Sie niemanden von Ihrer Arbeit abschreiben.</p>
+<p>Eine faire Prüfung heißt: Gleiche Chancen für alle, und gute Leistung
+soll belohnt werden, Täuschung nicht.</p>
 </div>
 </div>
 
