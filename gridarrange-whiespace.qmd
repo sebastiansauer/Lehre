@@ -1,0 +1,45 @@
+---
+title: "test"
+format: html
+editor: visual
+---
+
+# Test
+
+```{r}
+library(tidyverse)
+library(gridExtra)
+```
+
+```{r}
+grid.table(data.frame(a=1, b=2))
+```
+
+
+```{r}
+plot(mtcars)
+```
+
+
+```{r}
+x <- data.frame(a=1, b= 2)
+ss <- tableGrob(x)
+
+   #Make a scatterplot of your data
+k <- ggplot(x,aes(x=x$"Value 1",y=x$"Value 2")) + 
+   geom_point()
+
+   #Arrange them as you want with grid.arrange
+grid.arrange(ss)
+```
+
+
+
+```{r}
+mytheme <- gridExtra::ttheme_default(
+             core = list(padding=unit(c(1, 1), "mm"))
+           )
+mytable <- tableGrob(mtcars, theme = mytheme)
+grid.arrange(mytable)
+```
+
