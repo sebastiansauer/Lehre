@@ -13,8 +13,8 @@ title: Lernhilfen
     - weitere Pakete werden im Unterricht bekannt gegeben (es schadet aber nichts, jetzt schon Pakete nach eigenem Ermessen zu installieren)
 - [R Syntax aus dem Unterricht](https://github.com/sebastiansauer/Lehre) findet sich im Github-Repo bzw. Ordner zum jeweiligen Semester.
 
-- Installieren Sie bitte ein *Literaturverwaltungsprogramm* wie [Zotero](https://www.zotero.org/)
-    - Denken Sie auch ggf. daran, das Plug-in für Word o.Ä. zu installieren
+- Installieren Sie bitte ein *Literaturverwaltungsprogramm* wie [Zotero](https://www.zotero.org/).
+    - Denken Sie auch ggf. daran, das Plug-in für Word o.Ä. zu installieren.
 
 
 
