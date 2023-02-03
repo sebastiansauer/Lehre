@@ -191,7 +191,7 @@ Stattdessen stellen Sie in "normaler Sprache",
 also ohne intensiven Gebrauch vom (statistischem) Fachvokabular dar,
 was Ziel und was Hintergrund der Analyse ist.
 Sie können als Ziel bzw. Hintergrund den formalen Aspekt der Prüfung anführen,
-wichiger sind aber inhaltliche bzw. fachliche Überlegungen: Worum geht es in der Analyse?
+wichtiger sind aber inhaltliche bzw. fachliche Überlegungen: Worum geht es in der Analyse?
 Warum ist die Frage wichtig? 
 Was wird untersucht? Anhand welcher Methodik wird die Frage untersucht?
 
