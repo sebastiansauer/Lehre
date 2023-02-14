@@ -181,7 +181,7 @@ Sie können Ihr Analysedokument z.B. so gliedern:
 5. Vorhersagen (Vorhersage der Test-Daten anhand des besten Vorhersagemodells und Einreichen)
 
 Die Gliederung ist kein Muss; andere Gliederung sind auch möglich.
-Entscheidend ist die fachliche Angemessenheit und die Reproduzierbarkeit.
+Entscheidend ist die fachliche Angemessenheit.
 
 
 ### Abschnitt Forschungsfrage und Hintergrund
@@ -191,9 +191,13 @@ Stattdessen stellen Sie in "normaler Sprache",
 also ohne intensiven Gebrauch vom (statistischem) Fachvokabular dar,
 was Ziel und was Hintergrund der Analyse ist.
 Sie können als Ziel bzw. Hintergrund den formalen Aspekt der Prüfung anführen,
-wichiger sind aber inhaltliche bzw. fachliche Überlegungen: Worum geht es in der Analyse?
+wichtiger sind aber inhaltliche bzw. fachliche Überlegungen: Worum geht es in der Analyse?
 Warum ist die Frage wichtig? 
 Was wird untersucht? Anhand welcher Methodik wird die Frage untersucht?
+
+
+
+
 
 
 
@@ -202,6 +206,9 @@ Was wird untersucht? Anhand welcher Methodik wird die Frage untersucht?
 In diesem Abschnitt Ihres Analysedokuments führen Sie die technische Vorbereitung durch.
 Das betrifft vor allem das Importieren der Daten und das Starten aller R-Pakete, 
 die in der Analyse verwendet werden.
+
+Zum Importieren der Daten gehen Sie bitte so vor: Legen Sie für diese Analyse ein Projekt in Rstudio an. Speichern Sie in diesem Ordner (auf der Wurzelebene, nicht in Unterverzeichnissen) die zu analyiserenden Daten. Ändern Sie nicht den Dateinamen der Daten. Importieren Sie die Daten auf folgende Weise: `d_train <- read_csv("d_train.csv)` bzw. `d_test <- read_csv("d_test.csv")`.
+Auf diese Weise ist die Reproduzierbarkeit Ihrer Analyse sichergestellt.
 
 
 ### Explorative Datenanalyse
@@ -333,7 +340,7 @@ Auch ist es Ihnen überlassen, welche Variablen Sie zur Modellierung heranziehen
 
 Hinweise zur Modellwahl usw. gibt es auch in erwähnter Literatur, aber auch in vielen Büchern zum Thema Data-Science. 
 
-**Alles, was Sie tun, Datenvorverarbeitung, Modellierung und Anwenden, muss transparent und reproduzierbar sein.** Im Übrigen lautet die Aufgabe: 
+**Alles, was Sie tun, Datenvorverarbeitung, Modellierung und Anwenden, muss transparent sein.** Im Übrigen lautet die Aufgabe: 
 Finden Sie ein Modell, von dem Sie glauben, dass es die Testdaten gut vorhersagt. $\hat{y}=42$ ist zwar eine schöne Antwort,
 trifft die Wirklichkeit aber leider nicht immer.
 Eine gute Modellierung auf den *Trainingsdaten* (z.B. hohes $R^2$) bedeutet nicht zwangsläufig eine gute Vorhersage (*Test-Set*).
@@ -349,13 +356,13 @@ Eine gute Modellierung auf den *Trainingsdaten* (z.B. hohes $R^2$) bedeutet nich
 1. Es sind nur Einzelarbeiten zulässig. 
 
 
-12. In der Analyse muss als Ausgangspunkt der vom/von der Dozenten/in bereitgestellten Datensatz genutzt werden.
+12. In der Analyse muss als Ausgangspunkt der vom/von der Dozenten/in *bereitgestellten Datensatz* genutzt werden.
 
-3. Alle Analyseschritte bzw. alle Veränderungen an den Daten müssen im (eingereichten) *Analyseskript* nachvollziehbar (transparent und reproduzierbar) aufgeführt sein. Das Analyseskript ist als R-Skript, qmd-Datei, Rmd-Datei oder Rmd-Notebook-Datei abzugeben. Sie können die bereitgestellte Vorlage als Analyseskript nutzen (`Template-Dokumentation-Vorhersagemodellierung.Rmd`).
+3. Alle Analyseschritte bzw. alle Veränderungen an den Daten müssen im (eingereichten) *Analyseskript* nachvollziehbar aufgeführt sein. Das Analyseskript ist als R-Skript, qmd-Datei, Rmd-Datei oder Rmd-Notebook-Datei abzugeben. Sie können die bereitgestellte Vorlage als Analyseskript nutzen (`Template-Dokumentation-Vorhersagemodellierung.Rmd`).
 
-4. Das Analyseskript muss funktionstüchtig für den Prüfer sein: Alle Befehle müssen ohne Fehlermeldung durchlaufen (abgesehen von etwaiger Installation fehlender Pakete). 
+4. Das *Analyseskript* muss grundsätzlich *funktionstüchtig* für den Prüfer sein: Alle Befehle müssen ohne Fehlermeldung durchlaufen. Ausnahmen: a) Installation fehlender Pakete, b) Daten sollen aus der Wurzelebene des Projektordners importiert werden.. 
 
-14. Es dürfen keine weiteren Informationen (Daten) als die vom Dozenten ausgegebenen verwendet werden. Sonstige Hilfe (z.B. von Dritten) ist ebenfalls unzulässig.
+14. Es dürfen *keine weiteren Informationen (Daten)* als die vom Dozenten ausgegebenen verwendet werden. Sonstige Hilfe (z.B. von Dritten) ist ebenfalls unzulässig.
 
 
 4. Nichtbeachtung der für dieses Modul formulierten Regeln kann zu Nichtbestehen oder Punkteabzug führen.
@@ -367,7 +374,7 @@ Eine gute Modellierung auf den *Trainingsdaten* (z.B. hohes $R^2$) bedeutet nich
 
 7. Ein ausgedrucktes Exemplar muss nicht abgegeben werden.
 
-8. Während der Prüfungsphase werden *keine* *inhaltlichen* Fragen ("wie macht man nochmal eine Log-Transformation?") und keine *technischen* Fragen ("wie installiert man nochmal ein R-Paket?") beantwortet.
+8. Während der Prüfungsphase werden *keine* *inhaltlichen* Fragen ("wie macht man nochmal eine Log-Transformation?") und keine *technischen* Fragen ("wie installiert man nochmal ein R-Paket?") beantwortet. 
 
 
 
