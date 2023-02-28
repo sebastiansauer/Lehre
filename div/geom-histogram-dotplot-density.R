@@ -1,3 +1,4 @@
+library(tidyverse)
 library(ggplot2)
 
 ggplot(mtcars) +
@@ -19,9 +20,10 @@ mariokart %>%
 
 
 m2 %>% 
-  ggplot(aes(x = total_pr)) +
+  ggplot(aes(x = n_bids)) +
   geom_histogram(bins = 10) +
-  labs(caption = paste0("n=", nrow(m2))) 
+  labs(caption = paste0("n=", nrow(m2)))  +
+  geom_dotplot(method = "histodot")
 
 m2 %>% 
   ggplot(aes(y = ..density.., x = total_pr)) +
@@ -44,6 +46,10 @@ m2 %>%
   geom_density(color = "red") +
   labs(caption = paste0("n=", nrow(m2))) +
   scale_x_continuous(breaks = 1:10)
+
+
+
+
 
 
 mtcars %>% 
