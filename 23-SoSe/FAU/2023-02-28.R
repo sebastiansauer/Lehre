@@ -82,12 +82,102 @@ x  # just enter its name and execute the line
 # Importing data
 
 
+library(easystats) # execute this line: start the package
+library(rio)  # alternative to easystats for data import
+
+
+d <- data_read(path = "data/penguins.csv")  # from "easystats"
+# import(file = "data/penguins.csv")  # similar as above (from "rio")
+# 
+# 
+# # builtin csv import:
+# read.csv("data/penguins.csv")
+# 
+# # 
+# library(readxl)
+# read_xlsx("data/penguins.xlsx")
 
 
 
 
 
+# EDA
 
+# sample data:
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+
+library(DataExplorer)
+
+introduce(d)
+
+plot_missing(d)
+plot_histogram(d)
+plot_correlation(d)
+
+
+
+library(tidyverse)
+d %>% 
+  drop_na() %>% 
+  plot_correlation()
+
+
+
+d_no_missings <- na.omit(d)
+
+plot_correlation(d_no_missings)
+
+
+
+# Data viz
+
+
+library(ggpubr)
+
+
+# Comparing two (or more) groups in some quantitative y
+
+
+ggboxplot(data = d,
+          x = "species",
+          y  = "bill_length_mm",
+          fill = "species",
+          add = "jitter"
+          )
+
+
+ggviolin(data = d,
+          x = "species",
+          y  = "bill_length_mm",
+          fill = "species",
+         add = "jitter",
+         draw_quantiles = .5) +
+  scale_y_continuous(breaks = c(10, 50, 100)) 
+
+
+ggplot(d) +
+  aes(x = species, 
+      y = bill_length_mm) +
+  geom_boxplot() +
+  geom_jitter(width = .2, alpha = .5) 
+
+
+
+d <-
+  d %>% 
+  mutate(species = 
+           case_when(
+             species == "Adelie" ~ "Type1",
+             TRUE ~ species
+  ))
+
+
+
+ggscatter(data = d,
+          x  = "bill_length_mm",
+          y = "body_mass_g",
+          add = "reg.line"
+)
 
 
 
