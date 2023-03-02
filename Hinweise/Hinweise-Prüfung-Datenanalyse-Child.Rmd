@@ -12,7 +12,7 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 ## Allgemeines
 
 
-1. Gegenstand dieser Prüfungsform ist die *Analyse* eines Datensatzes nach einer *Forschungsfrage* und die *Dokumentation* dieser Analyse.
+1. Gegenstand dieser Prüfungsform ist eine Projektarbeit in Form von *Analyse* eines Datensatzes nach einer *Forschungsfrage* und die *Dokumentation* dieser Analyse.
 
 
 4. Schreiben Sie Ihre Datenanalyse in Form eines *Berichts*, der sich an den Gliederungspunkten wie unten dargestellt orientiert.
@@ -59,9 +59,8 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 1. Der Bericht ist *nur elektronisch*, nicht ausgedruckt einzureichen.
 
-2. Der Bericht kann als *paginiertes Dokument* oder als *nicht-paginiertes* Dokument (d.h. als HTML-Dokument) eingereicht werden.
+2. Der Bericht kann als *paginiertes Dokument* (PDF-Dokumente) oder als *nicht-paginiertes* Dokument (als HTML-Dokument) eingereicht werden.
 
-3. Paginierte Formate sind als PDF-Datei einzureichen. HTML-Formate sind entweder in HTML-Form oder (nur bei Bedarf) als PDF-Druck eines HTML-Dokuments einzureichen.
 
 4. Die Wahl eines bestimmten Stylesheets ist nicht von Bedeutung. *Lesbarkeit* und *Übersichtlichkeit* in der Formatierung sind unabhängig davon anzustreben.
 
@@ -71,9 +70,9 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 ## Formalia
 
-1. Richtlinien einer *Wortzahl* gibt es nicht. Entscheidend ist, dass relevante Analysen durchgeführt und beschrieben wurden.
+1. Richtlinien einer *Wortzahl* gibt es nicht. Entscheidend ist, dass relevante Analysen durchgeführt und beschrieben wurden. Schreiben Sie so knapp wie möglich und so ausführich wie nötig.
 
-2. Der *Anspruch* richtet sich nach dem Inhalt und Niveau der auf dieses Modul vorbereitenden Module. Oft sind das Module in quantitativer Datenanalyse (und wissenschaftliches Arbeiten). Deren Inhalte sollen im Rahmen dieser Prüfungsleistung als selbständig und flüssig verfügbare Kompetenz von den Studentis demonstriert werden.
+2. Der *Anspruch* richtet sich nach dem Inhalt und Niveau des auf diese Prüfung vorbereitenden Unterricht (auch aus Modulen vorheriger Semester). Oft sind das Module in quantitativer Datenanalyse (und wissenschaftliches Arbeiten). Deren Inhalte sollen im Rahmen dieser Prüfungsleistung als selbständig und flüssig verfügbare Kompetenz von den Studentis demonstriert werden.
 
 3. Die *Gliederung* der Arbeit kann sich an den [PPDAC-Zyklus](https://stats-nutshell.netlify.app/basics.html#ppdac) und am [Data Science Model von Wickham und Grolemund](https://r4ds.had.co.nz/introduction.html#what-you-will-learn) orientieren.
 
