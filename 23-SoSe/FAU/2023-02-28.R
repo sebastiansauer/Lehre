@@ -89,7 +89,7 @@ library(rio)  # alternative to easystats for data import
 d <- data_read(path = "data/penguins.csv")  # from "easystats"
 # import(file = "data/penguins.csv")  # similar as above (from "rio")
 # 
-# 
+# library(rio)
 # # builtin csv import:
 # read.csv("data/penguins.csv")
 # 
@@ -283,8 +283,9 @@ lm2 <- lm(bill_length_mm ~ species, data = d)
 lm2
 
 
-lm2_pred <- 
-plot(lm2_pred)estimate_relation(lm2)
+lm2_pred <- estimate_relation(lm2)
+
+plot(lm2_pred)
 
 
 
