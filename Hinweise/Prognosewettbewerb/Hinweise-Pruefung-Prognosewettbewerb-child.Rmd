@@ -405,6 +405,21 @@ Eine beispielhafte Vorlage (Template), die Sie als Richtschnur nutzen können, i
 Im Internet finden sich viele Fallstudien, von denen Sie sich inspirieren lassen können.
 
 
+
+
+### Probeprüfung für den Prognosewettbewerb
+
+
+Ja, [hier](https://github.com/sebastiansauer/Lehre/tree/main/data/prognosewettbwerb-demo). In diesem Ordner liegen die Dokumente, die Sie für die echte Prüfung auch bekommen:
+
+1. Train-Datensatz
+2. Test-Datensatz
+3. Hinweise zur vorherzusagenden Variablen
+
+
+
+
+
 ### Materialsammlung
 
 In [diesem Ordner](https://github.com/sebastiansauer/Lehre/tree/main/Hinweise/Prognosewettbewerb) finden Sie eine Materialsammlung zum Prognosewettbewerb.
