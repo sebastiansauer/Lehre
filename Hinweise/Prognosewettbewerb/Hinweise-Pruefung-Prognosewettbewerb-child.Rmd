@@ -152,6 +152,19 @@ Für eine gute Prognose sollte daher $\text{MAE}_{\text{Test}}$ möglichst klein
 
 
 
+<<<<<<< HEAD
+1. Folgende* Dateiarten* sind einzureichen:
+
+    1. Prognose: Ihre *Prognose-Datei* (CSV-Datei)
+    2. Analyse: Ihr *Analyseskript* (R-, Rmd- oder Rmd-Notebook-Datei)
+  
+2. Weitere Dateien sind nicht einzureichen.
+
+9. Komprimieren Sie die Dateien *nicht* (z.B. via *zip*). 
+
+2. Der Name jeder eingereichten Datei muss wie folgt lauten: `Nachname_Vorname_Matrikelnummer_Dateiart.Endung`. Beispiel: `Sauer_Sebastian_0123456_Prognose.csv` bzw. `Sauer_Sebastian_0123456_Analyse.Rmd`.
+=======
+>>>>>>> 3c6fb6218773e3b44417b48bc57337263526d270
 
 
 ## Gliederung Ihrer Analyse
