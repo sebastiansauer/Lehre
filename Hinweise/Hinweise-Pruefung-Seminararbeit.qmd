@@ -68,22 +68,17 @@ params:
 
 18. *Nichteinhaltung* der Regeln bzw. der Hinweise kann zu *Nichtbestehen* oder einer schlechterer Note führen.
 
+19. Bitte beachten Sie etwaige *Anmeldefristen* für die Anmeldung zur Prüfung als auch ggf. zur Anmeldung in einzelne Arbeitsgruppen.
 
+20. Soweit nicht anders von der Lehrperson gesagt, gelten die *offiziellen* Anmeldefristen der Hochschule.
 
-### Besonderheiten von Gruppenarbeit
+21. Vermeiden Sie *kurzfristigen* Upload von Prüfungsleistungen kurz vor dem Verstreichen der  Einreichefrist – falls technische Probleme auftreten, können diese u. U. nicht mehr gelöst werden.
 
+22. Die Dozentis führen *keine Vorab-Korrektur* von laufenden Prüfungsleistungen durch. Fragen, die einer Vorab-Korrektur Ihrer Arbeit nahe kommen (und daher nicht beantwortet werden), sind z. B.: „Ist mein Fragebogen so o.k.?“, „Passt das so?“, „Können Sie mal drüber schauen, ob ich so anfangen kann?“, „Passen meine Hypothesen zur Theorie?“, „Hab ich was vergessen?“, „Ist die Gliederung so richtig/vollständig?“ ...
 
-1. Wenn eine Gruppenarbeit als Prüfungsform definiert ist sind Einzelarbeiten  grundsätzlich nicht zulässig.
+23. Fragen zum Stoff werden im Unterricht jederzeit beantwortet. Sprechen Sie die Dozentis auch gerne vor oder nach dem Unterricht persönlich an.
 
-2. Die *Anzahl der teilnehmenden Personen* (min., max.) einer Arbeitsgruppe wird von der Prüfperson bekanntgegeben.
-
-3. *Abschnittsverantwortliche*: Jedes Kapitel/Teilkapitel muss mit genau einem Namen ausgewiesen sein. Der Namen der/des Autor*in soll als Fußnote an die jeweilige Überschrift angefügt sein.
-
-5. Aus formalen Gründen darf die Seminararbeit *pro Arbeitsgruppe* nur *einmalig* eingereicht werden. Im Falle mehrerer Einreichungen zählt die erste.
-
-11. *Gleichwertige Beiträge*: Alle teilnehmenden Personen einer Forschungsgruppe (einer Gruppenarbeit) sollen in ähnlichem Umfang beitragen.
-
-13. Es ist erlaubt, eine *Gruppe zu verlassen*. Wer eine Gruppe verlässt, schließt sich einer anderen Gruppe an.
+24. Aus Gründen der Fairness werden inhaltliche Fragen von Studierenden nur öffentlich, z. B. im Unterricht oder im Online-Forum, beantwortet (nicht per Mail).
 
 
 ## Benotung
@@ -312,7 +307,7 @@ Hier sind einige typische Fragen, die sich Lesis - implizit oder explizit - stel
 
 
 
-## Gutachtenerstellung
+### Gutachtenerstellung
 
 
 - Ein Teil des Gesamteindrucks der Arbeit spiegelt sich in den Kommentaren des Gutachters wider. Jedoch spiegelt die Summe der Kommentare nicht (zwangsläufig) die Gesamtnote wider, sondern nur denjenigen Teil, für den der Gutachter es für sinnvoll befunden hat, explizite Kommentare anzugeben.
@@ -326,20 +321,4 @@ Hier sind einige typische Fragen, die sich Lesis - implizit oder explizit - stel
 
 
 
-
-
-## Anmeldung
-
-- Bitte beachten Sie etwaige *Anmeldefristen* für die Aemeldung zur Prüfung als auch ggf. zur Anmeldung in einzelne Arbeitsgruppen.
-- Soweit nicht anders vom Dozenten gesagt, gelten die *offiziellen* Anmeldefristen der Hochschule.
-
-
-
-## Sonstiges
-
-
-- Vermeiden Sie *kurzfristigen* Upload von Prüfungsleistungen kurz vor dem Verstreichen der  Einreichefrist – falls technische Probleme auftreten, können diese u. U. nicht mehr gelöst werden.
-- Die Dozentis führen *keine Vorab-Korrektur* von laufenden Prüfungsleistungen durch. Fragen, die einer VorabKorrektur Ihrer Arbeit nahe kommen (und daher nicht beantwortet werden), sind z. B.: „Ist mein Fragebogen so o.k.?“, „Passt das so?“, „Können Sie mal drüber schauen, ob ich so anfangen kann?“, „Passen meine Hypothesen zur Theorie?“, „Hab ich was vergessen?“, „Ist die Gliederung so richtig/vollständig?“ ...
-- Fragen zum Stoff werden im Unterricht jederzeit beantwortet. Sprechen Sie die Dozentis auch gerne vor oder nach dem Unterricht persönlich an.
-- Aus Gründen der Fairness werden inhaltliche Fragen von Studierenden nur öffentlich, z. B. im Unterricht oder im Online-Forum, beantwortet (nicht per Mail).
 
