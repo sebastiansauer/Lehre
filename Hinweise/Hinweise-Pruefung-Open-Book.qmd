@@ -1,0 +1,20 @@
+---
+title: "Prüfungshinweise - Open-Book-Prüfung (Take-home-Examen)"
+params:
+  pruefungsleistung: openbook
+output:
+  html_document:
+    number_sections: true 
+---    
+
+# Prüfungleistung
+
+Die Prüfungsleistung besteht aus einer *Open-Book-Prüfung*.
+
+
+# Prüfungsform
+
+```{r child1, echo = FALSE, child="Hinweise/Hinweise-Pruefung-Open-Book-Child.Rmd"}
+```
+
+
