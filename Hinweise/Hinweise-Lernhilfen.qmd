@@ -4,6 +4,9 @@ title: Lernhilfen
 ---
 
 
+### PDF-Version
+
+Um eine PDF-Version eines Kapitels zu erhalten, können Sie im Browser die Druckfunktion nutzen (Strg-P). Wählen Sie dort “PDF” als Ziel.
 
 
 ### Videos
