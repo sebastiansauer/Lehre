@@ -79,7 +79,7 @@ Prüfungsrelevanter Stoff ist alles, was im Unterricht behandelt wurde, sofern e
   - Handelt es sich um Parameter $X$ mit einem unbegrenzten Wertebereich (wie *normalverteilte* Variablen), so ist der Wertebereich $X-2\sigma \le  X \le X+2\sigma$ zu simulieren.
 - Nutzen Sie die Software *Stan* in Form des R-Pakets `rstanarm` für Regressionsmodelle auf Basis der Bayes-Methode.
 - Verwenden Sie immer folgenden *Seed-Wert* bei `stan_glm()`: `42`. Dazu setzen Sie folgenden Parameter `seed = 42` (innerhalb von `stan_glm())`.
-- Der *Tolerenzbereich* einer Lösung liegt bei 5% des Wertes der Musterlösung *oder* bei `0.1*sd(y)`, je nachdem welcher der beiden Werte kleiner ist (y: vorherzusagende Variable). Tolerenzbereiche werden verwendet für Aufgaben mit Zufallszahlen: Lösungen solcher Aufgaben können schwanken. Wenn Sie allerdings den angegebenen Seed-Wert gesetzt haben, so sollte Ihre (korrekte) Lösung exakt der Musterlösung entsprechen.
+- Der *Tolerenzbereich* einer Lösung liegt bei 5% des Wertes der Musterlösung. Tolerenzbereiche werden verwendet für Aufgaben mit Zufallszahlen: Lösungen solcher Aufgaben können schwanken. Wenn Sie allerdings den angegebenen Seed-Wert gesetzt haben, so sollte Ihre (korrekte) Lösung exakt der Musterlösung entsprechen.
 
 
 
