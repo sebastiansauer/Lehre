@@ -4,7 +4,7 @@
 
 
 
-## Sicherheitsunterweisung
+### Sicherheitsunterweisung
 
 
 - Der Dozent weist auf Fluchtwege und auf die Sammelstelle hin (abhängig vom Seminarraum).
@@ -23,7 +23,7 @@
 
 
 
-## Organisatorisches
+### Organisatorisches
 
 - Bitte laden Sie sich rechtzeitig die Materialien herunter.
 - Beachten Sie die Vorbereitungshinweise zur ersten Unterrichtsstunde und für die einzelnen Termine.
@@ -34,14 +34,14 @@
 - Es können sich Aktualisierungen des Unterrichtsmaterials ergeben. Bitte prüfen Sie regelmäßig, ob neues Material eingestellt ist. Nachdem der Unterricht stattgefunden hat, wird das Material aber nicht mehr geändert, so dass Sie Sicherheit für das Lernen haben.
 
 
-## Präsenzunterricht
+### Präsenzunterricht
 
 - Beachten Sie aktuell geltenden Hygienevorschriften.
 - Bitte meiden Sie datenhungrige Applikationen wie das Streamen von Filmen – Sie behindern den Unterricht und verärgern damit andere Studierende (in diesem oder anderen Kursen).
 - Bitte bringen Sie einen Computer (mit Internetanschluss) in alle Präsenztermine mit. Bringen Sie ggf. Ersatzbatterien und/oder Verlängerungskabel mit - leider sind nicht überall ausreichend Steckdosen vorhanden.
 
 
-## Rechtliche Hinweise
+### Rechtliche Hinweise
 
 - Dieser Kurs ist lizensiert unter der [MIT Lizenz](https://github.com/sebastiansauer/bayes-start/blob/main/LICENSE). Das ist eine permissive Lizenz, die erlaubt, dass Sie diesen Kurs frei verwenden können. Sie haben (nur) die Verpflichtung, zu zitieren und auf die Lizenzart hinzuweisen.
 - Mitarbeit oder Verbesserungsvorschläge: am besten als Github Issue auf der Github-Seite dieses Projekts einstellen.
@@ -49,7 +49,7 @@
 - Aus Datenschutzgründen dürfen Teilnehmis den Unterricht (Video, Ton, sonstige) nicht aufnehmen.
 
 
-## Datenschutz 
+### Datenschutz 
 
 - Einige Teile des Unterrichts werden u.U. aufgenommen. 
 - Die Aufnahme erfolgt nur nach vorheriger Information durch den Dozenten. 
@@ -63,7 +63,7 @@
 - Aufnahmen des Unterrichts durch die Studentis sind nicht erlaubt.
 
 
-## IT
+### IT
 
 - Sie benötigen einen Computer für diesen Kurs. Ein Laptop ist ideal (ein günstiges Modell ist vollkommen ausreichend); ein Tablett ist nicht ideal, reicht aber zur Not, wenn Sie eine Tastatur für das Gerät haben.
 - [Bereiten Sie bitte R und seine Freunden vor ](https://data-se.netlify.app/2021/11/30/installation-von-r-und-seiner-freunde/) vor der ersten Unterrichtsstunde. Sie können entweder R auf Ihrem Computer installieren oder den Cloud-Dienst *RStudio Cloud* nutzen. 
@@ -91,7 +91,7 @@
 
 
 
-## Videokonferenzen
+### Videokonferenzen
 
 
 - Ihr Dozent informiert Sie, ob Videokonferenzen in diesem Modul angeboten werden.
@@ -112,7 +112,7 @@
 - Aus Sicherheitsgründen kann eine Zoom-Konferenz auf Ihre "offizielle" E-Mail-Adresse (der Hochschule) begrenzt sein. Mit einer anderen, potenziell anonymen E-Mail-Adresse, können Sie also u.U. nicht teilnehmen.
 
 
-## Streaming
+### Streaming
 
 In einigen Kursen wird Präsenzunterricht plus Streaming angeboten.
 In diesem Fall gelten folgende Hinweise:
@@ -125,7 +125,7 @@ In diesem Fall gelten folgende Hinweise:
 - Alle Angaben sind vorbehaltlich neuer Corona-Entwicklungen bzw. der Vorgaben der Hochschulleitung dazu.
 
 
-## Umgangsformen
+### Umgangsformen
 
 - Freundlicher Umgang miteinander ist selbstverständlich.
 - Selbstverständlich sind auch die grundlegenden Formen der höflichen Miteinanders (Begrüßung, Ansprache mit Namen, bitte/danke sagen, Pünktlichkeit, Verbindlichkeit, ...).
@@ -135,7 +135,7 @@ In diesem Fall gelten folgende Hinweise:
 - Spricht man eine Person in einer Videokonferenz an, sollte die Kamera angeschaltet sein.
 
 
-## Wenn der Unterricht ausfällt
+### Wenn der Unterricht ausfällt
 
 - Im Krankheitsfall werden Sie möglichst frühzeitig informiert (via Moodle); das kann bedeuten, dass Sie am Morgen eine Nachricht bekommen, dass der Unterricht des jeweiligen Tages ausfällt.
 - Leider muss der Unterricht in einigen Fällen aufgrund anderer Dienstverpflichtungen des Dozenten entfallen; ein Beispiel sind Berungskomissionen (Auswahlgespräche für neu einzustellende Professor:innen).
@@ -143,7 +143,7 @@ In diesem Fall gelten folgende Hinweise:
 - Falls der Unterricht ausfällt, heißt das *nicht*, dass der für die jeweilige Woche geplante Stoff obsolet ist. Viel mehr ist Ihre Pflicht, den Stoff selbständig zu erarbeiten. Natürlich können Sie bei Fragen jederzeit Ihren Dozenten kontaktieren.
 
 
-## Salvatorische Klausel
+### Salvatorische Klausel
 
 - Diese Hinweise hier gelten nur insofern Ihre Dozentis Ihnen nicht andere Hinweise geben :-)
 
