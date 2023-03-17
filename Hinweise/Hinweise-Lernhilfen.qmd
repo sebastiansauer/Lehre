@@ -18,14 +18,32 @@ Besonders [diese Playlist](https://youtube.com/playlist?list=PLRR4REmBgpIEzVFLvz
 ### Software
 
 Installieren Sie [R und seine Freunde](https://data-se.netlify.app/2021/11/30/installation-von-r-und-seiner-freunde/).
-Für die Bayes-Inferenz brauchen Sie^[nicht gleich zu Beginn, aber nach 2-3 Wochen] zusätzliche Software, was leider etwas Zusatzaufwand erfordert. Lesen Sie [hier](https://data-se.netlify.app/2022/01/28/bayes-software-installieren-f%C3%BCr-r/) die Hinweise dazu.
-Installieren Sie die folgende R-Pakete^[falls Sie die Pakete schon installiert haben, könnten Sie mal in RStudio auf "update.packages" klicken]:
+
+Installieren Sie bitte auch die folgende R-Pakete^[falls Sie die Pakete schon installiert haben, können Sie  in RStudio auf "update.packages" klicken]:
 
 - tidyverse
 - easystats
 - weitere Pakete werden im Unterricht bekannt gegeben (es schadet aber nichts, jetzt schon Pakete nach eigenem Ermessen zu installieren)
 
 [R Syntax aus dem Unterricht](https://github.com/sebastiansauer/Lehre) findet sich im Github-Repo bzw. Ordner zum jeweiligen Semester.
+
+
+
+Wenn in diesem Modul Inferenzstatistik nötig ist, benötigen Sie Software für *Bayes-Inferenz*.
+
+Folgendes R-Paket ist für die Bayes-Inferenz nötig:
+
+- rstanarm
+
+
+:::{.callout-note}
+### Bei Installationsproblemen
+
+- Gibt R eine `Warning` aus, ist das zumeist kein Problem und kann ignoriert werden.
+- Starten Sie R neu, bevor Sie R-Pakete installieren.
+- Wenn Sie Probleme mit der Installation auf Ihrem Computer haben, können Sie (übergangsweise oder dauerhaft) die Online-Version von RStudio, [RStudio Cloud](https://posit.cloud/) verwenden (in gewissem Umfang kostenlos).
+:::
+
 
 
 
