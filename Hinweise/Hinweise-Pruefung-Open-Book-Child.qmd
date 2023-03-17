@@ -78,8 +78,8 @@ Prüfungsrelevanter Stoff ist alles, was im Unterricht behandelt wurde, sofern e
   - Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie etwa *Anteile*), so ist der ganze Wertebereich zu modellieren. Es sind 100 verschiedene Parameterwerte zu berechnen.
   - Handelt es sich um Parameter $X$ mit einem unbegrenzten Wertebereich (wie *normalverteilte* Variablen), so ist der Wertebereich $X-2\sigma \le  X \le X+2\sigma$ zu simulieren.
 - Nutzen Sie die Software *Stan* in Form des R-Pakets `rstanarm` für Regressionsmodelle auf Basis der Bayes-Methode.
-- Der Tolerenzbereich einer Lösung liegt i.d.R. bei 5% des Wertes der Musterlösung *oder* bei `0.1*sd(y)`, je nachdem welcher der beiden Werte kleiner ist (y: vorherzusagende Variable).
-- Verwenden Sie immer folgenden Seed-Wert bei `stan_glm()`: `42`. Dazu setzen Sie folgenden Parameter `seed = 42` (innerhalb von `stan_glm())`.
+- Der *Tolerenzbereich* einer Lösung liegt bei 5% des Wertes der Musterlösung *oder* bei `0.1*sd(y)`, je nachdem welcher der beiden Werte kleiner ist (y: vorherzusagende Variable).
+- Verwenden Sie immer folgenden *Seed-Wert* bei `stan_glm()`: `42`. Dazu setzen Sie folgenden Parameter `seed = 42` (innerhalb von `stan_glm())`.
 
 
 
@@ -191,41 +191,7 @@ Persönliche Daten werden an eine Stellen übermittelt: Moodle (über bzw. in Ih
 
 
 
-## Tipps für eine gute Note
 
-
-
-
-### Typische Fragen in der Prüfung
-
-Die Prüfung orientiert sich an den Aufgaben, die jeweils am Kapitelende gestellt sind,
-und zwar vornehmlich an den Aufgaben, die eine kurze, eindeutige Lösung haben.
-Nutzen Sie also die Aufgaben am Kapitelende fortwährend, um sich auf die Prüfung vorzubereiten.
-
-
-
-
-
-
-
-### Wie schreibt man eine gute Note?
-
-Nach meiner Erfahrung kann jede/r eine gute Note schreiben, man muss kein "Mathe-Crack" sein.
-Stattdessen kommt es auf die Vorbereitung bzw. das Mitlernen an.
-
-:::callout-important
-Kontinuierliches Mitlernen ist der Schlüssel zum Erfolg.
-:::
-
-Ein paar Tipps für Prüfungserfolg:
-
-- Jedes Kapitel vor- und nachbereiten
-- Die Aufgaben am Kapitelende selber lösen
-- Das Lernen mit der Unterricht synchronisieren, nicht erst kurz vor der Prüfung anfangen.
-- Dem Dozenten Fragen stellen (im Unterricht und per Forum)
-- Lerngruppen bilden
-- Exzerpte schreiben
-- Karteikarten nutzen, um sich selber abzufragen
 
 
 

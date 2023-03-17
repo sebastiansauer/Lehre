@@ -21,7 +21,9 @@ Stattdessen kommt es auf die Vorbereitung bzw. das Mitlernen an.
 Kontinuierliches Mitlernen ist der Schlüssel zum Erfolg.
 :::
 
-### Hier sind ein paar Tipps für Prüfungserfolg
+
+
+### Tipps 
 
 Ein paar Tipps für Prüfungserfolg:
 
@@ -33,6 +35,10 @@ Ein paar Tipps für Prüfungserfolg:
 - Exzerpte schreiben
 - Karteikarten nutzen, um sich selber abzufragen
 
+
+
+
+
 ### Ich brauche mehr Erklärung
 
 Schauen Sie sich die Vidoes [dieser Playlist](https://youtube.com/playlist?list=PLRR4REmBgpIFQIReNf_ihRm5GYJSKh3WT) an.
@@ -42,8 +48,30 @@ Schauen Sie sich die Vidoes [dieser Playlist](https://youtube.com/playlist?list=
 
 ### Gibt es eine Art "Probeklausur"?
 
-Ja, gibt es!
+Ja, gibt es! Hinweise dazu werden im Unterricht bekannt gegeben.
 
+
+
+
+### Typische Fragen in der Prüfung
+
+Die Prüfung orientiert sich an den Aufgaben, die jeweils am Kapitelende gestellt sind,
+und zwar vornehmlich an den Aufgaben, die eine kurze, eindeutige Lösung haben.
+Nutzen Sie also die Aufgaben am Kapitelende fortwährend, um sich auf die Prüfung vorzubereiten.
+
+
+
+
+
+
+### Muss man ein Statistik-Crack sein, um eine gute Note zu schreiben?
+
+Nach meiner Erfahrung kann jede/r eine gute Note schreiben, man muss kein "Mathe-Checker" oder "Statistik-Crack" sein.
+Stattdessen kommt es auf die Vorbereitung bzw. das Mitlernen an.
+
+:::callout-important
+Kontinuierliches Mitlernen ist der Schlüssel zum Erfolg.
+:::
 
 
 ### Welche weiteren Hilfen gibt es?
