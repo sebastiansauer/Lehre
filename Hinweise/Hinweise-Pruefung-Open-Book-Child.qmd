@@ -78,8 +78,8 @@ Prüfungsrelevanter Stoff ist alles, was im Unterricht behandelt wurde, sofern e
   - Handelt es sich um Parameter mit einem begrenzten Wertebereich (wie etwa *Anteile*), so ist der ganze Wertebereich zu modellieren. Es sind 100 verschiedene Parameterwerte zu berechnen.
   - Handelt es sich um Parameter $X$ mit einem unbegrenzten Wertebereich (wie *normalverteilte* Variablen), so ist der Wertebereich $X-2\sigma \le  X \le X+2\sigma$ zu simulieren.
 - Nutzen Sie die Software *Stan* in Form des R-Pakets `rstanarm` für Regressionsmodelle auf Basis der Bayes-Methode.
-- Der *Tolerenzbereich* einer Lösung liegt bei 5% des Wertes der Musterlösung *oder* bei `0.1*sd(y)`, je nachdem welcher der beiden Werte kleiner ist (y: vorherzusagende Variable).
 - Verwenden Sie immer folgenden *Seed-Wert* bei `stan_glm()`: `42`. Dazu setzen Sie folgenden Parameter `seed = 42` (innerhalb von `stan_glm())`.
+- Der *Tolerenzbereich* einer Lösung liegt bei 5% des Wertes der Musterlösung *oder* bei `0.1*sd(y)`, je nachdem welcher der beiden Werte kleiner ist (y: vorherzusagende Variable). Tolerenzbereiche werden verwendet für Aufgaben mit Zufallszahlen: Lösungen solcher Aufgaben können schwanken. Wenn Sie allerdings den angegebenen Seed-Wert gesetzt haben, so sollte Ihre (korrekte) Lösung exakt der Musterlösung entsprechen.
 
 
 
@@ -169,11 +169,22 @@ Einige Prüfungen werden als “Take-home-Prüfung” im “Open-Book-Format” 
 
 Ihre Prüferin/Ihr Prüfer informiert Sie über das Format Ihrer Prüfung.
 
+Die Prüfungsleistung ist selbständig von Ihnen zu erbringen.
+Jegliche Unterstützung Dritter während der Prüfung ist untersagt.
+
+
 
 
 ### Technische und organisatorische Anforderungen einer Open-Book-Prüfung
 
-Um an einer Open-Book-Prüfung teilzunehmen, benötigen Sie IT-Ausstattung sowie Räumlichkeiten. An IT-Ausstattung benötigen Sie einen Computer mit Internetanschluss; ein Smartphone reicht nicht aus. Nutzen Sie Ihr eigenes Gerät (Computer) für die Prüfung; die Hochschule stellt Ihnen keinen Computer zur Verfügung. Sie benötigen keine Webcam und kein Mikrofon. Ein Tablett oder Smartphone reicht nicht für die Prüfung. An Software benötigen Sie Zugang zu Ihrem Moodle-Konto, was einen aktuellen Internet-Browser voraussetzt. Zu den organisatorischen Anforderungen gehören ein Raum, in dem Sie die Prüfung ungestört bearbeiten können sowie ein Internetanschluss zum Bearbeiten der Klausur in Moodle. Bitte benutzen Sie während der Prüfung nicht den Zurück-Button in Ihrem Browser, wenn Sie zu einer vorherigen Frage zurückgehen wollen. Nutzen Sie die in der Prüfung zur Verfügung gestellten Funktionen/Buttons dafür.
+Um an einer Open-Book-Prüfung teilzunehmen, benötigen Sie IT-Ausstattung sowie Räumlichkeiten. 
+An IT-Ausstattung benötigen Sie einen Computer mit Internetanschluss; ein Smartphone reicht nicht aus. 
+Nutzen Sie Ihr eigenes Gerät (Computer) für die Prüfung; die Hochschule stellt Ihnen keinen Computer zur Verfügung. 
+Sie benötigen keine Webcam und kein Mikrofon. 
+Ein Tablett oder Smartphone reicht nicht für die Prüfung. 
+An Software benötigen Sie Zugang zu Ihrem Moodle-Konto, was einen aktuellen Internet-Browser voraussetzt. Zu den organisatorischen Anforderungen gehören ein Raum, in dem Sie die Prüfung ungestört bearbeiten können sowie ein Internetanschluss zum Bearbeiten der Klausur in Moodle. 
+Bitte benutzen Sie während der Prüfung nicht den Zurück-Button in Ihrem Browser, wenn Sie zu einer vorherigen Frage zurückgehen wollen. 
+Nutzen Sie die in der Prüfung zur Verfügung gestellten Funktionen/Buttons dafür.
 
 
 

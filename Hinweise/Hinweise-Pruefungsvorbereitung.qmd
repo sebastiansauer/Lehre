@@ -6,6 +6,21 @@ title: Prüfungsvorbereitung
 
 
 
+### Tipps 
+
+Ein paar Tipps für Prüfungserfolg:
+
+- Jedes Kapitel vor- und nachbereiten
+- Die Aufgaben am Kapitelende selber lösen
+- Das Lernen mit der Unterricht synchronisieren, nicht erst kurz vor der Prüfung anfangen.
+- Dem Dozenten Fragen stellen (im Unterricht und per Forum)
+- Lerngruppen bilden
+- Exzerpte schreiben
+- Karteikarten nutzen, um sich selber abzufragen
+
+
+
+
 
 ### Lösen Sie die Aufgaben
 
@@ -20,21 +35,6 @@ Stattdessen kommt es auf die Vorbereitung bzw. das Mitlernen an.
 :::{.callout-important}
 Kontinuierliches Mitlernen ist der Schlüssel zum Erfolg.
 :::
-
-
-
-### Tipps 
-
-Ein paar Tipps für Prüfungserfolg:
-
-- Jedes Kapitel vor- und nachbereiten
-- Die Aufgaben am Kapitelende selber lösen
-- Das Lernen mit der Unterricht synchronisieren, nicht erst kurz vor der Prüfung anfangen.
-- Dem Dozenten Fragen stellen (im Unterricht und per Forum)
-- Lerngruppen bilden
-- Exzerpte schreiben
-- Karteikarten nutzen, um sich selber abzufragen
-
 
 
 
@@ -83,14 +83,6 @@ Kontinuierliches Mitlernen ist der Schlüssel zum Erfolg.
 
 
 
-
-### Hinweise zu Scheinmängeln
-
-Immer wieder kommt es vor, dass Studierende Beanstandungen zu einer Prüfung vorbringen. Teilweise sind diese gerechtfertigt, teilweise nicht. Im Folgenden sehen Sie eine Auswahl an *nicht* gerechtfertigten Beanstandungen, also nur scheinbaren Mängeln, keine wirklichen Mängel, in einer Prüfung.
-
--   "Das zu wählende Vorgehen war nicht 100% klar" -- Wenn Sie der Meinung sind, dass das zu wählende Vorgehen (zum Lösen der Aufgabe) nicht komplett klar ist, treffen Sie Annahmen und weisen Sie darauf hin, dass Sie Annahmen getroffen haben. Zum anderen halten Sie sich an das Vorgehen aus dem Unterricht (bzw. den Unterlagen und der Literatur, die im Unterricht verwendet wurde). Eine andere Situation läge vor, wenn die Aufgabe nicht lösbar ist ohne weitere Angaben lösbar ist("Ist ein Effekt bei n=100 signifikant?"). Im Falle einer nicht lösbaren Aufgabe liegt der Fehler beim Prüfer.
-
--   "Ich sollte einen Punkt (ein Komma) als Dezimaltrennzeichen verwenden, aber Moodle hat ein Komma (einen Punkt) verlangt!" -- Je nach Spracheinstellung in Moodle kann es sein, dass Moodle nur einen Punkt als Dezimaltrennzeichen bzw. ein Komma als Dezimaltrennzeichen verwendet. Moodle weist Sie aber darauf hin, wenn eine Zahl nicht als Zahl erkannt wird, und zwar wenn Sie zur nächsten Aufgabe geben. Sie können also ohne Probleme den Fehler korrigieren. Darüber hinaus ist bei den Prüfungshinweisen vorab auf diesen Punkt verwiesen.
 
 
 
