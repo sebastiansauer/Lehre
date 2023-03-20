@@ -14,20 +14,23 @@ params:
 ## Prüfungsgegenstand
 
 
-1. Die Prüfungsleistung wird rechtzeitig vom Prüfi definiert und an geeignetem Ort bekannt gegeben.
+
+
+### Grundlagen
+
+
+1. Die *Prüfungsleistung* wird rechtzeitig von der/dem Prüfer/in definiert und an geeignetem Ort bekannt gegeben.
     
 2. Es wird erwartet, dass Sie als Versuchsperson an den *Studien der Kommilitonis teilnehmen*, falls nötig.
     
 2. Sie führen eine *eigene empirische Studie* durch und verfassen dazu einen Bericht; dabei stützen Sie sich i. d. R. auf selber erhobene Daten.
 
-2. Gegenstand der Seminararbeit ist die *Dokumentation aller Phasen der Studie* des jeweiligen Forschungsteams. Es handelt sich also um eine Gruppenarbeit. Einzelarbeiten sind grundsätzlich nicht zulässig.
-
-3. *Abschnittsverantwortliche*: Jedes Kapitel/Teilkapitel muss mit genau einem Namen ausgewiesen sein. Der Namen der/des Autor*in soll als Fußnote an die jeweilige Überschrift angefügt sein.
+2. Gegenstand der Seminararbeit ist die *Dokumentation aller Phasen der Studie* des jeweiligen Forschungsteams. 
 
 
-## Formale Anfordungen 
+### Formale Anfordungen 
 
-1. Der Umfang der Arbeit umfasst 6000 Wörter (im Hauptteil), plus/minus 10%.
+1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *Hauptteil* ist definiert als der Text von Einführung bis zum Ende der Diskussion. 
 
 2. Die Methoden des *wissenschaftlichen Arbeiten* in Recherche, Zitat und Darstellung werden angewandt.
 
@@ -37,11 +40,10 @@ params:
 
 5. Gestaltungsaspekte, die nicht im bereitgestellten Leitfaden aufgeführt sind, sind nach den Vorgaben der APA (neueste Version) anzulegen.
 
-6.- Die Arbeit kann in *deutscher* oder englischer Sprache eingereicht werden.
+6. Die Arbeit kann in *deutscher* oder englischer Sprache eingereicht werden.
 
-5. Aus formalen Gründen darf die Seminararbeit *pro Arbeitsgruppe* nur *einmalig* eingereicht werden. Im Falle mehrerer Einreichungen zählt die erste.
 
-6. Auf dem Titelblatt ist u.a. anzugeben
+6. Auf dem *Titelblatt* ist u.a. anzugeben
     - Matrikelnummer/n sowie Nach- und Vorname/n aller Autoris (wichtig!)
     - Titel der Arbeit
     - Modulname
@@ -54,10 +56,7 @@ params:
 
 10. Eine eingereichte Arbeit *kann nicht wieder zurückgezogen* werden.
 
-11. *Gleichwertige Beiträge*: Alle teilnehmenden Personen einer Forschungsgruppe (einer Gruppenarbeit) sollen in ähnlichem Umfang beitragen.
 
-
-13. Es ist erlaubt, eine *Gruppe zu verlassen*. Wer eine Gruppe verlässt, schließt sich einer anderen Gruppe an.
 
 14. *Open Science*: Reichen Sie die Rohdaten und ggf. Syntax (elektronisch) ein. Verweisen Sie ggf. im Anhang auf eine Datei, die Sie hochladen, in der die entsprechenden Informationen zu finden sind.
 
@@ -65,10 +64,26 @@ params:
 
 16. Das Thema muss einen *direkten empirisch-psychologischen Bezug* haben; die Forschungsfrage muss psychologisch relevante Aspekte adressieren.
 
-17. Bitte sprechen Sie Ihr:e Dozenten/in für Fragen des Nachteilsausgleichs.
+17. Bitte sprechen Sie Ihr:e Dozenten/in für Fragen des *Nachteilsausgleichs*.
 
-18. Nichteinhaltung der Regeln bzw. der Hinweise kann zu Nichtbestehen oder einer schlechterer Note führen.
+18. *Nichteinhaltung* der Regeln bzw. der Hinweise kann zu *Nichtbestehen* oder einer schlechterer Note führen.
 
+
+
+### Besonderheiten von Gruppenarbeit
+
+
+1. Wenn eine Gruppenarbeit als Prüfungsform definiert ist sind Einzelarbeiten  grundsätzlich nicht zulässig.
+
+2. Die *Anzahl der teilnehmenden Personen* (min., max.) einer Arbeitsgruppe wird von der Prüfperson bekanntgegeben.
+
+3. *Abschnittsverantwortliche*: Jedes Kapitel/Teilkapitel muss mit genau einem Namen ausgewiesen sein. Der Namen der/des Autor*in soll als Fußnote an die jeweilige Überschrift angefügt sein.
+
+5. Aus formalen Gründen darf die Seminararbeit *pro Arbeitsgruppe* nur *einmalig* eingereicht werden. Im Falle mehrerer Einreichungen zählt die erste.
+
+11. *Gleichwertige Beiträge*: Alle teilnehmenden Personen einer Forschungsgruppe (einer Gruppenarbeit) sollen in ähnlichem Umfang beitragen.
+
+13. Es ist erlaubt, eine *Gruppe zu verlassen*. Wer eine Gruppe verlässt, schließt sich einer anderen Gruppe an.
 
 
 ## Benotung
@@ -112,7 +127,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 1. Formalia
 
-   Die Textlänge (Hauptteil) ist zu kurz – ca. 20 % unter der formal angegeben Soll-Länge.
+ - Die Textlänge (Hauptteil) ist zu kurz – ca. 20 % unter der formal angegeben Soll-Länge.
   - Es liegen viele Zitierfehler im Text vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
   - Es liegen viele Fehler im Literaturverzeichnis vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
   - Es wurde die geforderte empirische Methode nicht verwendet.
@@ -157,7 +172,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 
 
-### Aus der Checkliste der Prüfis
+### Aus der Checkliste eines Gutachters
 
 - Wissen
 

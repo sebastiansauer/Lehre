@@ -12,7 +12,7 @@ output:
 
 # Prüfungsform
 
-```{r child1, echo = FALSE, child="Hinweise/Hinweise-Prüfung-Datenanalyse-Child.Rmd"}
+```{r child1, echo = FALSE, child="Hinweise/Hinweise-Pruefung-Datenanalyse-Child.Rmd"}
 ```
 
 
