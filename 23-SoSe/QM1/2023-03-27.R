@@ -45,5 +45,5 @@ mariokart_gruppiert <- group_by(mariokart, stock_photo)
 mariokart_klein <- summarise(mariokart_gruppiert, max_preis = max(total_pr)) 
 mariokart_klein
 
-mariokart_klein %>% 
-  summarise(max_preis_mw = mean(max_preis))
+summarise(mariokart_klein, max_preis_mw = mean(max_preis))
+
