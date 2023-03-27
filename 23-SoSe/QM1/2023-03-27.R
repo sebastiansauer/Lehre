@@ -47,3 +47,15 @@ mariokart_klein
 
 summarise(mariokart_klein, max_preis_mw = mean(max_preis))
 
+
+
+# Neue Spalte erzeugen:
+
+mariokart <- 
+  mutate(mariokart, zu_teuer = total_pr > 100)
+
+mariokart2 <-
+  select(mariokart, total_pr, zu_teuer)
+
+head(mariokart2)
+
