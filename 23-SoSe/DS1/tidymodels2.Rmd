@@ -51,10 +51,14 @@ ames <-
   select(Sale_Price, Gr_Liv_Area)
 ```
 
+Nicht vergessen: AV-Transformation in beiden Samples!
+
 
 Datensatz aufteilen:
 
+
 ```{r}
+set.seed(42)
 ames_split <- initial_split(ames, prop = 0.80, strata = Sale_Price)
 ames_train <- training(ames_split)
 ames_test  <-  testing(ames_split)
@@ -123,7 +127,7 @@ Vorhersagen im Test-Sample:
 
 
 ```{r}
-preds <- predict(fit1, new_data = ames_test)
+preds <- predict(fit1, new_data = ames_test)  # liefert TABELLE (tibble) zurück
 head(preds)
 ```
 
@@ -139,7 +143,7 @@ preds_vec <- preds$.pred
 ames_test2 <-
   ames_test %>% 
   mutate(preds = pluck(preds, ".pred"),  # pluck aus der Tabelle rausziehen
-         .pred = preds_vec)  # oder hier mit dem Dollar-Operator
+         .pred = preds_vec)  # oder  mit dem Dollar-Operator
 
 head(ames_test2)
 ```
@@ -172,19 +176,32 @@ Modellgüte im Test-Sample:
 ```{r}
 rsq(ames_test2,
     truth = Sale_Price,
-    estimate = preds)
+    estimate = .pred)
 ```
+
 
 
 ```{r}
-sol <- 0.484
+sol <- 0.51679
 ```
+
+
+
+Zur Interpretation von Log10-Werten
+
+```{r}
+5e5
+5*10^5 - 500000
+```
+
+
+
 
 
 Meta-information
 ================
 
-exname: tidymodels01 
+exname: tidymodels02
 extype: num
 exsolution: `r fmt(sol)`
 exshuffle: false
