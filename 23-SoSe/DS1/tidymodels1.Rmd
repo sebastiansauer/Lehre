@@ -2,6 +2,24 @@
 
 
 
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H',
+                      fig.asp = 0.618,
+                      fig.width = 4,
+                      fig.cap = "", 
+                      fig.path = "",
+                      cache = TRUE,
+                      echo = FALSE,
+                      message = FALSE,
+                      fig.show = "hold")
+
+library(tidyverse)
+library(exams)
+```
+
+
+
+
 
 Question
 ========
@@ -47,7 +65,7 @@ Modell definieren:
 
 ```{r}
 m1 <-
-  linear_reg()
+  linear_reg() # engine ist "lm" im Default
 ```
 
 
@@ -61,12 +79,18 @@ fit1 <-
 ```
 
 
+```{r}
+fit1 %>% pluck("fit") 
+```
+
+
+
 Modellgüte im Train-Sample:
 
 ```{r}
 fit1_performance <-
   fit1 %>% 
-  extract_fit_engine()
+  extract_fit_engine()  # identisch zu pluck("fit")
 ```
 
 
@@ -78,8 +102,17 @@ fit1_performance %>% summary()
 ```
 
 
+R-Quadrat via easystats:
+
 ```{r}
-tidy(fit1_performance)
+library(easystats)
+fit1_performance %>% r2()  # rmse()
+```
+
+
+
+```{r}
+tidy(fit1_performance)  # ähnlich zu parameters()
 ```
 
 
