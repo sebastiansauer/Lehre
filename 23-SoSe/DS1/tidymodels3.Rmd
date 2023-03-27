@@ -1,9 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
 
 
 
@@ -35,7 +29,7 @@ Modellgleichung: `Sale_Price ~ Gr_Liv_Area, data = ames`.
 
 Berechnen Sie ein multiplikatives (exponenzielles) Modell.
 
-Gesucht ist R-Quadrat als Maß für die Modellgüte im *TEST-Sample*.
+Rücktransformieren Sie die Log-Werte in "Roh-Dollar".
 
 Solution
 ========
@@ -202,11 +196,20 @@ Zur Interpretation von Log10-Werten
 
 
 
+Rücktransformation (ohne Bias-Korrektur):
+
+
+```{r}
+ames_test2 <-
+  ames_test2 %>% 
+  mutate(pred_raw = 10^(.pred))
+```
+
 
 Meta-information
 ================
 
-exname: tidymodels02
+exname: tidymodels03
 extype: num
 exsolution: `r fmt(sol)`
 exshuffle: false
