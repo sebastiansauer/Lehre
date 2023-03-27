@@ -129,10 +129,18 @@ head(preds)
 
 `preds` ist ein Tibble, also müssen wir noch die Spalte `.pred.` herausziehen, z.B. mit `pluck(preds, ".pred")`:
 
+
+```{r}
+preds_vec <- preds$.pred
+```
+
+
 ```{r}
 ames_test2 <-
   ames_test %>% 
-  mutate(preds = pluck(preds, ".pred"))
+  mutate(preds = pluck(preds, ".pred"),  # pluck aus der Tabelle rausziehen
+         .pred = preds_vec)  # oder hier mit dem Dollar-Operator
+
 head(ames_test2)
 ```
 
@@ -142,7 +150,7 @@ Oder mit `unnest`:
 ames_test2 <-
   ames_test %>% 
   mutate(preds = preds) %>% 
-  unnest(preds)
+  unnest(preds) # Listenspalte "entschachteln"
 
 head(ames_test2)
 ```
@@ -152,7 +160,7 @@ Oder wir binden einfach die Spalte an den Tibble:
 ```{r}
 ames_test2 <-
   ames_test %>% 
-  bind_cols(preds = preds)
+  bind_cols(preds = preds)  # nimmt Tabelle und bindet die Spalten dieser Tabelle an eine Tabelle
 
 head(ames_test2)
 ```
