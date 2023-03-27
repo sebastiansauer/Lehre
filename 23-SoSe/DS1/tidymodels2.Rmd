@@ -30,7 +30,7 @@ Modellgleichung: `Sale_Price ~ Gr_Liv_Area, data = ames`.
 
 Berechnen Sie ein multiplikatives (exponenzielles) Modell.
 
-Gesucht ist R-Quadrat als Maß für die Modellgüte im *Train-Sample*.
+Gesucht ist R-Quadrat als Maß für die Modellgüte im *TEST-Sample*.
 
 Solution
 ========
@@ -47,7 +47,8 @@ Multiplikatives Modell:
 ```{r}
 ames <- 
   ames %>% 
-  mutate(Sale_Price = log10(Sale_Price))
+  mutate(Sale_Price = log10(Sale_Price)) %>% 
+  select(Sale_Price, Gr_Liv_Area)
 ```
 
 
@@ -95,7 +96,7 @@ fit1_performance <-
 
 
 
-Modellgüte:
+Modellgüte im Train-Sample:
 
 
 ```{r}
@@ -114,6 +115,56 @@ fit1_performance %>% r2()  # rmse()
 
 ```{r}
 tidy(fit1_performance)  # ähnlich zu parameters()
+```
+
+
+
+Vorhersagen im Test-Sample:
+
+
+```{r}
+preds <- predict(fit1, new_data = ames_test)
+head(preds)
+```
+
+`preds` ist ein Tibble, also müssen wir noch die Spalte `.pred.` herausziehen, z.B. mit `pluck(preds, ".pred")`:
+
+```{r}
+ames_test2 <-
+  ames_test %>% 
+  mutate(preds = pluck(preds, ".pred"))
+head(ames_test2)
+```
+
+Oder mit `unnest`:
+
+```{r}
+ames_test2 <-
+  ames_test %>% 
+  mutate(preds = preds) %>% 
+  unnest(preds)
+
+head(ames_test2)
+```
+
+Oder wir binden einfach die Spalte an den Tibble:
+
+```{r}
+ames_test2 <-
+  ames_test %>% 
+  bind_cols(preds = preds)
+
+head(ames_test2)
+```
+
+
+
+Modellgüte im Test-Sample:
+
+```{r}
+rsq(ames_test2,
+    truth = Sale_Price,
+    estimate = preds)
 ```
 
 
