@@ -1,0 +1,82 @@
+---
+title: "Intro to tiymodels"
+format: html
+date: today
+editor: source
+---
+
+
+# Setup
+
+```{r}
+library(tidymodels)
+data(ames)
+```
+
+# Data Split
+
+```{r}
+ames_split <- initial_split(ames)
+
+ames_train <- training(ames_split)
+ames_test <- testing(ames_split)
+```
+
+
+
+# Def Workflow
+
+## Workflow1
+
+```{r}
+wf1 <-
+  workflow() |> 
+  add_model(linear_reg()) |> 
+  add_formula(Sale_Price ~ Longitude + Latitude)
+```
+
+
+```{r}
+wf1_fit <-
+  last_fit(wf1, ames_split)
+```
+
+
+```{r}
+wf1_performance <-
+  collect_metrics(wf1_fit)
+wf1_performance
+```
+
+## WF2
+
+
+```{r}
+simple_ames <- 
+  recipe(Sale_Price ~ Neighborhood + Gr_Liv_Area + Year_Built + Bldg_Type,
+         data = ames_train) %>%
+  step_log(Gr_Liv_Area, base = 10) %>% 
+  step_dummy(all_nominal_predictors())
+```
+
+
+
+```{r}
+wf2 <-
+  workflow() %>% 
+  add_model(linear_reg()) %>% 
+  add_recipe(simple_ames)
+```
+
+
+
+```{r}
+wf2_fit <-
+  last_fit(wf2, ames_split)
+```
+
+
+```{r}
+wf2_fit |> collect_metrics()
+```
+
