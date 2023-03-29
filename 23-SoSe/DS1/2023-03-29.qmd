@@ -1,9 +1,16 @@
 ---
 title: "Intro to tiymodels"
-format: html
+format:
+  html:
+    mermaid:
+      theme: forest
 date: today
 editor: source
 ---
+
+
+Wir bearbeiten [dieses Kapitel](https://ds1-prognosemodellierung.netlify.app/060-tidymodels.html#workflows-mit-rezepten).
+
 
 
 # Setup
@@ -48,6 +55,13 @@ wf1_performance <-
 wf1_performance
 ```
 
+
+
+
+
+
+
+
 ## WF2
 
 
@@ -79,4 +93,26 @@ wf2_fit <-
 ```{r}
 wf2_fit |> collect_metrics()
 ```
+
+
+
+
+
+# Überblick
+
+```{mermaid}
+flowchart LR
+  subgraph preproc
+     Modellformel
+     Steps
+  end  
+  subgraph model
+    Learner
+    Engine
+    Mode
+  end
+  
+  preproc --> model --> last_fit
+```
+
 
