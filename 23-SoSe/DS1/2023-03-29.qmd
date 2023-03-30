@@ -112,7 +112,8 @@ flowchart LR
     Mode
   end
   
-  preproc --> model --> last_fit
+  preproc --> model --> last_fit  --> Modellgüte
 ```
+
 
 

@@ -68,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="2023-03-29_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="2023-03-29_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="2023-03-29_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<meta name="mermaid-theme" content="forest">
 <script src="2023-03-29_files/libs/quarto-diagram/mermaid.min.js"></script>
 <script src="2023-03-29_files/libs/quarto-diagram/mermaid-init.js"></script>
 <link href="2023-03-29_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -128,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
 ✖ recipes::step()  masks stats::step()
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -164,8 +165,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 2 × 4
   .metric .estimator .estimate .config             
   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 rmse    standard   73873.    Preprocessor1_Model1
-2 rsq     standard       0.142 Preprocessor1_Model1</code></pre>
+1 rmse    standard   71350.    Preprocessor1_Model1
+2 rsq     standard       0.139 Preprocessor1_Model1</code></pre>
 </div>
 </div>
 </section>
@@ -197,8 +198,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 2 × 4
   .metric .estimator .estimate .config             
   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 rmse    standard   38413.    Preprocessor1_Model1
-2 rsq     standard       0.768 Preprocessor1_Model1</code></pre>
+1 rmse    standard   39040.    Preprocessor1_Model1
+2 rsq     standard       0.744 Preprocessor1_Model1</code></pre>
 </div>
 </div>
 </section>
@@ -220,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     Mode
   end
   
-  preproc --&gt; model --&gt; last_fit
+  preproc --&gt; model --&gt; last_fit  --&gt; Modellgüte
 </pre>
 </div>
 </div>
