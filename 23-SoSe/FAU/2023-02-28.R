@@ -283,9 +283,9 @@ lm2 <- lm(bill_length_mm ~ species, data = d)
 lm2
 
 
-lm2_pred <- estimate_relation(lm2)
+lm2_pred <- estimate_relation(lm2)  # from package easystats
 
-plot(lm2_pred)
+plot(lm2_pred)  # use eg ggpubr as an alternative
 
 
 
@@ -294,5 +294,49 @@ plot(lm2_pred)
 
 lm(y ~ x1 + x2, data = my_data)  # template of multiple regr
 
+mtcars$am <- factor(mtcars$am) # works also
+
 # ex: run an regr: mtcars: mpg ~ hp + factor(am)
 
+lm3 <- lm(mpg ~ hp + am, data = mtcars)
+lm3
+
+lm3_pred <- estimate_relation(lm3)  
+plot(lm3_pred)
+
+
+# R2 
+r2(lm3)  # from easystats
+
+summary(lm3)  # alternatively, without easystats
+
+
+# ex: run your own analysis (penguins), run a mutiple regression, compute R2, interpret results
+# bonus: check_model(lm3)  # check the model assumptions
+
+
+# BAYES
+
+# p-value: difficult to interpret,
+# not what researchers want (often times)
+# p-value IS NOT the probability of your hypothesis!
+
+library(rstanarm)  # for Bayes
+
+
+lm1 <- lm(mpg ~ hp, data = mtcars)
+lm1_bayes <- stan_glm(mpg ~ hp, data = mtcars)  # BAYES!
+
+parameters(lm1)  # from easystats
+
+
+parameters(lm1_bayes)  
+summary(lm1_bayes)  # without easystats
+
+r2_bayes(lm1_bayes)
+
+plot(parameters(lm1)) #easystats
+plot(parameters(lm1_bayes))
+
+
+# ex: run a Bayes regr similar to lm1
