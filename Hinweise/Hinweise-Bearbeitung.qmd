@@ -28,7 +28,7 @@
 2.  Geben Sie keine Prozentzahlen an, sondern *Anteile* (also nicht “50%”, sondern “0.5” bzw. "0,5").
 2.  Bei Aufgaben, die eine Zahl als Antwort verlangen, ist *nur eine Zahl anzugeben* (nicht etwa Buchstaben).
 2.  Alle Berechnungen, die *Zufallszahlen* beinhalten, sollen mit *fixierten Startwert* der Zufallszahlen durchgeführt werden. Es ist die Zahl `42` zu verwenden.
-2.  Wie auch bei den übrigen Hinweisen gelten diese Maßgaben nur soweit in der Prüfung nicht *explizit andere Hinweise* gegeben wurden.
+2.  Wie auch bei den übrigen Hinweisen gelten diese Maßgaben nur soweit  nicht *explizit andere Hinweise* gegeben wurden.
 2.  Wenn *Stichproben simuliert* werden sollen, ziehen Sie $10^3$ Zufallsstichproben.
 2.  In einigen Aufgaben kann verlangt sein, dass Sie einen *bestimmten Datensatz in R importieren* sollen. In diesem Fall wird vorausgesetzt, dass Ihnen [diese Bezugsquelle](https://vincentarelbundock.github.io/Rdatasets/articles/data.html) von Datensätzen bekannt ist und dass Sie wissen, wie man einen Datensatz in R importiert.
 2.  Achten Sie darauf, R und R-Pakete sowie R-Studio *in aktueller Version* zu verwenden. Das Verwenden älterer Versionen kann (in seltenen Fällen) zu abweichenden Lösungen führen. Im Zweifel beziehen sich alle Aufgaben auf die jeweils aktuellste Version der verwendeten Software.
@@ -46,3 +46,4 @@
 2.  Nutzen Sie die Software *Stan* in Form des R-Pakets `rstanarm` für Regressionsmodelle auf Basis der Bayes-Methode.
 2.  Verwenden Sie immer folgenden *Seed-Wert* bei `stan_glm()`: `42`. Dazu setzen Sie folgenden Parameter `seed = 42` (innerhalb von `stan_glm())`.
 2.  Der *Tolerenzbereich* einer Lösung liegt bei 5% des Wertes der Musterlösung. Beispiel: Die Musterlösung liegt bei 100; dann erstreckt sich der Toleranzbereich von 95 bis 105. Tolerenzbereiche werden verwendet für Aufgaben mit Zufallszahlen: Lösungen solcher Aufgaben können schwanken. Wenn Sie allerdings den angegebenen Seed-Wert gesetzt haben, so sollte Ihre (korrekte) Lösung exakt der Musterlösung entsprechen.
+
