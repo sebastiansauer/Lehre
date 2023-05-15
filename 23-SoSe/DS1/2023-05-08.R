@@ -5,6 +5,7 @@
 library(tidymodels)
 library(tidyverse)
 library(tictoc)
+library(baguette)
 
 # Data:
 d_path <- "https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv"
@@ -45,6 +46,7 @@ wf1_fit <-
 toc()
 
 # best candidate:
+autoplot(wf1_fit)
 show_best(wf1_fit)
 
 
