@@ -4,6 +4,14 @@
 
 **FALLSTUDIEN - MASCHINELLES LERNEN MIT TIDYMODELS**
 
+- [Louise E. Sinks: One Class SVM](https://lsinks.github.io/posts/2023-03-30-One-Class-SVM/one-class-svm.html)
+
+- [Louise E. Sinks: Credit Card Fraud: A Tidymodels Tutorial - inklusive Workflow-Sets](https://lsinks.github.io/posts/2023-04-11-credit-card-fraud/fraud_tutorial.html)
+
+
+
+
+
 - [Experimenting with machine learning in R with tidymodels and the Kaggle titanic dataset](https://www.r-bloggers.com/2021/08/experimenting-with-machine-learning-in-r-with-tidymodels-and-the-kaggle-titanic-dataset/)
 
 

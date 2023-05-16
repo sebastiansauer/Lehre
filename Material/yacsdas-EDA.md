@@ -3,6 +3,13 @@
 
 **FALLSTUDIEN - NUR EXPLORATIVE DATENANALYSE**
 
+- [Louise E. Sinks: TidyTuesday Week 18: Portal Project](https://lsinks.github.io/posts/2023-05-02-portal-project/portal.html)
+
+- [Louise E. Sinks: TidyTuesday Week 17: London Marathon](https://lsinks.github.io/posts/2023-04-25-tidytuesday-marathon/marathon.html)
+
+- [Louise E. Sinks: TidyTuesday Week 16: Neolithic Founder Crops](https://lsinks.github.io/posts/2023-04-18-tidytuesday-founder-crops/founder-crops.html)
+
+
 - [Datenjudo mit Pinguinen](https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome)
 
 - [Data-Wranglinng-Aufgaben zur Lebenserwartung](https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/)
