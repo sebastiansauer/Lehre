@@ -5,6 +5,7 @@
 library(tidymodels)
 library(tidyverse)
 library(tictoc)
+library(baguette)
 
 
 # Data:
@@ -46,6 +47,7 @@ wf1_fit <-
 toc()
 
 # best candidate:
+autoplot(wf1_fit)
 show_best(wf1_fit)
 
 
