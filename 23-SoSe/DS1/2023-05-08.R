@@ -6,6 +6,7 @@ library(tidymodels)
 library(tidyverse)
 library(tictoc)
 
+
 # Data:
 d_path <- "https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv"
 d <- read_csv(d_path)
@@ -58,4 +59,6 @@ wf1_fit_final <-
   wf1_final %>% 
   last_fit(d_split)
 
+
+# Modellgüte im Test-Set:
 collect_metrics(wf1_fit_final)
