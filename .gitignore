@@ -48,6 +48,8 @@ trials/
 test*.*
 test*/
 test*
+!test.csv
+!**/.test.csv
 
 
 # data
