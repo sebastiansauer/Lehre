@@ -3,7 +3,7 @@
 
 
 
-Gegenstand dieser Prüfungsform ist eine *Projektarbeit*.
+Gegenstand dieser Prüfungsform ist eine *Projektarbeit* in Form eines *Prognosewettbewerbs.*
 
 
 
@@ -174,7 +174,7 @@ Für eine gute Prognose sollte daher $\text{MAE}_{\text{Test}}$ möglichst klein
 Ihr Analysedokument stellt alle Ihre Schritte vor, die Sie im Rahmen der Bearbeitung der Prüfungsaufgabe unternommen haben,
 zumindest was die Analyse der Daten betrifft.
 
-Das Dokument mischt drei Textarten: R-Syntax, R-Ausgaben sowie Prosa (Ihre Erklärung zu Ihrer Analyse).
+Das Dokument mischt drei Textarten: R-Syntax, R-Ausgaben sowie Prosa (d.h. Ihre Erklärung zu Ihrer Analyse).
 Alle drei Aspekte sind gleichermaßen wichtig für diese Analyse.
 
 Wenn Sie das Dokument als R-Markdown-Datei (qmd- oder Rmd-Datei) anlegen,
@@ -209,7 +209,7 @@ wichtiger sind aber inhaltliche bzw. fachliche Überlegungen: Worum geht es in d
 Warum ist die Frage wichtig? 
 Was wird untersucht? Anhand welcher Methodik wird die Frage untersucht?
 
-
+Eine viertel bis halbe Seite sollte für diesen Abschnitt reichen.
 
 
 
@@ -221,7 +221,10 @@ In diesem Abschnitt Ihres Analysedokuments führen Sie die technische Vorbereitu
 Das betrifft vor allem das Importieren der Daten und das Starten aller R-Pakete, 
 die in der Analyse verwendet werden.
 
-Zum Importieren der Daten gehen Sie bitte so vor: Legen Sie für diese Analyse ein Projekt in Rstudio an. Speichern Sie in diesem Ordner (auf der Wurzelebene, nicht in Unterverzeichnissen) die zu analyiserenden Daten. Ändern Sie nicht den Dateinamen der Daten. Importieren Sie die Daten auf folgende Weise: `d_train <- read_csv("d_train.csv)` bzw. `d_test <- read_csv("d_test.csv")`.
+Zum Importieren der Daten gehen Sie bitte so vor: Legen Sie für diese Analyse ein *Projekt in Rstudio* an. 
+Speichern Sie in diesem Ordner (auf der Wurzelebene, nicht in Unterverzeichnissen) die zu analyiserenden Daten. 
+Ändern Sie nicht den Dateinamen der Daten. 
+Importieren Sie die Daten z.B. auf folgende Weise: `d_train <- read_csv("d_train.csv)` bzw. `d_test <- read_csv("d_test.csv")`.
 Auf diese Weise ist die Reproduzierbarkeit Ihrer Analyse sichergestellt.
 
 
@@ -243,12 +246,13 @@ welches dieser Kandidaten am besten ist.
 Die Güte eines Prognosemodells bemisst sich letztlich *nur* an der Präzision der Vorhersage *neuer* Daten,
 also des Test-Datensatzes.
 Wie gut Ihre Vorhersagen also wirklich sind, erfahren Sie erst mit der Notenbekanntgabe.
-Allerdings können Sie die Trainingsdaten nutzen, um die Güte Ihrere Modell abzuschätzen.
+Allerdings können Sie die Trainingsdaten nutzen, um die Güte Ihrer Modelle abzuschätzen.
+
 
 ### Vorhersagen
 
 Schließlich entscheiden Sie sich für einen Modellkandidaten.
-Diesen Modellkandidaten nehmen Sie her, um die (Ihenn unbekannten) Werte der AV (Zielvariablen) vorherzusagen.
+Diesen Modellkandidaten nehmen Sie her, um die (Ihnen unbekannten) Werte der AV (Zielvariablen) vorherzusagen.
 Diese Vorhersagen - zusammen mit der ID für jede Vorhersagen - speichern Sie als (reguläre) CSV-Datei ab 
 und reichen Sie als Ihre Prüfungsleistung ein, zusammen mit Ihrer Analysedatei.
 
@@ -281,7 +285,7 @@ und reichen Sie als Ihre Prüfungsleistung ein, zusammen mit Ihrer Analysedatei.
 
 - Zu Beginn des Skripts sollten alle verwendeten R-Pakete mittels `library()` gestartet werden.
 
-- Zu Beginn des Skripts sollten die Daten von der vom Dozenten bereitgestellten URL importiert werden (*nicht* von der eigenen Festplatte, da das Skript sonst bei Dritten, wie Ihrem Prüfer, nicht lauffähig ist).
+<!-- - Zu Beginn des Skripts sollten die Daten von der vom Dozenten bereitgestellten URL importiert werden (*nicht* von der eigenen Festplatte, da das Skript sonst bei Dritten, wie Ihrem Prüfer, nicht lauffähig ist). -->
 
 
 
@@ -323,9 +327,12 @@ und reichen Sie als Ihre Prüfungsleistung ein, zusammen mit Ihrer Analysedatei.
 
 ### Kennzahl der Modellgüte
 
-Die Güte der Vorhersage wird anhand des *mittleren Absolutfehlers* (mae) bemessen:
+Die Güte der Vorhersage wird anhand des RMSE bemessen.
 
-$$\text{mae} = \frac{1}{n} \sum_{i=1}^n|(y_i - \hat{y}_i)|$$
+
+<!-- Die Güte der Vorhersage wird anhand des *mittleren Absolutfehlers* (mae) bemessen: -->
+
+<!-- $$\text{mae} = \frac{1}{n} \sum_{i=1}^n|(y_i - \hat{y}_i)|$$ -->
 
 
 ### Notenstufen
@@ -438,7 +445,7 @@ die die Rahmenbedingungen der Prüfungsleistung vorstellt.
 
 ## Plagiatskontrolle
 
-Die eingereichten Arbeiten können automatisiert auf Plagiate überprüft werden. Gibt es substanzielle Überschneidungen zwischen zwei (oder mehr) Arbeiten, werden alle betreffenden Arbeiten mit *ungenügend* bewertet oder es folgt eine Abwertung der Note.
+Die eingereichten Arbeiten können automatisiert auf Plagiate überprüft werden. Gibt es substanzielle Überschneidungen zwischen zwei (oder mehr) Arbeiten, werden *alle* betreffenden Arbeiten mit *ungenügend* bewertet oder es folgt eine Abwertung der Note.
 
 
 
