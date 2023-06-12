@@ -1,10 +1,5 @@
 
 
----
-title: "Prüfungshinweise"
-params:
-  pruefungsleistung: Seminararbeit
----    
 
 
 
@@ -30,7 +25,7 @@ params:
 
 ### Formale Anfordungen 
 
-1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *Hauptteil* ist definiert als der Text von Einführung bis zum Ende der Diskussion. 
+1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *Hauptteil* ist definiert als der *gesamte Text* von Einführung bis zum Ende der Diskussion. 
 
 2. Die Methoden des *wissenschaftlichen Arbeiten* in Recherche, Zitat und Darstellung werden angewandt.
 
