@@ -31,7 +31,7 @@
 
 3. Wenden Sie die Methoden *quantitativer* Datenanalyse an.
 
-4. Werten Sie mit quantitative Fragestellungen mit *R* aus.
+4. Werten Sie mit quantitative Fragestellungen komplett mit *R* aus.
 
 4. Textsatz und (gestalterische) *Formatierung* der Seminararbeit orientieren sich an dem bereitgestellten *Leitfaden* bzw. den Hinweisen.
 
@@ -55,7 +55,7 @@
 10. Eine eingereichte Arbeit *kann nicht wieder zurückgezogen* werden.
 
 
-14. *Open Science*: Reichen Sie die Rohdaten und ggf. Syntax (elektronisch) ein. Verweisen Sie ggf. im Anhang auf eine Datei, die Sie hochladen, in der die entsprechenden Informationen zu finden sind.
+14. *Open Science*: Reichen Sie ggf. die Rohdaten und ggf. Syntax (elektronisch) ein. Verweisen Sie ggf. im Anhang auf eine Datei, die Sie hochladen, in der die entsprechenden Informationen zu finden sind.
 
 15. Reichen  Sie folgende *zwei Dateien* als Prüfungsleistung ein: a) Die Seminararbeit als PDF-Datei sowie b) den Anhang bzw. ergänzende Materialien als eine ZIP-Datei.
 
@@ -77,6 +77,8 @@
 
 24. Aus Gründen der Fairness werden inhaltliche *Fragen* von Studierenden *nur öffentlich*, z. B. im Unterricht oder im Online-Forum, beantwortet (nicht per Mail).
 
+25. Für *inferenzstatistische Fragestellungen* sind *Bayes-Methoden* (bevorzugt) oder frequentische Methoden einzusetzen.
+
 
 ## Benotung
 
@@ -96,20 +98,20 @@
 
     
     
-### Anspruch
+### Mengengerüst
 
-1. Anspruch an eine gute Seminararbeit
+1. Anspruch an eine *gute* Seminararbeit
     - Überwiegende Verwendung von Literatur hoher Qualität (Fachartikel, peer-reviewed)
-    - Ca. 30 Quellen oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+    - Ca. 15-20 Quellen (hoher Qualität) oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Stichprobengröße (ca.)
-      - Experimentell: Between-Design 50 Fälle, Within-Design: 20 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
-     - Beobachtend: 100 Fällebei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+      - Experimentell: Between-Design 30-50 Fälle, Within-Design: 20 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+     - Beobachtend: 50-100 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Designumfang (ca.)
       - Experimentell: 2-3 Variablen
       - Beobachtend: 3-4 Variablen bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
 
 
-
+Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur ein grober Rahmen aufgezeigt werden.
 
 
 
@@ -119,11 +121,11 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 1. Formalia
 
- - Die Textlänge (Hauptteil) ist zu kurz – ca. 20 % unter der formal angegeben Soll-Länge.
-  - Es liegen viele Zitierfehler im Text vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
-  - Es liegen viele Fehler im Literaturverzeichnis vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
-  - Es wurde die geforderte empirische Methode nicht verwendet.
-  - Es findet sich ein oder mehrere Plagiate (weitere Konsequenzen sind möglich).
+ - Die Textlänge (Hauptteil) ist zu *kurz* – ca. 20 % unter der formal angegeben Soll-Länge.
+  - Es liegen viele *Zitierfehler* im Text vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
+  - Es liegen viele Fehler im *Literaturverzeichnis* vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
+  - Es wurde die geforderte *empirische Methode* nicht verwendet.
+  - Es findet sich ein oder mehrere *Plagiate* (weitere Konsequenzen sind möglich).
   - Die Versionen der Gruppenmitglieder (bei Gruppenarbeiten) unterscheiden sich.
   - Es finden sich nicht zitierte Quellen im Literaturverzeichnis. 
     
