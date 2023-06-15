@@ -20,16 +20,16 @@
     
 2. Sie führen eine *eigene empirische Studie* durch und verfassen dazu einen Bericht; dabei stützen Sie sich i. d. R. auf selber erhobene Daten.
 
-2. Gegenstand der Seminararbeit ist die *Dokumentation aller Phasen der Studie* des jeweiligen Forschungsteams. 
+2. Gegenstand der Arbeit ist die *Dokumentation aller Phasen der Studie* des jeweiligen Forschungsteams. 
 
 
 ### Formale Anfordungen 
 
-1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *"Hauptteil"* ist definiert als der *gesamte Text* von Einführung bis zum Ende der Diskussion.
+1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *"Hauptteil"* ist definiert als der *gesamte Text* von (Beginn der) Einführung bis (zum Ende der) Diskussion.
 
 
 
-4. Textsatz und (gestalterische) *Formatierung* der Seminararbeit orientieren sich an dem bereitgestellten *Leitfaden* bzw. den Hinweisen.
+4. Textsatz und (gestalterische) *Formatierung* der Arbeit orientieren sich an dem bereitgestellten *Leitfaden* bzw. den Hinweisen.
 
 5. *Übrige Gestaltungsaspekte*, die nicht im bereitgestellten Leitfaden aufgeführt sind, sind nach den Vorgaben der *APA* (neueste Version) anzulegen.
 
@@ -47,7 +47,7 @@
 10. Eine eingereichte Arbeit *kann nicht wieder zurückgezogen* werden.
 
 
-15. Reichen  Sie folgende *zwei Dateien* als Prüfungsleistung ein: a) Die Seminararbeit als PDF-Datei sowie b) den Anhang bzw. ergänzende Materialien als eine ZIP-Datei.
+15. Reichen  Sie folgende *zwei Dateien* als Prüfungsleistung ein: a) Die Arbeit als PDF-Datei sowie b) den Anhang bzw. ergänzende Materialien als eine ZIP-Datei.
 
 
 17. Bitte sprechen Sie Ihr:e Dozenten/in für Fragen des *Nachteilsausgleichs*.
@@ -62,19 +62,18 @@
 
 22. Die Dozentis führen *keine Vorab-Korrektur* von laufenden Prüfungsleistungen durch. Fragen, die einer Vorab-Korrektur Ihrer Arbeit nahe kommen (und daher nicht beantwortet werden), sind z. B.: „Ist mein Fragebogen so o.k.?“, „Passt das so?“, „Können Sie mal drüber schauen, ob ich so anfangen kann?“, „Passen meine Hypothesen zur Theorie?“, „Hab ich was vergessen?“, „Ist die Gliederung so richtig/vollständig?“ ...
 
-25. Eine Prüfungsleistung darf nur eingereicht werden, wenn Sie (erfolgreich) zur Prüfung angemeldet sind. Eine eingereichte Arbeit, die nicht erfolgreich angemeldet ist, wird nicht bewertet. 
+25. Eine Prüfungsleistung darf nur eingereicht werden, wenn Sie (erfolgreich) zur Prüfung angemeldet sind. Eine abgegebene/hochgeladene Arbeit, die nicht erfolgreich angemeldet ist, gilt nicht als erfolgreich eingereicht.
 
 
 
 
 ### Methodische Anforderungen
 
+1. Die Methoden des *wissenschaftlichen Arbeiten* in Recherche, Zitat und Darstellung werden angewandt.
+
 1. Wenden Sie die Methoden *quantitativer* Datenanalyse an.
 
 2. Werten Sie mit quantitative Fragestellungen komplett mit *R* aus.
-
-2. Die Methoden des *wissenschaftlichen Arbeiten* in Recherche, Zitat und Darstellung werden angewandt.
-
 
 25. Für *inferenzstatistische Fragestellungen* sind *Bayes-Methoden* (bevorzugt) oder frequentische Methoden einzusetzen.
 
@@ -86,9 +85,9 @@
 
 
 
-8. Bei der Benotung wird die *Kenntnis der Inhalte der Veranstaltung* (inkl. dieses Skripts) vorausgesetzt.
+1. Bei der Benotung wird die *Kenntnis der Inhalte der Veranstaltung* (inkl. dieses Skripts) vorausgesetzt.
 
-9. Die *im Unterricht behandelten Methoden*, Verfahren oder Inhalte sind bei der Prüfungsleistung *anzuwenden* sofern passend.
+2. Die *im Unterricht behandelten Methoden*, Verfahren oder Inhalte sind bei der Prüfungsleistung *anzuwenden* sofern passend.
 
 
 14. *Open Science*: Reichen Sie ggf. die Rohdaten und ggf. Syntax (elektronisch) ein. Verweisen Sie ggf. im Anhang auf eine Datei, die Sie hochladen, in der die entsprechenden Informationen zu finden sind.
@@ -128,6 +127,8 @@
 ### Gutachtenerstellung
 
 
+Neben der Gesamtnote und den Teilnoten kann der Gutachter zusätzliche noch Kommentare, d.h. ausformulierte Aussagen zur Bewertung bestimmter Teile der Arbeit, hinzufügen.
+
 - Ein Teil des Gesamteindrucks der Arbeit spiegelt sich in den Kommentaren des Gutachters wider. Jedoch spiegelt die Summe der Kommentare nicht (zwangsläufig) die Gesamtnote wider, sondern nur denjenigen Teil, für den der Gutachter es für sinnvoll befunden hat, explizite Kommentare anzugeben.
 - Es ist insbesondere nicht möglich, von der Anzahl der positiven oder negativen Kommentare auf eine bestimmte Note zurückzuschließen.
 - Auch Vergleiche zwischen Gutachten verschiedener Student/innen ist nicht rein auf Basis der Kommentare möglich, da die Kommentare nur einen Ausschnitt des Meinungsbilds des Gutachters widerspiegeln.
@@ -141,7 +142,7 @@
     
 ### Mengengerüst
 
-1. Anspruch an eine *gute* Seminararbeit
+1. Anspruch an eine *gute* Arbeit
     - Überwiegende Verwendung von Literatur hoher Qualität (Fachartikel, peer-reviewed)
     - Ca. 15-20 Quellen (hoher Qualität) oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Stichprobengröße (ca.)
@@ -156,9 +157,9 @@ Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur e
 
 
 
-### Beispiele für Fehler
+### Substanzielle Fehler
 
-Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der Note führen. Beispiele für solche Fehler sind:
+*Substanzielle* Fehler können zum *Durchfallen* oder zum deutlichem Abwerten der Note führen. Beispiele für solche Fehler sind:
 
 1. Formalia
 
@@ -185,7 +186,22 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
     
     
     
-### Merkmale einer sehr guten Seminararbeit
+
+### Typische Fehler
+
+1. *Fachlich dünn*: Die Anzahl von guten Quellen (z. B. Fachartikel) ist gering; der Autor kennt sein Thema zu wenig. Es findet kaum Rückbezug der eigenen Studie/Daten auf die Literatur statt.
+
+2. *Stoff nicht ausreichend reflektiert*: Es werden Fakten aneinander gereiht, ohne dass ist, ob sich mit dem Stoff auseinander gesetzt wurde (z. B. werden Stärken/Schwächen einzelner Texte nicht diskutiert).
+
+3. *Formalia fehlerhaft*: Durch „Äußerlichkeiten“ werden Punkte verschenkt (z. B. pixelige Grafiken, optisch schlecht aufgelockerte Texte, „Löcher“ im Textfluss; Fehler im Literaturverzeichnis).
+
+4. *Zahlen irreführend präsentiert*: Statistiken wie werden unvollständig präsentiert oder die Anzahl der Nachkommastellen ist zu hoch oder inkonsistent.
+
+5.  *Selbstkritik fehlt*: Stärken und Schwächen der eigenen Art werden nicht diskutiert.
+
+
+    
+### Merkmale einer sehr guten Arbeit
 
 1. Formales
 
@@ -239,25 +255,12 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
   - Sind Text, Abbildungen, Tabellen etc. ansprechend formatiert?  
   
 
-### Tipps für eine erfolgreiche Seminararbeit
+## Tipps
   
-### Typische Fehler
-
-1. Fachlich dünn: Die Anzahl von guten Quellen (z. B. Fachartikel) ist gering; der Autor kennt sein Thema zu wenig. Es findet kaum Rückbezug der eigenen Studie/Daten auf die Literatur statt.
-
-2. Stoff nicht ausreichend reflektiert: Es werden Fakten aneinander gereiht, ohne dass ist, ob sich mit dem Stoff auseinander gesetzt wurde (z. B. werden Stärken/Schwächen einzelner Texte nicht diskutiert).
-
-3. Formalia fehlerhaft: Durch „Äußerlichkeiten“ werden Punkte verschenkt (z. B. pixelige Grafiken, optisch schlecht aufgelockerte Texte, „Löcher“ im Textfluss; Fehler im Literaturverzeichnis).
-
-4. Zahlen irreführend präsentiert: Statistiken wie werden unvollständig präsentiert oder die Anzahl der Nachkommastellen ist zu hoch oder inkonsistent.
-
-5.  Selbstkritik fehlt: Stärken und Schwächen der eigenen Art werden nicht diskutiert.
-
-
   
-### Merkmale guter Arbeiten
 
-#### Reflexion: Bereichen Sie die Welt mit Ihren Gedanken
+
+### Reflexion: Bereichen Sie die Welt mit Ihren Gedanken
 
 - Ein Hauptfehler vieler Hausarbeiten liegt darin, dass sie nur andere Texte nacherzählen. Wo liegt da der Mehrwert?
 
@@ -279,7 +282,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
   
   
   
-#### Fachwissen: Zeigen Sie, dass Sie sich auskennen
+### Fachwissen: Zeigen Sie, dass Sie sich auskennen
 
 
 - Nachdem Sie darüber nachgedacht haben, was ein lohnendes Thema ist, recherchieren Sie nach Literatur.
@@ -300,7 +303,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
   
   
   
-#### Fluss: Der Text soll elegant fließen
+### Fluss: Der Text soll elegant fließen
 
 - Begründen Sie Ihr Vorgehen.
 
@@ -320,7 +323,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 
 
-#### Redlichkeit: Machen Sie Ihre Ergebnisse nachvollziehbar
+### Redlichkeit: Machen Sie Ihre Ergebnisse nachvollziehbar
 
 - Was sind Ihre eigenen Gedanken und welche Gedanken haben Sie übernommen – machen Sie dies kenntlich, indem Sie übernommen Gedanken als Zitate kennzeichnen.
 
@@ -337,7 +340,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 - Versuchen Sie, den Nutzen Ihrer Arbeit für Dritte aufzuzeigen.
 
 
-#### Leserseite: Schreiben Sie für den Leser
+### Leserseite: Schreiben Sie für den Leser
 
 
 Hier sind einige typische Fragen, die sich Lesis - implizit oder explizit - stellen:
