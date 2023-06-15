@@ -35,7 +35,7 @@ Eine Prüfungsleistung an der Hochschule bietet dafür einen geschützten Rahmen
 
 2. Die *Anzahl der teilnehmenden Personen* (min., max.) einer Arbeitsgruppe wird von der Prüfperson bekanntgegeben.
 
-3. *Abschnittsverantwortliche*: Jedes Kapitel/Teilkapitel muss mit genau einem Namen ausgewiesen sein. Der Namen der/des Autor*in soll als Fußnote an die jeweilige Überschrift angefügt sein.
+<!-- 3. *Abschnittsverantwortliche*: Jedes Kapitel  muss mit genau einem Namen ausgewiesen sein. Der Namen der/des Autor*in soll als Fußnote an die jeweilige Überschrift angefügt sein. -->
 
 5. Aus formalen Gründen darf die Seminararbeit *pro Arbeitsgruppe* nur *einmalig* eingereicht werden. Im Falle mehrerer Einreichungen zählt die erste.
 
@@ -44,3 +44,6 @@ Eine Prüfungsleistung an der Hochschule bietet dafür einen geschützten Rahmen
 13. Es ist erlaubt, eine *Gruppe zu verlassen*. Wer eine Gruppe verlässt, schließt sich einer anderen Gruppe an.
 
 14. *Konflikte in der Gruppe*: Unterschiedliche Ansichten zum Vorgehen sind zuerst innerhalb der Gruppe zu klären. Falls dies erfolglos ist, soll (wenn nötig) die Lehrperson angesprochen werden. Zu beachten ist, dass das Moderieren des Gruppenprozesses Teil der Prüfungsleistung ist. 
+
+15. Falls ei Studenti keine Partner bzw. keine Arbeitsgruppe findet nach selbständigen Suchen, ist bitte die Lehrkraft zu kontaktieren.
+
