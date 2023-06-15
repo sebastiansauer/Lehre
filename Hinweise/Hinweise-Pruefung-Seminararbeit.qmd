@@ -77,6 +77,8 @@
 
 24. Aus Gründen der Fairness werden inhaltliche *Fragen* von Studierenden *nur öffentlich*, z. B. im Unterricht oder im Online-Forum, beantwortet (nicht per Mail).
 
+25. Eine Prüfungsleistung darf nur eingereicht werden, wenn Sie (erfolgreich) zur Prüfung angemeldet sind. Eine eingereichte Arbeit, die nicht erfolgreich angemeldet ist, wird nicht bewertet. 
+
 
 ## Benotung
 
