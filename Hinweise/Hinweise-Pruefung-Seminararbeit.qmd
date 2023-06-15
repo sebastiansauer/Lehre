@@ -200,27 +200,6 @@ Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur e
 5.  *Selbstkritik fehlt*: Stärken und Schwächen der eigenen Art werden nicht diskutiert.
 
 
-    
-### Merkmale einer sehr guten Arbeit
-
-1. Formales
-
-  - Die Richtlinien zur Gestaltung von wissenschaftlichen Texten wurden (fast) vollumfänglich umgesetzt. Insbesondere finden finden sich (fast) keine Zitierfehler im Text und im Literaturverzeichnis.
-  - Rechtschreibung, Zeichensetzung und Grammatik sind (fast) fehlerfrei.
-  - Gestaltung und Aufbau der Arbeit ist dem flüssigen Lesen zuträglich (z. B. optisch übersichtlich gestaltet und nicht weitschweifig sondern prägnant formuliert).
-
-2. Methoden
-
-  - Es wurden angemessene Methoden ausgewählt und diese richtig angewendet und die Ergebnisse korrekt interpretiert.
-  - Die eingesetzte Methodik zeichnet sich durch hohe Breite und Tiefe aus.
-  - Es wurde sehr viel empirisches Material (z. B. befragte Personen) ausgewertet.
-
-3. Inhalt
-
-  - Es wurde viel Literatur von hoher Qualität rezipiert.
-  - Ein roter Faden ist klar ersichtlich.
-  - Die Arbeit zeichnet sich nicht nur durch hohes Fachwissen, sondern auch durch wohl überlegte Argumentation aus.
-
 
 
 ### Aus der Checkliste eines Gutachters
@@ -255,14 +234,36 @@ Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur e
   - Sind Text, Abbildungen, Tabellen etc. ansprechend formatiert?  
   
 
-## Tipps
+
   
-  
+
+    
+## Merkmale einer sehr guten Arbeit
+
+### Überblick
+
+1. Formales
+
+  - Die Richtlinien zur Gestaltung von wissenschaftlichen Texten wurden (fast) vollumfänglich umgesetzt. Insbesondere finden finden sich (fast) keine Zitierfehler im Text und im Literaturverzeichnis.
+  - Rechtschreibung, Zeichensetzung und Grammatik sind (fast) fehlerfrei.
+  - Gestaltung und Aufbau der Arbeit ist dem flüssigen Lesen zuträglich (z. B. optisch übersichtlich gestaltet und nicht weitschweifig sondern prägnant formuliert).
+
+2. Methoden
+
+  - Es wurden angemessene Methoden ausgewählt und diese richtig angewendet und die Ergebnisse korrekt interpretiert.
+  - Die eingesetzte Methodik zeichnet sich durch hohe Breite und Tiefe aus.
+  - Es wurde sehr viel empirisches Material (z. B. befragte Personen) ausgewertet.
+
+3. Inhalt
+
+  - Es wurde viel Literatur von hoher Qualität rezipiert.
+  - Ein roter Faden ist klar ersichtlich.
+  - Die Arbeit zeichnet sich nicht nur durch hohes Fachwissen, sondern auch durch wohl überlegte Argumentation aus.
 
 
 ### Reflexion: Bereichen Sie die Welt mit Ihren Gedanken
 
-- Ein Hauptfehler vieler Hausarbeiten liegt darin, dass sie nur andere Texte nacherzählen. Wo liegt da der Mehrwert?
+- Ein Hauptfehler vieler Arbeiten liegt darin, dass sie nur andere Texte nacherzählen. Wo liegt da der Mehrwert?
 
 -  Der Mehrwert eines wissenschaftlichen Textes liegt in der Neuartigkeit der Gedanken: Kritisieren Sie bestehende Theorien, vergleichen Sie sie, arbeiten Sie das Wesentliche heraus. Übrigens: Auch eine Wiederholungsstudie lohnt sich.
 
