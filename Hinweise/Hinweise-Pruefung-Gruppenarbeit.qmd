@@ -1,14 +1,28 @@
----
-title: Besonderheiten von Gruppenarbeiten
-author: Sebastian Sauer
----
 
+### Gruppengröße
+
+Die Gruppengröße (min., max.) beträgt *zwei (2) Personen*.
+
+
+### Arbeitsteilung der Gruppenmitglieder
+
+Die Aufteilung der Teilaspekte der Arbeit soll so erfolgen, dass jedes Mitglied des Teams *ein komplettes empirischen Kapitel* (Methodenteil oder Ergebnisteil) und *ein komplettes theoretischen Kapitel* (Theorieteil oder Diskussion) verfasst. 
+Zu dem der (Haupt-)Kapitel des Berichts (Theorie, Methode, Ergebnis, Diskussion) ist genau ein Name anzugeben, die für das entsprechende Kapitel verantwortlich ist.
+Eine Aufteilung eines Kapitels auf mehrere Personen eines Teams ist nicht zulässig.
+
+Die *Einleitung* soll *gemeinsam* unter Verwendung eines Textgenerators (z.B. ChatGPT) verfasst (und diskutiert) werden.
+
+
+### Allgemeines
 
 
 
 Bei einer *Gruppenarbeit* wird ein Projekt, etwa eine empirische Studie oder eine Datenanalyse, von mehreren Personen bearbeitet.
 
-Neben der inhaltlich-methodischen Kompetenz soll im Rahmen dieser Prüfungsform abgeprüft werden, ob und wieweit sich die Studierenden mit den sozialdynamischen Prozessen erfolgreich auseinander setzen können. Dies ist vor dem Hintergrund der Allgegenwärtigkeit von Arbeitsgruppen im Berufsleben begründet. Für die berufliche Ausbildung ist es wichtig, Erfahrung mit den Vorzügen aber Schwierigkeiten von Arbeitsgruppen vertraut gemacht zu haben.
+Neben der inhaltlich-methodischen Kompetenz soll im Rahmen dieser Prüfungsform abgeprüft werden, 
+ob und wieweit sich die Studierenden mit den sozialdynamischen Prozessen erfolgreich auseinander setzen können. 
+Dies ist vor dem Hintergrund der Allgegenwärtigkeit von Arbeitsgruppen im Berufsleben begründet. 
+Für die berufliche Ausbildung ist es wichtig, Erfahrung mit den Vorzügen aber Schwierigkeiten von Arbeitsgruppen vertraut gemacht zu haben.
 Eine Prüfungsleistung an der Hochschule bietet dafür einen geschützten Rahmen.
 
 

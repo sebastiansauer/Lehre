@@ -27,11 +27,7 @@
 
 1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *"Hauptteil"* ist definiert als der *gesamte Text* von Einführung bis zum Ende der Diskussion.
 
-2. Die Methoden des *wissenschaftlichen Arbeiten* in Recherche, Zitat und Darstellung werden angewandt.
 
-3. Wenden Sie die Methoden *quantitativer* Datenanalyse an.
-
-4. Werten Sie mit quantitative Fragestellungen mit *R* aus.
 
 4. Textsatz und (gestalterische) *Formatierung* der Seminararbeit orientieren sich an dem bereitgestellten *Leitfaden* bzw. den Hinweisen.
 
@@ -46,20 +42,13 @@
 
 7. Wenn die Prüfung aus einer Seminarbeit besteht oder eine Seminarleistung beinhaltet, ist diese *nur online* über das bereitgestellte System, nicht ausgedruckt einzureichen.
 
-8. Bei der Benotung wird die *Kenntnis der Inhalte der Veranstaltung* (inkl. dieses Skripts) vorausgesetzt.
-
-9. Die *im Unterricht behandelten Methoden*, Verfahren oder Inhalte sind bei der Prüfungsleistung *anzuwenden* sofern passend.
-
 9. Bei der *Anmeldung* ist der Titel anzugeben; der *gleiche Titel* muss sich auch auf der eingereichten Arbeit finden.
 
 10. Eine eingereichte Arbeit *kann nicht wieder zurückgezogen* werden.
 
 
-14. *Open Science*: Reichen Sie die Rohdaten und ggf. Syntax (elektronisch) ein. Verweisen Sie ggf. im Anhang auf eine Datei, die Sie hochladen, in der die entsprechenden Informationen zu finden sind.
-
 15. Reichen  Sie folgende *zwei Dateien* als Prüfungsleistung ein: a) Die Seminararbeit als PDF-Datei sowie b) den Anhang bzw. ergänzende Materialien als eine ZIP-Datei.
 
-16. Das Thema muss einen *direkten empirisch-psychologischen Bezug* haben; die Forschungsfrage muss psychologisch relevante Aspekte adressieren.
 
 17. Bitte sprechen Sie Ihr:e Dozenten/in für Fragen des *Nachteilsausgleichs*.
 
@@ -73,11 +62,49 @@
 
 22. Die Dozentis führen *keine Vorab-Korrektur* von laufenden Prüfungsleistungen durch. Fragen, die einer Vorab-Korrektur Ihrer Arbeit nahe kommen (und daher nicht beantwortet werden), sind z. B.: „Ist mein Fragebogen so o.k.?“, „Passt das so?“, „Können Sie mal drüber schauen, ob ich so anfangen kann?“, „Passen meine Hypothesen zur Theorie?“, „Hab ich was vergessen?“, „Ist die Gliederung so richtig/vollständig?“ ...
 
-23. *Fragen zum Stoff* werden im Unterricht jederzeit beantwortet. Sprechen Sie die Dozentis auch gerne vor oder nach dem Unterricht persönlich an.
+25. Eine Prüfungsleistung darf nur eingereicht werden, wenn Sie (erfolgreich) zur Prüfung angemeldet sind. Eine eingereichte Arbeit, die nicht erfolgreich angemeldet ist, wird nicht bewertet. 
+
+
+
+
+### Methodische Anforderungen
+
+1. Wenden Sie die Methoden *quantitativer* Datenanalyse an.
+
+2. Werten Sie mit quantitative Fragestellungen komplett mit *R* aus.
+
+2. Die Methoden des *wissenschaftlichen Arbeiten* in Recherche, Zitat und Darstellung werden angewandt.
+
+
+25. Für *inferenzstatistische Fragestellungen* sind *Bayes-Methoden* (bevorzugt) oder frequentische Methoden einzusetzen.
+
+
+
+
+
+### Inhaltliche Anforderungen
+
+
+
+8. Bei der Benotung wird die *Kenntnis der Inhalte der Veranstaltung* (inkl. dieses Skripts) vorausgesetzt.
+
+9. Die *im Unterricht behandelten Methoden*, Verfahren oder Inhalte sind bei der Prüfungsleistung *anzuwenden* sofern passend.
+
+
+14. *Open Science*: Reichen Sie ggf. die Rohdaten und ggf. Syntax (elektronisch) ein. Verweisen Sie ggf. im Anhang auf eine Datei, die Sie hochladen, in der die entsprechenden Informationen zu finden sind.
+
+
+16. Das Thema muss einen *direkten empirisch-psychologischen Bezug* haben; die Forschungsfrage muss psychologisch relevante Aspekte adressieren.
+
+
+
+23. *Inhaltliche Fragen* (d.h. den Stoff betreffend) werden im Unterricht jederzeit beantwortet. Sprechen Sie die Dozentis auch gerne vor oder nach dem Unterricht persönlich an.
 
 24. Aus Gründen der Fairness werden inhaltliche *Fragen* von Studierenden *nur öffentlich*, z. B. im Unterricht oder im Online-Forum, beantwortet (nicht per Mail).
 
-25. Eine Prüfungsleistung darf nur eingereicht werden, wenn Sie (erfolgreich) zur Prüfung angemeldet sind. Eine eingereichte Arbeit, die nicht erfolgreich angemeldet ist, wird nicht bewertet. 
+
+
+
 
 
 ## Benotung
@@ -98,20 +125,34 @@
 
     
     
-### Anspruch
+### Gutachtenerstellung
 
-1. Anspruch an eine gute Seminararbeit
+
+- Ein Teil des Gesamteindrucks der Arbeit spiegelt sich in den Kommentaren des Gutachters wider. Jedoch spiegelt die Summe der Kommentare nicht (zwangsläufig) die Gesamtnote wider, sondern nur denjenigen Teil, für den der Gutachter es für sinnvoll befunden hat, explizite Kommentare anzugeben.
+- Es ist insbesondere nicht möglich, von der Anzahl der positiven oder negativen Kommentare auf eine bestimmte Note zurückzuschließen.
+- Auch Vergleiche zwischen Gutachten verschiedener Student/innen ist nicht rein auf Basis der Kommentare möglich, da die Kommentare nur einen Ausschnitt des Meinungsbilds des Gutachters widerspiegeln.
+- Die Kommentare des Gutachters verfolgen erstens den Zweck einer Rückmeldung zum Leistungsstand und zweitens Hilfestellung zur Verbesserung, damit der/die entsprechend Student/in den eigenen Leistungsstand verbessern kann.
+- Weitere Hinweise zur Notengebung und Beurteilung sind auf der Modulseite bzw. den offiziellen Regularien und Hinweisen zu finden.
+- Sollten Sie Fragen an den Gutachter stellen wollen zu Ihrem Gutachten, so melden Sie sich zur Sprechstunde an.
+
+
+
+
+    
+### Mengengerüst
+
+1. Anspruch an eine *gute* Seminararbeit
     - Überwiegende Verwendung von Literatur hoher Qualität (Fachartikel, peer-reviewed)
-    - Ca. 30 Quellen oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+    - Ca. 15-20 Quellen (hoher Qualität) oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Stichprobengröße (ca.)
-      - Experimentell: Between-Design 50 Fälle, Within-Design: 20 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
-     - Beobachtend: 100 Fällebei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+      - Experimentell: Between-Design 30-50 Fälle, Within-Design: 20 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+     - Beobachtend: 50-100 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Designumfang (ca.)
       - Experimentell: 2-3 Variablen
       - Beobachtend: 3-4 Variablen bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
 
 
-
+Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur ein grober Rahmen aufgezeigt werden.
 
 
 
@@ -121,11 +162,11 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 1. Formalia
 
- - Die Textlänge (Hauptteil) ist zu kurz – ca. 20 % unter der formal angegeben Soll-Länge.
-  - Es liegen viele Zitierfehler im Text vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
-  - Es liegen viele Fehler im Literaturverzeichnis vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
-  - Es wurde die geforderte empirische Methode nicht verwendet.
-  - Es findet sich ein oder mehrere Plagiate (weitere Konsequenzen sind möglich).
+ - Die Textlänge (Hauptteil) ist zu *kurz* – ca. 20 % unter der formal angegeben Soll-Länge.
+  - Es liegen viele *Zitierfehler* im Text vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
+  - Es liegen viele Fehler im *Literaturverzeichnis* vor (z. B. 30 % oder mehr bzw. 10 oder mehr Fehler).
+  - Es wurde die geforderte *empirische Methode* nicht verwendet.
+  - Es findet sich ein oder mehrere *Plagiate* (weitere Konsequenzen sind möglich).
   - Die Versionen der Gruppenmitglieder (bei Gruppenarbeiten) unterscheiden sich.
   - Es finden sich nicht zitierte Quellen im Literaturverzeichnis. 
     
@@ -197,6 +238,8 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
   - Sind die Formalia erfüllt (z. B. korrektes Zitieren inkl. Literaturverzeichnis)?
   - Sind Text, Abbildungen, Tabellen etc. ansprechend formatiert?  
   
+
+### Tipps für eine erfolgreiche Seminararbeit
   
 ### Typische Fehler
 
@@ -212,7 +255,7 @@ Substanzielle Fehler können zum Durchfallen oder zum deutlichem Abwerten der No
 
 
   
-### Tipps für eine erfolgreiche Seminararbeit
+### Merkmale guter Arbeiten
 
 #### Reflexion: Bereichen Sie die Welt mit Ihren Gedanken
 
@@ -303,18 +346,6 @@ Hier sind einige typische Fragen, die sich Lesis - implizit oder explizit - stel
 - *Was nützt es mir?* --> Sinn, Zweck, Ziel und Bedeutung in der Einleitung aufzeigen, Praxisnutzen herausstellen, ggf. Checklisten, Leitfäden etc. erstellen
 - *Was soll ich jetzt tun?* --> Geben Sie Handlungsempfehlungen, ggf. „Kochrezepte“, wie in einer bestimmten Situation vorzugehen ist, z. B. Typologien beschreiben
 - *So what?*  -->  Tja, und nun :-)
-
-
-
-### Gutachtenerstellung
-
-
-- Ein Teil des Gesamteindrucks der Arbeit spiegelt sich in den Kommentaren des Gutachters wider. Jedoch spiegelt die Summe der Kommentare nicht (zwangsläufig) die Gesamtnote wider, sondern nur denjenigen Teil, für den der Gutachter es für sinnvoll befunden hat, explizite Kommentare anzugeben.
-- Es ist insbesondere nicht möglich, von der Anzahl der positiven oder negativen Kommentare auf eine bestimmte Note zurückzuschließen.
-- Auch Vergleiche zwischen Gutachten verschiedener Student/innen ist nicht rein auf Basis der Kommentare möglich, da die Kommentare nur einen Ausschnitt des Meinungsbilds des Gutachters widerspiegeln.
-- Die Kommentare des Gutachters verfolgen erstens den Zweck einer Rückmeldung zum Leistungsstand und zweitens Hilfestellung zur Verbesserung, damit der/die entsprechend Student/in den eigenen Leistungsstand verbessern kann.
-- Weitere Hinweise zur Notengebung und Beurteilung sind auf der Modulseite bzw. den offiziellen Regularien und Hinweisen zu finden.
-- Sollten Sie Fragen an den Gutachter stellen wollen zu Ihrem Gutachten, so melden Sie sich zur Sprechstunde an.
 
 
 
