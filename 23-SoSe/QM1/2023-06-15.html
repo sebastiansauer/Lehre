@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input88f960c8</title>
+<title>quarto-input8814fa69</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,28 +79,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="prognosewettbewerb" class="level1">
-<h1>Prognosewettbewerb</h1>
-<section id="kapitel-1" class="level2">
-<h2 class="anchored" data-anchor-id="kapitel-1">Kapitel 1</h2>
-<p>Drei Dinge sind im Leben wichtig:</p>
-<ol type="1">
-<li>ejwklf</li>
-<li>sdfjkl</li>
-<li>asdjkl</li>
-</ol>
-</section>
-<section id="kapitel-2" class="level2">
-<h2 class="anchored" data-anchor-id="kapitel-2">Kapitel 2</h2>
-<p>Außerdem man beachte</p>
-<ul>
-<li>sdjklf</li>
-<li>jskdlf</li>
-<li>sjldkf</li>
-</ul>
-<p>Sie können Regressionsmodelle für Forschungsfragen mit binärer, nominaler und metrischer UV erläutern und in R anwenden. Sie können Interaktionseffekte in Regressionsmodellen erläutern und in R anwenden. Sie können den Anwendungszweck von Zentrieren und z-Transformationen zur besseren Interpretation von Regressionsmodellen erläutern und in R anwenden. Sie können Modelle nutzen, um Vorhersagen anhand neuer Daten zu erstellen.</p>
+<section id="untericht-vom-15.-6.-2023" class="level1">
+<h1>Untericht vom 15. 6. 2023</h1>
+<section id="vorbereitung" class="level2">
+<h2 class="anchored" data-anchor-id="vorbereitung">Vorbereitung</h2>
+<p>Daten importieren:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>wetter_path <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/sebastiansauer/datasets/main/csv/precip_temp_DWD.csv"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>wetter <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(wetter_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Pakete starten:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code># Attaching packages: easystats 0.6.0 (red = needs update)
+✔ bayestestR  0.13.1   ✔ correlation 0.8.4 
+✔ datawizard  0.7.1    ✔ effectsize  0.8.3 
+✖ insight     0.19.1   ✔ modelbased  0.8.6 
+✖ performance 0.10.3   ✖ parameters  0.21.0
+✔ report      0.5.7    ✖ see         0.7.5 
+
+Restart the R-Session and update packages in red with `easystats::easystats_update()`.</code></pre>
+</div>
+</div>
+</section>
+<section id="daten-aufbereiten" class="level2">
+<h2 class="anchored" data-anchor-id="daten-aufbereiten">Daten aufbereiten</h2>
+<p>Wir bilden eine neue Variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wetter <span class="ot">&lt;-</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  wetter <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">after_1950 =</span> year <span class="sc">&gt;</span> <span class="dv">1950</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">!=</span> <span class="st">"Deutschland"</span>)  <span class="co"># ohne Daten für Gesamt-Deutschland</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modell-berechnen" class="level2">
+<h2 class="anchored" data-anchor-id="modell-berechnen">Modell berechnen</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lm_wetter_bin_uv <span class="ot">&lt;-</span> <span class="fu">lm</span>(temp <span class="sc">~</span> after_1950, <span class="at">data =</span> wetter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir schauen uns die Ergebnisse mit dem Befehl <code>parameters</code> an:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_wetter_bin_uv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter      | Coefficient |   SE |       95% CI | t(27166) |      p
+----------------------------------------------------------------------
+(Intercept)    |        8.18 | 0.06 | [8.06, 8.29] |   143.91 | &lt; .001
+after 1950TRUE |        0.64 | 0.08 | [0.48, 0.80] |     8.03 | &lt; .001</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.</code></pre>
+</div>
 </div>
 </section>
 </section>
