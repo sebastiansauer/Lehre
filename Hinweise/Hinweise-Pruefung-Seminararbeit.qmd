@@ -334,7 +334,7 @@ Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur e
 
 - Weisen Sie auf Schwächen (und Stärken) und sich nach Ihrer Arbeit anschließende Forschungsfragen hin, so dass andere auf Ihren Schultern weitersehen können.
 
-- Explizieren Sie Ihre Suchstrategie für Literatur (welche Datenbanken? Welche Suchbegriffe? Wie viele Treffer? Welche ausgewählt? Nach welchen Kriterien?) Ausführliche Details in den Anhang packen.
+- Explizieren Sie Ihre Suchstrategie für Literatur (welche Datenbanken? Welche Suchbegriffe? Wie viele Treffer? Welche ausgewählt? Nach welchen Kriterien?) Ausführliche Details packen Sie in den Anhang.
 
 - Reichen Sie Syntax, Daten und ggf. Stimulus-Materialien (elektronisch) ein.
 
