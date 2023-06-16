@@ -25,8 +25,7 @@
 
 ### Formale Anfordungen 
 
-1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *"Hauptteil"* ist definiert als der *gesamte Text* von (Beginn der) Einführung bis (zum Ende der) Diskussion.
-
+1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *"Hauptteil"* ist definiert als der *gesamte Text* von (Beginn der) Einführung bis (zum Ende der) Diskussion (ein Diagramm als solches zählt nicht als Text).
 
 
 4. Textsatz und (gestalterische) *Formatierung* der Arbeit orientieren sich an dem bereitgestellten *Leitfaden* bzw. den Hinweisen.
@@ -77,6 +76,7 @@
 
 25. Für *inferenzstatistische Fragestellungen* sind *Bayes-Methoden* (bevorzugt) oder frequentische Methoden einzusetzen.
 
+4. Tabellen (z.B. mit Daten) müssen nicht mit R erstellt sein, sondern können auch von "von Hand" erstellt sein (z.B. mit Word).
 
 
 
@@ -316,7 +316,7 @@ Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur e
 
 - Die Gliederung soll den Fluss Ihrer Argumentation wiedergeben.
 
-- Schreiben Sie elegant: Z. B. meiden Sie Passivsätze; schreiben Sie aktiv. Wechseln Sie kurze mit langen Sätzen ab. Meiden Sie Amtsdeutsch wie der Teufel das Weihwasser. Ein guter Titel hat selten geschadet. Verwenden Sie die „Ich-Form“ sparsam; genauso das „man“.
+- Schreiben Sie elegant: Z. B. meiden Sie (insgesamt) Passivsätze; schreiben Sie aktiv. Wechseln Sie kurze mit langen Sätzen ab. Meiden Sie Amtsdeutsch wie der Teufel das Weihwasser. Ein guter Titel hat selten geschadet. Verwenden Sie die „Ich-Form“ sparsam; genauso das „man“.
 
 - Nutzen Sie Schaubilder, Diagramme etc. soweit sinnvoll.
 

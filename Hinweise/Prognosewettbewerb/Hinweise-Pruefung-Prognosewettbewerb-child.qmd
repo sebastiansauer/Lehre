@@ -44,6 +44,8 @@ Je genauer Ihre Vorhersage, desto besser ist Ihr Prüfungsergebnis.
 
 
 
+
+
 ### Vorhersage 
 
 Neben der erklärenden, rückwärtsgerichteten Modellierung spielt insbesondere in der Praxis die *vorhersageorientierte* Modellierung eine wichtige Rolle: 
