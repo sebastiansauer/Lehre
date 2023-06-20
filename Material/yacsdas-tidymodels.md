@@ -4,6 +4,14 @@
 
 **FALLSTUDIEN - MASCHINELLES LERNEN MIT TIDYMODELS**
 
+- [Louise E. Sinks: One Class SVM](https://lsinks.github.io/posts/2023-03-30-One-Class-SVM/one-class-svm.html)
+
+- [Louise E. Sinks: Credit Card Fraud: A Tidymodels Tutorial - inklusive Workflow-Sets](https://lsinks.github.io/posts/2023-04-11-credit-card-fraud/fraud_tutorial.html)
+
+
+
+
+
 - [Experimenting with machine learning in R with tidymodels and the Kaggle titanic dataset](https://www.r-bloggers.com/2021/08/experimenting-with-machine-learning-in-r-with-tidymodels-and-the-kaggle-titanic-dataset/)
 
 
@@ -45,9 +53,9 @@
 - [Fallstudie zur Modellierung einer logististischen Regression mit tidymodels](https://onezero.blog/modelling-binary-logistic-regression-using-tidymodels-library-in-r-part-1/)
 
 
-- [Fallstudie zu Vulkanausbrüchen](https://juliasilge.com/blog/multinomial-volcano-eruptions/)
+- [Fallstudie zu Vulkanausbrüchen (Resampling and kein Tuning)](https://juliasilge.com/blog/multinomial-volcano-eruptions/)
 
-- [Fallstudie Himalaya](https://juliasilge.com/blog/himalayan-climbing/)
+- [Fallstudie Himalaya (Resampling and kein Tuning)](https://juliasilge.com/blog/himalayan-climbing/)
 
 - [Fallstudien zu Studiengebühren](https://juliasilge.com/blog/tuition-resampling/)
 
@@ -72,14 +80,14 @@
 
 - [Fallstudie Wasserquellen in Sierra Leone](https://juliasilge.com/blog/water-sources/)
 
-- [Fallstudie Bäume in San Francisco](https://dev.to/juliasilge/tuning-random-forest-hyperparameters-in-r-with-tidytuesday-trees-data-4ilh)
+- [Fallstudie Bäume in San Francisco: Random Forest tunen](https://juliasilge.com/blog/sf-trees-random-tuning/)
 
 - [Fallstudie Vulkanausbrüche](https://juliasilge.com/blog/multinomial-volcano-eruptions/)
 
 - [Fallstudie Brettspiele mit XGBoost](https://juliasilge.com/blog/board-games/)
 
 
-- [Fallstudie Serie The Office](https://juliasilge.com/blog/lasso-the-office/)
+- [Fallstudie Serie The Office: Lasso tunen](https://juliasilge.com/blog/lasso-the-office/)
 
 - [Fallstudie NBER Papers](https://juliasilge.com/blog/nber-papers/)
 
@@ -98,6 +106,11 @@
 - [Exploring the Star Wars “Prequel Renaissance” Using tidymodels and workflowsets](https://www.r-bloggers.com/2021/04/exploring-the-star-wars-prequel-renaissance-using-tidymodels-and-workflowsets/)
 
 
+- [Classification modelling workflow using tidymodels, Konstantinos Patelis](https://www.kpatelis.com/posts/2021-04-11-classification-modeling-workflow-using-tidymodels/)
 
+- [Tune xgboost models with early stopping to predict shelter animal status](https://juliasilge.com/blog/shelter-animals/)
 
+- [Predicting injuries for Chicago traffic crashes: Resampling BAG Tree](https://juliasilge.com/blog/chicago-traffic-model/)
+
+- [Using tidymodels to Predict Health Insurance Cost: Resmapling](https://www.r-bloggers.com/2021/02/using-tidymodels-to-predict-health-insurance-cost/)
 

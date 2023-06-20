@@ -3,11 +3,11 @@
 
 
 
-Gegenstand dieser Prüfungsform ist eine *Projektarbeit*.
+Gegenstand dieser Prüfungsform ist eine *Projektarbeit* in Form eines *Prognosewettbewerbs.*
 
 
 
-## tl;dr: Zusammenfassung
+### tl;dr: Zusammenfassung
 
 Vorhersagen sind eine praktische Sache, zumindest wenn Sie stimmen. 
 Wenn Sie den DAX-Stand von morgen genau vorhersagen können, 
@@ -44,7 +44,9 @@ Je genauer Ihre Vorhersage, desto besser ist Ihr Prüfungsergebnis.
 
 
 
-## Vorhersage 
+
+
+### Vorhersage 
 
 Neben der erklärenden, rückwärtsgerichteten Modellierung spielt insbesondere in der Praxis die *vorhersageorientierte* Modellierung eine wichtige Rolle: 
 Ziel ist es, bei gegebenen, neuen Beobachtungen die noch unbekannten Werte der Zielvariablen $y$ *vorherzusagen*, z.B. für neue Kunden auf Basis von soziodemographischen Daten den *Kundenwert* -- möglichst genau -- zu prognostizieren.
@@ -55,9 +57,9 @@ Ihnen werden *zwei Teildatenmengen* zur Verfügung gestellt:
 Zum einen gibt es die Trainingsdaten (auch *Lerndaten* genannt) und zum anderen gibt es Anwendungsdaten (auch *Testdaten* genannt), auf die man das Modell anwendet. 
 
 1.  Bei den Trainingsdaten (Train-Sample) liegen sowohl die erklärenden Variablen ${\bf{x}} = (x_1, x_2, \ldots, x_n)$ als auch die Zielvariable $y$ vor. 
-   Auf diesen Trainingsdaten wird das Modell $y=f({x})+\epsilon = f(x_1, x_2, \ldots, x_n)+\epsilon$ gebildet und durch $\hat{f}(\cdot)$ geschätzt. Es ist also die Variable $y$ vorherszusagen.
+   Auf diesen Trainingsdaten wird das Modell $y=f({x})+\epsilon = f(x_1, x_2, \ldots, x_n)+\epsilon$ gebildet und durch $\hat{f}(\cdot)$ geschätzt. Es ist also die Variable $y$ vorherzusagen.
 
-2.  Dieses geschätzte Modell ($\hat{f}(\cdot)$) wird auf die Anwendungsdaten $\x_0$, für die (Ihnen) die Werte der Zielvariable $y$ unbekannt sind,
+2.  Dieses geschätzte Modell ($\hat{f}(\cdot)$) wird auf die Anwendungsdaten $x_0$, für die (Ihnen) die Werte der Zielvariable $y$ unbekannt sind,
 angewendet, d.h., es wird $\hat{y}_0 :=\hat{f}({x}_0)$ berechnet. 
   Der unbekannte Wert $y_0$ der Zielvariable $y$ wird durch $\hat{y}_0$ prognostiziert.
 
@@ -83,7 +85,7 @@ Das Modell wird angewendet auf die Testdaten (Anwendungsdaten).
 Da man hier aber auch die Zielvariable ($y_0$) kennt, kann damit das Modell evaluiert werden.
 
 
-## Hauptziel: Genaue Prognose
+### Hauptziel: Genaue Prognose
 
 Ihre Aufgabe ist: Spielen Sie den Data-Scientist! 
 Konstruieren Sie ein Modell auf Basis der Trainingsdaten $(x,y$) 
@@ -111,7 +113,7 @@ Für eine gute Prognose sollte daher $\text{MAE}_{\text{Test}}$ möglichst klein
 
 
 
-## Einzureichende Dateien
+### Einzureichende Dateien
 
 
 1. Folgende* Dateiarten* sind einzureichen:
@@ -129,7 +131,7 @@ Für eine gute Prognose sollte daher $\text{MAE}_{\text{Test}}$ möglichst klein
 
 
 
-## Zum Aufbau Ihrer Prognosedatei im CSV-Format
+### Zum Aufbau Ihrer Prognosedatei im CSV-Format
 
 1. Die CSV-Datei muss aus genau zwei Spalten mit exakt folgenden Spaltennamen bestehen:
 
@@ -168,13 +170,13 @@ Für eine gute Prognose sollte daher $\text{MAE}_{\text{Test}}$ möglichst klein
 
 
 
-## Gliederung Ihrer Analyse
+### Gliederung Ihrer Analyse
 
 
 Ihr Analysedokument stellt alle Ihre Schritte vor, die Sie im Rahmen der Bearbeitung der Prüfungsaufgabe unternommen haben,
 zumindest was die Analyse der Daten betrifft.
 
-Das Dokument mischt drei Textarten: R-Syntax, R-Ausgaben sowie Prosa (Ihre Erklärung zu Ihrer Analyse).
+Das Dokument mischt drei Textarten: R-Syntax, R-Ausgaben sowie Prosa (d.h. Ihre Erklärung zu Ihrer Analyse).
 Alle drei Aspekte sind gleichermaßen wichtig für diese Analyse.
 
 Wenn Sie das Dokument als R-Markdown-Datei (qmd- oder Rmd-Datei) anlegen,
@@ -198,7 +200,7 @@ Die Gliederung ist kein Muss; andere Gliederung sind auch möglich.
 Entscheidend ist die fachliche Angemessenheit.
 
 
-### Abschnitt Forschungsfrage und Hintergrund
+#### Abschnitt Forschungsfrage und Hintergrund
 
 In diesem Abschnitt passiert noch keine Statistik bzw. keine Analyse.
 Stattdessen stellen Sie in "normaler Sprache", 
@@ -209,23 +211,26 @@ wichtiger sind aber inhaltliche bzw. fachliche Überlegungen: Worum geht es in d
 Warum ist die Frage wichtig? 
 Was wird untersucht? Anhand welcher Methodik wird die Frage untersucht?
 
+Eine viertel bis halbe Seite sollte für diesen Abschnitt reichen.
 
 
 
 
 
-
-### Vorbereitung
+#### Vorbereitung
 
 In diesem Abschnitt Ihres Analysedokuments führen Sie die technische Vorbereitung durch.
 Das betrifft vor allem das Importieren der Daten und das Starten aller R-Pakete, 
 die in der Analyse verwendet werden.
 
-Zum Importieren der Daten gehen Sie bitte so vor: Legen Sie für diese Analyse ein Projekt in Rstudio an. Speichern Sie in diesem Ordner (auf der Wurzelebene, nicht in Unterverzeichnissen) die zu analyiserenden Daten. Ändern Sie nicht den Dateinamen der Daten. Importieren Sie die Daten auf folgende Weise: `d_train <- read_csv("d_train.csv)` bzw. `d_test <- read_csv("d_test.csv")`.
+Zum Importieren der Daten gehen Sie bitte so vor: Legen Sie für diese Analyse ein *Projekt in Rstudio* an. 
+Speichern Sie in diesem Ordner (auf der Wurzelebene, nicht in Unterverzeichnissen) die zu analyiserenden Daten. 
+Ändern Sie nicht den Dateinamen der Daten. 
+Importieren Sie die Daten z.B. auf folgende Weise: `d_train <- read_csv("d_train.csv)` bzw. `d_test <- read_csv("d_test.csv")`.
 Auf diese Weise ist die Reproduzierbarkeit Ihrer Analyse sichergestellt.
 
 
-### Explorative Datenanalyse
+#### Explorative Datenanalyse
 
 Die explorative Datenanalyse (EDA) meint sowohl die deskriptive Statistik als auch die Datenvisualisierung.
 Typische Schritte sind: das Bearbeiten (oder Entfernen) von Extremwerten und fehlenden Werten,
@@ -235,7 +240,7 @@ Ziel ist, dass Sie den folgenden Schritt vorbereiten,
 also Schritte unternehmen, damit Sie die AV möglichst gut vorhersagen können.
 
 
-### Modellierung
+#### Modellierung
 
 In diesem Schritt berechnen Sie Prognosemodelle. Das sind oft lineare Modelle, also etwa `lm(av ~ uv)`.
 Es empfiehlt sich, mehrere Modelle zu berechnen und zu schauen,
@@ -243,20 +248,21 @@ welches dieser Kandidaten am besten ist.
 Die Güte eines Prognosemodells bemisst sich letztlich *nur* an der Präzision der Vorhersage *neuer* Daten,
 also des Test-Datensatzes.
 Wie gut Ihre Vorhersagen also wirklich sind, erfahren Sie erst mit der Notenbekanntgabe.
-Allerdings können Sie die Trainingsdaten nutzen, um die Güte Ihrere Modell abzuschätzen.
+Allerdings können Sie die Trainingsdaten nutzen, um die Güte Ihrer Modelle abzuschätzen.
 
-### Vorhersagen
+
+#### Vorhersagen
 
 Schließlich entscheiden Sie sich für einen Modellkandidaten.
-Diesen Modellkandidaten nehmen Sie her, um die (Ihenn unbekannten) Werte der AV (Zielvariablen) vorherzusagen.
+Diesen Modellkandidaten nehmen Sie her, um die (Ihnen unbekannten) Werte der AV (Zielvariablen) vorherzusagen.
 Diese Vorhersagen - zusammen mit der ID für jede Vorhersagen - speichern Sie als (reguläre) CSV-Datei ab 
 und reichen Sie als Ihre Prüfungsleistung ein, zusammen mit Ihrer Analysedatei.
 
 
-## Tipps
+### Tipps
 
 
-### Tipps für eine gute Prognose
+#### Tipps für eine gute Prognose
 
 - Schauen Sie in die Literatur.
 
@@ -272,20 +278,20 @@ und reichen Sie als Ihre Prüfungsleistung ein, zusammen mit Ihrer Analysedatei.
 
 
 
-### Tipps zur Datenverarbeitung
+#### Tipps zur Datenverarbeitung
 
 - Ein "deutsches" Excel kann Standard-CSV-Dateien nicht ohne Weiteres lesen. Online-Dienste wie Google Sheets können dies allerdings.
 
 
-### Tipps zum Aufbau des Analyseskripts
+#### Tipps zum Aufbau des Analyseskripts
 
 - Zu Beginn des Skripts sollten alle verwendeten R-Pakete mittels `library()` gestartet werden.
 
-- Zu Beginn des Skripts sollten die Daten von der vom Dozenten bereitgestellten URL importiert werden (*nicht* von der eigenen Festplatte, da das Skript sonst bei Dritten, wie Ihrem Prüfer, nicht lauffähig ist).
+<!-- - Zu Beginn des Skripts sollten die Daten von der vom Dozenten bereitgestellten URL importiert werden (*nicht* von der eigenen Festplatte, da das Skript sonst bei Dritten, wie Ihrem Prüfer, nicht lauffähig ist). -->
 
 
 
-### Sonstiges
+#### Sonstiges
 
 - Legen Sie regelmäßig Sicherheitskopien Ihrer Arbeit an (ggf. auf einem anderen Datenträger).
 
@@ -293,10 +299,10 @@ und reichen Sie als Ihre Prüfungsleistung ein, zusammen mit Ihrer Analysedatei.
 
 
 
-## Bewertung
+### Bewertung
 
 
-### Kriterien
+#### Kriterien
 
 - Es gibt drei Bewertungskriterien:
 
@@ -321,21 +327,24 @@ und reichen Sie als Ihre Prüfungsleistung ein, zusammen mit Ihrer Analysedatei.
 
 
 
-### Kennzahl der Modellgüte
+#### Kennzahl der Modellgüte
 
-Die Güte der Vorhersage wird anhand des *mittleren Absolutfehlers* (mae) bemessen:
-
-$$\text{mae} = \frac{1}{n} \sum_{i=1}^n|(y_i - \hat{y}_i)|$$
+Die Güte der Vorhersage wird anhand des RMSE bemessen.
 
 
-### Notenstufen
+<!-- Die Güte der Vorhersage wird anhand des *mittleren Absolutfehlers* (mae) bemessen: -->
+
+<!-- $$\text{mae} = \frac{1}{n} \sum_{i=1}^n|(y_i - \hat{y}_i)|$$ -->
+
+
+#### Notenstufen
 
 Zur Vorhersagegüte: Die Vorhersagegüte eines einfachen Minimalmodells entspricht einer $4,0$, die eines Referenzmodells des Dozenten einer $2,0$.
 
 Ihre Bewertung erfolgt entsprechend Ihrer Vorhersagegüte, d.h., sind Sie besser als das Referenzmodell erhalten Sie hier in diesem Teilaspekt eine bessere Note als $2,0$! 
 
 
-### Bewertungsprozess
+#### Bewertungsprozess
 
 Der Gutachter legt im Nachgang der Prüfung alle Teilnehmis ihre jeweilige Wert der Kennzahl der Modellgüte offen. 
 Außerdem werden die vorherzusagenden Daten veröffentlicht 
@@ -344,7 +353,7 @@ Auf dieser Basis ist es allen Teilnehmis möglich,
 die Korrektheit Ihrer Note zu überprüfen.
 
 
-## Hinweise
+### Hinweise
 
 Sie haben  freie Methodenwahl bei der Modellierung und Vorverarbeitung. Nutzen Sie den Stoff wie im Unterricht gelernt; Sie können aber auch auf weitere Inhalte, die nicht im Unterricht behandelt wurden, zugreifen.
 
@@ -363,7 +372,7 @@ Eine gute Modellierung auf den *Trainingsdaten* (z.B. hohes $R^2$) bedeutet nich
 
 
 
-## Formalia
+### Formalia
 
 
 
@@ -392,9 +401,9 @@ Eine gute Modellierung auf den *Trainingsdaten* (z.B. hohes $R^2$) bedeutet nich
 
 
 
-## Ich brauche Hilfe!
+### Ich brauche Hilfe!
 
-### Wo finde ich Beispiele und Vorlagen?
+#### Wo finde ich Beispiele und Vorlagen?
 
 Im Rahmen des Unterrichts wurden mehrere Fallstudien erarbeitet bzw. bereitgestellt,
 diese dienen Ihnen als ideale Vorlage.
@@ -408,7 +417,7 @@ Im Internet finden sich viele Fallstudien, von denen Sie sich inspirieren lassen
 
 
 
-### Probeprüfung für den Prognosewettbewerb
+#### Probeprüfung für den Prognosewettbewerb
 
 
 Ja, [hier](https://github.com/sebastiansauer/Lehre/tree/main/data/prognosewettbwerb-demo). In diesem Ordner liegen die Dokumente, die Sie für die echte Prüfung auch bekommen:
@@ -421,13 +430,13 @@ Ja, [hier](https://github.com/sebastiansauer/Lehre/tree/main/data/prognosewettbw
 
 
 
-### Materialsammlung
+#### Materialsammlung
 
 In [diesem Ordner](https://github.com/sebastiansauer/Lehre/tree/main/Hinweise/Prognosewettbewerb) finden Sie eine Materialsammlung zum Prognosewettbewerb.
 
 
 
-### Videos
+#### Videos
 
 [Diese Playlist](https://youtube.com/playlist?list=PLRR4REmBgpIH6uG8LZWPTSMReX1OFxfUx) beinhaltet Videos,
 die die Rahmenbedingungen der Prüfungsleistung vorstellt.
@@ -436,9 +445,9 @@ die die Rahmenbedingungen der Prüfungsleistung vorstellt.
 
 
 
-## Plagiatskontrolle
+### Plagiatskontrolle
 
-Die eingereichten Arbeiten können automatisiert auf Plagiate überprüft werden. Gibt es substanzielle Überschneidungen zwischen zwei (oder mehr) Arbeiten, werden alle betreffenden Arbeiten mit *ungenügend* bewertet oder es folgt eine Abwertung der Note.
+Die eingereichten Arbeiten können automatisiert auf Plagiate überprüft werden. Gibt es substanzielle Überschneidungen zwischen zwei (oder mehr) Arbeiten, werden *alle* betreffenden Arbeiten mit *ungenügend* bewertet oder es folgt eine Abwertung der Note.
 
 
 

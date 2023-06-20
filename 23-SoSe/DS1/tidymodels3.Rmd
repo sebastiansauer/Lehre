@@ -1,0 +1,218 @@
+
+
+
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H',
+                      fig.asp = 0.618,
+                      fig.width = 4,
+                      fig.cap = "", 
+                      fig.path = "",
+                      cache = TRUE,
+                      echo = FALSE,
+                      message = FALSE,
+                      fig.show = "hold")
+
+library(tidyverse)
+library(exams)
+```
+
+
+
+
+
+Question
+========
+
+Berechnen Sie ein lineares Modell mit tidymodels und zwar anhand des `ames` Datensatzes.
+
+Modellgleichung: `Sale_Price ~ Gr_Liv_Area, data = ames`.
+
+Berechnen Sie ein multiplikatives (exponenzielles) Modell.
+
+Rücktransformieren Sie die Log-Werte in "Roh-Dollar".
+
+Solution
+========
+
+
+```{r}
+library(tidymodels)
+data(ames)
+```
+
+
+Multiplikatives Modell:
+
+```{r}
+ames <- 
+  ames %>% 
+  mutate(Sale_Price = log10(Sale_Price)) %>% 
+  select(Sale_Price, Gr_Liv_Area)
+```
+
+Nicht vergessen: AV-Transformation in beiden Samples!
+
+
+Datensatz aufteilen:
+
+
+```{r}
+set.seed(42)
+ames_split <- initial_split(ames, prop = 0.80, strata = Sale_Price)
+ames_train <- training(ames_split)
+ames_test  <-  testing(ames_split)
+```
+
+
+
+Modell definieren:
+
+```{r}
+m1 <-
+  linear_reg() # engine ist "lm" im Default
+```
+
+
+
+Modell fitten:
+
+```{r}
+fit1 <-
+  m1 %>% 
+  fit(Sale_Price ~ Gr_Liv_Area, data = ames)
+```
+
+
+```{r}
+fit1 %>% pluck("fit") 
+```
+
+
+
+Modellgüte im Train-Sample:
+
+```{r}
+fit1_performance <-
+  fit1 %>% 
+  extract_fit_engine()  # identisch zu pluck("fit")
+```
+
+
+
+Modellgüte im Train-Sample:
+
+
+```{r}
+fit1_performance %>% summary()
+```
+
+
+R-Quadrat via easystats:
+
+```{r}
+library(easystats)
+fit1_performance %>% r2()  # rmse()
+```
+
+
+
+```{r}
+tidy(fit1_performance)  # ähnlich zu parameters()
+```
+
+
+
+Vorhersagen im Test-Sample:
+
+
+```{r}
+preds <- predict(fit1, new_data = ames_test)  # liefert TABELLE (tibble) zurück
+head(preds)
+```
+
+`preds` ist ein Tibble, also müssen wir noch die Spalte `.pred.` herausziehen, z.B. mit `pluck(preds, ".pred")`:
+
+
+```{r}
+preds_vec <- preds$.pred
+```
+
+
+```{r}
+ames_test2 <-
+  ames_test %>% 
+  mutate(preds = pluck(preds, ".pred"),  # pluck aus der Tabelle rausziehen
+         .pred = preds_vec)  # oder  mit dem Dollar-Operator
+
+head(ames_test2)
+```
+
+Oder mit `unnest`:
+
+```{r}
+ames_test2 <-
+  ames_test %>% 
+  mutate(preds = preds) %>% 
+  unnest(preds) # Listenspalte "entschachteln"
+
+head(ames_test2)
+```
+
+Oder wir binden einfach die Spalte an den Tibble:
+
+```{r}
+ames_test2 <-
+  ames_test %>% 
+  bind_cols(preds = preds)  # nimmt Tabelle und bindet die Spalten dieser Tabelle an eine Tabelle
+
+head(ames_test2)
+```
+
+
+
+Modellgüte im Test-Sample:
+
+```{r}
+rsq(ames_test2,
+    truth = Sale_Price,
+    estimate = .pred)
+```
+
+
+
+```{r}
+sol <- 0.51679
+```
+
+
+
+Zur Interpretation von Log10-Werten
+
+```{r}
+5e5
+5*10^5 - 500000
+```
+
+
+
+
+Rücktransformation (ohne Bias-Korrektur):
+
+
+```{r}
+ames_test2 <-
+  ames_test2 %>% 
+  mutate(pred_raw = 10^(.pred))
+```
+
+
+Meta-information
+================
+
+exname: tidymodels03
+extype: num
+exsolution: `r fmt(sol)`
+exshuffle: false
+extol: 1
+expoints: 1
+

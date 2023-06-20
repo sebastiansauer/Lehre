@@ -1,0 +1,49 @@
+
+
+
+
+# Untericht vom 15. 6. 2023
+
+## Vorbereitung
+
+Daten importieren:
+
+```{r}
+wetter_path <- "https://raw.githubusercontent.com/sebastiansauer/datasets/main/csv/precip_temp_DWD.csv"
+wetter <- read.csv(wetter_path)
+```
+
+Pakete starten:
+
+```{r}
+library(tidyverse)
+library(easystats)
+```
+
+
+## Daten aufbereiten
+
+
+Wir bilden eine neue Variable:
+
+```{r}
+wetter <-
+  wetter %>% 
+  mutate(after_1950 = year > 1950) %>% 
+  filter(region != "Deutschland")  # ohne Daten für Gesamt-Deutschland
+```
+
+
+## Modell berechnen
+
+```{r}
+lm_wetter_bin_uv <- lm(temp ~ after_1950, data = wetter)
+```
+
+Wir schauen uns die Ergebnisse mit dem Befehl `parameters` an:
+
+```{r}
+parameters(lm_wetter_bin_uv)
+```
+
+

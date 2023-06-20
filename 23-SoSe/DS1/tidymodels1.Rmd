@@ -1,0 +1,134 @@
+
+
+
+
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H',
+                      fig.asp = 0.618,
+                      fig.width = 4,
+                      fig.cap = "", 
+                      fig.path = "",
+                      cache = TRUE,
+                      echo = FALSE,
+                      message = FALSE,
+                      fig.show = "hold")
+
+library(tidyverse)
+library(exams)
+```
+
+
+
+
+
+Question
+========
+
+Berechnen Sie ein lineares Modell mit tidymodels und zwar anhand des `ames` Datensatzes.
+
+Modellgleichung: `Sale_Price ~ Gr_Liv_Area, data = ames`.
+
+Berechnen Sie ein multiplikatives (exponenzielles) Modell.
+
+Gesucht ist R-Quadrat als Maß für die Modellgüte im *Train-Sample*.
+
+Solution
+========
+
+
+```{r}
+library(tidymodels)
+data(ames)
+```
+
+
+Multiplikatives Modell:
+
+```{r}
+ames <- 
+  ames %>% 
+  mutate(Sale_Price = log10(Sale_Price))
+```
+
+
+Datensatz aufteilen:
+
+```{r}
+ames_split <- initial_split(ames, prop = 0.80, strata = Sale_Price)
+ames_train <- training(ames_split)
+ames_test  <-  testing(ames_split)
+```
+
+
+
+Modell definieren:
+
+```{r}
+m1 <-
+  linear_reg() # engine ist "lm" im Default
+```
+
+
+
+Modell fitten:
+
+```{r}
+fit1 <-
+  m1 %>% 
+  fit(Sale_Price ~ Gr_Liv_Area, data = ames)
+```
+
+
+```{r}
+fit1 %>% pluck("fit") 
+```
+
+
+
+Modellgüte im Train-Sample:
+
+```{r}
+fit1_performance <-
+  fit1 %>% 
+  extract_fit_engine()  # identisch zu pluck("fit")
+```
+
+
+
+Modellgüte:
+
+
+```{r}
+fit1_performance %>% summary()
+```
+
+
+R-Quadrat via easystats:
+
+```{r}
+library(easystats)
+fit1_performance %>% r2()  # rmse()
+```
+
+
+
+```{r}
+tidy(fit1_performance)  # ähnlich zu parameters()
+```
+
+
+```{r}
+sol <- 0.484
+```
+
+
+Meta-information
+================
+
+exname: tidymodels01 
+extype: num
+exsolution: `r fmt(sol)`
+exshuffle: false
+extol: 1
+expoints: 1
+

@@ -1,0 +1,38 @@
+Osaka Bike Share
+Data Dictionary
+
+
+Überblick
+=========
+
+Derzeit werden in vielen urbanen Städten Leihfahrräder eingeführt, um den Mobilitätskomfort zu erhöhen. Es ist wichtig, das Leihfahrrad zum richtigen Zeitpunkt für die Öffentlichkeit verfügbar und zugänglich zu machen, da dies die Wartezeit verkürzt. Schließlich wird es zu einem wichtigen Anliegen, die Stadt mit einer stabilen Versorgung mit Leihfahrrädern zu versorgen. Der entscheidende Teil ist die Vorhersage der Fahrradanzahl, die zu jeder Stunde benötigt wird, um eine stabile Versorgung mit Leihfahrrädern zu gewährleisten.
+Der Datensatz enthält Wetterinformationen (Temperatur, Luftfeuchtigkeit, Windgeschwindigkeit, Sichtweite, Taupunkt, Sonneneinstrahlung, Schneefall, Niederschlag), die Anzahl der pro Stunde gemieteten Fahrräder und Datumsinformationen.
+
+
+AV (vorherzusagende Variable)
+============================
+
+n - Anzahl der pro Stunde ausgeliehenen Fahrräder
+
+
+
+Variablen (Spalten)
+===================
+
+
+datum - Datum: Jahr-Monat-Tag
+n - Anzahl der pro Stunde ausgeliehenen Fahrräder
+stunde - Stunde des Tages
+temp - Temperatur in Celsius
+feuchtigkeit - Feuchtigkeit der Luft %
+wind - Windgeschwindigkeit m/s
+sicht - Sichtweite 10 m
+taupunkt - Taupunkttemperatur Celsius
+sonne - Sonnenstrahlung MJ/m2
+regen - Niederschlag mm
+schnee - Schneefall cm
+jahreszeit - Jahreszeiten: Winter, Frühling, Sommer, Herbst
+feiertag - Feiertag/Kein Feiertag
+betrieb - NoFunc (nicht funktionale Stunden), Fun (funktionale Stunden)
+
+
