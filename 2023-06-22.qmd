@@ -1,0 +1,39 @@
+---
+title: "Kap. 10.6"
+format: html
+date: today
+---
+
+
+# Daten importieren
+
+Train-Datensatz:
+
+```{r}
+mariokart_train <- read.csv("https://raw.githubusercontent.com/sebastiansauer/statistik1/main/daten/mariokart_train.csv")
+```
+
+Importieren von der Festplatte:
+
+```{r}
+d_train_path <- "data/mariokart_train.csv"
+d_train <- read.csv(d_train_path)
+```
+
+
+
+Test-Datensatz:
+
+```{r}
+mariokart_test <- read.csv("https://raw.githubusercontent.com/sebastiansauer/statistik1/main/daten/mariokart_test.csv")
+```
+
+# Pakete starten
+
+```{r}
+library(tidyverse)
+library(easystats)
+```
+
+
+# Modell 1 (All-in)
