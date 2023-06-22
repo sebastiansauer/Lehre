@@ -1,0 +1,30 @@
+---
+title: "Daten-Tabellen für Word erstellen mit R"
+#format: docx
+format: html
+---
+
+
+# Überschrift 1
+
+Hallo wie geht's 
+
+
+
+```{r}
+library(easystats)
+library(tidyverse)
+library(rstanarm)
+```
+
+
+Wir rechnen ein Modell:
+
+```{r}
+data(mtcars)
+m1 <- stan_glm(mpg ~ hp, data = mtcars,  refresh = 0)
+parameters(m1) %>% 
+  print_md()
+```
+
+
