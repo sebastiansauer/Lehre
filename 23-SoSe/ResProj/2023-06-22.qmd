@@ -1,13 +1,12 @@
 ---
 title: "Daten-Tabellen für Word erstellen mit R"
 #format: docx
-format: html
 ---
 
 
 # Überschrift 1
 
-Hallo wie geht's 
+Hallo, wie geht's ?
 
 
 
@@ -21,10 +20,82 @@ library(rstanarm)
 Wir rechnen ein Modell:
 
 ```{r}
+#| eval: false
 data(mtcars)
 m1 <- stan_glm(mpg ~ hp, data = mtcars,  refresh = 0)
 parameters(m1) %>% 
   print_md()
 ```
 
+
+
+
+Wir visualisieren die Parameter:
+
+
+```{r}
+plot(parameters(m1), show_intercept = TRUE)
+```
+
+
+```{r}
+eti(m1) %>% plot()
+```
+
+
+Modellgüte (R-Quadrat):
+
+```{r}
+r2(m1)
+```
+
+
+# DAGs plotten
+
+
+
+```{r}
+library(dagitty)
+```
+
+
+```{r}
+#| label: fig-dagmodell1
+#| fig-cap: Beispielhafter DAG
+library(dagitty)
+
+mein_dag <- 'dag {
+A [pos="-2.200,-1.520"]
+B [pos="1.400,-1.460"]
+D [outcome,pos="1.400,1.621"]
+E [exposure,pos="-2.200,1.597"]
+Z [pos="-0.300,-0.082"]
+A -> E
+A -> Z [pos="-0.791,-1.045"]
+B -> D
+B -> Z [pos="0.680,-0.496"]
+E -> D
+}'
+
+
+plot(graphLayout(mein_dag))
+
+```
+
+
+
+
+```{mermaid}
+flowchart LR
+  x --> y
+  g --> y
+```
+
+
+
+
+
+```{r}
+sessionInfo()  # technische Infos
+```
 
