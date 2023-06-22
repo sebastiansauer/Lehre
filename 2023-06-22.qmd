@@ -7,6 +7,9 @@ date: today
 
 # Daten importieren
 
+
+
+
 Train-Datensatz:
 
 ```{r}
@@ -16,8 +19,7 @@ mariokart_train <- read.csv("https://raw.githubusercontent.com/sebastiansauer/st
 Importieren von der Festplatte:
 
 ```{r}
-d_train_path <- "data/mariokart_train.csv"
-d_train <- read.csv(d_train_path)
+mariokart_train <- read.csv("data/mariokart_train.csv")
 ```
 
 
@@ -28,12 +30,106 @@ Test-Datensatz:
 mariokart_test <- read.csv("https://raw.githubusercontent.com/sebastiansauer/statistik1/main/daten/mariokart_test.csv")
 ```
 
+oder:
+
+```{r}
+mariokart_test <- read.csv("data/mariokart_test.csv")
+```
+
+
 # Pakete starten
 
 ```{r}
 library(tidyverse)
 library(easystats)
+library(yardstick)
 ```
 
 
 # Modell 1 (All-in)
+
+```{r}
+lm_allin <- lm(total_pr ~ ., data = mariokart_train)
+```
+
+Modellgüte - MAE im Train-Sample:
+
+```{r}
+performance::mae(lm_allin)
+```
+
+
+```{r}
+r2(lm_allin)
+```
+
+
+Vorhersagen:
+
+```{r}
+mariokart_test <-
+  mariokart_test %>% 
+  mutate(lm_allin_predictions = predict(lm_allin, newdata = mariokart_test)) %>% 
+  relocate(lm_allin_predictions, .after = total_pr)
+```
+
+Güte der Vorhersagen:
+
+```{r}
+library(yardstick)
+
+yardstick::mae(data = mariokart_test,
+               truth = total_pr,  # echter Verkaufspreis
+               estimate = lm_allin_predictions)  # Ihre Vorhersage
+```
+
+
+## Modell 2
+
+```{r}
+mariokart_train2 <- 
+  mariokart_train %>% 
+  filter(total_pr < 100) %>% 
+  select(-id, X)
+```
+
+
+```{r}
+lm2 <- lm(total_pr ~ ., data = mariokart_train2)
+```
+
+Modellgüte:
+
+```{r}
+r2(lm2)
+```
+
+
+Vorhersagen:
+
+
+
+```{r}
+mariokart_test <-
+  mariokart_test %>% 
+  mutate(lm2_pred = predict(lm2, newdata = mariokart_test))
+```
+
+Vorhersagegüte:
+
+```{r}
+yardstick::mae(
+  data = mariokart_test,
+  truth = total_pr,
+  estimate = lm2_pred
+)
+```
+
+```{r}
+rsq(
+   data = mariokart_test,
+  truth = total_pr,
+  estimate = lm2_pred
+)
+```
+
