@@ -1,0 +1,63 @@
+---
+title: "Meine Analyse"
+format: html
+author: Sebastian Sauer
+---
+
+
+
+# Pakete starten
+
+```{r}
+library(tidyverse)
+```
+
+
+
+# Daten importieren
+```{r}
+d_train <- read_csv("d_train.csv")
+```
+
+# Pfeife in Action
+
+
+
+```{r}
+d_train2 <- 
+  d_train %>% 
+  select(-c(V1, id, title)) %>% 
+  filter(total_pr < 100)
+```
+
+
+
+# Extremwerte finden
+
+
+```{r}
+library(ggstatsplot)
+library(DataExplorer)
+```
+
+
+
+```{r}
+gghistostats(data = d_train,
+             x = total_pr)
+```
+
+
+# Mehrere Spalten auf Extremwerte prüfen
+
+
+
+```{r}
+library(easystats)
+d_train_z <- 
+d_train %>%  
+  standardize() %>%  # z-skalieren
+  filter(total_pr < 3)
+  
+```
+

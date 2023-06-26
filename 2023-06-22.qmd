@@ -4,6 +4,15 @@ format: html
 date: today
 ---
 
+# Pakete starten
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(yardstick)  # Vorhersagegüte bestimmen
+library(ggstatsplot)  # Datenbilder
+```
+
 
 # Daten importieren
 
@@ -36,14 +45,6 @@ oder:
 mariokart_test <- read.csv("data/mariokart_test.csv")
 ```
 
-
-# Pakete starten
-
-```{r}
-library(tidyverse)
-library(easystats)
-library(yardstick)
-```
 
 
 # Modell 1 (All-in)
@@ -86,6 +87,17 @@ yardstick::mae(data = mariokart_test,
 
 ## Modell 2
 
+Daten visualisieren:
+
+```{r}
+gghistostats(
+  data = mariokart_train,
+  x = total_pr
+)
+```
+
+
+
 ```{r}
 mariokart_train2 <- 
   mariokart_train %>% 
@@ -124,9 +136,10 @@ yardstick::mae(
   estimate = lm2_pred
 )
 ```
+Vorhersagegüte (R-Quadrat):
 
 ```{r}
-rsq(
+rsq(  # auch aus dem Paket `yeardstick`:
    data = mariokart_test,
   truth = total_pr,
   estimate = lm2_pred
