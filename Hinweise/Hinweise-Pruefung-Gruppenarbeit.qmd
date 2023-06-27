@@ -8,6 +8,7 @@ Die Gruppengröße (min., max.) beträgt *zwei (2) Personen*.
 
 Die Aufteilung der Teilaspekte der Arbeit soll so erfolgen, dass jedes Mitglied des Teams *ein komplettes empirischen Kapitel* (Methodenteil oder Ergebnisteil) und *ein komplettes theoretischen Kapitel* (Theorieteil oder Diskussion) verfasst. 
 Zu dem der (Haupt-)Kapitel des Berichts (Theorie, Methode, Ergebnis, Diskussion) ist genau ein Name anzugeben, die für das entsprechende Kapitel verantwortlich ist.
+Geben Sie den Namen in geeigneter Form an, z.B. in einer Fußnote zu der Kapitelüberschrift.
 Eine Aufteilung eines Kapitels auf mehrere Personen eines Teams ist nicht zulässig.
 
 Die *Einleitung* soll *gemeinsam* unter Verwendung eines Textgenerators (z.B. ChatGPT) verfasst (und diskutiert) werden.
