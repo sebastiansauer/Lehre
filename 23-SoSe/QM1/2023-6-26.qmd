@@ -1,0 +1,94 @@
+---
+title: "Meine Analyse"
+format: html
+author: Sebastian Sauer
+---
+
+
+
+# Pakete starten
+
+```{r}
+library(tidyverse)
+```
+
+
+
+# Daten importieren
+```{r}
+d_train <- read_csv("d_train.csv")
+```
+
+# Pfeife in Action
+
+
+
+```{r}
+d_train2 <- 
+  d_train %>% 
+  select(-c(V1, id, title)) %>% 
+  filter(total_pr < 100)
+```
+
+
+
+# Extremwerte finden
+
+
+```{r}
+library(ggstatsplot)
+library(DataExplorer)
+```
+
+
+
+```{r}
+gghistostats(data = d_train,
+             x = total_pr)
+```
+
+
+# Mehrere Spalten auf Extremwerte prüfen
+
+
+
+
+```{r}
+library(easystats)
+d_train_z <- 
+d_train %>%  
+  standardize() %>%  # z-skalieren für alle Spalten
+  filter(total_pr < 3)  # Eine Spalte auf Ausreißer prüfen
+```
+
+
+# Fortgeschrittener Weg: Mehrere Spalten auf einmal
+
+Zuerst z-standardisieren
+
+```{r}
+library(easystats)
+
+d_train_z <- 
+d_train2 %>%  
+  mutate(across(where(is.numeric), ~ as.numeric(standardize(.))))  # z-skalieren
+```
+
+Der Punkt `.` heißt hier "mach das für jede Spalte" bzw. er steht für die gerade durchlaufende Spalte.
+
+Leider gibt `standardize` ein komisches Objekt, nicht rein numerisch zurück, das müssen wir noch regeln mit `as.numeric`.
+
+Dann ersetzen wir alle Werte extremer als z.B. 3 mit dem Mittelwert der Spalte:
+
+```{r}
+d_train_z3 <- 
+d_train_z %>% 
+   mutate(across(where(is.numeric),
+                 ~ case_when(abs(.) < 3 ~ .,
+                       abs(.) >= 3 ~ mean(.))))
+```
+
+
+
+
+
