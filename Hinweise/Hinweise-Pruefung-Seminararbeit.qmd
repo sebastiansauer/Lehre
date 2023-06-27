@@ -28,7 +28,7 @@
 1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *"Hauptteil"* ist definiert als der *gesamte Text* von (Beginn der) Einführung bis (zum Ende der) Diskussion (ein Diagramm als solches zählt nicht als Text).
 
 
-4. Textsatz und (gestalterische) *Formatierung* der Arbeit orientieren sich an dem bereitgestellten *Leitfaden* bzw. den Hinweisen.
+4. Textsatz und (gestalterische) *Formatierung* der Arbeit orientieren sich an den schriftlich bereitgestellten Hinweisen (z.B. im Skript).
 
 5. *Übrige Gestaltungsaspekte*, die nicht im bereitgestellten Leitfaden aufgeführt sind, sind nach den Vorgaben der *APA* (neueste Version) anzulegen.
 
@@ -39,7 +39,7 @@
     - Titel der Arbeit
     - Modulname
 
-7. Wenn die Prüfung aus einer Seminarbeit besteht oder eine Seminarleistung beinhaltet, ist diese *nur online* über das bereitgestellte System, nicht ausgedruckt einzureichen.
+7. Wenn die Prüfung aus einer schriftlichen Arbeit besteht oder eine Seminarleistung beinhaltet, ist diese *nur online* über das bereitgestellte System, nicht ausgedruckt einzureichen.
 
 9. Bei der *Anmeldung* ist der Titel anzugeben; der *gleiche Titel* muss sich auch auf der eingereichten Arbeit finden.
 
@@ -62,6 +62,8 @@
 22. Die Dozentis führen *keine Vorab-Korrektur* von laufenden Prüfungsleistungen durch. Fragen, die einer Vorab-Korrektur Ihrer Arbeit nahe kommen (und daher nicht beantwortet werden), sind z. B.: „Ist mein Fragebogen so o.k.?“, „Passt das so?“, „Können Sie mal drüber schauen, ob ich so anfangen kann?“, „Passen meine Hypothesen zur Theorie?“, „Hab ich was vergessen?“, „Ist die Gliederung so richtig/vollständig?“ ...
 
 25. Eine Prüfungsleistung darf nur eingereicht werden, wenn Sie (erfolgreich) zur Prüfung angemeldet sind. Eine abgegebene/hochgeladene Arbeit, die nicht erfolgreich angemeldet ist, gilt nicht als erfolgreich eingereicht.
+
+26. Sie können die Arbeit entweder in einem paginierten Format schreiben (z.B. Word-Dokument) oder in einem nicht-paginierten Format (z.B. HTML-Dokument mit Quarto).
 
 
 
