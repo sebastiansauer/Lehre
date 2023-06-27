@@ -127,7 +127,7 @@ Die Materialien (oder Hinweise zum Bezugsort) finden Sie im entsprechenden Moodl
 ### Einzureichende Dateien
 
 
-1. Folgende* Dateiarten* sind einzureichen:
+1. Folgende *Dateiarten* sind einzureichen:
 
     1. Prognose: Ihre *Prognose-Datei* (CSV-Datei)
     2. Analyse: Ihr *Analyseskript* (R-, qmd-, Rmd-Notebook oder Rmd-Datei)
