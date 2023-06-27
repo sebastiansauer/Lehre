@@ -76,7 +76,7 @@
 
 2. Werten Sie mit quantitative Fragestellungen komplett mit *R* aus.
 
-25. Für *inferenzstatistische Fragestellungen* sind *Bayes-Methoden* (bevorzugt) oder frequentische Methoden einzusetzen.
+25. Für *inferenzstatistische Fragestellungen* sind *Bayes-Methoden* (bevorzugt) oder frequentistische Methoden einzusetzen.
 
 4. Tabellen (z.B. mit Daten) müssen nicht mit R erstellt sein, sondern können auch von "von Hand" erstellt sein (z.B. mit Word).
 
@@ -101,7 +101,7 @@
 
 23. *Inhaltliche Fragen* (d.h. den Stoff betreffend) werden im Unterricht jederzeit beantwortet. Sprechen Sie die Dozentis auch gerne vor oder nach dem Unterricht persönlich an.
 
-24. Aus Gründen der Fairness werden inhaltliche *Fragen* von Studierenden *nur öffentlich*, z. B. im Unterricht oder im Online-Forum, beantwortet (nicht per Mail).
+24. Aus Gründen der Fairness und Effizient werden inhaltliche *Fragen* von Studierenden *nur öffentlich*, z. B. im Unterricht oder im Online-Forum, beantwortet (nicht per Mail).
 
 
 
@@ -139,6 +139,7 @@ Neben der Gesamtnote und den Teilnoten kann der Gutachter zusätzliche noch Komm
 - Sollten Sie Fragen an den Gutachter stellen wollen zu Ihrem Gutachten, so melden Sie sich zur Sprechstunde an.
 
 
+Das Gutachten kann mit Hilfe von [Textbausteinen wie aus dieser Sammlung](https://sebastiansauer.github.io/textbausteine-korrektur/Textbausteine-Korrektur.html) erstellt sein.
 
 
     
