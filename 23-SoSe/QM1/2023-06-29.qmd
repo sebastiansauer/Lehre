@@ -25,6 +25,7 @@ Daher macht es keinen Sinn, jetzt diese Information für unser Modell zu verwend
 
 # Modellieren
 
+## lm1 
 
 ```{r}
 lm1 <- lm(dep_delay ~ ., data = flights2)
