@@ -1,0 +1,30 @@
+---
+title: "Fallstudie NYC flighs13"
+---
+
+
+# Setup (Pakete und Daten)
+```{r}
+library(nycflights13)
+data(flights)
+library(tidyverse)
+library(easystats)
+```
+
+
+# Datensatz aufbereiten
+
+```{r}
+flights2 <-
+flights %>% 
+  select(where(is.numeric), -year, -arr_delay, -arr_time)
+```
+
+# Modellieren
+
+
+```{r}
+lm1 <- lm(dep_delay ~ ., data = flights2)
+r2(lm1)
+```
+
