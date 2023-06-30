@@ -1,0 +1,34 @@
+---
+title: "Fallstudie NYC flighs13"
+---
+
+
+# Setup (Pakete und Daten)
+```{r}
+library(nycflights13)
+data(flights)
+library(tidyverse)
+library(easystats)
+```
+
+
+# Datensatz aufbereiten
+
+```{r}
+flights2 <-
+flights %>% 
+  select(where(is.numeric), -year, -arr_delay, -arr_time)
+```
+
+Achtung: Die Ankunftsverspätung `arr_delay` würden Sie in Wirklichkeit nicht wissen, wenn Sie die Flüge für morgen vorhersagen wollen.
+Daher macht es keinen Sinn, jetzt diese Information für unser Modell zu verwenden - Wir werden diese Information nicht besitzen, wenn es drauf ankommt. Wiegen wir uns also nicht in falsche Sicherheit.
+
+# Modellieren
+
+## lm1 
+
+```{r}
+lm1 <- lm(dep_delay ~ ., data = flights2)
+r2(lm1)
+```
+
