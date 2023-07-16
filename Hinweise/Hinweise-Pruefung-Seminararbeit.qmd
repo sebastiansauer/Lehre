@@ -25,7 +25,7 @@
 
 ### Formale Anfordungen 
 
-1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *"Hauptteil"* ist definiert als der *gesamte Text* von (Beginn der) Einführung bis (zum Ende der) Diskussion (ein Diagramm als solches zählt nicht als Text).
+1. Der Umfang der Arbeit umfasst im *Hauptteil* *6000* Wörter bei Gruppenarbeiten und *4000* Wörter ein Einzelarbeiten, plus/minus 10%. *"Hauptteil"* ist definiert als der *gesamte Text* von (Beginn der) Einführung bis (zum Ende der) Diskussion (ein Diagramm als solches zählt nicht als Text). Geben Sie die Wortzahl Ihrer Arbeit an geeigneter Stelle an (Anhang).
 
 
 4. Textsatz und (gestalterische) *Formatierung* der Arbeit orientieren sich an den schriftlich bereitgestellten Hinweisen (z.B. im Skript).
@@ -61,9 +61,14 @@
 
 22. Die Dozentis führen *keine Vorab-Korrektur* von laufenden Prüfungsleistungen durch. Fragen, die einer Vorab-Korrektur Ihrer Arbeit nahe kommen (und daher nicht beantwortet werden), sind z. B.: „Ist mein Fragebogen so o.k.?“, „Passt das so?“, „Können Sie mal drüber schauen, ob ich so anfangen kann?“, „Passen meine Hypothesen zur Theorie?“, „Hab ich was vergessen?“, „Ist die Gliederung so richtig/vollständig?“ ...
 
-25. Eine Prüfungsleistung darf nur eingereicht werden, wenn Sie (erfolgreich) zur Prüfung angemeldet sind. Eine abgegebene/hochgeladene Arbeit, die nicht erfolgreich angemeldet ist, gilt nicht als erfolgreich eingereicht.
+25. Eine *Prüfungsleistung* darf nur eingereicht werden, wenn Sie (erfolgreich) zur Prüfung *angemeldet* sind. Eine abgegebene/hochgeladene Arbeit, die nicht erfolgreich angemeldet ist, gilt nicht als erfolgreich eingereicht.
 
-26. Sie können die Arbeit entweder in einem paginierten Format schreiben (z.B. Word-Dokument) oder in einem nicht-paginierten Format (z.B. HTML-Dokument mit Quarto).
+26. Sie können die Arbeit entweder in einem *paginierten* Format schreiben (z.B. Word-Dokument) oder in einem *nicht-paginierten* Format (z.B. HTML-Dokument mit Quarto).
+
+27. Eine Arbeit zählt nur dann als (erfolgreich) eingericht, wenn Sie *formal korrekt eingereicht* wurde, insbesondere sind Fristen und Abgabekanäle (z.B. Moodleseite) zu beachten.
+
+28. Wenn Sie Dateien mit Ihren Prüfungsleistungen einreichen (hochladen), dann benennen Sie sie nach folgendem Muster `nachname1-vorname1-nachname2-vorname2-prüfungsart.endung`, z.B.`sauer-sebastian-projektarbeit.pdf` oder `musterfrau-marina-anhang.zip`.
+
 
 
 
@@ -113,7 +118,7 @@
 
 ### Aspekte der Benotung
 
-1. Es wird eine Gesamtnote vergeben und ggf. drei Teilnoten.
+1. Es wird eine *Gesamtnote* vergeben und ggf. drei *Teilnoten.*
 
 2. Die Gesamtnote setzt sich aus drei Teilaspekten zusammen.
 
@@ -145,11 +150,11 @@ Das Gutachten kann mit Hilfe von [Textbausteinen wie aus dieser Sammlung](https:
     
 ### Mengengerüst
 
-1. Anspruch an eine *gute* Arbeit
-    - Überwiegende Verwendung von Literatur hoher Qualität (Fachartikel, peer-reviewed)
-    - Ca. 15-20 Quellen (hoher Qualität) oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+Der Anspruch an eine *gute* Arbeit ist wie folgt zu fassen:
+    - Überwiegende Verwendung von *Literatur hoher Qualität* (Fachartikel, peer-reviewed)
+    - Ca. *15-20 Quellen* (hoher Qualität) oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Stichprobengröße (ca.)
-      - Experimentell: Between-Design 30-50 Fälle, Within-Design: 20 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+      - Experimentell: *Between-Design 30-50 Fälle*, Within-Design: 20 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
      - Beobachtend: 50-100 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
     - Designumfang (ca.)
       - Experimentell: 2-3 Variablen
@@ -176,13 +181,13 @@ Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur e
     
 2. Inhaltliche Mängel
 
-  - Das Literaturverzeichnis ist sehr kurz (weniger als 50% der empfohlenen Zahl von Quellen).
-  - Die Qualität des Literaturverzeichnisses ist gering (über 50 % Quellen von zweifelhafter Qualität, z. B. aus Ratgeber-Büchern).
-  - Die Lesbarkeit ist aufgrund der optischen Gestaltung oder gravierender Sprachmängel stark eingeschränkt (z. B. viele Rechtschreibfehler).
+  - Das *Literaturverzeichnis* ist sehr ku*rz (weniger als 50% der empfohlenen Zahl von Quellen).
+  - Die *Qualität* des Literaturverzeichnisses ist gering (über 50 % Quellen von zweifelhafter Qualität, z. B. aus Ratgeber-Büchern).
+  - Die *Lesbarkeit* ist aufgrund der optischen Gestaltung oder gravierender Sprachmängel stark eingeschränkt (z. B. viele Rechtschreibfehler).
     
 3. Methodische Mängel
 
-  - Es wird keine Inferenzstatistik verwendet.
+  - Es wird *keine Inferenzstatistik *verwendet.
   - Zentrale Koeffizienten werden falsch interpretiert.
   - Es wird keine/kaum Deskriptiv-Statistik berichtet.
   - Forschungsfragen bzw. Hypothese und Datenanalyse passen nicht zusammen.
