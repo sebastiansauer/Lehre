@@ -136,9 +136,9 @@ Die Materialien (oder Hinweise zum Bezugsort) finden Sie im entsprechenden Moodl
   
 2. Weitere Dateien sind nicht einzureichen.
 
-9. Komprimieren Sie die Dateien *nicht* (z.B. via *zip*). 
+3. Komprimieren Sie die Dateien *nicht* (z.B. via *zip*). 
 
-2. Der Name jeder eingereichte Datei muss wie folgt lauten: `Nachname_Vorname_Matrikelnummer_Dateiart.Endung`. Beispiel: `Sauer_Sebastian_0123456_Prognose.csv` bzw. `Sauer_Sebastian_0123456_Analyse.qmd`.
+4. Der Name jeder eingereichte Datei muss wie folgt lauten: `Nachname_Vorname_Matrikelnummer_Dateiart.Endung`. Beispiel: `Sauer_Sebastian_0123456_Prognose.csv` bzw. `Sauer_Sebastian_0123456_Analyse.qmd`.
 
 
 
@@ -151,7 +151,7 @@ Die Materialien (oder Hinweise zum Bezugsort) finden Sie im entsprechenden Moodl
   a) `id`: Den ID-Wert jedes vorhergesagten Wertes
   b) `pred`: Der vorhergesagte Wert.
   
-2. Sofern nicht anderweitig definiert, entspricht die *ID* einer Beobachtung ihrer *Zeilennummer.* Die erste Beobachtung (im Test-Sample) bekommt die ID `1`, die zweite Beobachtung die ID `2`, etc. Die ID ist als Zahl (reell oder ganzzahlig) zu formatieren.
+2. Sofern nicht anderweitig definiert, entspricht die *ID* einer Beobachtung ihrer *Zeilennummer* (in der Reihenfolge, wie sie in der vom Prüfer ausgegebenen Datei vorliegt). Die erste Beobachtung (im Test-Sample) bekommt die ID `1`, die zweite Beobachtung die ID `2`, etc. Die ID ist als Zahl (reell oder ganzzahlig) zu formatieren.
 
 
 
