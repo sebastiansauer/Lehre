@@ -46,7 +46,7 @@
 10. Eine eingereichte Arbeit *kann nicht wieder zurückgezogen* werden.
 
 
-15. Reichen  Sie folgende *zwei Dateien* als Prüfungsleistung ein: a) Die Arbeit als PDF-Datei sowie b) den Anhang bzw. ergänzende Materialien als eine ZIP-Datei.
+15. Reichen  Sie folgende *zwei Dateien* als Prüfungsleistung ein: a) Die Arbeit als *PDF-Datei* sowie b) den *Anhang* bzw. ergänzende Materialien als eine *ZIP*-Datei.
 
 
 17. Bitte sprechen Sie Ihr:e Dozenten/in für Fragen des *Nachteilsausgleichs*.
@@ -150,15 +150,16 @@ Das Gutachten kann mit Hilfe von [Textbausteinen wie aus dieser Sammlung](https:
     
 ### Mengengerüst
 
-Der Anspruch an eine *gute* Arbeit ist wie folgt zu fassen:
-    - Überwiegende Verwendung von *Literatur hoher Qualität* (Fachartikel, peer-reviewed)
-    - Ca. *15-20 Quellen* (hoher Qualität) oder mehr im Literaturverzeichnis bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
-    - Stichprobengröße (ca.)
-      - Experimentell: *Between-Design 30-50 Fälle*, Within-Design: 20 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
-     - Beobachtend: 50-100 Fälle bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
-    - Designumfang (ca.)
-      - Experimentell: 2-3 Variablen
-      - Beobachtend: 3-4 Variablen bei Einzelarbeiten; Faktor 2 bei Gruppenarbeiten
+Der Anspruch an eine *gute* Arbeit ist wie folgt zu fassen (die Angaben beziehen sich auf Einzelarbeiten; bei Gruppenarbeiten ist der Faktor 2 anzulegen):
+
+- Überwiegende Verwendung von *Literatur hoher Qualität* (Fachartikel, peer-reviewed)
+- Ca. *15-20 Quellen* (hoher Qualität) oder mehr im Literaturverzeichnis
+- Stichprobengröße (ca.)
+  - Experimentell: *Between-Design: 20-30 Fälle*, Within-Design: 20 Fälle
+  - Beobachtend: 50-100 Fälle bei Einzelarbeiten
+- Designumfang (ca.)
+  - Experimentell: 2-3 Variablen
+  - Beobachtend: 3-4 Variablen bei Einzelarbeiten
 
 
 Aufgrund der hohen individuellen Unterschiede von Forschungsfragen können nur ein grober Rahmen aufgezeigt werden.
