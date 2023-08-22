@@ -150,7 +150,7 @@ Eine faire Prüfung heißt: *Gleiche Chancen für alle*, und *gute Leistung wird
 ### Widerspruch einlegen
 
 
-Falls Sie der Meinung sind, dis Gutachti hätte Ihre Arbeit nicht korrekt beurteilt, 
+Falls Sie der Meinung sind, der Gutachter hätte Ihre Arbeit nicht korrekt beurteilt, 
 haben Sie folgende Möglichkeiten zum Widerspruch.
 Bitte halten Sie folgende Reihenfolge ein:
 
@@ -190,3 +190,5 @@ Folgenden Kritikpunkte von Studentis haben *Aussicht* auf eine *Änderung* der N
 - Achten Sie darauf, dass Sie *nicht mit den Versionen durcheinander* kommen, in welcher Datei der aktuelle Stand Ihrer Projektarbeit liegt.
 - Lesen Sie die *Hinweise* sorgfältig durch.
 - Teilen Sie sich die *Zeit* entsprechend ein.
+
+
