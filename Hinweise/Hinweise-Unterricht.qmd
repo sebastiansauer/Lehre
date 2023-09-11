@@ -101,7 +101,7 @@
 
 ### Videokonferenzen
 
-#### Algemein
+#### Allgemein
 
 - Ihr Dozent informiert Sie, ob Videokonferenzen in diesem Modul angeboten werden.
 - Für Videokonferenzen/Webinare in diesem Modul wird die Software Zoom verwendet.
