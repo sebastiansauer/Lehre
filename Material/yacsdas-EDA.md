@@ -12,12 +12,9 @@
 
 - [Datenjudo mit Pinguinen](https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome)
 
-- [Data-Wranglinng-Aufgaben zur Lebenserwartung](https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/)
+- [Data-Wrangling-Aufgaben zur Lebenserwartung](https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/)
 
 - [Case study: data vizualization on flight delays using tidyverse tools](https://data-se.netlify.app/2021/02/24/case-study-data-vizualization-on-flight-delays-using-tidyverse-tools/)
-
-- [Aufgabe zur Datenvisualisierung des Diamantenpreises](https://data-se.netlify.app/2020/12/07/ex-visualizing-diamonds/)
-
 - [Fallstudie Flugverspätungen - EDA](https://data-se.netlify.app/2021/03/08/eda-zu-flugversp%C3%A4tungen/)
 
 - [Fallstudie zur EDA: Top-Gear](https://data-se.netlify.app/2021/02/11/yacda-topgear/)
