@@ -6,7 +6,7 @@
 
 
 
-# Vorbereitung ------------------------------------------------------------
+# Preparation ------------------------------------------------------------
 
 
 
@@ -18,12 +18,12 @@ library(ggstatsplot)  # Daten visualisieren
 
 data(mtcars)
 
-# Quelle: https://stats-nutshell.netlify.app/regression1.html
+# souce: https://stats-nutshell.netlify.app/regression1.html
 
 
 
 
-# Explorative Analyse -----------------------------------------------------
+# Explorative Analysis -----------------------------------------------------
 
 
 
@@ -32,12 +32,12 @@ ggscatterstats(data = mtcars,
                y = mpg)
 
 
-# Modell 1 ----------------------------------------------------------------
+# Model 1 ----------------------------------------------------------------
 
-lm1_freq  <-       lm(mpg ~ hp, data = mtcars)
+lm1_freq  <-       lm(mpg ~ hp, data = mtcars)  # Frequentist
 lm1_bayes <- stan_glm(mpg ~ hp, data = mtcars)  # Bayes
 
-parameters(lm1_bayes)
+parameters(lm1_bayes)  
 plot(parameters(lm1_bayes))
 
 r2(lm1_bayes)
@@ -46,13 +46,13 @@ r2(lm1_bayes)
 
 
 
-
-
+# predict values on regression line:
 lm1_pred <- estimate_relation(lm1_bayes)
 
 
 lm1_pred
 
+# plot predicted regression line:
 plot(lm1_pred)
 
 
