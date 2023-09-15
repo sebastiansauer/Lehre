@@ -75,7 +75,13 @@ estimate_relation(m4) %>% plot()
 # that's explorative research in all it's glory...
 
 
+lm5 <- 
+lm(formula = mpg ~ cyl + disp + hp + drat + wt + qsec + vs + 
+     am + cyl:disp:hp:drat:wt:qsec:vs:am, data = mtcars)
+
+parameters(lm5)
 
 
-
+lm6 <- lm(mpg ~ gear + vs + gear:vs, data = mtcars)
+parameters(lm6)
 
