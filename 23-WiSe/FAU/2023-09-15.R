@@ -56,9 +56,7 @@ mtcars %>%
   geom_smooth(method = "lm")
 
 
-#ex: try to find an interaction in mtcars! explorative research
-
-# different visualization appraoch:
+# different visualization approach:
 
 
 mtcars2 <-
@@ -70,6 +68,14 @@ parameters(m4)
 
 
 estimate_relation(m4) %>% plot()
+
+
+
+#ex: try to find an interaction in mtcars! 
+# that's explorative research in all it's glory...
+
+
+
 
 
 
