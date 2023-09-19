@@ -20,9 +20,10 @@ d.h. *soweit nicht anders* in der jeweiligen Prüfung bzw. der jeweiligen Aufgab
 
 ### Prüfungsrelevanter Stoff
 
-*Prüfungsrelevanter* Stoff ist alles, was im Unterricht behandelt wurde, sofern es nicht explizit (und schriftlich) als "nicht prüfungsrelevant" gekennzeichnet ist.
+*Prüfungsrelevanter* Stoff ist alles, was im Unterricht behandelt wurde, sofern es nicht explizit (und schriftlich) als "nicht prüfungsrelevant" oder als "Vertiefung" gekennzeichnet ist.
 Insbesondere ist der komplette Inhalt des Skripts und sonstiger vom Dozenten eingestellter Unterlagen prüfungsrelevant (sofern nicht in Teilen anderweitig gekennzeichnet).
 Dazu zählen auch Hinweise auf zu lesende Literatur, aber nicht sonstige Literatur im Literaturverzeichnis.
+Nicht relevant sind die verlinkte externe Inhalte, d.h. Inhalte von Internetadressen, sofern nicht explizit als prüfungsrelevant gekennzeichnet.
 
 
 
