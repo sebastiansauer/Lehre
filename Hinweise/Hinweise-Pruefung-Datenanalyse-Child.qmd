@@ -46,11 +46,11 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 ## Einzureichende Dateien
 
-1. Einzureichen sind
+1. Einzureichen sind folgende Dateien:
 
-  - der Bericht in menschenlesbarer Form (s. Formatierungshinweise)
-  - alle Dateien, die Quellcode der Analyse beinhalten. 
-  - die Rohdaten
+  a. der Bericht in menschenlesbarer Form (s. Formatierungshinweise)
+  b. alle Dateien, die Quellcode der Analyse beinhalten. 
+  c. die Rohdaten
   
 2. Der Name der Dateien kann frei gewählt werden (bzw. folgt keinen technischen Restriktionen).
 
@@ -159,6 +159,12 @@ Häufige kleinere Mängel sind z. B.
 - kein (verlinktes) Inhaltsverzeichnis ︎
 - fehlende oder unverständliche Achsenbeschriftung bei Diagrammen 
 - fehlende oder falsche Beschreibung der/des Skalenniveau(s) der untersuchten Variablen
+
+
+## Sonstiges
+
+
+Eine automatische Prüfung auf Plagiate mittels geeigneter, von der Hochschule bereitgestellter Software ist möglich.
 
 
 
