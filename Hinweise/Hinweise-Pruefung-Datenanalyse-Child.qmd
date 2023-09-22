@@ -50,8 +50,9 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
   - der Bericht in menschenlesbarer Form (s. Formatierungshinweise)
   - alle Dateien, die Quellcode der Analyse beinhalten. 
+  - die Rohdaten
   
-2. Der Name der Dateien kann frei gewählt werden (bzw. folgt technischen Restriktionen).
+2. Der Name der Dateien kann frei gewählt werden (bzw. folgt keinen technischen Restriktionen).
 
 
 
@@ -87,9 +88,9 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 Die Arbeit wird im Hinblick auf *drei Kriterien* bewertet:
 
-1. *Formalia* (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliche, Übersichtlichkeit, Ästhetik)
+1. *Formalia* (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliche, Übersichtlichkeit, Ästhetik, Reproduzierbarkeit)
 
-2. *Methodik* (z. B. Richtige Auswahl und Anwendung der Verfahren, statistisches Verständnis)
+2. *Methodik* (z. B. Richtige Auswahl und Anwendung der Verfahren, methodisches Verständnis)
 
 3. *Inhalt* (z. B. Verständlichkeit, Breite und Tiefe der Problemlösung, Korrektheit der Interpretation)
 

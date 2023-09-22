@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sebastian Sauer">
+<meta name="dcterms.date" content="2023-09-22">
 
 <title>Prüfungsformat</title>
 <style>
@@ -45,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#prüfungsformat" id="toc-prüfungsformat" class="nav-link active" data-scroll-target="#prüfungsformat"><span class="header-section-number">1</span> Prüfungsformat</a>
+  <li><a href="#datenanalyse" id="toc-datenanalyse" class="nav-link active" data-scroll-target="#datenanalyse"><span class="header-section-number">1</span> Datenanalyse</a>
   <ul class="collapse">
   <li><a href="#allgemeines" id="toc-allgemeines" class="nav-link" data-scroll-target="#allgemeines"><span class="header-section-number">1.1</span> Allgemeines</a></li>
   <li><a href="#einzureichende-dateien" id="toc-einzureichende-dateien" class="nav-link" data-scroll-target="#einzureichende-dateien"><span class="header-section-number">1.2</span> Einzureichende Dateien</a></li>
@@ -69,7 +71,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sebastian Sauer </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 22, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -77,8 +91,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="prüfungsformat" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Prüfungsformat</h1>
+<section id="datenanalyse" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Datenanalyse</h1>
 <!-- ## Prüfungsform Datenanalyse -->
 <p>Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders lautenden Hinweise gegeben hat (schriftlich).</p>
 <section id="allgemeines" class="level2" data-number="1.1">
@@ -87,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Gegenstand dieser Prüfungsform ist eine Projektarbeit in Form von <em>Analyse</em> eines Datensatzes nach einer <em>Forschungsfrage</em> und die <em>Dokumentation</em> dieser Analyse.</p></li>
 <li><p>Schreiben Sie Ihre Datenanalyse in Form eines <em>Berichts</em>, der sich an den Gliederungspunkten wie unten dargestellt orientiert.</p></li>
 <li><p>Wenden Sie die passenden, im Unterricht eingeführten, <em>statistischen Verfahren</em> an. Es steht Ihnen frei, andere (nicht im Unterricht behandelte) Verfahren zur Analyse der Daten anzuwenden, nach Maßgabe der fachlichen Angemessenheit.</p></li>
-<li><p>Werten Sie die Daten mit <em>R</em> aus.</p></li>
+<li><p>Werten Sie die Daten mit <em>R</em> oder <em>Python</em> aus.</p></li>
 <li><p>Die <em>R-Syntax</em> soll im Hauptteil des Berichts dokumentiert werden. R-Output darf ggf. gekürzt wiedergegeben werden.</p></li>
 <li><p>Fügen Sie <em>keine Erklärungen</em> oder Definitionen von statistischen Verfahren an.</p></li>
 <li><p><em>Beschreiben</em> und <em>interpretieren</em> Sie jede Analyse bzw. jeden R-Code bzw. jedes Ergebnis (jede R-Ausgabe).</p></li>
@@ -114,16 +128,17 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>der Bericht in menschenlesbarer Form (s. Formatierungshinweise)</li>
 <li>alle Dateien, die Quellcode der Analyse beinhalten.</li>
+<li>die Rohdaten</li>
 </ul>
 <ol start="2" type="1">
-<li>Der Name der Dateien kann frei gewählt werden (bzw. folgt technischen Restriktionen).</li>
+<li>Der Name der Dateien kann frei gewählt werden (bzw. folgt keinen technischen Restriktionen).</li>
 </ol>
 </section>
 <section id="formatierung-des-berichts" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="formatierung-des-berichts"><span class="header-section-number">1.3</span> Formatierung des Berichts</h2>
 <ol type="1">
 <li><p>Der Bericht ist <em>nur elektronisch</em>, nicht ausgedruckt einzureichen.</p></li>
-<li><p>Der Bericht kann als <em>paginiertes Dokument</em> (PDF-Dokumente) oder als <em>nicht-paginiertes</em> Dokument (als HTML-Dokument) eingereicht werden.</p></li>
+<li><p>Der Bericht kann in einem <em>paginierten Format</em> (z.B. Word) oder einem <em>nicht-paginierten</em> Format (HTML-Dokument) verfasst werden. Abzugeben ist aber eine PDF-Datei oder eine HTML-Datei, die alle Bilder und sonstige Medien enthält (“Stand-Alone-HTML”).</p></li>
 <li><p>Die Wahl eines bestimmten Stylesheets ist nicht von Bedeutung. <em>Lesbarkeit</em> und <em>Übersichtlichkeit</em> in der Formatierung sind unabhängig davon anzustreben.</p></li>
 <li><p>Im <em>Kopfbereich</em> (oder auf einem Deckblatt) sind die relevanten <em>Metadatan</em> anzugeben wie Name (Nachname, Vorname) der Autorin/des Autors, Abgabedatum, Titel der Arbeit, Modul.</p></li>
 </ol>
@@ -140,8 +155,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1.5" class="anchored" data-anchor-id="beurteilungskriterien"><span class="header-section-number">1.5</span> Beurteilungskriterien</h2>
 <p>Die Arbeit wird im Hinblick auf <em>drei Kriterien</em> bewertet:</p>
 <ol type="1">
-<li><p><em>Formalia</em> (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliches)</p></li>
-<li><p><em>Methodik</em> (z. B. Richtige Auswahl und Anwendung der Verfahren)</p></li>
+<li><p><em>Formalia</em> (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliche, Übersichtlichkeit, Ästhetik, Reproduzierbarkeit)</p></li>
+<li><p><em>Methodik</em> (z. B. Richtige Auswahl und Anwendung der Verfahren, methodisches Verständnis)</p></li>
 <li><p><em>Inhalt</em> (z. B. Verständlichkeit, Breite und Tiefe der Problemlösung, Korrektheit der Interpretation)</p></li>
 </ol>
 <p>Sie erhalten für jedes der drei Kriterien eine Teilnote sowie eine Gesamtnote. Außerdem erhalten Sie ggf. für die Kriterien noch ausformulierte Hinweise.</p>

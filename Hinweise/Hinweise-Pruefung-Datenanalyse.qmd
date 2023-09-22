@@ -1,5 +1,7 @@
 ---
 title: "Prüfungsformat"
+date: today
+author: Sebastian Sauer
 format: 
   html:
     number-sections: true
@@ -7,7 +9,7 @@ format:
 ---
 
 
-# Prüfungsformat
+# Datenanalyse
 
 {{< include Hinweise-Pruefung-Datenanalyse-Child.qmd >}}
 
