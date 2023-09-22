@@ -20,10 +20,10 @@ Der prüfungsrelevante Stoff besteht aus den Inhalten des Skriptes sowie allem, 
 Die Beurteilungskriterien entsprechen denen der Hauptprüfungsleistung.
 
 
-Die Bewertung erfolgt anhand der Einschätzung "bestanden" (cum laude) oder "nicht bestanden" (insufficienter).
+Die Bewertung erfolgt anhand der Einschätzung "sehr gut" (cum laude) oder "ausreichend" (rite).
 
-Eine *bestandene* Bonusleistung verbessert die Gesamtnote um 0,3 Notenstufen.
-Eine *nicht-bestandene* Bonusleistung hat keinen Einfluss auf die Gesamtnote.
+Eine als *sehr gut* bewertete Bonusleistung verbessert die Gesamtnote um 0,3 Notenstufen.
+Eine als *ausreichend* bewertete Bonusleistung hat keinen Einfluss auf die Gesamtnote.
 
 Bei der Präsentation sind keine Hilfsmittel erlaubt.
 
