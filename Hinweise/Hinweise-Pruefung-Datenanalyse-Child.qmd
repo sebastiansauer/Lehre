@@ -19,7 +19,7 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 5. Wenden Sie die passenden, im Unterricht eingeführten, *statistischen Verfahren* an. Es steht Ihnen frei, andere (nicht im Unterricht behandelte) Verfahren zur Analyse der Daten anzuwenden, nach Maßgabe der fachlichen Angemessenheit.
 
-6. Werten Sie die Daten mit *R* aus.
+6. Werten Sie die Daten mit *R* oder *Python* aus.
 
 7. Die *R-Syntax* soll im Hauptteil des Berichts dokumentiert werden. R-Output darf ggf. gekürzt wiedergegeben werden.
 
@@ -59,7 +59,7 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 1. Der Bericht ist *nur elektronisch*, nicht ausgedruckt einzureichen.
 
-2. Der Bericht kann als *paginiertes Dokument* (PDF-Dokumente) oder als *nicht-paginiertes* Dokument (als HTML-Dokument) eingereicht werden.
+2. Der Bericht kann in einem *paginierten Format* (z.B. Word)  oder einem *nicht-paginierten* Format (HTML-Dokument) verfasst werden. Abzugeben ist aber eine PDF-Datei oder eine HTML-Datei, die alle Bilder und sonstige Medien enthält ("Stand-Alone-HTML").
 
 
 4. Die Wahl eines bestimmten Stylesheets ist nicht von Bedeutung. *Lesbarkeit* und *Übersichtlichkeit* in der Formatierung sind unabhängig davon anzustreben.
@@ -87,9 +87,9 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 Die Arbeit wird im Hinblick auf *drei Kriterien* bewertet:
 
-1. *Formalia* (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliches)
+1. *Formalia* (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliche, Übersichtlichkeit, Ästhetik)
 
-2. *Methodik* (z. B. Richtige Auswahl und Anwendung der Verfahren)
+2. *Methodik* (z. B. Richtige Auswahl und Anwendung der Verfahren, statistisches Verständnis)
 
 3. *Inhalt* (z. B. Verständlichkeit, Breite und Tiefe der Problemlösung, Korrektheit der Interpretation)
 

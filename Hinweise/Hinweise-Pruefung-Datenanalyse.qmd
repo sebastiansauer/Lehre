@@ -1,0 +1,14 @@
+---
+title: "Prüfungsformat"
+format: 
+  html:
+    number-sections: true
+    toc: true
+---
+
+
+# Prüfungsformat
+
+{{< include Hinweise-Pruefung-Datenanalyse-Child.qmd >}}
+
+
