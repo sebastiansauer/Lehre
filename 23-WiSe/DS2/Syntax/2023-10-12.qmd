@@ -4,6 +4,17 @@ format: html
 editor: source
 ---
 
+# Setup
+
+```{r}
+library(tidyverse)
+library(tidytext)
+```
+
+
+# Aufgaben
+
+## CSV-Dateien matchen
 
 Einen Order auswählen:
 
@@ -49,7 +60,87 @@ str_detect(txt, pattern  = ".csv")
 
 Neuer Demo-Text:
 
+```{r}
+txt2 <- c("xcsv.doc", "xyx.doc", "treffer.csv")
+```
 
+Wieder Text matchen:
+
+```{r}
+str_detect(txt2, pattern = "\\.csv$")
+```
+
+
+
+## Matchen Sie Elemente, die nur aus Ziffern bestehen
+
+
+```{r}
+txt3 <- c("abc", "a123", "123", "1", "1a23", "12aaaa23")
+```
+
+
+```{r}
+str_detect(txt3, "^[:digit:]+$")
+```
+
+Oh nein, zu viele Treffer! 
+
+
+## Probieren wir "Nur nicht Wort-Zeichen": "\\W"
+
+
+```{r}
+str_detect(txt3, "\\W+")
+```
+
+
+"Words" beinhalten alphanumerische Zeichen, also auch Ziffern.
+
+```{r}
+str_detect(txt3, "^[^A-Za-z]+$")
+```
+
+
+
+# Sentiment-Analyse
+
+
+```{r}
+d_link <- "https://raw.githubusercontent.com/sebastiansauer/pradadata/master/data-raw/afd_2022.csv"
+afd <- read_csv(d_link, show_col_types = FALSE)
+```
+
+
+Tokenisieren:
+
+```{r}
+afd %>% 
+  unnest_tokens(output = token, input = text) %>% 
+  filter(str_detect(token, "[:alpha:]")) -> afd_long
+```
+
+
+```{r}
+sentiws <- read_csv("https://osf.io/x89wq/?action=download")
+```
+
+Jetzt die Sentiment-Analyse:
+
+```{r}
+afd_long %>% 
+  inner_join(sentiws, by = c("token" = "word")) %>% 
+  select(-inflections) -> afd_senti  # die Spalte brauchen wir nicht
+
+afd_senti %>% 
+  group_by(neg_pos) %>% 
+  summarise(polarity_sum = sum(value),
+            polarity_count = n()) %>% 
+  mutate(polarity_prop = (polarity_count / sum(polarity_count)) %>% round(2)) ->
+  afd_senti_tab
+
+afd_senti_tab
+```
 
 
 
