@@ -1,0 +1,7 @@
+---
+title: "2023-10-12-QM2"
+format: html
+editor: visual
+---
+
+# Aufgaben zur Wahrscheinlichkeit
