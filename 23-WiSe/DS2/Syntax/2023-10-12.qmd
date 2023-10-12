@@ -1,0 +1,55 @@
+---
+title: "Alle CSV-Dateien einlesen"
+format: html
+editor: source
+---
+
+
+Einen Order auswählen:
+
+```{r}
+data_path <- "/home/sebastian/Dokumente/datasets"
+```
+
+
+Dateien als Strings einlesen:
+
+```{r}
+files_in_my_folder <- list.files(data_path)
+files_in_my_folder
+```
+
+
+Nur CSV-Dateien einlesen:
+
+```{r}
+csv_files <- list.files(path = data_path,
+                        pattern = "\\.csv")
+csv_files
+```
+
+
+Paket starten für String-Verarbeitung:
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+txt <- "xcsv.doc"
+
+str_view(txt, pattern = ".csv")
+```
+
+
+```{r}
+str_detect(txt, pattern  = ".csv")
+```
+
+Neuer Demo-Text:
+
+
+
+
+
