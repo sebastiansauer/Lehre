@@ -5,3 +5,26 @@ editor: visual
 ---
 
 # Aufgaben zur Wahrscheinlichkeit
+
+## Aufgabe 1: additionssatz1
+
+Geg:
+
+```{r}
+Pr_A <- .8
+Pr_B <- .5
+Pr_AB <- .35
+
+```
+
+Ges:
+
+Wskt, dass mind. eines der beiden Ereignisse eintritt.
+
+```{r}
+Pr_A + Pr_B - Pr_AB
+```
+
+# **Nerd-gelockert**
+
+# Urne1
