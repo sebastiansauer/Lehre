@@ -1,0 +1,25 @@
+---
+title: "2023-10-24-QM2"
+format: html
+editor: visual
+---
+
+# Guten Morgen :-)
+
+# Likelihood
+
+Likelihood: Wie groß ist die Wahrscheinlichkeit für W=6 bei 9 Würfen, wenn der Wasseranteil 90% beträgt?
+
+Anders gesagt: Wir suchen Pr(D=6W\|Wasseranteil = 90%)
+
+`dbinom` liefert uns die Antwort:
+
+```{r}
+dbinom(x = 6, size = 9, prob = .9)
+```
+
+L für $\pi=.6$, d.h. Pr(W=6\|pi = .6):
+
+```{r}
+dbinom(6, 9, prob = .6)
+```
