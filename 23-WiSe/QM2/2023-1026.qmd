@@ -43,3 +43,35 @@ Evidenz <- pr_B2_geg_V_unstand + pr_B1_geg_V_unstand
 
 Post_std_B1 <- pr_B1_geg_V_unstand / Evidenz
 ```
+
+# kekse 02
+
+Bayes-Box!
+
+Setup:
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+d <-
+  tibble(
+    # definiere die Hypothesen (das "Gitter"): 
+    p_Gitter = seq(0, 1, by = .01),
+    # bestimme den Priori-Wert:       
+    Priori  = 1) %>%  
+    mutate(
+      # berechne Likelihood für jeden Gitterwert:
+      Likelihood = p_Gitter,
+      # berechen unstand. Posteriori-Werte:
+      unstd_Post = Likelihood * Priori,
+      # berechne stand. Posteriori-Werte (summiert zu 1):
+      Post = unstd_Post / sum(unstd_Post))  
+```
+
+Hier ist sie, die Bayes-Box:
+
+```{r}
+d
+```
