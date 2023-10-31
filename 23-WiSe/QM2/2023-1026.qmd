@@ -58,7 +58,7 @@ library(tidyverse)
 d <-
   tibble(
     # definiere die Hypothesen (das "Gitter"): 
-    p_Gitter = seq(0, 1, by = .01),
+    p_Gitter = seq(to = 1, from = 0, by = .01),
     # bestimme den Priori-Wert:       
     Priori  = 1) %>%  
     mutate(
