@@ -8,8 +8,63 @@ editor: visual
 
 ## Aufgabe
 
-Erstellen Sie die Stichproben-Bayesbox wie im Skript (Anfang von Kap. 6, Globusversuch) dargestellt.
+Erstellen Sie die Stichproben-Bayesbox wie im Skript (Anfang von Kap. 6, d.h. Kap. 6..2.1, Globusversuch) dargestellt.
 
 Beantworten Sie dann folgende Frage:
 
-Wie groß ist die Wahrscheinlichkeit (auf Basis der Stichproben-Bayesbox), dass der Wasseranteil *mind.* 60% beträgt?
+Wie groß ist die Wahrscheinlichkeit (auf Basis der Stichproben-Bayesbox), dass der Wasseranteil *mind.* 60% beträgt? 🤔
+
+🤖 Ich weiß es!
+
+💆 Mir doch egal.
+
+## Lösung
+
+Setup:
+
+```{r}
+library(tidyverse)
+```
+
+"Normale" Bayes-Box erstellen, auf Basis des Globus-Versuchs:
+
+```{r}
+n <- 11
+n_success <- 6          
+n_trials  <- 9
+p_grid <- seq(from = 0, to = 1, length.out = n)
+L <- dbinom(n_success, size = n_trials, prob = p_grid)
+
+d <-  # Bayesbox!
+  tibble(p_grid = p_grid,prior  = 1) %>% 
+  mutate(likelihood = L) %>% 
+  mutate(unstand_post = (likelihood * prior),
+         post = unstand_post / sum(unstand_post))
+```
+
+Mal schauen:
+
+```{r}
+d
+```
+
+Stichproben-Bayes-Box (`samples`\`) erstellen:
+
+```{r}
+samples <-
+  d %>%  # nimmt die Tabelle mit Posteriori-Daten,
+  slice_sample(  # Ziehe daraus eine Stichprobe,
+    n = 1e4,  # mit insgesamt n=10000 Zeilen,
+    weight_by = post,  # Gewichte nach Post-Wskt.,
+    replace = T)  %>%  # Ziehe mit Zurücklegen
+  select(p_grid)
+```
+
+Jetzt kann man die Stipro-Bayes-Box befragen:
+
+"Wskt für Wasseranteil von mind. 60%?"
+
+```{r}
+samples |> 
+  count(p_grid >= .6)
+```
