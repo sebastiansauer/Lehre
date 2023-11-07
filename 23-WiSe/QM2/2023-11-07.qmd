@@ -1,0 +1,15 @@
+---
+title: "Syntax 2023-11-07"
+format: html
+editor: visual
+---
+
+# Die Stichproben-Bayes-Box
+
+## Aufgabe
+
+Erstellen Sie die Stichproben-Bayesbox wie im Skript (Anfang von Kap. 6, Globusversuch) dargestellt.
+
+Beantworten Sie dann folgende Frage:
+
+Wie groß ist die Wahrscheinlichkeit (auf Basis der Stichproben-Bayesbox), dass der Wasseranteil *mind.* 60% beträgt?
