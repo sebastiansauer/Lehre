@@ -10,6 +10,8 @@ X=27, N=32, Apple-User
 
 Gesucht ist die Post-Verteilung bzw. ein geeignetes Intervall daraus.
 
+Wir sind apriori indifferent.
+
 ## Lösung
 
 Setup:
@@ -31,7 +33,7 @@ Bayesbox berechnen:
 
 ```{r}
 apple_anteil <- seq(from = 0, to = 1, by = .01)
-l <- dbinom(x = 27, size = 42, prob = apple_anteil)
+l <- dbinom(x = 27, size = 32, prob = apple_anteil)
 ```
 
 ```{r}
@@ -39,6 +41,10 @@ bb <-
   bayesbox(hyps = apple_anteil,
            priors = 1,
            liks = l)
+
+bb <-  # auf 2 Dezimalstellen runden
+  bb |> 
+  round(2)
 ```
 
 Stichproben ziehen:
@@ -58,4 +64,19 @@ Post-Verteilung betrachten:
 samples |> 
   select(hyps) |> 
   eti()
+```
+
+```{r}
+samples |> 
+  ggdensity(x = "hyps")
+```
+
+```{r}
+apple_eti <-
+  samples |> 
+  select(hyps) |> 
+  eti() 
+
+plot(apple_eti)
+
 ```
