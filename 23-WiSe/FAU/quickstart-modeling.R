@@ -64,7 +64,7 @@ plot(lm1_pred)
 lm1_bayes_tibble <- as_tibble(lm1_bayes)  # cast as a tibble (table)
 
 head(lm1_bayes_tibble)  # show the first few rows
-
+  
 
 gghistostats(data = lm1_bayes_tibble,
              x = hp)
