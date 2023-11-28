@@ -1,0 +1,77 @@
+---
+title: "Syntax 2024-10-26"
+format: html
+editor: visual
+---
+
+# Bayes2
+
+Tipp: Bayes-Box!
+
+Wir brauchen die Likelihood für beide Hypothesen:
+
+Zur Erinnerung: L sagt wie gut die Daten zu einer Hyp. passen.
+
+## L für Hyp. "Falschmünze" (gezinkt)
+
+```{r}
+dbinom(8, 10, .8)
+
+```
+
+## L2 für Hyp "nicht Falschmünze"
+
+$L_2=Pr(D|\neg F)$
+
+```{r}
+dbinom(8, 10, .5)
+```
+
+# kekse01
+
+Gesucht:
+
+```{r}
+Priori <- 1
+L_B1 <- .75
+pr_B1_geg_V_unstand <- Priori * L_B1
+
+L_B2 <- .5
+pr_B2_geg_V_unstand <- Priori * L_B2
+
+Evidenz <- pr_B2_geg_V_unstand + pr_B1_geg_V_unstand
+
+Post_std_B1 <- pr_B1_geg_V_unstand / Evidenz
+```
+
+# kekse 02
+
+Bayes-Box!
+
+Setup:
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+d <-
+  tibble(
+    # definiere die Hypothesen (das "Gitter"): 
+    p_Gitter = seq(to = 1, from = 0, by = .01),
+    # bestimme den Priori-Wert:       
+    Priori  = 1) %>%  
+    mutate(
+      # berechne Likelihood für jeden Gitterwert:
+      Likelihood = p_Gitter,
+      # berechen unstand. Posteriori-Werte:
+      unstd_Post = Likelihood * Priori,
+      # berechne stand. Posteriori-Werte (summiert zu 1):
+      Post = unstd_Post / sum(unstd_Post))  
+```
+
+Hier ist sie, die Bayes-Box:
+
+```{r}
+d
+```

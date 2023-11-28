@@ -19,7 +19,7 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 5. Wenden Sie die passenden, im Unterricht eingeführten, *statistischen Verfahren* an. Es steht Ihnen frei, andere (nicht im Unterricht behandelte) Verfahren zur Analyse der Daten anzuwenden, nach Maßgabe der fachlichen Angemessenheit.
 
-6. Werten Sie die Daten mit *R* aus.
+6. Werten Sie die Daten mit *R* oder *Python* aus.
 
 7. Die *R-Syntax* soll im Hauptteil des Berichts dokumentiert werden. R-Output darf ggf. gekürzt wiedergegeben werden.
 
@@ -46,12 +46,13 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 ## Einzureichende Dateien
 
-1. Einzureichen sind
+1. Einzureichen sind folgende Dateien:
 
-  - der Bericht in menschenlesbarer Form (s. Formatierungshinweise)
-  - alle Dateien, die Quellcode der Analyse beinhalten. 
+  a. der Bericht in menschenlesbarer Form (s. Formatierungshinweise)
+  b. alle Dateien, die Quellcode der Analyse beinhalten. 
+  c. die Rohdaten
   
-2. Der Name der Dateien kann frei gewählt werden (bzw. folgt technischen Restriktionen).
+2. Der Name der Dateien kann frei gewählt werden (bzw. folgt keinen technischen Restriktionen).
 
 
 
@@ -59,7 +60,7 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 1. Der Bericht ist *nur elektronisch*, nicht ausgedruckt einzureichen.
 
-2. Der Bericht kann als *paginiertes Dokument* (PDF-Dokumente) oder als *nicht-paginiertes* Dokument (als HTML-Dokument) eingereicht werden.
+2. Der Bericht kann in einem *paginierten Format* (z.B. Word)  oder einem *nicht-paginierten* Format (HTML-Dokument) verfasst werden. Abzugeben ist aber eine PDF-Datei oder eine HTML-Datei, die alle Bilder und sonstige Medien enthält ("Stand-Alone-HTML").
 
 
 4. Die Wahl eines bestimmten Stylesheets ist nicht von Bedeutung. *Lesbarkeit* und *Übersichtlichkeit* in der Formatierung sind unabhängig davon anzustreben.
@@ -87,9 +88,9 @@ Alle folgenden Hinweise gelten nur insoweit Ihre Lehrkraft Ihnen keine anders la
 
 Die Arbeit wird im Hinblick auf *drei Kriterien* bewertet:
 
-1. *Formalia* (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliches)
+1. *Formalia* (z. B. Vollständigkeit der Abarbeitung, Angemessenheit der äußeren Gestaltung, Fokus auf Wesentliche, Übersichtlichkeit, Ästhetik, Reproduzierbarkeit)
 
-2. *Methodik* (z. B. Richtige Auswahl und Anwendung der Verfahren)
+2. *Methodik* (z. B. Richtige Auswahl und Anwendung der Verfahren, methodisches Verständnis)
 
 3. *Inhalt* (z. B. Verständlichkeit, Breite und Tiefe der Problemlösung, Korrektheit der Interpretation)
 
@@ -158,6 +159,12 @@ Häufige kleinere Mängel sind z. B.
 - kein (verlinktes) Inhaltsverzeichnis ︎
 - fehlende oder unverständliche Achsenbeschriftung bei Diagrammen 
 - fehlende oder falsche Beschreibung der/des Skalenniveau(s) der untersuchten Variablen
+
+
+## Sonstiges
+
+
+Eine automatische Prüfung auf Plagiate mittels geeigneter, von der Hochschule bereitgestellter Software ist möglich.
 
 
 

@@ -1,0 +1,16 @@
+---
+title: "Prüfungsformat"
+date: today
+author: Sebastian Sauer
+format: 
+  html:
+    number-sections: true
+    toc: true
+---
+
+
+# Datenanalyse
+
+{{< include Hinweise-Pruefung-Datenanalyse-Child.qmd >}}
+
+

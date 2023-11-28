@@ -1,0 +1,83 @@
+---
+title: "2023-10-19"
+format: html
+editor: visual
+---
+
+# Word Embeddings selber basteln
+
+Setup:
+
+```{r}
+library(tidyverse)
+library(slider)
+library(tidytext)
+library(furrr)
+```
+
+```{r}
+d_path <- "https://github.com/EmilHvitfeldt/smltar/raw/master/data/complaints.csv.gz"
+complaints <- read_csv(d_path)
+```
+
+Complaints-Daten gekürzt:
+
+```{r}
+nested_words2_path <- "https://github.com/sebastiansauer/datascience-text/raw/main/data/nested_words2.rds"
+nested_words3_path <- "https://github.com/sebastiansauer/datascience-text/raw/main/data/nested_words3.rds"
+
+nested_words3 <- read_rds(nested_words3_path)
+```
+
+## Funtion slide-it
+
+```{r}
+slide_windows <- function(tbl, window_size) {
+  skipgrams <- slider::slide(
+    tbl, 
+    ~.x,  # Syntax ähnlich zu purrr::map()
+    .after = window_size - 1, 
+    .step = 1, 
+    .complete = TRUE
+  )
+  
+  safe_mutate <- safely(mutate)
+  
+  out <- map2(skipgrams,
+              1:length(skipgrams),
+              ~ safe_mutate(.x, window_id = .y))
+  
+  out %>%
+    transpose() %>%
+    pluck("result") %>%
+    compact() %>%
+    bind_rows()
+}
+```
+
+Weiter kürzen:
+
+```{r}
+futter1 <- nested_words3[["words"]][[1]]
+```
+
+Skipgram erstellen:
+
+```{r}
+skipgrams1 <- slider::slide(
+   futter1, 
+    ~.x, 
+    .after = 3, 
+    .step = 1, 
+    .complete = TRUE
+  )
+```
+
+## Los geht's
+
+```{r}
+tidy_pmi1 <- nested_words3 %>%  # <--- Kleiner Datensatz!
+  mutate(words = future_map(words, slide_windows, 4L))
+
+tidy_pmi1
+```

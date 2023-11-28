@@ -1,0 +1,13 @@
+---
+title: "2023-10-31"
+format: html
+editor: visual
+---
+
+# Wie man Daten in R importiert
+
+Link zu den Daten: https://vincentarelbundock.github.io/Rdatasets/csv/openintro/tips.csv
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/openintro/tips.csv")
+```

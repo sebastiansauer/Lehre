@@ -9,9 +9,38 @@
 Die folgenden Hinweise gelten *grundsätzlich*, 
 d.h. *soweit nicht anders* in der jeweiligen Prüfung bzw. der jeweiligen Aufgabe angegeben.
 
-Nichtbeachten von Prüfungshinweisen kann zu Punkteabzug oder Nichtbestehen führen.
+*Nichtbeachten von Prüfungshinweisen kann zu Punkteabzug oder Nichtbestehen führen.*
 
 
+**Lesen Sie sich diese Hinweise im eigenen Interesse sorgfältig durch.**
+
+
+
+
+
+### Prüfungsrelevanter Stoff
+
+*Prüfungsrelevanter* Stoff ist alles, was im Unterricht behandelt wurde, sofern es nicht explizit (und schriftlich) als "nicht prüfungsrelevant" oder als "Vertiefung" gekennzeichnet ist.
+Insbesondere ist der komplette Inhalt des Skripts und sonstiger vom Dozenten eingestellter Unterlagen prüfungsrelevant (sofern nicht in Teilen anderweitig gekennzeichnet).
+Dazu zählen auch Hinweise auf zu lesende Literatur, aber nicht sonstige Literatur im Literaturverzeichnis.
+Nicht relevant sind die verlinkte externe Inhalte, d.h. Inhalte von Internetadressen, sofern nicht explizit als prüfungsrelevant gekennzeichnet.
+
+
+
+
+### Teilnahmebedingungen
+
+1. Eine *Prüfungsleistung* darf nur *eingereicht* werden, wenn Sie (erfolgreich) zur Prüfung *angemeldet* sind. Eine abgegebene/hochgeladene Arbeit, die nicht erfolgreich angemeldet ist, gilt nicht als erfolgreich eingereicht.
+1.  Die Prüfung ist selbständig, also alleine nur durch Sie (Prüfling), *ohne Hilfe Dritter*, zu absolvieren.
+2.  Die *Bearbeitungszeiten* der Prüfung sind einzuhalten.
+2.  Es dürfen nur die explizit als zulässig gekennzeichneten *Hilfsmittel* verwendet werden.
+2.  Die *zulässigen* Hilfsmittel sind: Notizpapier, Stifte, Taschenrechner, Vorlesungsfolien, Skripte, eigene Notizen, Bücher sowie Quellen aus dem Internet.
+2.  Die Übernahme von Inhalten Dritter muss also solche gekennzeichnet (*zitiert*) werden. 
+2.  Eine wörtliche Übernahme ("*copy-paste*") von Inhalten Dritter (etwa aus einer Quelle aus dem Internet) ist unzulässig.
+2.  Bei *technischen Problemen* ist sofort der Prüfer bzw. die Prüferin zu verständigen und das technische Problem zu dokumentieren. Aus der Dokumentation muss der Fehler erkenntlich sein. 
+2.  Es ist *untersagt*, die *Prüfung* bzw. Teile daraus (z.B. Prüfungsfragen) zu speichern oder *weiterzugeben.*
+2.  Im Übrigen gelten die allgemeinen *Prüfungsregeln*.
+2.  Es darf *nicht* mit anderen Personen, insbesondere nicht Prüflingen, *kommuniziert* werden während der Prüfung. Dies gilt auch für den Fall von (vermeintlichen) technischen Problemen. Kontaktieren Sie den Prüfer, wenn Sie meinen, es liege ein technisches Problem vor.
 
 
 ### Wiederholungsprüfungen
@@ -33,30 +62,6 @@ Nichtbeachten von Prüfungshinweisen kann zu Punkteabzug oder Nichtbestehen füh
 
 
 
-
-
-### Prüfungsrelevanter Stoff
-
-*Prüfungsrelevanter* Stoff ist alles, was im Unterricht behandelt wurde, sofern es nicht explizit (und schriftlich) als "nicht prüfungsrelevant" gekennzeichnet ist.
-Insbesondere ist der komplette Inhalt des Skripts und sonstiger vom Dozenten eingestellter Unterlagen prüfungsrelevant (sofern nicht in Teilen anderweitig gekennzeichnet).
-Dazu zählen auch Hinweise auf zu lesende Literatur, aber nicht sonstige Literatur im Literaturverzeichnis.
-
-
-
-
-### Teilnahmebedingungen
-
-1. Eine *Prüfungsleistung* darf nur *eingereicht* werden, wenn Sie (erfolgreich) zur Prüfung *angemeldet* sind. Eine abgegebene/hochgeladene Arbeit, die nicht erfolgreich angemeldet ist, gilt nicht als erfolgreich eingereicht.
-1.  Die Prüfung ist selbständig, also alleine nur durch Sie (Prüfling), *ohne Hilfe Dritter*, zu absolvieren.
-2.  Die *Bearbeitungszeiten* der Prüfung sind einzuhalten.
-2.  Es dürfen nur die explizit als zulässig gekennzeichneten *Hilfsmittel* verwendet werden.
-2.  Die *zulässigen* Hilfsmittel sind: Notizpapier, Stifte, Taschenrechner, Vorlesungsfolien, Skripte, eigene Notizen, Bücher sowie Quellen aus dem Internet.
-2.  Die Übernahme von Inhalten Dritter muss also solche gekennzeichnet (*zitiert*) werden. 
-2.  Eine wörtliche Übernahme ("*copy-paste*") von Inhalten Dritter (etwa aus einer Quelle aus dem Internet) ist unzulässig.
-2.  Bei *technischen Problemen* ist sofort der Prüfer bzw. die Prüferin zu verständigen und das technische Problem zu dokumentieren. Aus der Dokumentation muss der Fehler erkenntlich sein. 
-2.  Es ist *untersagt*, die *Prüfung* bzw. Teile daraus (z.B. Prüfungsfragen) zu speichern oder *weiterzugeben.*
-2.  Im Übrigen gelten die allgemeinen *Prüfungsregeln*.
-2.  Es darf *nicht* mit anderen Personen, insbesondere nicht Prüflingen, *kommuniziert* werden während der Prüfung. Dies gilt auch für den Fall von (vermeintlichen) technischen Problemen. Kontaktieren Sie den Prüfer, wenn Sie meinen, es liege ein technisches Problem vor.
 
 
 

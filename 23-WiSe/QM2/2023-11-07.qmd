@@ -1,0 +1,105 @@
+---
+title: "Syntax 2023-11-07"
+format: html
+editor: visual
+---
+
+# Die Stichproben-Bayes-Box
+
+## Aufgabe
+
+Erstellen Sie die Stichproben-Bayesbox wie im Skript (Anfang von Kap. 6, d.h. Kap. 6..2.1, Globusversuch) dargestellt.
+
+Beantworten Sie dann folgende Frage:
+
+Wie groß ist die Wahrscheinlichkeit (auf Basis der Stichproben-Bayesbox), dass der Wasseranteil *mind.* 60% beträgt? 🤔
+
+🤖 Ich weiß es!
+
+💆 Mir doch egal.
+
+## Lösung
+
+Setup:
+
+```{r}
+library(tidyverse)
+```
+
+"Normale" Bayes-Box erstellen, auf Basis des Globus-Versuchs:
+
+```{r}
+# Globusversuch wie in Kap. 6.2.1:
+n <- 11
+n_success <- 6          
+n_trials  <- 9
+p_grid <- seq(from = 0, to = 1, length.out = n)
+L <- dbinom(n_success, size = n_trials, prob = p_grid)
+
+d <-  # Bayesbox!
+  tibble(p_grid = p_grid,prior  = 1) %>% 
+  mutate(likelihood = L) %>% 
+  mutate(unstand_post = (likelihood * prior),
+         post = unstand_post / sum(unstand_post))
+```
+
+Mal schauen:
+
+```{r}
+d
+```
+
+Stichproben-Bayes-Box (`samples`) erstellen:
+
+```{r}
+samples <-
+  d %>%  # nimmt die Tabelle mit Posteriori-Daten,
+  slice_sample(  # Ziehe daraus eine Stichprobe,
+    n = 1e4,  # mit insgesamt n=10000 Zeilen,
+    weight_by = post,  # Gewichte nach Post-Wskt.,
+    replace = T)  %>%  # Ziehe mit Zurücklegen
+  select(p_grid)
+```
+
+Mal rein schauen:
+
+```{r}
+samples
+```
+
+Jetzt kann man die Stipro-Bayes-Box befragen:
+
+"Wskt für Wasseranteil von mind. 60%?"
+
+```{r}
+samples |> 
+  count(p_grid >= .6)
+```
+
+## Aufgabe
+
+"Was ist die Wahrscheinlichkeit für einen Wasseranteil zwischen 50 und 70%?"
+
+👉 Wir filtern die Tabelle nach diesem Kriterium.
+
+```{r}
+samples |> 
+  count(p_grid >=.5 & p_grid <= .7)  # Und-Verknüpfung
+```
+
+Fragetyp 1:
+
+Nach \*Wskt\* geg. einem bestimmten Wasseranteilswert.
+
+Fragetyp 2:
+
+Welcher *Wasseranteilswert* wird mit einer bestimmten Wskt nicht übertroffen (geg. einer Wskt)?
+
+"Welcher Wasseranteilswert wird vermutlich nicht übetroffen? (Obere Grenze des Wasseranteils)
+
+"vermutlich: 95%"
+
+```{r}
+samples |> 
+  summarise(q95 = quantile(p_grid, prob = .95))
+```
