@@ -1,0 +1,82 @@
+---
+title: "2023-11-09"
+format: html
+editor: visual
+---
+
+## Apple-Anteil
+
+X=27, N=32, Apple-User
+
+Gesucht ist die Post-Verteilung bzw. ein geeignetes Intervall daraus.
+
+Wir sind apriori indifferent.
+
+## Lösung
+
+Setup:
+
+```{r}
+library(tidyverse)
+library(ggpubr)
+library(easystats)
+```
+
+Bayes-Box-Funktion importieren:
+
+```{r}
+source("https://raw.githubusercontent.com/sebastiansauer/prada/master/R/NAME_bayesbox.R") 
+
+```
+
+Bayesbox berechnen:
+
+```{r}
+apple_anteil <- seq(from = 0, to = 1, by = .01)
+l <- dbinom(x = 27, size = 32, prob = apple_anteil)
+```
+
+```{r}
+bb <- 
+  bayesbox(hyps = apple_anteil,
+           priors = 1,
+           liks = l)
+
+bb <-  # auf 2 Dezimalstellen runden
+  bb |> 
+  round(2)
+```
+
+Stichproben ziehen:
+
+```{r}
+samples <-
+  slice_sample(bb,
+               n = 1e4,
+               weight_by = post_std,
+               replace = TRUE)
+  
+```
+
+Post-Verteilung betrachten:
+
+```{r}
+samples |> 
+  select(hyps) |> 
+  eti()
+```
+
+```{r}
+samples |> 
+  ggdensity(x = "hyps")
+```
+
+```{r}
+apple_eti <-
+  samples |> 
+  select(hyps) |> 
+  eti() 
+
+plot(apple_eti)
+
+```

@@ -1,0 +1,55 @@
+---
+title: "2023-11-30"
+format: html
+editor: visual
+---
+
+# penguins-stan-01
+
+setup:
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(rstanarm)
+
+data("penguins", package = "palmerpenguins")
+```
+
+Check:
+
+```{r}
+glimpse(penguins)
+```
+
+Hey Stan, an die Arbeit:
+
+```{r}
+set.seed(42)
+m1 <- stan_glm(body_mass_g ~  bill_length_mm,  # Regressionsgleichung
+               data = penguins, #  Daten
+               seed = 42,  # Reproduzierbarkeit
+               refresh = 0)  # nicht so viel Output
+```
+
+Okay, Stan, und jetzt die Parameter, bitte:
+
+```{r}
+parameters(m1, ci = .9) 
+```
+
+Breite des Intervalls für beta1:
+
+```{r}
+97.97 - 76.89
+```
+
+# mtcars-stan01
+
+Wie `penguins-stan-01` aber:
+
+-   Datensatz `mtcars`\`
+
+-   AV: `mpg`\`
+
+-   UV: \`hp\`
