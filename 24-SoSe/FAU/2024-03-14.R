@@ -88,7 +88,7 @@ penguins |> # control-shift-m  #THEN DO..."
   filter(sex == "female" | sex == "male")
 
 
-lm4 <- lm(body_mass_g ~ sex, data = p2)
+lm4 <- lm(body_mass_g ~ sex, data = penguins2)
 
 
 parameters(lm4)
@@ -96,4 +96,21 @@ estimate_expectation(lm4)
 plot(estimate_expectation(lm4))
 
 r2(lm4)
+
+
+
+# Exercise
+
+# mtcars: y: mpg, x = am
+
+
+
+lm5 <- lm(mpg ~ am, data = mtcars)
+
+
+parameters(lm5)
+#estimate_expectation(lm5)
+plot(estimate_expectation(lm5))
+
+r2(lm5)
 
