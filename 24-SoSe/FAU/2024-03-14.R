@@ -114,3 +114,17 @@ plot(estimate_expectation(lm5))
 
 r2(lm5)
 
+
+# Model with 2 input variables:
+
+# First, convert "cyl" to a grouping/nominal/factor variable:
+mtcars2 <-
+  mtcars %>% 
+  mutate(cyl = factor(cyl))
+
+# now run the model:
+lm6 <- lm(mpg ~ hp + cyl, data = mtcars2)
+parameters(lm6)
+plot(estimate_expectation(lm6))
+
+
