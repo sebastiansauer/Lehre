@@ -10,3 +10,8 @@ library(easystats)
 
 # import data:
 penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+data(mtcars)
+
+
+lm1_freq <- lm(mpg ~ hp, data = mtcars)
+parameters(lm1_freq)  # coming from R package `easystats`
