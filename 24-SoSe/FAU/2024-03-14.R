@@ -14,4 +14,18 @@ data(mtcars)
 
 
 lm1_freq <- lm(mpg ~ hp, data = mtcars)
+
+# dont' forget to load the packag easystats:
 parameters(lm1_freq)  # coming from R package `easystats`
+
+plot(parameters(lm1_freq))
+plot(estimate_expectation(lm1_freq))
+
+# Exercise:
+# Build a model using the penguins data
+# y: weight 
+# x: bill 
+
+
+
+
