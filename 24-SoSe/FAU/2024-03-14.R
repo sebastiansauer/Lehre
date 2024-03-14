@@ -129,3 +129,34 @@ parameters(lm6)
 plot(estimate_expectation(lm6))
 
 
+# penguins
+# exercise:
+# y: weight as a linear function of species and bill length
+
+
+lm8 <-lm(body_mass_g ~ bill_length_mm * species, 
+         data = penguins2)
+parameters(lm8)
+lm8_phred <- estimate_relation(lm8)
+plot(lm8_phred)
+plot(parameters(lm8))
+estimate_expectation(lm8)
+plot(estimate_expectation(lm8))
+r2(lm8)
+
+
+lm9 <- lm(body_mass_g ~ bill_length_mm, data = penguins)
+parameters(lm9)
+
+
+# Interpret the incerpet: CENTER it
+penguins4 <-
+  penguins3 |> 
+  mutate(bill_length_mm_centered = bill_length_mm - mean(bill_length_mm, na.rm = TRUE))
+
+
+
+lm10 <- lm(body_mass_g ~ bill_length_mm_centered, data = penguins4)
+parameters(lm10)
+
+
