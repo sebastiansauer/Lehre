@@ -65,5 +65,16 @@ namensliste <- c("Anna", "Berta", "Carla")
 mean(mariokart$total_pr)
 
 # Mit runden:
+round(49.88049, 1)
+
+# Zwei Befehle verschachtelt:
 round(mean(mariokart$total_pr), 1)
+
+# Weisen Sie den Mittelwert einer Variable zu.
+# Runden Sie dann diese Variable (1 Dezimale).
+
+
+total_pr_mean <- mean(mariokart$total_pr)
+round(total_pr_mean, 1)
+
 
