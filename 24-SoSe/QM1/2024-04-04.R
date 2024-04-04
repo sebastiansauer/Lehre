@@ -77,4 +77,13 @@ round(mean(mariokart$total_pr), 1)
 total_pr_mean <- mean(mariokart$total_pr)
 round(total_pr_mean, 1)
 
+total_pr_mean > 40
 
+# Logikprüfungen
+
+alter <- 45
+
+alter == 45
+
+
+alter != 45
