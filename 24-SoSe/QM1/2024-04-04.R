@@ -53,9 +53,17 @@ mean(alter_freunde, na.rm = TRUE)
 # Häh, R?
 mean(c(20, 21))
 
+# Pakete starten per Befehl:
+library(tidyverse)
 
+# Datensatz "Mariokart" importieren:
+mariokart <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/openintro/mariokart.csv")
 
+namensliste <- c("Anna", "Berta", "Carla")
 
+# Was macht dieser Befehl?
+mean(mariokart$total_pr)
 
-
+# Mit runden:
+round(mean(mariokart$total_pr), 1)
 
