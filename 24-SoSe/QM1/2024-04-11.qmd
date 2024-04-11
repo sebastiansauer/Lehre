@@ -76,3 +76,47 @@ mariokart_max_verkaufspreis
 mariokart_gruppiert <- group_by(mariokart, cond)
 summarise(mariokart_gruppiert, preis_mw = mean(total_pr))
 ```
+
+*Übung*: Berechnen Sie den mittleren und maximalen Verkaufspreis getrennt für Spiele mit und ohne Foto!
+
+```{r}
+mariokart_gruppiert_foto <- group_by(mariokart, stock_photo)
+mariokart_verkaufspreis_foto <- summarise(mariokart_gruppiert_foto,
+                                          total_pr_avg = mean(total_pr),
+                                          total_pr_max = max(total_pr))
+
+mariokart_verkaufspreis_foto
+```
+
+## Mutate
+
+```{r}
+mariokart2 <- mutate(mariokart, total_pr_yen = total_pr * 133)
+mariokart2 <- select(mariokart2, total_pr_yen, total_pr)
+mariokart2
+```
+
+*Übung:* Rechnen Sie die Dauer der Auktionen von Tagen in Wochen um.
+
+```{r}
+mariokart_duration_wochen <- 
+  mutate(mariokart, duration_week = duration / 7)
+
+mariokart_duration_wochen <-
+   select(mariokart_duration_wochen, duration, duration_week)
+mariokart_duration_wochen
+```
+
+BONUS-Aufgabe: Runden Sie die Wochen auf ganze Wochen.
+
+```{r}
+mariokart_duration_wochen <- 
+  mutate(mariokart, duration_week = duration / 7)
+
+mariokart_duration_wochen2 <-
+  mutate(mariokart_duration_wochen, duration_week2 = round(duration_week, digits = 0))
+
+mariokart_duration_wochen2 <-
+  select(mariokart_duration_wochen2, duration, duration_week, duration_week2)
+mariokart_duration_wochen2
+```

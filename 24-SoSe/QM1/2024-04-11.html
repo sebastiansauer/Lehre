@@ -1,0 +1,2442 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.527">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Syntax 2024-04-11</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="2024-04-11_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2024-04-11_files/libs/quarto-html/quarto.js"></script>
+<script src="2024-04-11_files/libs/quarto-html/popper.min.js"></script>
+<script src="2024-04-11_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2024-04-11_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2024-04-11_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2024-04-11_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2024-04-11_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2024-04-11_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2024-04-11_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Syntax 2024-04-11</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="pakete-starten" class="level2">
+<h2 class="anchored" data-anchor-id="pakete-starten">Pakete starten</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code># Attaching packages: easystats 0.7.1
+✔ bayestestR  0.13.2    ✔ correlation 0.8.4  
+✔ datawizard  0.10.0    ✔ effectsize  0.8.7  
+✔ insight     0.19.10   ✔ modelbased  0.8.7  
+✔ performance 0.11.0    ✔ parameters  0.21.6 
+✔ report      0.5.8     ✔ see         0.8.3  </code></pre>
+</div>
+</div>
+</section>
+<section id="daten-importieren" class="level2">
+<h2 class="anchored" data-anchor-id="daten-importieren">Daten importieren</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mariokart <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/openintro/mariokart.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="spalte-sortieren" class="level2">
+<h2 class="anchored" data-anchor-id="spalte-sortieren">Spalte sortieren</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mariokart_neu <span class="ot">&lt;-</span> <span class="fu">arrange</span>(mariokart, total_pr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mariokart_neu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    rownames           id duration n_bids cond start_pr ship_pr total_pr
+1         52 260487434344        1     17 used     0.99    0.00    28.98
+2         62 120477734245        1     12 used     0.01    0.00    30.00
+3         21 260486415542        1      7 used     0.99    0.00    31.00
+4         32 320429712274        7     14 used     1.99    0.00    31.00
+5         60 180413665867       10      3 used    30.00    0.00    31.00
+6         95 110443640168        1     16 used     0.01    0.00    31.06
+7         56 250507926501        1     14 used     0.99    0.00    32.00
+8        108 290353981573        7      9 used     0.01    3.00    33.01
+9         27 140350730320        3      5 used    15.00    3.50    34.50
+10       126 230383658784        7     10 used     0.99    3.99    34.99
+11        92 140349745540        5     10 used     9.99    1.99    35.99
+12        28 300352773649        3      5 used     0.99    0.00    36.00
+13        53 180414884615        3     16 used     0.99    0.00    36.00
+14        59 230382161059        7     16 used     0.99    4.00    36.00
+15        87 270464942103        7      7 used     0.99    3.00    36.00
+16       132 390099348424        7     14 used     9.95    3.99    36.99
+17       135 230383342455        7     11 used     9.99    3.00    37.00
+18         7 120477729093        1     13 used     0.01    0.00    37.02
+19         2 260483376854        7     13 used     0.99    3.99    37.04
+20        78 170389806612        5     21 used     0.99    4.00    38.00
+21        49 380164318834        7     21 used     0.99    3.00    38.06
+22        64 130334124980        5     18 used     9.99    3.59    38.10
+23       100 250505900389        5     14 used    10.00    9.26    38.26
+24       142 300352306018        7     13 used     1.00    4.90    38.76
+25        48 190338339476        7     20 used    15.00    0.00    39.00
+26       137 350258970192        5     20 used     0.99    4.00    39.00
+27       139 110441497272        1     20 used     0.01    0.00    39.51
+28        29 140350558850        1     13 used     0.99    4.00    40.00
+29        68 160366874975        7     14 used     0.99    3.00    40.00
+30       118 350258591183        7     10 used     0.99    4.00    40.05
+31        57 230383186236        7     10 used     0.99    4.00    40.06
+32        72 160366789855        3     17 used     0.99    0.00    40.10
+33        97 110441486551        3     23  new     0.99    4.00    40.10
+34       138 120475800455        7      6 used    24.99    8.70    40.70
+35        35 190339151607        3     10 used     0.99    0.00    41.00
+36       124 320431084246        1     11 used     1.00    0.00    41.00
+37       134 350258416318        5     17 used     0.99   10.35    41.35
+38        73 320429126014        7     16  new     0.99    3.50    41.50
+39        80 200389906028        5     18 used    19.99    2.95    41.95
+40        33 390101286838        5     13 used     0.99    4.00    41.99
+41        46 180414145715        3      8 used     9.99    3.99    41.99
+42       105 350258355546        5      7 used     0.99    4.00    42.00
+43        42 360194236883        3     13 used     0.99    0.00    42.25
+44       112 170389664528        3      5 used    35.00    0.00    42.55
+45        31 170391192572        1     11 used    10.00    4.00    43.00
+46        91 250505896381        7     13 used    10.00    0.00    43.00
+47       111 360194338883        3     16 used     0.99    4.00    43.00
+48        15 250505391611        7      6 used    24.99    4.00    43.33
+49        81 320429166256       10     15 used     9.99    6.00    43.36
+50        55 300353503260        7     16 used     0.99    2.95    43.95
+51         4 280405224677        3     18  new     0.99    0.00    44.00
+52        38 140348739089        7     17 used    15.00    4.00    44.00
+53        99 180412891421        7      9 used    10.00    4.00    44.00
+54       133 280404385327        7     14 used    16.00    4.00    44.00
+55        36 150377945722        3     15 used     0.99    8.70    44.78
+56         6 360195157625        3     19  new     0.99    4.00    45.00
+57        79 270464680053        3     14 used     0.99    4.00    45.00
+58       119 170389877681        1     13  new     0.01    0.00    45.00
+59        83 280404748775        3     19 used    12.00    4.00    45.21
+60         3 320432342985        3     16  new     0.99    3.50    45.50
+61        85 110439483831        7     14 used    10.00    3.75    45.75
+62       117 160365924565        7     18  new     9.99    4.00    45.99
+63        16 120474800581        7     22 used     0.99    4.00    46.00
+64        18 280406546082        3     23  new     0.99    0.00    46.00
+65        43 320433689752        1     14 used     0.99    4.00    46.00
+66        50 160365983438        7     16 used     0.99    0.00    46.00
+67        94 230382795039        7     15 used    12.00    0.00    46.00
+68       110 320430035588        5     20  new     0.01    0.00    46.00
+69       125 120477418866        3      9  new     0.01    0.00    46.00
+70       130 270466062990        3     11  new     0.99    4.00    46.00
+71        41 260482893160        7      5  new    30.00    0.00    46.03
+72        25 110443013258        3     12 used     0.01    4.00    46.50
+73        17 140350383072        3     14  new     0.99    8.70    46.71
+74         9 200392065459        3     29 used     0.99    4.00    47.00
+75        30 320430545471        7     15  new     9.99    4.00    47.00
+76        37 110441755664        3     16 used     0.99    4.00    47.00
+77        71 110442400658        3      9  new    25.00    4.00    47.00
+78        90 220491072489        3     16 used     0.99    4.00    47.00
+79       106 230382266458        7     18  new    18.00    4.00    47.00
+80       122 370266219023        7      3 used    38.00    4.00    47.00
+81       141 140349730405        3     14  new     0.99    8.70    47.70
+82        13 300353460362        1     13  new     1.00    2.99    48.00
+83        58 290355740844        5      7 used    25.00    2.99    48.00
+84        77 140350338936        3      4 used    34.99    4.00    48.00
+85       116 150377042368        7      7 used    25.00   11.42    48.92
+86       102 290355806517        1     13  new     1.00    2.99    48.99
+87        76 110443314932        1     13 used     0.99    8.02    49.00
+88       127 320432437858        1     23 used     0.99    0.00    49.00
+89        70 120474301183        7     16 used     5.00    4.00    49.01
+90        34 170388799958        5     24 used     0.99    3.99    49.49
+91       121 250505299784        7     16  new     9.99    9.69    49.75
+92        89 120476317961        5      5  new    35.00    4.00    49.91
+93        10 330364163424        7      8 used    19.99    4.00    50.00
+94       120 140350726723        3      8 used    20.00    4.00    50.00
+95        24 110441494985        1     18  new     1.00    2.99    50.50
+96       101 110442288138        5     11 used    19.99    4.00    51.00
+97         1 150377422259        3     20  new     0.99    4.00    51.55
+98        44 110443667250        1     29  new     1.00    2.99    51.99
+99        54 330364742474        3      2  new    51.99    0.00    51.99
+100      140 150376936435        7      9 used    17.99    0.00    52.00
+101      113 190338974387        7      5 used     1.00    0.00    52.50
+102       98 110443692422        1     20  new     1.00    2.99    52.59
+103       40 290356333829        1     14  new     1.00    2.99    53.76
+104      109 300354031535        1     16  new     1.00    2.99    53.76
+105       22 290356835900        1     16  new     1.00    2.99    53.98
+106        8 300355501482        1     15  new     1.00    2.99    53.99
+107       47 290357882110        1     12  new     1.00    2.99    53.99
+108       61 290356311538        1     23  new     1.00    2.99    53.99
+109       67 110441494977        1     13  new     1.00    2.99    53.99
+110       93 180417692717        1     11 used     9.99    3.99    54.49
+111      143 110443320905        1     13  new     1.00    2.99    54.51
+112       88 280402374100        7      7  new    29.95    8.70    54.70
+113       11 290355805215        1     15  new     1.00    2.99    54.99
+114       82 110442967284        1      8  new     1.00    2.99    54.99
+115       26 180416694913        1     19  new     0.01    0.00    55.00
+116      107 230382436039        5     17 used     0.99    4.00    55.00
+117       96 260485846288        3     15 used     0.99    0.00    55.60
+118       19 290356835892        1     10  new     1.00    2.99    55.99
+119       45 110443342909        1     17  new     1.00    2.99    55.99
+120       14 180415244903        1     16  new     0.01    0.00    56.00
+121       74 180415469294        1     20  new     0.01    0.00    56.00
+122      123 110443653510        1     17  new     1.00    2.99    56.00
+123       12 180415462166        1     15  new     0.01    0.00    56.01
+124      114 110441494999        1     25  new     1.00    2.99    57.50
+125       63 300355190611        1      9  new     1.00    2.99    58.00
+126      136 300354862386        1     18  new     1.00    2.99    58.98
+127       51 110442981432        1     10  new     1.00    2.99    59.88
+128      128 170391971205        1     19  new     0.01    0.00    61.00
+129       66 110439935999        7     12 used    30.00    0.00    61.76
+130      129 180416291487        1     14  new     0.01    0.00    62.89
+131      104 170390813853        1     22  new     0.01    0.00    63.50
+132       39 290356835914        1      9  new     1.00    2.99    63.99
+133       86 160366410200        3     14  new     0.99    4.00    64.00
+134       69 360193279993        7     12 used     0.99    4.00    64.50
+135       23 350261958546        1      1  new    64.95    0.00    64.95
+136       75 400077480990        1      1  new    64.95    0.00    64.95
+137      131 390103890073        1      1  new    64.95    0.00    64.95
+138       84 160366174782        7      2 used    55.00    9.02    65.02
+139      103 400076879560        1      1  new    54.99   11.45    66.44
+140        5 170392227765        1     20  new     0.01    0.00    71.00
+141      115 350261016626        1      3  new    69.95    0.00    75.00
+142       65 130335427560        3     27 used     6.95    4.00   118.50
+143       20 110439174663        7     22 used     1.00   25.51   326.51
+       ship_sp seller_rate stock_photo wheels
+1     standard        4982         yes      0
+2     standard        7284         yes      0
+3     standard        4982         yes      0
+4        media         166         yes      0
+5     priority          19          no      0
+6     standard        7284         yes      0
+7     standard         206         yes      0
+8        media         381         yes      1
+9   firstClass          37         yes      0
+10  firstClass         462         yes      1
+11   upsGround          19         yes      0
+12   upsGround          15         yes      0
+13    standard        2046          no      1
+14      parcel         355          no      0
+15    priority           0         yes      0
+16       media        2290          no      0
+17    priority         297          no      0
+18    standard        7284         yes      0
+19  firstClass         365         yes      1
+20  firstClass       14504          no      0
+21  firstClass        8625         yes      0
+22  firstClass         861          no      0
+23   upsGround          35          no      1
+24      parcel          41          no      0
+25  firstClass         422         yes      0
+26  firstClass       14503         yes      0
+27    standard        7284         yes      0
+28    standard        4200          no      0
+29       media          88         yes      1
+30    standard         877         yes      1
+31  firstClass        4473          no      1
+32    standard        2046          no      1
+33    standard      270144         yes      0
+34    priority        3085          no      1
+35    priority       42241         yes      1
+36    priority          30          no      1
+37    priority       14503         yes      1
+38  firstClass         998          no      1
+39      parcel         194         yes      0
+40    standard       16041         yes      1
+41  firstClass          69         yes      1
+42  firstClass       14503          no      0
+43    priority       42241          no      1
+44    priority          10         yes      1
+45    priority          18         yes      0
+46    standard          21          no      1
+47    standard      270143         yes      0
+48    standard         154         yes      1
+49      parcel        2399         yes      1
+50  firstClass         943         yes      0
+51    standard           7         yes      1
+52    priority        2131          no      1
+53       other         103          no      2
+54    priority          37         yes      1
+55    priority          88         yes      1
+56    standard      270144         yes      0
+57    standard      270144         yes      0
+58       other         556         yes      1
+59    standard          64         yes      1
+60  firstClass         998          no      1
+61   upsGround           0         yes      1
+62  firstClass        1154         yes      1
+63       media         309         yes      0
+64    standard           7         yes      1
+65    priority          34          no      2
+66    priority          90          no      1
+67    priority          15         yes      1
+68       media        8224         yes      1
+69  firstClass        1144          no      1
+70  firstClass         299         yes      1
+71  firstClass         555          no      1
+72  firstClass         172         yes      1
+73    priority         251         yes      1
+74    priority          27         yes      1
+75      parcel          62         yes      1
+76  firstClass        1270          no      0
+77     ups3Day         627         yes      1
+78      parcel         231         yes      0
+79    standard         389         yes      1
+80      parcel         508          no      1
+81    priority         251         yes      1
+82   upsGround        4858         yes      2
+83    priority         239          no      1
+84    standard          85         yes      1
+85      parcel          11         yes      1
+86   upsGround        4858         yes      2
+87      parcel         350          no      2
+88      parcel         280         yes      2
+89   upsGround         285          no      2
+90   upsGround          27         yes      2
+91    priority          94         yes      0
+92      parcel         127         yes      1
+93  firstClass         201          no      1
+94      parcel          63         yes      2
+95   upsGround        4858         yes      2
+96    priority          36          no      2
+97    standard        1580         yes      1
+98   upsGround        4858         yes      2
+99       other      223861         yes      0
+100     parcel         121          no      2
+101   standard         116         yes      2
+102  upsGround        4858         yes      2
+103  upsGround        4858         yes      2
+104  upsGround        4858         yes      2
+105  upsGround        4858         yes      2
+106  upsGround        4858         yes      2
+107  upsGround        4858         yes      2
+108  upsGround        4858         yes      2
+109  upsGround        4858         yes      2
+110 firstClass          69         yes      2
+111  upsGround        4858         yes      2
+112   priority         208         yes      1
+113  upsGround        4858         yes      2
+114  upsGround        4858         yes      2
+115      media         820         yes      2
+116   standard         261          no      2
+117  upsGround          54         yes      2
+118  upsGround        4858         yes      2
+119  upsGround        4858         yes      2
+120      media         820         yes      2
+121      media         820         yes      2
+122  upsGround        4858         yes      2
+123      media         820         yes      2
+124  upsGround        4858         yes      2
+125  upsGround        4858         yes      2
+126  upsGround        4858         yes      2
+127  upsGround        4858         yes      2
+128      media         820         yes      2
+129   standard          27         yes      2
+130      media         820         yes      2
+131      media         820         yes      2
+132  upsGround        4858         yes      2
+133   standard         127         yes      2
+134   standard         991          no      3
+135   standard      118345         yes      2
+136   standard      118345         yes      2
+137   standard      118345         yes      2
+138     parcel          25          no      4
+139  upsGround      118345         yes      2
+140      media         820         yes      2
+141   standard      118345         yes      3
+142     parcel          41          no      0
+143     parcel         115          no      2
+                                                          title
+1          Super Mario Kart Nintendo Wii Video Game Driving SMK
+2       Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+3          Super Mario Kart Nintendo Wii Video Game Driving SMK
+4                                          Mario Kart Wii (Wii)
+5                  Mario Kart Wii Good Condition (No Wii Wheel)
+6       Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+7                                    Mario Kart Wii (Wii) game 
+8                                      MarioKart (Wii) w/ wheel
+9                                          Mario Kart Wii (Wii)
+10                 Mario Kart Wii (Wii) Game and Steering Wheel
+11                                         Mario Kart Wii (Wii)
+12                                         Mario Kart Wii (Wii)
+13                 Mario Kart Wii Nintendo Wii Game &amp;amp; Wheel
+14                                         Mario Kart Wii (Wii)
+15                                         Mario Kart Wii (Wii)
+16           Mario Kart Nintendo Wii Game Complete &amp;amp; MINT !
+17                                                MarioKart Wii
+18      Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+19      Mariokart Wii Nintendo with wheel - Mario Kart Nintendo
+20                            Nintendo Wii Mario Kart GAME ONLY
+21      MARIO KART - NINTENDO WII =============================
+22       MarioKart Mario Kart Nintendo Wii Rare great game race
+23                              Mario Kart (Wii) with Wii Wheel
+24                                               Mario Kart Wii
+25                        Mario Kart Wii (Wii) Used Ships Free!
+26                            Nintendo Wii Mario Kart GAME ONLY
+27      Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+28                                  MARIO KART for Nintendo Wii
+29                                         Mario Kart Wii (Wii)
+30                         Mario Kart Wii (Wii) W/RACING WHEEL!
+31               Mario Kart Wii (Wii) - Comes with Wheel - Used
+32                 Mario Kart Wii Nintendo Wii Game &amp;amp; Wheel
+33      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+34                      NINTENDO WII MARIOKART (WHEEL AND GAME)
+35  Mario Kart &amp;amp; Wheel Nintendo Wii Game Free Priority Mail
+36                                Mario Kart Wii with Wii Wheel
+37  Wii Mario Kart Game &amp;amp; Wheel In Original Box Tested WKIN
+38                                         Mario Kart Wii (Wii)
+39                                         Mario Kart Wii (Wii)
+40                                         Mario Kart Wii (Wii)
+41      Mario Kart Wii with Wii Wheel for Nintendo Wii FASTSHIP
+42                            Nintendo Wii Mario Kart GAME ONLY
+43  Mario Kart &amp;amp; Wheel Nintendo Wii Game Free Priority Mail
+44                            Mario Kart Wii (Wii) with 1 Wheel
+45                                         Mario Kart Wii (Wii)
+46                                         Mario Kart Wii (Wii)
+47      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+48                            Mario Kart Wii (Wii) w/ Wii Wheel
+49               Mario Kart Wii (Nintendo Wii) Complete, Mint!!
+50                              Wii Mario Kart Great Condition!
+51         Brand New Mario Kart Wii Comes with Wheel. Free Ship
+52                                      Mario Kart Wii Complete
+53                                         Mario Kart Wii (Wii)
+54                                      Mario Kart Wii w/ wheel
+55                                                MarioKart Wii
+56      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+57      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+58             Mario Kart Wii, Game and Wheel, Brand New Sealed
+59                                Mario Kart Wii Nintendo Super
+60                                         Mario Kart Wii (Wii)
+61                    Nintendo Wii MarioKart and Steering Wheel
+62          MARIO KART WII WITH STEERING WHEEL NEW NINTENDO WII
+63                             Mario Kart Wii (Wii) - GAME ONLY
+64         Brand New Mario Kart Wii Comes with Wheel. Free Ship
+65                              Mario Kart with 2 wheels by Wii
+66         Mario Kart Wii (Wii) USED ONLY ONCE! MINT CONDITION!
+67                        Mario Kart Wii WITH  BONUS WHEEL!!!!!
+68        BRAND NEW! FACTORY SEALED! MARIO KART WITH Wii WHEEL 
+69       NEW Mario Kart Nintendo Wii Racing Game w/Wheel Online
+70      NINTENDO ~ MARIO KART Wii ~ NEW IN BOX ~ FACTORY SEALED
+71        New Nintendo Super Mario Kart Wii with Steering Wheel
+72                Mario Kart Wii (Wii) Includes Steering Wheel!
+73            Wii Mario Kart game + wheel:  NIB, factory sealed
+74        Wii game Mario Kart in box with 1 wheel Fast Shipping
+75              Mario Kart Wii (Wii) - Brand New &amp;amp; Sealed!!
+76                               Mario Kart Wii (Wii) COMPLETE 
+77                  Mario Kart Wii with Wii Wheel for Wii (New)
+78                                         Mario Kart Wii (Wii)
+79                                         Mario Kart Wii (Wii)
+80             Mario Kart Wii (Wii)   -   Complete!    Perfect!
+81            Wii Mario Kart game + wheel:  NIB, factory sealed
+82                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+83                                       Mario Kart Wii + Wheel
+84              Mario Kart Wii (Wii) In Original Box With Wheel
+85                                         Mario Kart Wii (Wii)
+86                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+87    NINTENDO Wii Mario Kart 2 wheels 1 reg &amp;amp; 1 sport NR E
+88      Mario Kart Wii (Nintendo Wii) comes with 2 Wheels NEW!!
+89         Mario Kart For Wii with 2-steering wheels NO RESERVE
+90                                                             
+91                               Mario Kart Wii (Wii)  *SEALED*
+92             Mario Kart Wii (Wii) - NIB - Factory Sealed - NR
+93      Nintendo Wii : Mario Kart Wii w/ Wii Wheel (2008, MINT)
+94                                         Mario Kart Wii (Wii)
+95                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+96        NINTENDO WII MARIO KART GAME DISK WITH TWO (2) WHEELS
+97  ~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BRAND NEW ~~
+98                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+99       NINTENDO WII SUPER Mario Kart GAME ONLY NO Wheel NEW *
+100                                        Mario Kart Wii (Wii)
+101      Mario Kart Wii with Bonus Wheel!!! (2 Wheels Included)
+102                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+103                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+104                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+105                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+106                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+107                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+108                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+109                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+110            MARIO KART FOR NINTENDO Wii WITH 2 WHEELS + GAME
+111                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+112                    Mario Kart Wii Game with 1 Wheel - (Wii)
+113                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+114                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+115     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+116                Nintendo Wii Mario Kart With 2 Racing Wheels
+117     Mario Kart Wii (Wii) w/2 Nintendo Wheels Excellent Cond
+118                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+119                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+120     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+121     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+122                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+123     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+124                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+125                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+126                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+127                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+128     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+129                     Mario Kart Wii (Wii) game and 2 wheels!
+130     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+131     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+132                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+133        Mario Kart Wii (Wii) w/ TWO OFFICIAL STEERING WHEELS
+134        Wii  MARIO KART GAME  PLUS 3 STEERING WHEELS!   Wii 
+135      MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+136     NEW MARIO KART GAME+OFFICIAL WHITE+CRIMSON RED WHEELS!!
+137      MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+138                        Mario Kart Wii (Wii) + 4 nerf wheels
+139     MARIO KART WITH WII WHEEL+1 GT PRO PINK WII WHEEL BUNDL
+140     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+141      NEW MARIO KART WITH WII WHEEL+2 GT PRO WHITE WII WHEEL
+142     10 Nintendo Wii Games - MarioKart Wii, SpiderMan 3, etc
+143        Nintedo Wii Console Bundle Guitar Hero 5 Mario Kart </code></pre>
+</div>
+</div>
+<p>Übungsaufgabe 4.2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(mariokart, <span class="sc">-</span> wheels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    rownames           id duration n_bids cond start_pr ship_pr total_pr
+1         84 160366174782        7      2 used    55.00    9.02    65.02
+2         69 360193279993        7     12 used     0.99    4.00    64.50
+3        115 350261016626        1      3  new    69.95    0.00    75.00
+4          5 170392227765        1     20  new     0.01    0.00    71.00
+5          8 300355501482        1     15  new     1.00    2.99    53.99
+6         11 290355805215        1     15  new     1.00    2.99    54.99
+7         12 180415462166        1     15  new     0.01    0.00    56.01
+8         13 300353460362        1     13  new     1.00    2.99    48.00
+9         14 180415244903        1     16  new     0.01    0.00    56.00
+10        19 290356835892        1     10  new     1.00    2.99    55.99
+11        20 110439174663        7     22 used     1.00   25.51   326.51
+12        22 290356835900        1     16  new     1.00    2.99    53.98
+13        23 350261958546        1      1  new    64.95    0.00    64.95
+14        24 110441494985        1     18  new     1.00    2.99    50.50
+15        26 180416694913        1     19  new     0.01    0.00    55.00
+16        34 170388799958        5     24 used     0.99    3.99    49.49
+17        39 290356835914        1      9  new     1.00    2.99    63.99
+18        40 290356333829        1     14  new     1.00    2.99    53.76
+19        43 320433689752        1     14 used     0.99    4.00    46.00
+20        44 110443667250        1     29  new     1.00    2.99    51.99
+21        45 110443342909        1     17  new     1.00    2.99    55.99
+22        47 290357882110        1     12  new     1.00    2.99    53.99
+23        51 110442981432        1     10  new     1.00    2.99    59.88
+24        61 290356311538        1     23  new     1.00    2.99    53.99
+25        63 300355190611        1      9  new     1.00    2.99    58.00
+26        66 110439935999        7     12 used    30.00    0.00    61.76
+27        67 110441494977        1     13  new     1.00    2.99    53.99
+28        70 120474301183        7     16 used     5.00    4.00    49.01
+29        74 180415469294        1     20  new     0.01    0.00    56.00
+30        75 400077480990        1      1  new    64.95    0.00    64.95
+31        76 110443314932        1     13 used     0.99    8.02    49.00
+32        82 110442967284        1      8  new     1.00    2.99    54.99
+33        86 160366410200        3     14  new     0.99    4.00    64.00
+34        93 180417692717        1     11 used     9.99    3.99    54.49
+35        96 260485846288        3     15 used     0.99    0.00    55.60
+36        98 110443692422        1     20  new     1.00    2.99    52.59
+37        99 180412891421        7      9 used    10.00    4.00    44.00
+38       101 110442288138        5     11 used    19.99    4.00    51.00
+39       102 290355806517        1     13  new     1.00    2.99    48.99
+40       103 400076879560        1      1  new    54.99   11.45    66.44
+41       104 170390813853        1     22  new     0.01    0.00    63.50
+42       107 230382436039        5     17 used     0.99    4.00    55.00
+43       109 300354031535        1     16  new     1.00    2.99    53.76
+44       113 190338974387        7      5 used     1.00    0.00    52.50
+45       114 110441494999        1     25  new     1.00    2.99    57.50
+46       120 140350726723        3      8 used    20.00    4.00    50.00
+47       123 110443653510        1     17  new     1.00    2.99    56.00
+48       127 320432437858        1     23 used     0.99    0.00    49.00
+49       128 170391971205        1     19  new     0.01    0.00    61.00
+50       129 180416291487        1     14  new     0.01    0.00    62.89
+51       131 390103890073        1      1  new    64.95    0.00    64.95
+52       136 300354862386        1     18  new     1.00    2.99    58.98
+53       140 150376936435        7      9 used    17.99    0.00    52.00
+54       143 110443320905        1     13  new     1.00    2.99    54.51
+55         1 150377422259        3     20  new     0.99    4.00    51.55
+56         2 260483376854        7     13 used     0.99    3.99    37.04
+57         3 320432342985        3     16  new     0.99    3.50    45.50
+58         4 280405224677        3     18  new     0.99    0.00    44.00
+59         9 200392065459        3     29 used     0.99    4.00    47.00
+60        10 330364163424        7      8 used    19.99    4.00    50.00
+61        15 250505391611        7      6 used    24.99    4.00    43.33
+62        17 140350383072        3     14  new     0.99    8.70    46.71
+63        18 280406546082        3     23  new     0.99    0.00    46.00
+64        25 110443013258        3     12 used     0.01    4.00    46.50
+65        30 320430545471        7     15  new     9.99    4.00    47.00
+66        33 390101286838        5     13 used     0.99    4.00    41.99
+67        35 190339151607        3     10 used     0.99    0.00    41.00
+68        36 150377945722        3     15 used     0.99    8.70    44.78
+69        38 140348739089        7     17 used    15.00    4.00    44.00
+70        41 260482893160        7      5  new    30.00    0.00    46.03
+71        42 360194236883        3     13 used     0.99    0.00    42.25
+72        46 180414145715        3      8 used     9.99    3.99    41.99
+73        50 160365983438        7     16 used     0.99    0.00    46.00
+74        53 180414884615        3     16 used     0.99    0.00    36.00
+75        57 230383186236        7     10 used     0.99    4.00    40.06
+76        58 290355740844        5      7 used    25.00    2.99    48.00
+77        68 160366874975        7     14 used     0.99    3.00    40.00
+78        71 110442400658        3      9  new    25.00    4.00    47.00
+79        72 160366789855        3     17 used     0.99    0.00    40.10
+80        73 320429126014        7     16  new     0.99    3.50    41.50
+81        77 140350338936        3      4 used    34.99    4.00    48.00
+82        81 320429166256       10     15 used     9.99    6.00    43.36
+83        83 280404748775        3     19 used    12.00    4.00    45.21
+84        85 110439483831        7     14 used    10.00    3.75    45.75
+85        88 280402374100        7      7  new    29.95    8.70    54.70
+86        89 120476317961        5      5  new    35.00    4.00    49.91
+87        91 250505896381        7     13 used    10.00    0.00    43.00
+88        94 230382795039        7     15 used    12.00    0.00    46.00
+89       100 250505900389        5     14 used    10.00    9.26    38.26
+90       106 230382266458        7     18  new    18.00    4.00    47.00
+91       108 290353981573        7      9 used     0.01    3.00    33.01
+92       110 320430035588        5     20  new     0.01    0.00    46.00
+93       112 170389664528        3      5 used    35.00    0.00    42.55
+94       116 150377042368        7      7 used    25.00   11.42    48.92
+95       117 160365924565        7     18  new     9.99    4.00    45.99
+96       118 350258591183        7     10 used     0.99    4.00    40.05
+97       119 170389877681        1     13  new     0.01    0.00    45.00
+98       122 370266219023        7      3 used    38.00    4.00    47.00
+99       124 320431084246        1     11 used     1.00    0.00    41.00
+100      125 120477418866        3      9  new     0.01    0.00    46.00
+101      126 230383658784        7     10 used     0.99    3.99    34.99
+102      130 270466062990        3     11  new     0.99    4.00    46.00
+103      133 280404385327        7     14 used    16.00    4.00    44.00
+104      134 350258416318        5     17 used     0.99   10.35    41.35
+105      138 120475800455        7      6 used    24.99    8.70    40.70
+106      141 140349730405        3     14  new     0.99    8.70    47.70
+107        6 360195157625        3     19  new     0.99    4.00    45.00
+108        7 120477729093        1     13 used     0.01    0.00    37.02
+109       16 120474800581        7     22 used     0.99    4.00    46.00
+110       21 260486415542        1      7 used     0.99    0.00    31.00
+111       27 140350730320        3      5 used    15.00    3.50    34.50
+112       28 300352773649        3      5 used     0.99    0.00    36.00
+113       29 140350558850        1     13 used     0.99    4.00    40.00
+114       31 170391192572        1     11 used    10.00    4.00    43.00
+115       32 320429712274        7     14 used     1.99    0.00    31.00
+116       37 110441755664        3     16 used     0.99    4.00    47.00
+117       48 190338339476        7     20 used    15.00    0.00    39.00
+118       49 380164318834        7     21 used     0.99    3.00    38.06
+119       52 260487434344        1     17 used     0.99    0.00    28.98
+120       54 330364742474        3      2  new    51.99    0.00    51.99
+121       55 300353503260        7     16 used     0.99    2.95    43.95
+122       56 250507926501        1     14 used     0.99    0.00    32.00
+123       59 230382161059        7     16 used     0.99    4.00    36.00
+124       60 180413665867       10      3 used    30.00    0.00    31.00
+125       62 120477734245        1     12 used     0.01    0.00    30.00
+126       64 130334124980        5     18 used     9.99    3.59    38.10
+127       65 130335427560        3     27 used     6.95    4.00   118.50
+128       78 170389806612        5     21 used     0.99    4.00    38.00
+129       79 270464680053        3     14 used     0.99    4.00    45.00
+130       80 200389906028        5     18 used    19.99    2.95    41.95
+131       87 270464942103        7      7 used     0.99    3.00    36.00
+132       90 220491072489        3     16 used     0.99    4.00    47.00
+133       92 140349745540        5     10 used     9.99    1.99    35.99
+134       95 110443640168        1     16 used     0.01    0.00    31.06
+135       97 110441486551        3     23  new     0.99    4.00    40.10
+136      105 350258355546        5      7 used     0.99    4.00    42.00
+137      111 360194338883        3     16 used     0.99    4.00    43.00
+138      121 250505299784        7     16  new     9.99    9.69    49.75
+139      132 390099348424        7     14 used     9.95    3.99    36.99
+140      135 230383342455        7     11 used     9.99    3.00    37.00
+141      137 350258970192        5     20 used     0.99    4.00    39.00
+142      139 110441497272        1     20 used     0.01    0.00    39.51
+143      142 300352306018        7     13 used     1.00    4.90    38.76
+       ship_sp seller_rate stock_photo wheels
+1       parcel          25          no      4
+2     standard         991          no      3
+3     standard      118345         yes      3
+4        media         820         yes      2
+5    upsGround        4858         yes      2
+6    upsGround        4858         yes      2
+7        media         820         yes      2
+8    upsGround        4858         yes      2
+9        media         820         yes      2
+10   upsGround        4858         yes      2
+11      parcel         115          no      2
+12   upsGround        4858         yes      2
+13    standard      118345         yes      2
+14   upsGround        4858         yes      2
+15       media         820         yes      2
+16   upsGround          27         yes      2
+17   upsGround        4858         yes      2
+18   upsGround        4858         yes      2
+19    priority          34          no      2
+20   upsGround        4858         yes      2
+21   upsGround        4858         yes      2
+22   upsGround        4858         yes      2
+23   upsGround        4858         yes      2
+24   upsGround        4858         yes      2
+25   upsGround        4858         yes      2
+26    standard          27         yes      2
+27   upsGround        4858         yes      2
+28   upsGround         285          no      2
+29       media         820         yes      2
+30    standard      118345         yes      2
+31      parcel         350          no      2
+32   upsGround        4858         yes      2
+33    standard         127         yes      2
+34  firstClass          69         yes      2
+35   upsGround          54         yes      2
+36   upsGround        4858         yes      2
+37       other         103          no      2
+38    priority          36          no      2
+39   upsGround        4858         yes      2
+40   upsGround      118345         yes      2
+41       media         820         yes      2
+42    standard         261          no      2
+43   upsGround        4858         yes      2
+44    standard         116         yes      2
+45   upsGround        4858         yes      2
+46      parcel          63         yes      2
+47   upsGround        4858         yes      2
+48      parcel         280         yes      2
+49       media         820         yes      2
+50       media         820         yes      2
+51    standard      118345         yes      2
+52   upsGround        4858         yes      2
+53      parcel         121          no      2
+54   upsGround        4858         yes      2
+55    standard        1580         yes      1
+56  firstClass         365         yes      1
+57  firstClass         998          no      1
+58    standard           7         yes      1
+59    priority          27         yes      1
+60  firstClass         201          no      1
+61    standard         154         yes      1
+62    priority         251         yes      1
+63    standard           7         yes      1
+64  firstClass         172         yes      1
+65      parcel          62         yes      1
+66    standard       16041         yes      1
+67    priority       42241         yes      1
+68    priority          88         yes      1
+69    priority        2131          no      1
+70  firstClass         555          no      1
+71    priority       42241          no      1
+72  firstClass          69         yes      1
+73    priority          90          no      1
+74    standard        2046          no      1
+75  firstClass        4473          no      1
+76    priority         239          no      1
+77       media          88         yes      1
+78     ups3Day         627         yes      1
+79    standard        2046          no      1
+80  firstClass         998          no      1
+81    standard          85         yes      1
+82      parcel        2399         yes      1
+83    standard          64         yes      1
+84   upsGround           0         yes      1
+85    priority         208         yes      1
+86      parcel         127         yes      1
+87    standard          21          no      1
+88    priority          15         yes      1
+89   upsGround          35          no      1
+90    standard         389         yes      1
+91       media         381         yes      1
+92       media        8224         yes      1
+93    priority          10         yes      1
+94      parcel          11         yes      1
+95  firstClass        1154         yes      1
+96    standard         877         yes      1
+97       other         556         yes      1
+98      parcel         508          no      1
+99    priority          30          no      1
+100 firstClass        1144          no      1
+101 firstClass         462         yes      1
+102 firstClass         299         yes      1
+103   priority          37         yes      1
+104   priority       14503         yes      1
+105   priority        3085          no      1
+106   priority         251         yes      1
+107   standard      270144         yes      0
+108   standard        7284         yes      0
+109      media         309         yes      0
+110   standard        4982         yes      0
+111 firstClass          37         yes      0
+112  upsGround          15         yes      0
+113   standard        4200          no      0
+114   priority          18         yes      0
+115      media         166         yes      0
+116 firstClass        1270          no      0
+117 firstClass         422         yes      0
+118 firstClass        8625         yes      0
+119   standard        4982         yes      0
+120      other      223861         yes      0
+121 firstClass         943         yes      0
+122   standard         206         yes      0
+123     parcel         355          no      0
+124   priority          19          no      0
+125   standard        7284         yes      0
+126 firstClass         861          no      0
+127     parcel          41          no      0
+128 firstClass       14504          no      0
+129   standard      270144         yes      0
+130     parcel         194         yes      0
+131   priority           0         yes      0
+132     parcel         231         yes      0
+133  upsGround          19         yes      0
+134   standard        7284         yes      0
+135   standard      270144         yes      0
+136 firstClass       14503          no      0
+137   standard      270143         yes      0
+138   priority          94         yes      0
+139      media        2290          no      0
+140   priority         297          no      0
+141 firstClass       14503         yes      0
+142   standard        7284         yes      0
+143     parcel          41          no      0
+                                                          title
+1                          Mario Kart Wii (Wii) + 4 nerf wheels
+2          Wii  MARIO KART GAME  PLUS 3 STEERING WHEELS!   Wii 
+3        NEW MARIO KART WITH WII WHEEL+2 GT PRO WHITE WII WHEEL
+4       BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+5                   BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+6                   BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+7       BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+8                   BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+9       BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+10                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+11         Nintedo Wii Console Bundle Guitar Hero 5 Mario Kart 
+12                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+13       MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+14                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+15      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+16                                                             
+17                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+18                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+19                              Mario Kart with 2 wheels by Wii
+20                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+21                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+22                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+23                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+24                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+25                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+26                      Mario Kart Wii (Wii) game and 2 wheels!
+27                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+28         Mario Kart For Wii with 2-steering wheels NO RESERVE
+29      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+30      NEW MARIO KART GAME+OFFICIAL WHITE+CRIMSON RED WHEELS!!
+31    NINTENDO Wii Mario Kart 2 wheels 1 reg &amp;amp; 1 sport NR E
+32                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+33         Mario Kart Wii (Wii) w/ TWO OFFICIAL STEERING WHEELS
+34             MARIO KART FOR NINTENDO Wii WITH 2 WHEELS + GAME
+35      Mario Kart Wii (Wii) w/2 Nintendo Wheels Excellent Cond
+36                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+37                                         Mario Kart Wii (Wii)
+38        NINTENDO WII MARIO KART GAME DISK WITH TWO (2) WHEELS
+39                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+40      MARIO KART WITH WII WHEEL+1 GT PRO PINK WII WHEEL BUNDL
+41      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+42                 Nintendo Wii Mario Kart With 2 Racing Wheels
+43                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+44       Mario Kart Wii with Bonus Wheel!!! (2 Wheels Included)
+45                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+46                                         Mario Kart Wii (Wii)
+47                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+48      Mario Kart Wii (Nintendo Wii) comes with 2 Wheels NEW!!
+49      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+50      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+51       MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+52                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+53                                         Mario Kart Wii (Wii)
+54                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+55  ~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BRAND NEW ~~
+56      Mariokart Wii Nintendo with wheel - Mario Kart Nintendo
+57                                         Mario Kart Wii (Wii)
+58         Brand New Mario Kart Wii Comes with Wheel. Free Ship
+59        Wii game Mario Kart in box with 1 wheel Fast Shipping
+60      Nintendo Wii : Mario Kart Wii w/ Wii Wheel (2008, MINT)
+61                            Mario Kart Wii (Wii) w/ Wii Wheel
+62            Wii Mario Kart game + wheel:  NIB, factory sealed
+63         Brand New Mario Kart Wii Comes with Wheel. Free Ship
+64                Mario Kart Wii (Wii) Includes Steering Wheel!
+65              Mario Kart Wii (Wii) - Brand New &amp;amp; Sealed!!
+66                                         Mario Kart Wii (Wii)
+67  Mario Kart &amp;amp; Wheel Nintendo Wii Game Free Priority Mail
+68                                                MarioKart Wii
+69                                      Mario Kart Wii Complete
+70        New Nintendo Super Mario Kart Wii with Steering Wheel
+71  Mario Kart &amp;amp; Wheel Nintendo Wii Game Free Priority Mail
+72      Mario Kart Wii with Wii Wheel for Nintendo Wii FASTSHIP
+73         Mario Kart Wii (Wii) USED ONLY ONCE! MINT CONDITION!
+74                 Mario Kart Wii Nintendo Wii Game &amp;amp; Wheel
+75               Mario Kart Wii (Wii) - Comes with Wheel - Used
+76                                       Mario Kart Wii + Wheel
+77                                         Mario Kart Wii (Wii)
+78                  Mario Kart Wii with Wii Wheel for Wii (New)
+79                 Mario Kart Wii Nintendo Wii Game &amp;amp; Wheel
+80                                         Mario Kart Wii (Wii)
+81              Mario Kart Wii (Wii) In Original Box With Wheel
+82               Mario Kart Wii (Nintendo Wii) Complete, Mint!!
+83                                Mario Kart Wii Nintendo Super
+84                    Nintendo Wii MarioKart and Steering Wheel
+85                     Mario Kart Wii Game with 1 Wheel - (Wii)
+86             Mario Kart Wii (Wii) - NIB - Factory Sealed - NR
+87                                         Mario Kart Wii (Wii)
+88                        Mario Kart Wii WITH  BONUS WHEEL!!!!!
+89                              Mario Kart (Wii) with Wii Wheel
+90                                         Mario Kart Wii (Wii)
+91                                     MarioKart (Wii) w/ wheel
+92        BRAND NEW! FACTORY SEALED! MARIO KART WITH Wii WHEEL 
+93                            Mario Kart Wii (Wii) with 1 Wheel
+94                                         Mario Kart Wii (Wii)
+95          MARIO KART WII WITH STEERING WHEEL NEW NINTENDO WII
+96                         Mario Kart Wii (Wii) W/RACING WHEEL!
+97             Mario Kart Wii, Game and Wheel, Brand New Sealed
+98             Mario Kart Wii (Wii)   -   Complete!    Perfect!
+99                                Mario Kart Wii with Wii Wheel
+100      NEW Mario Kart Nintendo Wii Racing Game w/Wheel Online
+101                Mario Kart Wii (Wii) Game and Steering Wheel
+102     NINTENDO ~ MARIO KART Wii ~ NEW IN BOX ~ FACTORY SEALED
+103                                     Mario Kart Wii w/ wheel
+104 Wii Mario Kart Game &amp;amp; Wheel In Original Box Tested WKIN
+105                     NINTENDO WII MARIOKART (WHEEL AND GAME)
+106           Wii Mario Kart game + wheel:  NIB, factory sealed
+107     Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+108     Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+109                            Mario Kart Wii (Wii) - GAME ONLY
+110        Super Mario Kart Nintendo Wii Video Game Driving SMK
+111                                        Mario Kart Wii (Wii)
+112                                        Mario Kart Wii (Wii)
+113                                 MARIO KART for Nintendo Wii
+114                                        Mario Kart Wii (Wii)
+115                                        Mario Kart Wii (Wii)
+116                              Mario Kart Wii (Wii) COMPLETE 
+117                       Mario Kart Wii (Wii) Used Ships Free!
+118     MARIO KART - NINTENDO WII =============================
+119        Super Mario Kart Nintendo Wii Video Game Driving SMK
+120      NINTENDO WII SUPER Mario Kart GAME ONLY NO Wheel NEW *
+121                             Wii Mario Kart Great Condition!
+122                                  Mario Kart Wii (Wii) game 
+123                                        Mario Kart Wii (Wii)
+124                Mario Kart Wii Good Condition (No Wii Wheel)
+125     Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+126      MarioKart Mario Kart Nintendo Wii Rare great game race
+127     10 Nintendo Wii Games - MarioKart Wii, SpiderMan 3, etc
+128                           Nintendo Wii Mario Kart GAME ONLY
+129     Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+130                                        Mario Kart Wii (Wii)
+131                                        Mario Kart Wii (Wii)
+132                                        Mario Kart Wii (Wii)
+133                                        Mario Kart Wii (Wii)
+134     Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+135     Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+136                           Nintendo Wii Mario Kart GAME ONLY
+137     Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+138                              Mario Kart Wii (Wii)  *SEALED*
+139          Mario Kart Nintendo Wii Game Complete &amp;amp; MINT !
+140                                               MarioKart Wii
+141                           Nintendo Wii Mario Kart GAME ONLY
+142     Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+143                                              Mario Kart Wii</code></pre>
+</div>
+</div>
+</section>
+<section id="filtern" class="level2">
+<h2 class="anchored" data-anchor-id="filtern">Filtern</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mariokart_neu <span class="ot">&lt;-</span> <span class="fu">filter</span>(mariokart, stock_photo <span class="sc">==</span> <span class="st">"yes"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mariokart_neu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    rownames           id duration n_bids cond start_pr ship_pr total_pr
+1          1 150377422259        3     20  new     0.99    4.00    51.55
+2          2 260483376854        7     13 used     0.99    3.99    37.04
+3          4 280405224677        3     18  new     0.99    0.00    44.00
+4          5 170392227765        1     20  new     0.01    0.00    71.00
+5          6 360195157625        3     19  new     0.99    4.00    45.00
+6          7 120477729093        1     13 used     0.01    0.00    37.02
+7          8 300355501482        1     15  new     1.00    2.99    53.99
+8          9 200392065459        3     29 used     0.99    4.00    47.00
+9         11 290355805215        1     15  new     1.00    2.99    54.99
+10        12 180415462166        1     15  new     0.01    0.00    56.01
+11        13 300353460362        1     13  new     1.00    2.99    48.00
+12        14 180415244903        1     16  new     0.01    0.00    56.00
+13        15 250505391611        7      6 used    24.99    4.00    43.33
+14        16 120474800581        7     22 used     0.99    4.00    46.00
+15        17 140350383072        3     14  new     0.99    8.70    46.71
+16        18 280406546082        3     23  new     0.99    0.00    46.00
+17        19 290356835892        1     10  new     1.00    2.99    55.99
+18        21 260486415542        1      7 used     0.99    0.00    31.00
+19        22 290356835900        1     16  new     1.00    2.99    53.98
+20        23 350261958546        1      1  new    64.95    0.00    64.95
+21        24 110441494985        1     18  new     1.00    2.99    50.50
+22        25 110443013258        3     12 used     0.01    4.00    46.50
+23        26 180416694913        1     19  new     0.01    0.00    55.00
+24        27 140350730320        3      5 used    15.00    3.50    34.50
+25        28 300352773649        3      5 used     0.99    0.00    36.00
+26        30 320430545471        7     15  new     9.99    4.00    47.00
+27        31 170391192572        1     11 used    10.00    4.00    43.00
+28        32 320429712274        7     14 used     1.99    0.00    31.00
+29        33 390101286838        5     13 used     0.99    4.00    41.99
+30        34 170388799958        5     24 used     0.99    3.99    49.49
+31        35 190339151607        3     10 used     0.99    0.00    41.00
+32        36 150377945722        3     15 used     0.99    8.70    44.78
+33        39 290356835914        1      9  new     1.00    2.99    63.99
+34        40 290356333829        1     14  new     1.00    2.99    53.76
+35        44 110443667250        1     29  new     1.00    2.99    51.99
+36        45 110443342909        1     17  new     1.00    2.99    55.99
+37        46 180414145715        3      8 used     9.99    3.99    41.99
+38        47 290357882110        1     12  new     1.00    2.99    53.99
+39        48 190338339476        7     20 used    15.00    0.00    39.00
+40        49 380164318834        7     21 used     0.99    3.00    38.06
+41        51 110442981432        1     10  new     1.00    2.99    59.88
+42        52 260487434344        1     17 used     0.99    0.00    28.98
+43        54 330364742474        3      2  new    51.99    0.00    51.99
+44        55 300353503260        7     16 used     0.99    2.95    43.95
+45        56 250507926501        1     14 used     0.99    0.00    32.00
+46        61 290356311538        1     23  new     1.00    2.99    53.99
+47        62 120477734245        1     12 used     0.01    0.00    30.00
+48        63 300355190611        1      9  new     1.00    2.99    58.00
+49        66 110439935999        7     12 used    30.00    0.00    61.76
+50        67 110441494977        1     13  new     1.00    2.99    53.99
+51        68 160366874975        7     14 used     0.99    3.00    40.00
+52        71 110442400658        3      9  new    25.00    4.00    47.00
+53        74 180415469294        1     20  new     0.01    0.00    56.00
+54        75 400077480990        1      1  new    64.95    0.00    64.95
+55        77 140350338936        3      4 used    34.99    4.00    48.00
+56        79 270464680053        3     14 used     0.99    4.00    45.00
+57        80 200389906028        5     18 used    19.99    2.95    41.95
+58        81 320429166256       10     15 used     9.99    6.00    43.36
+59        82 110442967284        1      8  new     1.00    2.99    54.99
+60        83 280404748775        3     19 used    12.00    4.00    45.21
+61        85 110439483831        7     14 used    10.00    3.75    45.75
+62        86 160366410200        3     14  new     0.99    4.00    64.00
+63        87 270464942103        7      7 used     0.99    3.00    36.00
+64        88 280402374100        7      7  new    29.95    8.70    54.70
+65        89 120476317961        5      5  new    35.00    4.00    49.91
+66        90 220491072489        3     16 used     0.99    4.00    47.00
+67        92 140349745540        5     10 used     9.99    1.99    35.99
+68        93 180417692717        1     11 used     9.99    3.99    54.49
+69        94 230382795039        7     15 used    12.00    0.00    46.00
+70        95 110443640168        1     16 used     0.01    0.00    31.06
+71        96 260485846288        3     15 used     0.99    0.00    55.60
+72        97 110441486551        3     23  new     0.99    4.00    40.10
+73        98 110443692422        1     20  new     1.00    2.99    52.59
+74       102 290355806517        1     13  new     1.00    2.99    48.99
+75       103 400076879560        1      1  new    54.99   11.45    66.44
+76       104 170390813853        1     22  new     0.01    0.00    63.50
+77       106 230382266458        7     18  new    18.00    4.00    47.00
+78       108 290353981573        7      9 used     0.01    3.00    33.01
+79       109 300354031535        1     16  new     1.00    2.99    53.76
+80       110 320430035588        5     20  new     0.01    0.00    46.00
+81       111 360194338883        3     16 used     0.99    4.00    43.00
+82       112 170389664528        3      5 used    35.00    0.00    42.55
+83       113 190338974387        7      5 used     1.00    0.00    52.50
+84       114 110441494999        1     25  new     1.00    2.99    57.50
+85       115 350261016626        1      3  new    69.95    0.00    75.00
+86       116 150377042368        7      7 used    25.00   11.42    48.92
+87       117 160365924565        7     18  new     9.99    4.00    45.99
+88       118 350258591183        7     10 used     0.99    4.00    40.05
+89       119 170389877681        1     13  new     0.01    0.00    45.00
+90       120 140350726723        3      8 used    20.00    4.00    50.00
+91       121 250505299784        7     16  new     9.99    9.69    49.75
+92       123 110443653510        1     17  new     1.00    2.99    56.00
+93       126 230383658784        7     10 used     0.99    3.99    34.99
+94       127 320432437858        1     23 used     0.99    0.00    49.00
+95       128 170391971205        1     19  new     0.01    0.00    61.00
+96       129 180416291487        1     14  new     0.01    0.00    62.89
+97       130 270466062990        3     11  new     0.99    4.00    46.00
+98       131 390103890073        1      1  new    64.95    0.00    64.95
+99       133 280404385327        7     14 used    16.00    4.00    44.00
+100      134 350258416318        5     17 used     0.99   10.35    41.35
+101      136 300354862386        1     18  new     1.00    2.99    58.98
+102      137 350258970192        5     20 used     0.99    4.00    39.00
+103      139 110441497272        1     20 used     0.01    0.00    39.51
+104      141 140349730405        3     14  new     0.99    8.70    47.70
+105      143 110443320905        1     13  new     1.00    2.99    54.51
+       ship_sp seller_rate stock_photo wheels
+1     standard        1580         yes      1
+2   firstClass         365         yes      1
+3     standard           7         yes      1
+4        media         820         yes      2
+5     standard      270144         yes      0
+6     standard        7284         yes      0
+7    upsGround        4858         yes      2
+8     priority          27         yes      1
+9    upsGround        4858         yes      2
+10       media         820         yes      2
+11   upsGround        4858         yes      2
+12       media         820         yes      2
+13    standard         154         yes      1
+14       media         309         yes      0
+15    priority         251         yes      1
+16    standard           7         yes      1
+17   upsGround        4858         yes      2
+18    standard        4982         yes      0
+19   upsGround        4858         yes      2
+20    standard      118345         yes      2
+21   upsGround        4858         yes      2
+22  firstClass         172         yes      1
+23       media         820         yes      2
+24  firstClass          37         yes      0
+25   upsGround          15         yes      0
+26      parcel          62         yes      1
+27    priority          18         yes      0
+28       media         166         yes      0
+29    standard       16041         yes      1
+30   upsGround          27         yes      2
+31    priority       42241         yes      1
+32    priority          88         yes      1
+33   upsGround        4858         yes      2
+34   upsGround        4858         yes      2
+35   upsGround        4858         yes      2
+36   upsGround        4858         yes      2
+37  firstClass          69         yes      1
+38   upsGround        4858         yes      2
+39  firstClass         422         yes      0
+40  firstClass        8625         yes      0
+41   upsGround        4858         yes      2
+42    standard        4982         yes      0
+43       other      223861         yes      0
+44  firstClass         943         yes      0
+45    standard         206         yes      0
+46   upsGround        4858         yes      2
+47    standard        7284         yes      0
+48   upsGround        4858         yes      2
+49    standard          27         yes      2
+50   upsGround        4858         yes      2
+51       media          88         yes      1
+52     ups3Day         627         yes      1
+53       media         820         yes      2
+54    standard      118345         yes      2
+55    standard          85         yes      1
+56    standard      270144         yes      0
+57      parcel         194         yes      0
+58      parcel        2399         yes      1
+59   upsGround        4858         yes      2
+60    standard          64         yes      1
+61   upsGround           0         yes      1
+62    standard         127         yes      2
+63    priority           0         yes      0
+64    priority         208         yes      1
+65      parcel         127         yes      1
+66      parcel         231         yes      0
+67   upsGround          19         yes      0
+68  firstClass          69         yes      2
+69    priority          15         yes      1
+70    standard        7284         yes      0
+71   upsGround          54         yes      2
+72    standard      270144         yes      0
+73   upsGround        4858         yes      2
+74   upsGround        4858         yes      2
+75   upsGround      118345         yes      2
+76       media         820         yes      2
+77    standard         389         yes      1
+78       media         381         yes      1
+79   upsGround        4858         yes      2
+80       media        8224         yes      1
+81    standard      270143         yes      0
+82    priority          10         yes      1
+83    standard         116         yes      2
+84   upsGround        4858         yes      2
+85    standard      118345         yes      3
+86      parcel          11         yes      1
+87  firstClass        1154         yes      1
+88    standard         877         yes      1
+89       other         556         yes      1
+90      parcel          63         yes      2
+91    priority          94         yes      0
+92   upsGround        4858         yes      2
+93  firstClass         462         yes      1
+94      parcel         280         yes      2
+95       media         820         yes      2
+96       media         820         yes      2
+97  firstClass         299         yes      1
+98    standard      118345         yes      2
+99    priority          37         yes      1
+100   priority       14503         yes      1
+101  upsGround        4858         yes      2
+102 firstClass       14503         yes      0
+103   standard        7284         yes      0
+104   priority         251         yes      1
+105  upsGround        4858         yes      2
+                                                          title
+1   ~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BRAND NEW ~~
+2       Mariokart Wii Nintendo with wheel - Mario Kart Nintendo
+3          Brand New Mario Kart Wii Comes with Wheel. Free Ship
+4       BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+5       Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+6       Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+7                   BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+8         Wii game Mario Kart in box with 1 wheel Fast Shipping
+9                   BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+10      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+11                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+12      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+13                            Mario Kart Wii (Wii) w/ Wii Wheel
+14                             Mario Kart Wii (Wii) - GAME ONLY
+15            Wii Mario Kart game + wheel:  NIB, factory sealed
+16         Brand New Mario Kart Wii Comes with Wheel. Free Ship
+17                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+18         Super Mario Kart Nintendo Wii Video Game Driving SMK
+19                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+20       MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+21                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+22                Mario Kart Wii (Wii) Includes Steering Wheel!
+23      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+24                                         Mario Kart Wii (Wii)
+25                                         Mario Kart Wii (Wii)
+26              Mario Kart Wii (Wii) - Brand New &amp;amp; Sealed!!
+27                                         Mario Kart Wii (Wii)
+28                                         Mario Kart Wii (Wii)
+29                                         Mario Kart Wii (Wii)
+30                                                             
+31  Mario Kart &amp;amp; Wheel Nintendo Wii Game Free Priority Mail
+32                                                MarioKart Wii
+33                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+34                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+35                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+36                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+37      Mario Kart Wii with Wii Wheel for Nintendo Wii FASTSHIP
+38                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+39                        Mario Kart Wii (Wii) Used Ships Free!
+40      MARIO KART - NINTENDO WII =============================
+41                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+42         Super Mario Kart Nintendo Wii Video Game Driving SMK
+43       NINTENDO WII SUPER Mario Kart GAME ONLY NO Wheel NEW *
+44                              Wii Mario Kart Great Condition!
+45                                   Mario Kart Wii (Wii) game 
+46                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+47      Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+48                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+49                      Mario Kart Wii (Wii) game and 2 wheels!
+50                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+51                                         Mario Kart Wii (Wii)
+52                  Mario Kart Wii with Wii Wheel for Wii (New)
+53      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+54      NEW MARIO KART GAME+OFFICIAL WHITE+CRIMSON RED WHEELS!!
+55              Mario Kart Wii (Wii) In Original Box With Wheel
+56      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+57                                         Mario Kart Wii (Wii)
+58               Mario Kart Wii (Nintendo Wii) Complete, Mint!!
+59                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+60                                Mario Kart Wii Nintendo Super
+61                    Nintendo Wii MarioKart and Steering Wheel
+62         Mario Kart Wii (Wii) w/ TWO OFFICIAL STEERING WHEELS
+63                                         Mario Kart Wii (Wii)
+64                     Mario Kart Wii Game with 1 Wheel - (Wii)
+65             Mario Kart Wii (Wii) - NIB - Factory Sealed - NR
+66                                         Mario Kart Wii (Wii)
+67                                         Mario Kart Wii (Wii)
+68             MARIO KART FOR NINTENDO Wii WITH 2 WHEELS + GAME
+69                        Mario Kart Wii WITH  BONUS WHEEL!!!!!
+70      Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+71      Mario Kart Wii (Wii) w/2 Nintendo Wheels Excellent Cond
+72      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+73                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+74                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+75      MARIO KART WITH WII WHEEL+1 GT PRO PINK WII WHEEL BUNDL
+76      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+77                                         Mario Kart Wii (Wii)
+78                                     MarioKart (Wii) w/ wheel
+79                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+80        BRAND NEW! FACTORY SEALED! MARIO KART WITH Wii WHEEL 
+81      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+82                            Mario Kart Wii (Wii) with 1 Wheel
+83       Mario Kart Wii with Bonus Wheel!!! (2 Wheels Included)
+84                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+85       NEW MARIO KART WITH WII WHEEL+2 GT PRO WHITE WII WHEEL
+86                                         Mario Kart Wii (Wii)
+87          MARIO KART WII WITH STEERING WHEEL NEW NINTENDO WII
+88                         Mario Kart Wii (Wii) W/RACING WHEEL!
+89             Mario Kart Wii, Game and Wheel, Brand New Sealed
+90                                         Mario Kart Wii (Wii)
+91                               Mario Kart Wii (Wii)  *SEALED*
+92                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+93                 Mario Kart Wii (Wii) Game and Steering Wheel
+94      Mario Kart Wii (Nintendo Wii) comes with 2 Wheels NEW!!
+95      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+96      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+97      NINTENDO ~ MARIO KART Wii ~ NEW IN BOX ~ FACTORY SEALED
+98       MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+99                                      Mario Kart Wii w/ wheel
+100 Wii Mario Kart Game &amp;amp; Wheel In Original Box Tested WKIN
+101                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+102                           Nintendo Wii Mario Kart GAME ONLY
+103     Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+104           Wii Mario Kart game + wheel:  NIB, factory sealed
+105                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mario_filter1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(mariokart, stock_photo <span class="sc">==</span> <span class="st">"yes"</span> <span class="sc">&amp;</span> cond <span class="sc">==</span> <span class="st">"new"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mario_filter1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   rownames           id duration n_bids cond start_pr ship_pr total_pr
+1         1 150377422259        3     20  new     0.99    4.00    51.55
+2         4 280405224677        3     18  new     0.99    0.00    44.00
+3         5 170392227765        1     20  new     0.01    0.00    71.00
+4         6 360195157625        3     19  new     0.99    4.00    45.00
+5         8 300355501482        1     15  new     1.00    2.99    53.99
+6        11 290355805215        1     15  new     1.00    2.99    54.99
+7        12 180415462166        1     15  new     0.01    0.00    56.01
+8        13 300353460362        1     13  new     1.00    2.99    48.00
+9        14 180415244903        1     16  new     0.01    0.00    56.00
+10       17 140350383072        3     14  new     0.99    8.70    46.71
+11       18 280406546082        3     23  new     0.99    0.00    46.00
+12       19 290356835892        1     10  new     1.00    2.99    55.99
+13       22 290356835900        1     16  new     1.00    2.99    53.98
+14       23 350261958546        1      1  new    64.95    0.00    64.95
+15       24 110441494985        1     18  new     1.00    2.99    50.50
+16       26 180416694913        1     19  new     0.01    0.00    55.00
+17       30 320430545471        7     15  new     9.99    4.00    47.00
+18       39 290356835914        1      9  new     1.00    2.99    63.99
+19       40 290356333829        1     14  new     1.00    2.99    53.76
+20       44 110443667250        1     29  new     1.00    2.99    51.99
+21       45 110443342909        1     17  new     1.00    2.99    55.99
+22       47 290357882110        1     12  new     1.00    2.99    53.99
+23       51 110442981432        1     10  new     1.00    2.99    59.88
+24       54 330364742474        3      2  new    51.99    0.00    51.99
+25       61 290356311538        1     23  new     1.00    2.99    53.99
+26       63 300355190611        1      9  new     1.00    2.99    58.00
+27       67 110441494977        1     13  new     1.00    2.99    53.99
+28       71 110442400658        3      9  new    25.00    4.00    47.00
+29       74 180415469294        1     20  new     0.01    0.00    56.00
+30       75 400077480990        1      1  new    64.95    0.00    64.95
+31       82 110442967284        1      8  new     1.00    2.99    54.99
+32       86 160366410200        3     14  new     0.99    4.00    64.00
+33       88 280402374100        7      7  new    29.95    8.70    54.70
+34       89 120476317961        5      5  new    35.00    4.00    49.91
+35       97 110441486551        3     23  new     0.99    4.00    40.10
+36       98 110443692422        1     20  new     1.00    2.99    52.59
+37      102 290355806517        1     13  new     1.00    2.99    48.99
+38      103 400076879560        1      1  new    54.99   11.45    66.44
+39      104 170390813853        1     22  new     0.01    0.00    63.50
+40      106 230382266458        7     18  new    18.00    4.00    47.00
+41      109 300354031535        1     16  new     1.00    2.99    53.76
+42      110 320430035588        5     20  new     0.01    0.00    46.00
+43      114 110441494999        1     25  new     1.00    2.99    57.50
+44      115 350261016626        1      3  new    69.95    0.00    75.00
+45      117 160365924565        7     18  new     9.99    4.00    45.99
+46      119 170389877681        1     13  new     0.01    0.00    45.00
+47      121 250505299784        7     16  new     9.99    9.69    49.75
+48      123 110443653510        1     17  new     1.00    2.99    56.00
+49      128 170391971205        1     19  new     0.01    0.00    61.00
+50      129 180416291487        1     14  new     0.01    0.00    62.89
+51      130 270466062990        3     11  new     0.99    4.00    46.00
+52      131 390103890073        1      1  new    64.95    0.00    64.95
+53      136 300354862386        1     18  new     1.00    2.99    58.98
+54      141 140349730405        3     14  new     0.99    8.70    47.70
+55      143 110443320905        1     13  new     1.00    2.99    54.51
+      ship_sp seller_rate stock_photo wheels
+1    standard        1580         yes      1
+2    standard           7         yes      1
+3       media         820         yes      2
+4    standard      270144         yes      0
+5   upsGround        4858         yes      2
+6   upsGround        4858         yes      2
+7       media         820         yes      2
+8   upsGround        4858         yes      2
+9       media         820         yes      2
+10   priority         251         yes      1
+11   standard           7         yes      1
+12  upsGround        4858         yes      2
+13  upsGround        4858         yes      2
+14   standard      118345         yes      2
+15  upsGround        4858         yes      2
+16      media         820         yes      2
+17     parcel          62         yes      1
+18  upsGround        4858         yes      2
+19  upsGround        4858         yes      2
+20  upsGround        4858         yes      2
+21  upsGround        4858         yes      2
+22  upsGround        4858         yes      2
+23  upsGround        4858         yes      2
+24      other      223861         yes      0
+25  upsGround        4858         yes      2
+26  upsGround        4858         yes      2
+27  upsGround        4858         yes      2
+28    ups3Day         627         yes      1
+29      media         820         yes      2
+30   standard      118345         yes      2
+31  upsGround        4858         yes      2
+32   standard         127         yes      2
+33   priority         208         yes      1
+34     parcel         127         yes      1
+35   standard      270144         yes      0
+36  upsGround        4858         yes      2
+37  upsGround        4858         yes      2
+38  upsGround      118345         yes      2
+39      media         820         yes      2
+40   standard         389         yes      1
+41  upsGround        4858         yes      2
+42      media        8224         yes      1
+43  upsGround        4858         yes      2
+44   standard      118345         yes      3
+45 firstClass        1154         yes      1
+46      other         556         yes      1
+47   priority          94         yes      0
+48  upsGround        4858         yes      2
+49      media         820         yes      2
+50      media         820         yes      2
+51 firstClass         299         yes      1
+52   standard      118345         yes      2
+53  upsGround        4858         yes      2
+54   priority         251         yes      1
+55  upsGround        4858         yes      2
+                                                         title
+1  ~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BRAND NEW ~~
+2         Brand New Mario Kart Wii Comes with Wheel. Free Ship
+3      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+4      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+5                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+6                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+7      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+8                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+9      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+10           Wii Mario Kart game + wheel:  NIB, factory sealed
+11        Brand New Mario Kart Wii Comes with Wheel. Free Ship
+12                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+13                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+14      MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+15                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+16     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+17             Mario Kart Wii (Wii) - Brand New &amp;amp; Sealed!!
+18                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+19                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+20                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+21                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+22                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+23                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+24      NINTENDO WII SUPER Mario Kart GAME ONLY NO Wheel NEW *
+25                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+26                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+27                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+28                 Mario Kart Wii with Wii Wheel for Wii (New)
+29     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+30     NEW MARIO KART GAME+OFFICIAL WHITE+CRIMSON RED WHEELS!!
+31                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+32        Mario Kart Wii (Wii) w/ TWO OFFICIAL STEERING WHEELS
+33                    Mario Kart Wii Game with 1 Wheel - (Wii)
+34            Mario Kart Wii (Wii) - NIB - Factory Sealed - NR
+35     Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+36                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+37                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+38     MARIO KART WITH WII WHEEL+1 GT PRO PINK WII WHEEL BUNDL
+39     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+40                                        Mario Kart Wii (Wii)
+41                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+42       BRAND NEW! FACTORY SEALED! MARIO KART WITH Wii WHEEL 
+43                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+44      NEW MARIO KART WITH WII WHEEL+2 GT PRO WHITE WII WHEEL
+45         MARIO KART WII WITH STEERING WHEEL NEW NINTENDO WII
+46            Mario Kart Wii, Game and Wheel, Brand New Sealed
+47                              Mario Kart Wii (Wii)  *SEALED*
+48                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+49     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+50     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+51     NINTENDO ~ MARIO KART Wii ~ NEW IN BOX ~ FACTORY SEALED
+52      MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+53                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+54           Wii Mario Kart game + wheel:  NIB, factory sealed
+55                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS</code></pre>
+</div>
+</div>
+<p>Filtern mit logischem ODER:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mario_filter2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(mariokart, stock_photo <span class="sc">==</span> <span class="st">"yes"</span> <span class="sc">|</span> cond <span class="sc">==</span> <span class="st">"new"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mario_filter2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    rownames           id duration n_bids cond start_pr ship_pr total_pr
+1          1 150377422259        3     20  new     0.99    4.00    51.55
+2          2 260483376854        7     13 used     0.99    3.99    37.04
+3          3 320432342985        3     16  new     0.99    3.50    45.50
+4          4 280405224677        3     18  new     0.99    0.00    44.00
+5          5 170392227765        1     20  new     0.01    0.00    71.00
+6          6 360195157625        3     19  new     0.99    4.00    45.00
+7          7 120477729093        1     13 used     0.01    0.00    37.02
+8          8 300355501482        1     15  new     1.00    2.99    53.99
+9          9 200392065459        3     29 used     0.99    4.00    47.00
+10        11 290355805215        1     15  new     1.00    2.99    54.99
+11        12 180415462166        1     15  new     0.01    0.00    56.01
+12        13 300353460362        1     13  new     1.00    2.99    48.00
+13        14 180415244903        1     16  new     0.01    0.00    56.00
+14        15 250505391611        7      6 used    24.99    4.00    43.33
+15        16 120474800581        7     22 used     0.99    4.00    46.00
+16        17 140350383072        3     14  new     0.99    8.70    46.71
+17        18 280406546082        3     23  new     0.99    0.00    46.00
+18        19 290356835892        1     10  new     1.00    2.99    55.99
+19        21 260486415542        1      7 used     0.99    0.00    31.00
+20        22 290356835900        1     16  new     1.00    2.99    53.98
+21        23 350261958546        1      1  new    64.95    0.00    64.95
+22        24 110441494985        1     18  new     1.00    2.99    50.50
+23        25 110443013258        3     12 used     0.01    4.00    46.50
+24        26 180416694913        1     19  new     0.01    0.00    55.00
+25        27 140350730320        3      5 used    15.00    3.50    34.50
+26        28 300352773649        3      5 used     0.99    0.00    36.00
+27        30 320430545471        7     15  new     9.99    4.00    47.00
+28        31 170391192572        1     11 used    10.00    4.00    43.00
+29        32 320429712274        7     14 used     1.99    0.00    31.00
+30        33 390101286838        5     13 used     0.99    4.00    41.99
+31        34 170388799958        5     24 used     0.99    3.99    49.49
+32        35 190339151607        3     10 used     0.99    0.00    41.00
+33        36 150377945722        3     15 used     0.99    8.70    44.78
+34        39 290356835914        1      9  new     1.00    2.99    63.99
+35        40 290356333829        1     14  new     1.00    2.99    53.76
+36        41 260482893160        7      5  new    30.00    0.00    46.03
+37        44 110443667250        1     29  new     1.00    2.99    51.99
+38        45 110443342909        1     17  new     1.00    2.99    55.99
+39        46 180414145715        3      8 used     9.99    3.99    41.99
+40        47 290357882110        1     12  new     1.00    2.99    53.99
+41        48 190338339476        7     20 used    15.00    0.00    39.00
+42        49 380164318834        7     21 used     0.99    3.00    38.06
+43        51 110442981432        1     10  new     1.00    2.99    59.88
+44        52 260487434344        1     17 used     0.99    0.00    28.98
+45        54 330364742474        3      2  new    51.99    0.00    51.99
+46        55 300353503260        7     16 used     0.99    2.95    43.95
+47        56 250507926501        1     14 used     0.99    0.00    32.00
+48        61 290356311538        1     23  new     1.00    2.99    53.99
+49        62 120477734245        1     12 used     0.01    0.00    30.00
+50        63 300355190611        1      9  new     1.00    2.99    58.00
+51        66 110439935999        7     12 used    30.00    0.00    61.76
+52        67 110441494977        1     13  new     1.00    2.99    53.99
+53        68 160366874975        7     14 used     0.99    3.00    40.00
+54        71 110442400658        3      9  new    25.00    4.00    47.00
+55        73 320429126014        7     16  new     0.99    3.50    41.50
+56        74 180415469294        1     20  new     0.01    0.00    56.00
+57        75 400077480990        1      1  new    64.95    0.00    64.95
+58        77 140350338936        3      4 used    34.99    4.00    48.00
+59        79 270464680053        3     14 used     0.99    4.00    45.00
+60        80 200389906028        5     18 used    19.99    2.95    41.95
+61        81 320429166256       10     15 used     9.99    6.00    43.36
+62        82 110442967284        1      8  new     1.00    2.99    54.99
+63        83 280404748775        3     19 used    12.00    4.00    45.21
+64        85 110439483831        7     14 used    10.00    3.75    45.75
+65        86 160366410200        3     14  new     0.99    4.00    64.00
+66        87 270464942103        7      7 used     0.99    3.00    36.00
+67        88 280402374100        7      7  new    29.95    8.70    54.70
+68        89 120476317961        5      5  new    35.00    4.00    49.91
+69        90 220491072489        3     16 used     0.99    4.00    47.00
+70        92 140349745540        5     10 used     9.99    1.99    35.99
+71        93 180417692717        1     11 used     9.99    3.99    54.49
+72        94 230382795039        7     15 used    12.00    0.00    46.00
+73        95 110443640168        1     16 used     0.01    0.00    31.06
+74        96 260485846288        3     15 used     0.99    0.00    55.60
+75        97 110441486551        3     23  new     0.99    4.00    40.10
+76        98 110443692422        1     20  new     1.00    2.99    52.59
+77       102 290355806517        1     13  new     1.00    2.99    48.99
+78       103 400076879560        1      1  new    54.99   11.45    66.44
+79       104 170390813853        1     22  new     0.01    0.00    63.50
+80       106 230382266458        7     18  new    18.00    4.00    47.00
+81       108 290353981573        7      9 used     0.01    3.00    33.01
+82       109 300354031535        1     16  new     1.00    2.99    53.76
+83       110 320430035588        5     20  new     0.01    0.00    46.00
+84       111 360194338883        3     16 used     0.99    4.00    43.00
+85       112 170389664528        3      5 used    35.00    0.00    42.55
+86       113 190338974387        7      5 used     1.00    0.00    52.50
+87       114 110441494999        1     25  new     1.00    2.99    57.50
+88       115 350261016626        1      3  new    69.95    0.00    75.00
+89       116 150377042368        7      7 used    25.00   11.42    48.92
+90       117 160365924565        7     18  new     9.99    4.00    45.99
+91       118 350258591183        7     10 used     0.99    4.00    40.05
+92       119 170389877681        1     13  new     0.01    0.00    45.00
+93       120 140350726723        3      8 used    20.00    4.00    50.00
+94       121 250505299784        7     16  new     9.99    9.69    49.75
+95       123 110443653510        1     17  new     1.00    2.99    56.00
+96       125 120477418866        3      9  new     0.01    0.00    46.00
+97       126 230383658784        7     10 used     0.99    3.99    34.99
+98       127 320432437858        1     23 used     0.99    0.00    49.00
+99       128 170391971205        1     19  new     0.01    0.00    61.00
+100      129 180416291487        1     14  new     0.01    0.00    62.89
+101      130 270466062990        3     11  new     0.99    4.00    46.00
+102      131 390103890073        1      1  new    64.95    0.00    64.95
+103      133 280404385327        7     14 used    16.00    4.00    44.00
+104      134 350258416318        5     17 used     0.99   10.35    41.35
+105      136 300354862386        1     18  new     1.00    2.99    58.98
+106      137 350258970192        5     20 used     0.99    4.00    39.00
+107      139 110441497272        1     20 used     0.01    0.00    39.51
+108      141 140349730405        3     14  new     0.99    8.70    47.70
+109      143 110443320905        1     13  new     1.00    2.99    54.51
+       ship_sp seller_rate stock_photo wheels
+1     standard        1580         yes      1
+2   firstClass         365         yes      1
+3   firstClass         998          no      1
+4     standard           7         yes      1
+5        media         820         yes      2
+6     standard      270144         yes      0
+7     standard        7284         yes      0
+8    upsGround        4858         yes      2
+9     priority          27         yes      1
+10   upsGround        4858         yes      2
+11       media         820         yes      2
+12   upsGround        4858         yes      2
+13       media         820         yes      2
+14    standard         154         yes      1
+15       media         309         yes      0
+16    priority         251         yes      1
+17    standard           7         yes      1
+18   upsGround        4858         yes      2
+19    standard        4982         yes      0
+20   upsGround        4858         yes      2
+21    standard      118345         yes      2
+22   upsGround        4858         yes      2
+23  firstClass         172         yes      1
+24       media         820         yes      2
+25  firstClass          37         yes      0
+26   upsGround          15         yes      0
+27      parcel          62         yes      1
+28    priority          18         yes      0
+29       media         166         yes      0
+30    standard       16041         yes      1
+31   upsGround          27         yes      2
+32    priority       42241         yes      1
+33    priority          88         yes      1
+34   upsGround        4858         yes      2
+35   upsGround        4858         yes      2
+36  firstClass         555          no      1
+37   upsGround        4858         yes      2
+38   upsGround        4858         yes      2
+39  firstClass          69         yes      1
+40   upsGround        4858         yes      2
+41  firstClass         422         yes      0
+42  firstClass        8625         yes      0
+43   upsGround        4858         yes      2
+44    standard        4982         yes      0
+45       other      223861         yes      0
+46  firstClass         943         yes      0
+47    standard         206         yes      0
+48   upsGround        4858         yes      2
+49    standard        7284         yes      0
+50   upsGround        4858         yes      2
+51    standard          27         yes      2
+52   upsGround        4858         yes      2
+53       media          88         yes      1
+54     ups3Day         627         yes      1
+55  firstClass         998          no      1
+56       media         820         yes      2
+57    standard      118345         yes      2
+58    standard          85         yes      1
+59    standard      270144         yes      0
+60      parcel         194         yes      0
+61      parcel        2399         yes      1
+62   upsGround        4858         yes      2
+63    standard          64         yes      1
+64   upsGround           0         yes      1
+65    standard         127         yes      2
+66    priority           0         yes      0
+67    priority         208         yes      1
+68      parcel         127         yes      1
+69      parcel         231         yes      0
+70   upsGround          19         yes      0
+71  firstClass          69         yes      2
+72    priority          15         yes      1
+73    standard        7284         yes      0
+74   upsGround          54         yes      2
+75    standard      270144         yes      0
+76   upsGround        4858         yes      2
+77   upsGround        4858         yes      2
+78   upsGround      118345         yes      2
+79       media         820         yes      2
+80    standard         389         yes      1
+81       media         381         yes      1
+82   upsGround        4858         yes      2
+83       media        8224         yes      1
+84    standard      270143         yes      0
+85    priority          10         yes      1
+86    standard         116         yes      2
+87   upsGround        4858         yes      2
+88    standard      118345         yes      3
+89      parcel          11         yes      1
+90  firstClass        1154         yes      1
+91    standard         877         yes      1
+92       other         556         yes      1
+93      parcel          63         yes      2
+94    priority          94         yes      0
+95   upsGround        4858         yes      2
+96  firstClass        1144          no      1
+97  firstClass         462         yes      1
+98      parcel         280         yes      2
+99       media         820         yes      2
+100      media         820         yes      2
+101 firstClass         299         yes      1
+102   standard      118345         yes      2
+103   priority          37         yes      1
+104   priority       14503         yes      1
+105  upsGround        4858         yes      2
+106 firstClass       14503         yes      0
+107   standard        7284         yes      0
+108   priority         251         yes      1
+109  upsGround        4858         yes      2
+                                                          title
+1   ~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BRAND NEW ~~
+2       Mariokart Wii Nintendo with wheel - Mario Kart Nintendo
+3                                          Mario Kart Wii (Wii)
+4          Brand New Mario Kart Wii Comes with Wheel. Free Ship
+5       BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+6       Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+7       Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+8                   BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+9         Wii game Mario Kart in box with 1 wheel Fast Shipping
+10                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+11      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+12                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+13      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+14                            Mario Kart Wii (Wii) w/ Wii Wheel
+15                             Mario Kart Wii (Wii) - GAME ONLY
+16            Wii Mario Kart game + wheel:  NIB, factory sealed
+17         Brand New Mario Kart Wii Comes with Wheel. Free Ship
+18                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+19         Super Mario Kart Nintendo Wii Video Game Driving SMK
+20                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+21       MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+22                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+23                Mario Kart Wii (Wii) Includes Steering Wheel!
+24      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+25                                         Mario Kart Wii (Wii)
+26                                         Mario Kart Wii (Wii)
+27              Mario Kart Wii (Wii) - Brand New &amp;amp; Sealed!!
+28                                         Mario Kart Wii (Wii)
+29                                         Mario Kart Wii (Wii)
+30                                         Mario Kart Wii (Wii)
+31                                                             
+32  Mario Kart &amp;amp; Wheel Nintendo Wii Game Free Priority Mail
+33                                                MarioKart Wii
+34                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+35                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+36        New Nintendo Super Mario Kart Wii with Steering Wheel
+37                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+38                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+39      Mario Kart Wii with Wii Wheel for Nintendo Wii FASTSHIP
+40                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+41                        Mario Kart Wii (Wii) Used Ships Free!
+42      MARIO KART - NINTENDO WII =============================
+43                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+44         Super Mario Kart Nintendo Wii Video Game Driving SMK
+45       NINTENDO WII SUPER Mario Kart GAME ONLY NO Wheel NEW *
+46                              Wii Mario Kart Great Condition!
+47                                   Mario Kart Wii (Wii) game 
+48                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+49      Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+50                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+51                      Mario Kart Wii (Wii) game and 2 wheels!
+52                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+53                                         Mario Kart Wii (Wii)
+54                  Mario Kart Wii with Wii Wheel for Wii (New)
+55                                         Mario Kart Wii (Wii)
+56      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+57      NEW MARIO KART GAME+OFFICIAL WHITE+CRIMSON RED WHEELS!!
+58              Mario Kart Wii (Wii) In Original Box With Wheel
+59      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+60                                         Mario Kart Wii (Wii)
+61               Mario Kart Wii (Nintendo Wii) Complete, Mint!!
+62                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+63                                Mario Kart Wii Nintendo Super
+64                    Nintendo Wii MarioKart and Steering Wheel
+65         Mario Kart Wii (Wii) w/ TWO OFFICIAL STEERING WHEELS
+66                                         Mario Kart Wii (Wii)
+67                     Mario Kart Wii Game with 1 Wheel - (Wii)
+68             Mario Kart Wii (Wii) - NIB - Factory Sealed - NR
+69                                         Mario Kart Wii (Wii)
+70                                         Mario Kart Wii (Wii)
+71             MARIO KART FOR NINTENDO Wii WITH 2 WHEELS + GAME
+72                        Mario Kart Wii WITH  BONUS WHEEL!!!!!
+73      Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+74      Mario Kart Wii (Wii) w/2 Nintendo Wheels Excellent Cond
+75      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+76                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+77                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+78      MARIO KART WITH WII WHEEL+1 GT PRO PINK WII WHEEL BUNDL
+79      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+80                                         Mario Kart Wii (Wii)
+81                                     MarioKart (Wii) w/ wheel
+82                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+83        BRAND NEW! FACTORY SEALED! MARIO KART WITH Wii WHEEL 
+84      Mario Kart Wii (GAME ONLY/NO WHEEL) - Nintendo Wii Game
+85                            Mario Kart Wii (Wii) with 1 Wheel
+86       Mario Kart Wii with Bonus Wheel!!! (2 Wheels Included)
+87                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+88       NEW MARIO KART WITH WII WHEEL+2 GT PRO WHITE WII WHEEL
+89                                         Mario Kart Wii (Wii)
+90          MARIO KART WII WITH STEERING WHEEL NEW NINTENDO WII
+91                         Mario Kart Wii (Wii) W/RACING WHEEL!
+92             Mario Kart Wii, Game and Wheel, Brand New Sealed
+93                                         Mario Kart Wii (Wii)
+94                               Mario Kart Wii (Wii)  *SEALED*
+95                  BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+96       NEW Mario Kart Nintendo Wii Racing Game w/Wheel Online
+97                 Mario Kart Wii (Wii) Game and Steering Wheel
+98      Mario Kart Wii (Nintendo Wii) comes with 2 Wheels NEW!!
+99      BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+100     BRAND NEW NINTENDO 1 WII MARIO KART WITH 2 WHEELS +GAME
+101     NINTENDO ~ MARIO KART Wii ~ NEW IN BOX ~ FACTORY SEALED
+102      MARIO KART WITH WII OFFICIAL WHEEL+1 COBALT BLUE WHEEL
+103                                     Mario Kart Wii w/ wheel
+104 Wii Mario Kart Game &amp;amp; Wheel In Original Box Tested WKIN
+105                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS
+106                           Nintendo Wii Mario Kart GAME ONLY
+107     Mario Kart Wii (Wii) Nintendo Wii game *--WOW --AWESOME
+108           Wii Mario Kart game + wheel:  NIB, factory sealed
+109                 BRAND NEW NINTENDO MARIO KART WITH 2 WHEELS</code></pre>
+</div>
+</div>
+</section>
+<section id="select" class="level2">
+<h2 class="anchored" data-anchor-id="select">Select</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mario_select1 <span class="ot">&lt;-</span> <span class="fu">select</span>(mariokart, cond, total_pr)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mario_select1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    cond total_pr
+1    new    51.55
+2   used    37.04
+3    new    45.50
+4    new    44.00
+5    new    71.00
+6    new    45.00
+7   used    37.02
+8    new    53.99
+9   used    47.00
+10  used    50.00
+11   new    54.99
+12   new    56.01
+13   new    48.00
+14   new    56.00
+15  used    43.33
+16  used    46.00
+17   new    46.71
+18   new    46.00
+19   new    55.99
+20  used   326.51
+21  used    31.00
+22   new    53.98
+23   new    64.95
+24   new    50.50
+25  used    46.50
+26   new    55.00
+27  used    34.50
+28  used    36.00
+29  used    40.00
+30   new    47.00
+31  used    43.00
+32  used    31.00
+33  used    41.99
+34  used    49.49
+35  used    41.00
+36  used    44.78
+37  used    47.00
+38  used    44.00
+39   new    63.99
+40   new    53.76
+41   new    46.03
+42  used    42.25
+43  used    46.00
+44   new    51.99
+45   new    55.99
+46  used    41.99
+47   new    53.99
+48  used    39.00
+49  used    38.06
+50  used    46.00
+51   new    59.88
+52  used    28.98
+53  used    36.00
+54   new    51.99
+55  used    43.95
+56  used    32.00
+57  used    40.06
+58  used    48.00
+59  used    36.00
+60  used    31.00
+61   new    53.99
+62  used    30.00
+63   new    58.00
+64  used    38.10
+65  used   118.50
+66  used    61.76
+67   new    53.99
+68  used    40.00
+69  used    64.50
+70  used    49.01
+71   new    47.00
+72  used    40.10
+73   new    41.50
+74   new    56.00
+75   new    64.95
+76  used    49.00
+77  used    48.00
+78  used    38.00
+79  used    45.00
+80  used    41.95
+81  used    43.36
+82   new    54.99
+83  used    45.21
+84  used    65.02
+85  used    45.75
+86   new    64.00
+87  used    36.00
+88   new    54.70
+89   new    49.91
+90  used    47.00
+91  used    43.00
+92  used    35.99
+93  used    54.49
+94  used    46.00
+95  used    31.06
+96  used    55.60
+97   new    40.10
+98   new    52.59
+99  used    44.00
+100 used    38.26
+101 used    51.00
+102  new    48.99
+103  new    66.44
+104  new    63.50
+105 used    42.00
+106  new    47.00
+107 used    55.00
+108 used    33.01
+109  new    53.76
+110  new    46.00
+111 used    43.00
+112 used    42.55
+113 used    52.50
+114  new    57.50
+115  new    75.00
+116 used    48.92
+117  new    45.99
+118 used    40.05
+119  new    45.00
+120 used    50.00
+121  new    49.75
+122 used    47.00
+123  new    56.00
+124 used    41.00
+125  new    46.00
+126 used    34.99
+127 used    49.00
+128  new    61.00
+129  new    62.89
+130  new    46.00
+131  new    64.95
+132 used    36.99
+133 used    44.00
+134 used    41.35
+135 used    37.00
+136  new    58.98
+137 used    39.00
+138 used    40.70
+139 used    39.51
+140 used    52.00
+141  new    47.70
+142 used    38.76
+143  new    54.51</code></pre>
+</div>
+</div>
+</section>
+<section id="summarise" class="level2">
+<h2 class="anchored" data-anchor-id="summarise">Summarise</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mariokart_neu <span class="ot">&lt;-</span> <span class="fu">summarise</span>(mariokart, <span class="at">preis_mw =</span> <span class="fu">mean</span>(total_pr))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mariokart_neu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  preis_mw
+1 49.88049</code></pre>
+</div>
+</div>
+<p><em>Übung</em>: Fassen Sie die Spalte “total_pr” zu einer Zahl zusammen und zwar anhand des Maximalwerts, auf Errisch <code>max</code> .</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mariokart_max_verkaufspreis <span class="ot">&lt;-</span> <span class="fu">summarise</span>(mariokart, <span class="at">preis_max_cool =</span> <span class="fu">max</span>(total_pr))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mariokart_max_verkaufspreis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  preis_max_cool
+1         326.51</code></pre>
+</div>
+</div>
+</section>
+<section id="gruppieren" class="level2">
+<h2 class="anchored" data-anchor-id="gruppieren">Gruppieren</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mariokart_gruppiert <span class="ot">&lt;-</span> <span class="fu">group_by</span>(mariokart, cond)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(mariokart_gruppiert, <span class="at">preis_mw =</span> <span class="fu">mean</span>(total_pr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  cond  preis_mw
+  &lt;chr&gt;    &lt;dbl&gt;
+1 new       53.8
+2 used      47.1</code></pre>
+</div>
+</div>
+<p><em>Übung</em>: Berechnen Sie den mittleren und maximalen Verkaufspreis getrennt für Spiele mit und ohne Foto!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mariokart_gruppiert_foto <span class="ot">&lt;-</span> <span class="fu">group_by</span>(mariokart, stock_photo)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>mariokart_verkaufspreis_foto <span class="ot">&lt;-</span> <span class="fu">summarise</span>(mariokart_gruppiert_foto,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">total_pr_avg =</span> <span class="fu">mean</span>(total_pr),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">total_pr_max =</span> <span class="fu">max</span>(total_pr))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>mariokart_verkaufspreis_foto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  stock_photo total_pr_avg total_pr_max
+  &lt;chr&gt;              &lt;dbl&gt;        &lt;dbl&gt;
+1 no                  53.7         327.
+2 yes                 48.5          75 </code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
