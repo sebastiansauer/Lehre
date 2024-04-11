@@ -120,3 +120,24 @@ mariokart_duration_wochen2 <-
   select(mariokart_duration_wochen2, duration, duration_week, duration_week2)
 mariokart_duration_wochen2
 ```
+
+## Count
+
+```{r}
+mariokart_counted <- count(mariokart, cond)
+mariokart_counted
+
+mutate(mariokart_counted, Anteil = n / sum(n))
+```
+
+## Die Pfeife \|\> (der "Und-Dann-Befehl")
+
+Shortcut für die Pfeife: Strg-Shift-M
+
+```{r}
+mariokart %>%   # nimm die Tabelle "mariokart" und dann...
+  filter(total_pr < 100) %>%  # filter nur die günstigen Spiele und dann...
+  select(cond, total_pr) %>%  # wähle die zwei Spalten und dann ...
+  group_by(cond) %>%  # gruppiere die Tabelle nach Zustand des Spiels und dann ...
+  summarise(total_pr_mean = mean(total_pr))
+```
