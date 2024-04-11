@@ -63,3 +63,7 @@ test*
 
 
 
+.Rproj.user
+.Rdata
+.DS_Store
+.quarto
