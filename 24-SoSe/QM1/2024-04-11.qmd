@@ -1,0 +1,78 @@
+---
+title: "Syntax 2024-04-11"
+format: html
+editor: visual
+---
+
+## Pakete starten
+
+```{r}
+library(tidyverse)
+library(easystats)
+```
+
+## Daten importieren
+
+```{r}
+mariokart <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/openintro/mariokart.csv")
+```
+
+## Spalte sortieren
+
+```{r}
+mariokart_neu <- arrange(mariokart, total_pr)
+mariokart_neu
+```
+
+Übungsaufgabe 4.2
+
+```{r}
+arrange(mariokart, - wheels)
+```
+
+## Filtern
+
+```{r}
+mariokart_neu <- filter(mariokart, stock_photo == "yes")
+mariokart_neu
+```
+
+```{r}
+mario_filter1 <- filter(mariokart, stock_photo == "yes" & cond == "new")
+mario_filter1
+```
+
+Filtern mit logischem ODER:
+
+```{r}
+mario_filter2 <- filter(mariokart, stock_photo == "yes" | cond == "new")
+mario_filter2
+```
+
+## Select
+
+```{r}
+mario_select1 <- select(mariokart, cond, total_pr)
+mario_select1
+```
+
+## Summarise
+
+```{r}
+mariokart_neu <- summarise(mariokart, preis_mw = mean(total_pr))
+mariokart_neu
+```
+
+*Übung*: Fassen Sie die Spalte "total_pr" zu einer Zahl zusammen und zwar anhand des Maximalwerts, auf Errisch `max` .
+
+```{r}
+mariokart_max_verkaufspreis <- summarise(mariokart, preis_max_cool = max(total_pr))
+mariokart_max_verkaufspreis
+```
+
+## Gruppieren
+
+```{r}
+mariokart_gruppiert <- group_by(mariokart, cond)
+summarise(mariokart_gruppiert, preis_mw = mean(total_pr))
+```
