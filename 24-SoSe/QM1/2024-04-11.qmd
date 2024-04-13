@@ -37,6 +37,8 @@ mariokart_neu <- filter(mariokart, stock_photo == "yes")
 mariokart_neu
 ```
 
+Filtern mit logischem UND:
+
 ```{r}
 mario_filter1 <- filter(mariokart, stock_photo == "yes" & cond == "new")
 mario_filter1
