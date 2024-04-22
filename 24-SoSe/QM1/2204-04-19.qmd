@@ -41,3 +41,24 @@ mariokart %>%
   plot_density()
 ```
 
+# Zusammenhänge
+
+## Nominale Variablen
+
+### Übung
+
+Plotten Sie den Zusammenhang zwischen "cond" und erstens `stock_photo` und zweitens `wheels > 0`.
+
+
+```{r}
+mariokart_lenkrad <- 
+mariokart %>% 
+  mutate(hat_lenkrad = wheels > 0) %>% 
+  select(cond, stock_photo, hat_lenkrad) 
+```
+
+```{r}
+mariokart_lenkrad %>% 
+  plot_bar(by = "cond")
+```
+
