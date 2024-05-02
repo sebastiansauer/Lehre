@@ -3,3 +3,20 @@ title: "Syntax 2024-05-02"
 ---
 
 
+# Aufgabe 
+
+## Frage
+
+Ist folgende Behauptung wahr? Begründen Sie!
+
+>   Der IQR ist robust (gegenüber Extremwerten), die Standardabweichung ist weniger robust und der Range (max-min) ist am wenigsten robust (ggenüber Extremwerten).
+
+
+## Antwort
+
+Ja, die Aussage ist korrekt. Der IQR ist sehr robust, da Extremwerte nicht in die Berechnung des Koeffizienten einfließen. Die SD ist weniger robust, da sie eine Funktion des Mittelwerts ist und Mittelwerte sind nicht sehr robust. Der Range ist wenig robust, da er nur auf zwei Werten und zwar den extremsten, beruht.
+
+
+
+
+
