@@ -1,0 +1,19 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+```         
+```
+
+Hallo Leute!
+
+```{r}
+mariokart_gruppiert_foto <- group_by(mariokart, stock_photo)
+mariokart_verkaufspreis_foto <- summarise(mariokart_gruppiert_foto,
+                                          total_pr_avg = mean(total_pr),
+                                          total_pr_max = max(total_pr))
+
+mariokart_verkaufspreis_foto
+```

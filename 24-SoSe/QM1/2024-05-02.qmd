@@ -1,0 +1,90 @@
+---
+title: "Syntax 2024-05-02"
+---
+
+# Setup
+
+```{r}
+library(tidyverse)
+```
+
+
+# Aufgabe 
+
+## Frage
+
+Ist folgende Behauptung wahr? Begründen Sie!
+
+>   Der IQR ist robust (gegenüber Extremwerten), die Standardabweichung ist weniger robust und der Range (max-min) ist am wenigsten robust (ggenüber Extremwerten).
+
+
+## Antwort
+
+Ja, die Aussage ist korrekt. Der IQR ist sehr robust, da Extremwerte nicht in die Berechnung des Koeffizienten einfließen. Die SD ist weniger robust, da sie eine Funktion des Mittelwerts ist und Mittelwerte sind nicht sehr robust. Der Range ist wenig robust, da er nur auf zwei Werten und zwar den extremsten, beruht.
+
+
+
+# Streuung mit R berechnen
+
+
+## Mit dem Tidyverse
+
+
+```{r}
+mariokart <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/openintro/mariokart.csv")
+
+m <-
+  mariokart %>%
+  filter(total_pr < 100)  # ohne Extremwerte
+
+m_summ <- 
+  m %>% 
+  summarise(
+    pr_mw = mean(total_pr),
+    pr_iqr = IQR(total_pr),
+    pr_maa = mean(abs(total_pr - mean(total_pr))),
+    pr_var = var(total_pr),
+    pr_sd = sd(total_pr),
+    pr_range = max(total_pr) - min(total_pr))
+
+m_summ
+```
+
+
+### Mit dem Paket `easystats`
+
+S. Skript Bsp. 7.5
+
+
+```{r}
+library(easystats)
+
+mariokart %>% 
+  select(total_pr) %>% 
+  describe_distribution()
+```
+
+
+
+# Daten importieren
+
+```{r}
+smartphone <- read.csv("smartphone.csv")
+```
+
+
+# Spaltenanmen ändern
+
+```{r}
+names(smartphone)[2] <- "item1"
+names(smartphone)[3] <- "item2"
+names(smartphone)[4] <- "item3"
+```
+
+Alle Spalten auf einmal ändern:
+
+```{r}
+names(smartphone) <- paste0("i",1:18)
+```
+
+

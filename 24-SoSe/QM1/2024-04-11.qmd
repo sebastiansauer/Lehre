@@ -1,0 +1,146 @@
+---
+title: "Syntax 2024-04-11"
+format: html
+editor: visual
+---
+
+## Pakete starten
+
+```{r}
+library(tidyverse)
+library(easystats)
+```
+
+## Daten importieren
+
+```{r}
+mariokart <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/openintro/mariokart.csv")
+```
+
+## Spalte sortieren
+
+```{r}
+mariokart_neu <- arrange(mariokart, total_pr)
+mariokart_neu
+```
+
+Übungsaufgabe 4.2
+
+```{r}
+arrange(mariokart, - wheels)
+```
+
+## Filtern
+
+```{r}
+mariokart_neu <- filter(mariokart, stock_photo == "yes")
+mariokart_neu
+```
+
+Filtern mit logischem UND:
+
+```{r}
+mario_filter1 <- filter(mariokart, stock_photo == "yes" & cond == "new")
+mario_filter1
+```
+
+Filtern mit logischem ODER:
+
+```{r}
+mario_filter2 <- filter(mariokart, stock_photo == "yes" | cond == "new")
+mario_filter2
+```
+
+## Select
+
+```{r}
+mario_select1 <- select(mariokart, cond, total_pr)
+mario_select1
+```
+
+## Summarise
+
+```{r}
+mariokart_neu <- summarise(mariokart, preis_mw = mean(total_pr))
+mariokart_neu
+```
+
+*Übung*: Fassen Sie die Spalte "total_pr" zu einer Zahl zusammen und zwar anhand des Maximalwerts, auf Errisch `max` .
+
+```{r}
+mariokart_max_verkaufspreis <- summarise(mariokart, preis_max_cool = max(total_pr))
+mariokart_max_verkaufspreis
+```
+
+## Gruppieren
+
+```{r}
+mariokart_gruppiert <- group_by(mariokart, cond)
+summarise(mariokart_gruppiert, preis_mw = mean(total_pr))
+```
+
+*Übung*: Berechnen Sie den mittleren und maximalen Verkaufspreis getrennt für Spiele mit und ohne Foto!
+
+```{r}
+mariokart_gruppiert_foto <- group_by(mariokart, stock_photo)
+mariokart_verkaufspreis_foto <- summarise(mariokart_gruppiert_foto,
+                                          total_pr_avg = mean(total_pr),
+                                          total_pr_max = max(total_pr))
+
+mariokart_verkaufspreis_foto
+```
+
+## Mutate
+
+```{r}
+mariokart2 <- mutate(mariokart, total_pr_yen = total_pr * 133)
+mariokart2 <- select(mariokart2, total_pr_yen, total_pr)
+mariokart2
+```
+
+*Übung:* Rechnen Sie die Dauer der Auktionen von Tagen in Wochen um.
+
+```{r}
+mariokart_duration_wochen <- 
+  mutate(mariokart, duration_week = duration / 7)
+
+mariokart_duration_wochen <-
+   select(mariokart_duration_wochen, duration, duration_week)
+mariokart_duration_wochen
+```
+
+BONUS-Aufgabe: Runden Sie die Wochen auf ganze Wochen.
+
+```{r}
+mariokart_duration_wochen <- 
+  mutate(mariokart, duration_week = duration / 7)
+
+mariokart_duration_wochen2 <-
+  mutate(mariokart_duration_wochen, duration_week2 = round(duration_week, digits = 0))
+
+mariokart_duration_wochen2 <-
+  select(mariokart_duration_wochen2, duration, duration_week, duration_week2)
+mariokart_duration_wochen2
+```
+
+## Count
+
+```{r}
+mariokart_counted <- count(mariokart, cond)
+mariokart_counted
+
+mutate(mariokart_counted, Anteil = n / sum(n))
+```
+
+## Die Pfeife \|\> (der "Und-Dann-Befehl")
+
+Shortcut für die Pfeife: Strg-Shift-M
+
+```{r}
+ergebnis_pfeife <- 
+mariokart %>%   # nimm die Tabelle "mariokart" und dann...
+  filter(total_pr < 100) %>%  # filter nur die günstigen Spiele und dann...
+  select(cond, total_pr) %>%  # wähle die zwei Spalten und dann ...
+  #group_by(cond) %>%  # gruppiere die Tabelle nach Zustand des Spiels und dann ...
+  summarise(total_pr_mean = mean(total_pr))
+```

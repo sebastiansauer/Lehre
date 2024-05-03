@@ -1,0 +1,64 @@
+---
+title: "Syntax-2024-04-19"
+format: html
+editor: visual
+---
+
+# Wiederholung zur Pfeife
+
+
+```{r}
+mariokart %>% 
+  select(total_pr)
+```
+
+Ist synonym zu:
+
+```{r}
+select(mariokart, total_pr)
+```
+
+
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(DataExplorer)
+```
+
+
+```{r}
+mariokart <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/openintro/mariokart.csv")
+```
+
+
+# Dichtediagramm
+
+```{r}
+mariokart %>% 
+  select(total_pr) %>% 
+  plot_density()
+```
+
+# Zusammenhänge
+
+## Nominale Variablen
+
+### Übung
+
+Plotten Sie den Zusammenhang zwischen "cond" und erstens `stock_photo` und zweitens `wheels > 0`.
+
+
+```{r}
+mariokart_lenkrad <- 
+mariokart %>% 
+  mutate(hat_lenkrad = wheels > 0) %>% 
+  select(cond, stock_photo, hat_lenkrad) 
+```
+
+```{r}
+mariokart_lenkrad %>% 
+  plot_bar(by = "cond")
+```
+
