@@ -87,4 +87,24 @@ Alle Spalten auf einmal ändern:
 names(smartphone) <- paste0("i",1:18)
 ```
 
+# Daten exportieren
+
+```{r}
+write.csv(smartphone, file = "smartphone.csv")
+```
+
+
+# Was geben Frauen und Männer für ihr Handy aus?
+
+
+```{r}
+smartphone %>% 
+  select(i15, i18) %>% 
+  drop_na() %>% 
+  group_by(i15) %>% 
+  summarise(handypreis_mw = mean(i18))
+```
+
+
+
 
