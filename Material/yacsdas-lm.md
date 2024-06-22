@@ -10,7 +10,7 @@
 
 - [Beispiel für Ihre Prognosemodellierung 3, hoher Anspruch](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
 
-- [allstudie: Modellierung von Flugverspätungen 2023](https://datenwerk.netlify.app/posts/flights-delay/)
+- [Fallstudie: Modellierung von Flugverspätungen 2023](https://datenwerk.netlify.app/posts/flights-delay/)
 
 - [Fallstudie: Modellierung von Flugverspätungen 2013](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
 
