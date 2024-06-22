@@ -10,15 +10,15 @@
 
 - [Beispiel für Ihre Prognosemodellierung 3, hoher Anspruch](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
 
-- [Fallstudie: Modellierung von Flugverspätungen](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
+- [allstudie: Modellierung von Flugverspätungen 2023](https://datenwerk.netlify.app/posts/flights-delay/)
+
+- [Fallstudie: Modellierung von Flugverspätungen 2013](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
 
 - [Modelling movie successes: linear regression](https://data-se.netlify.app/2021/02/24/modelling-movie-successes-linear-regression/)
 
 - [Movies](https://data-se.netlify.app/2020/11/13/fallstudie-zur-regressionsanalyse-ggplot2movies/)
 
-
 - [Fallstudie Einfache lineare Regression in Base-R, Anfängerniveau, Kaggle-Competition TMDB](https://www.kaggle.com/code/ssauer/tmdb-simple-regression-beginners)
-
 
 - [Fallstudie Sprit sparen](https://data-se.netlify.app/2022/05/02/fallstudie-spritverbrauch/)
 
