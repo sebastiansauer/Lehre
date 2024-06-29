@@ -10,11 +10,11 @@
 
 - [Beispiel für Ihre Prognosemodellierung 3, hoher Anspruch](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
 
-- [Fallstudie: Modellierung von Flugverspätungen 2023](https://datenwerk.netlify.app/posts/flights-delay/)
+- [Fallstudie: Modellierung von Flugverspätungen 2023 (mittlerer Anspruch)](https://datenwerk.netlify.app/posts/flights-delay/)
+
+- [Fallstudie: Modellierung von Flugverspätungen 2023 (höherer Anspruch)](https://datenwerk.netlify.app/posts/flights-delay/)
 
 - [Fallstudie: Modellierung von Flugverspätungen 2013](https://data-se.netlify.app/2021/03/10/fallstudie-modellierung-von-flugversp%C3%A4tungen/)
-
-
 
 - [Modelling movie successes: linear regression](https://data-se.netlify.app/2021/02/24/modelling-movie-successes-linear-regression/)
 
@@ -33,3 +33,4 @@
 - [Vorhersage-Modellierung des Preises von Diamanten](https://data-se.netlify.app/2021/05/19/vohrersgage-modellierung-des-preises-von-diamanten/)
 
 - [Modellierung Diamantenpreis 2](https://data-se.netlify.app/2021/05/25/modellierung-diamantenpreis-2/)
+
