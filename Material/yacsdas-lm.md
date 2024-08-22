@@ -31,3 +31,7 @@
 - [Vorhersage-Modellierung des Preises von Diamanten](https://data-se.netlify.app/2021/05/19/vohrersgage-modellierung-des-preises-von-diamanten/)
 
 - [Modellierung Diamantenpreis 2](https://data-se.netlify.app/2021/05/25/modellierung-diamantenpreis-2/)
+
+- [YACSDA Seitensprünge](https://data-se.netlify.app/2021/05/28/yacsda-seitenspr%C3%BCnge/)
+
+

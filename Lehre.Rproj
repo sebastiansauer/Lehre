@@ -12,6 +12,6 @@ Encoding: UTF-8
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
-PythonType: virtualenv
-PythonVersion: 3.9.18
-PythonPath: ~/.virtualenvs/r-tensorflow/bin/python
+PythonType: system
+PythonVersion: 3.11.5
+PythonPath: /usr/local/bin/python3.11
