@@ -1,0 +1,713 @@
+---
+date: 2024-06-22
+draft: FALSE   # ACHTUNG DRAFT STEHT AUF TRUE!
+title: flights-delay
+execute: 
+  eval: true 
+  cache: true
+  freeze: true
+highlight-style: arrow 
+cache: true
+toc: true
+number-sections: true
+extype: string
+exsolution: ""
+exshuffle: no
+categories:
+- lm  # ENTER CATEGORIES HERE
+- regression
+- interaction
+- yacsda
+---
+
+
+
+
+
+# Hintergrund und Forschungsfrage
+
+
+Wir untersuchen die Forschungsfrage *Was sind Prädiktoren von Flugverspätungen*. 
+Dazu nutzen wir lineare Modelle als Modellierungsmethoden.
+
+Dieser Post knüpft an [den Post zur explorativen Datenanalyse der Flugverspätungen](https://data-se.netlify.app/2021/03/08/eda-zu-flugversp%C3%A4tungen/) an (es gibt auch [hier, Teil 1](https://www.youtube.com/watch?v=t8i_qTonuLM) und [hier, Teil 2](https://youtu.be/AeBqwr2U7MA) ein Video zu diesem EDA-Post).
+
+
+# Setup
+
+## Pakete laden
+
+Wirklich wichtig sind nur `tidymodels` und `tidyverse`. Die restlichen Pakete werden nur am Rande benötigt. 
+Man sollte auch nur die Pakete laden,
+die man für die Analyse benötigt.
+
+```{r load-libs, message = FALSE, warning = FALSE}
+library("tidymodels")  # Train- und Test-Sample aufteilen
+library("tidyverse")  # data wrangling
+library("conflicted")  # Name clashes finden
+library("easystats")  # stats made easy
+```
+
+
+
+## Daten laden: Flights 2023
+
+Aus Gründen der Datenökonomie nutzen wir eine kleinere Version des Datensatz `flights`. 
+Wir nutzen nicht mehr die Daten aus dem 2013, sondern die neueren Daten aus dem Jahr 2023.
+
+```{r}
+library(nycflights23)
+data(flights)
+
+set.seed(42)  # Reproduzierbarkeit
+flights <- 
+  flights |> 
+  sample_n(size = 3e4)
+```
+
+
+
+# flights2: Nicht benötigte Variablen entfernen und ID hinzufügen
+
+```{r flights2}
+flights2 <-
+  flights %>% 
+  select(-c(year, arr_delay)) %>% 
+  drop_na(dep_delay) %>% 
+  mutate(id = row_number()) %>% 
+  select(id, everything())  # id nach vorne ziehen
+```
+
+
+
+
+
+# Aufteilung in Train- und Testsample
+
+
+Der Hintergrund zur Idee der Aufteilung in Train- und Test-Stichprobe kann z.b. [hier](https://www.tmwr.org/splitting.html) oder [hier](https://www.springer.com/de/book/9783658215866), Kapitel 15, nachgelesen werden.
+
+
+```{r}
+flights_split <- initial_split(flights2, 
+                               strata = dep_delay)
+```
+
+
+
+# flights_train2, flights_test2
+
+```{r trian-test}
+set.seed(42)  # Reproduzierbarkeit
+flights_train2 <- training(flights_split)
+flights_test2 <- testing(flights_split)
+```
+
+
+Die "wirkliche Welt" (was immer das ist) besorgt die Aufteilung von Train- und Test-Sampel für Sie automatisch. Sagen wir, Sie arbeiten für die Flughafen-Aufsicht von New York. Dann haben Sie einen Erfahrungsschatz an Flügen aus der Vergangenheit in Ihrer Datenbank (Train-Sample). Einige Tages kommt Ihr Chef zu Ihnen und sagt: "Rechnen Sie mir mal die zu erwartende Verspätung der Flüge *im nächsten Monat* aus!". Da *heute* nicht klar ist, wie die Verspätung der Flüge *in der Zukunft* (nächsten Monat) sein wird, stellen die Flüge des nächsten Monats das Test-Sample dar.
+
+Übrigens: In der Prüfung besorgt das Aufteilen von Train- und Test-Sample netterweise Ihr Dozent...
+
+
+
+
+# lm0: Nullmodell
+
+Eigentlich nicht nötig, das Nullmodell, primär aus didaktischen Gründen berechnet, um zu zeigen, dass in diesem Fall $R^2$ wirklich gleich Null ist.
+
+
+```{r lm0}
+lm0 <- lm(dep_delay ~ 1, data = flights_train2)
+model_parameters(lm0)  # model_parameters zeit die (geschätzten) Regressionsgewichte (Betas)
+```
+
+
+Wir könnten anstatt `model_parameters` auch `parameters` nutzen; das ist der gleiche Befehl.
+
+Allerdings gibt es den Befehl `parameters` in *zwei* Paketen, es käme also zu einem "Name Clash".
+Das umgehen wir, indem wir `model_parameter` nutzen, und nicht `parameters`. 
+
+# lm1: origin
+
+
+```{r lm1}
+lm1 <- lm(dep_delay ~ origin, data = flights_train2)
+model_parameters(lm1)  
+```
+
+
+Man vergleiche:
+
+```{r flights2-compare}
+flights_train2 %>% 
+  drop_na(dep_delay) %>% 
+  group_by(origin) %>% 
+  summarise(delay_avg = mean(dep_delay)) %>% 
+  mutate(delay_delta = delay_avg - delay_avg[1])
+```
+
+
+Der Mittelwertsvergleich und das Modell `lm1` sind faktisch informationsgleich.
+
+
+
+Aber leider ist es um die Modellgüte nicht so gut bestellt (eigentlich eher "grottenschlecht"):
+
+```{r r2lm1}
+r2(lm1)
+```
+
+
+`lm1` ist so schlecht, wir löschen es gleich wieder...
+```{r}
+rm(lm1)
+```
+
+
+
+# lm2: All in
+
+```{r eval = FALSE}
+# NICHT AUSFÜHREN
+#lm2_all_in <- lm(dep_delay ~ ., data = flights_train2)
+```
+
+Modell `lm2_all_in` ist hier *keine* gute Idee, da nominale Prädiktoren in Indikatorvariablen umgewandelt werden. Hat ein nominaler Prädiktor sehr viele Stufen (wie hier), so resultieren sehr viele Indikatorvariablen, was dem Regressionsmodell Probleme bereiten kann (bei mir hängt sich R auf). Besser ist es in dem Fall, die Anzahl der Stufen von nominalskalierten Variablen vorab zu begrenzen.
+
+Bei kleineren Datensätzen (weniger Variablen, weniger Fälle) lohnt es sich aber oft, das "All-in-Modell" auszuprobieren, als Referenzmaßstab für andere Modelle.
+
+
+
+# flights_train3: Textvariablen in Faktorvariablen umwandeln
+
+Begrenzen wir zunächst die Anzahl der Stufen der nominal skalierten Variablen:
+
+
+```{r flights3}
+flights_train3 <- 
+  flights_train2 %>% 
+  mutate(across(
+    .cols = where(is.character),
+    .fns = as.factor))
+```
+
+Wem das `across` zu kompliziert ist, der kann auch alternativ (synonym) jede Variable einzeln in einen Faktor umwandeln und zwar so:
+
+```{r no-across}
+flights_train3a <- 
+  flights_train2 %>% 
+  mutate(tailnum = as.factor(tailnum),
+         origin = as.factor(origin),
+         dest = as.factor(dest),
+         carrier = as.factor(carrier)
+      )
+```
+
+
+Das ist einfacher als mit `across`, aber dafür mehr Tipperei.
+
+
+Wir müssen die Transformationen, die wir auf das Train-Sample anwenden, auch auf das Test-Sample anwenden:
+
+
+# flights_test3
+
+```{r flights-test3}
+flights_test3 <- 
+  flights_test2 %>% 
+  mutate(across(
+    .cols = where(is.character),
+    .fns = as.factor))
+```
+
+
+```{r}
+flights_train3 %>% 
+  select(where(is.factor)) %>% 
+  names()
+```
+
+
+
+Z.B. `dest` hat viele Stufen:
+
+```{r}
+flights_train3 %>% 
+  count(dest, sort = TRUE)
+```
+
+```{r}
+flights_train3 %>%
+  count(dest) %>%
+  ggplot() +
+  aes(y = fct_reorder(dest, n), x = n) +
+  geom_col()
+```
+
+# flights_train4: Faktorstufen zusammenfassen
+
+```{r flights-train4}
+flights_train4 <-
+  flights_train3 %>% 
+  mutate(across(
+    .cols = where(is.factor),
+    .fns = fct_lump_prop, prop = .025
+  ))
+```
+
+
+# Variante mit `fact_lump_n` 
+
+Sinngemäß bedeutet das:
+
+"Fasse die Faktorstufen von `dest` zu 8 Gruppen plus einer '*Lump*ensammler-Kategorie' zusammen."
+
+```{r}
+flights_train3 %>% 
+  mutate(dest_lump9 = fct_lump_n(dest, n = 8)
+  )
+```
+
+
+Hier sind die Faktorstufen von `dest`:
+
+```{r}
+flights_train4$dest |> levels()
+```
+
+
+Visusalsieren wir die Häufigkeit der Faktorstufen:
+
+```{r plot-count-levels-dest}
+flights_train4 %>%
+  count(dest) %>%
+  ggplot() +
+  aes(y = fct_reorder(dest, n), x = n) +
+  geom_col()
+```
+
+
+
+
+
+# flights_test4
+
+Vergessen wir nicht, die Transformation auch auf das Test-Sample anzuwenden:
+
+
+
+```{r flights-test4}
+flights_test4 <-
+  flights_test3 %>% 
+  mutate(across(
+    .cols = where(is.factor),
+    .fns = fct_lump_prop, prop = .025
+  ))
+```
+
+
+
+Wichtig! Im Alle Faktorstufen, die im Test-Set vorkommen, müssen auch im Train-Set vorkommen. Sonst können wir das Regressionsmodell nicht berechnen.
+
+```{r}
+levels(flights_test4$dest) 
+```
+
+```{r}
+levels(flights_train4$dest)
+```
+
+Das sieht gut aus: Alle Faktorstufen im Test-Set sind im Train-Set enthalten.
+
+# lm3: Alle zusammengefassten Faktorvariablen
+
+```{r lm3}
+#| error: true
+lm3 <- flights_train4 %>% 
+  select(dep_delay, where(is.factor), -tailnum, -id) %>% 
+  lm(dep_delay ~ ., data = .)
+```
+
+Achtung! Falls ein Faktor nur über eine einzige Faktorstufe verfügt, wird das Regressionsmodell zusammenbrechen mit einer Fehlermeldung. Adios!
+
+
+
+
+Der Punkt bei `dep_delay ~ .` meint "nimm alle Variablen im Datensatz (bis auf `dep_delay`)".
+
+Der Punkt bei `data = .` nimm die Tabelle, wie sie dir im letzten Schritt mundgerecht aufbereitet wurde. Man hätte hier auch `flights_train4` schreiben können, aber dann hätten wir noch `tailnum` etc. entfernen müssen.
+
+
+
+
+
+
+Eigentlich brauchen wir nicht so viele Dezimalstellen ...
+
+```{r options-digits}
+options(digits = 2)
+```
+
+
+
+```{r lm3-params}
+model_parameters(lm3)  # Modellkoeffizienten, also die Beta-Gewichte ("estimate")
+```
+
+
+Wie man sieht, wird eine nominalskalierte Variable mit vielen Stufen in entsprechend (viele!) binäre Variablen umgewandelt, die jeweils einen Regressionskoeffizienten ergeben.
+
+
+```{r lm3-r2}
+r2(lm3)  # R^2
+```
+
+
+Ein mageres R-Quadrat.
+
+
+# lm4: Alle metrischen Variablen
+
+
+Was sind noch mal unsere metrischen Variablen:
+
+```{r}
+flights_train4 %>% 
+  select(where(is.numeric)) %>% 
+  names()
+```
+
+
+Ok, jetzt eine Regression mit diesen Variablen (ober ohne die ID-Variable):
+
+```{r lm4}
+lm4 <- 
+  flights_train4 %>% 
+  select(dep_delay, where(is.numeric), -id) %>% 
+  lm(dep_delay ~ ., data = .)
+```
+
+
+```{r}
+r2(lm4)
+```
+
+Tja, das $R^2$ hat einen nicht gerade um ...
+
+
+
+# lm5: Alle metrischen und alle (zusammengefassten) nominalen Variablen
+
+Welche Variablen sind jetzt alle an Bord?
+
+```{r}
+flights_train4 %>% 
+  names()
+```
+
+`time_hour` nehmen wir noch einmal raus, da es zum einen redundant ist zu `hour` etc. und zum anderen noch zusätzlicher Aufbereitung bedarf.
+
+```{r}
+flights_train4 %>% 
+  select(minute) %>% 
+  describe_distribution()
+```
+
+
+```{r lm5}
+flights_train4 <- 
+  flights_train4 %>% 
+  select(-time_hour, -tailnum, -id, -minute)    # "minute" machte Probleme, besser rausnehmen
+  
+lm5 <-lm(dep_delay ~ ., data = flights_train4)
+```
+
+
+
+```{r}
+r2(lm5)
+```
+
+Der Vorhersage-Gott ist nicht mit uns. Vielleicht sollten wir zu einem ehrlichen Metier als Schuhverkäufer umsatteln ...
+
+
+# flights_train5: Fehlenden Werte ersetzen
+
+
+```{r}
+flights_train4 |> 
+  describe_distribution() |> 
+  select(Variable, n_Missing)
+```
+
+Glücklicherweise haben wir nicht zu viele fehlende Werte.
+Bei der Größe der Stichprobe fällt die Anzahl wenig ins Gewicht.
+Aber zu Übungszwecken ersetzen wir mal die fehlenden Werte.
+
+
+
+```{r}
+flights_train5 <-
+  flights_train4 |> 
+  mutate(air_time = replace_na(air_time, mean(air_time, na.rm = TRUE)))
+```
+
+
+
+# lm6: Wie lm5, aber ohne fehlende Werte
+
+```{r}
+lm6 <-lm(dep_delay ~ ., data = flights_train5)
+```
+
+```{r}
+r2(lm6)
+```
+
+
+# flights_train6: Extremwerte entfernen
+
+
+```{r plot-densities}
+library(DataExplorer)
+
+flights_train5 |> 
+  select(where(is.numeric)) |> 
+  plot_density()
+```
+
+Es sieht so aus, als wäre `air_time` deutlich rechtsschief mit einigen Ausreißern.
+
+Betrachten wir noch Boxplots, die auch gut Extermwerte visualisieren.
+
+
+```{r}
+flights_train5 |> 
+  select(where(is.numeric), "origin") |> 
+  plot_boxplot(by = "origin")
+```
+
+
+Eine gängige Methode, mit Extermwerten umzugehen, ist, alle Datenpunkte, die im Boxplot als alleinstehende Punkte gezeigt werden, durch den Median zu ersetzen.
+Achtung: Diese Methode ist nicht perfekt! Es gibt viel sophistiziertere Methoden.
+
+
+Wir ersetzen dabei alle Werte von ` air_time`, für die gilt, dass sie größer sind als Q3 + 1.5*IQR.
+
+Q3:
+
+```{r comp-q3}
+flights_train5 |> 
+  summarise(iqr_airtime = quantile(air_time, prob = .75))
+```
+
+
+
+IQR:
+
+```{r comp-iqr}
+flights_train5 |> 
+  summarise(iqr_airtime = IQR(air_time))
+```
+
+Der Grenzwert ist also:
+
+```{r comp-threshold}
+(# Q3
+  flights_train5 |> 
+  summarise(iqr_airtime = quantile(air_time, prob = .75)) 
+  ) +
+  1.5 * 
+ (# IQR
+  flights_train5 |> 
+  summarise(iqr_airtime = IQR(air_time)) 
+ )
+```
+
+
+Der Median von `air_time` beträgt übrigens:
+
+```{r comp-md}
+ flights_train5 |> 
+  summarise(iqr_airtime = median(air_time)) 
+```
+
+
+```{r flights-train6}
+flights_train6 <-
+  flights_train5 |> 
+  mutate(air_time = 
+           case_when(air_time > 326 ~ 122,
+                     TRUE ~ air_time))
+```
+
+
+Grob auf Deutsch übersetzt:
+
+>    Wenn ein Flug eine `air_time` von mehr als 326 Minuten hat, dann sei die airtime gleich 122, ansonsten immer ("TRUE") ist airtime gleich `air_time`, bleibt also, wie sie war.
+
+
+
+# lm7: Wie lm5, aber ohne Extremwerte für `air_time`
+
+```{r lm7}
+lm7 <-lm(dep_delay ~ ., data = flights_train6)
+
+r2(lm7)
+```
+
+Tja....
+
+# R2 im Testsample 
+
+
+
+$R^2$ kann man übrigens auch so berechnen:
+
+
+Zuerst fügen wir die Vorhersagen zum Datensatz hinzu:
+
+```{r lm7-predict}
+flights_train7_pred <- 
+  flights_train6 %>% 
+  mutate(lm7_pred = predict(lm7, newdata = flights_train6))  
+```
+
+
+Dann berechnen wir das R-Quadrat mit der Funktion `rsq` (wie "r squared") anhand der beiden relevanten Spalten:
+
+```{r flights_train7_pred-r2}
+flights_train7_pred %>% 
+  rsq(truth = dep_delay,
+      estimate = lm7_pred)
+```
+
+
+
+
+Berechnen wir jetzt die Modellgüte im Testsample.
+
+
+Fügen wir die Vorhersagewerte dem Testsample dazu:
+
+```{r flights_test4_pred}
+flights_test4_pred <-
+  flights_test4 %>% 
+  mutate(pred_lm7 = predict(lm7, newdata = flights_test4))
+```
+
+Check:
+
+```{r}
+flights_test4_pred %>% 
+  select(id, dep_delay, pred_lm7) %>%
+  head()
+```
+
+
+
+```{r test-r2}
+test_rsq <- 
+ tibble(model = "lm7") %>% 
+  mutate(rsq = rsq_vec(truth = flights_test4_pred$dep_delay,
+                       estimate = flights_test4_pred$pred_lm7))
+
+test_rsq
+```
+
+Am schwierigsten ist es, bei den ganzen Nummerierungen nicht durcheinander zu kommen. Hier könnte es sich lohnen, ein übersichtlicheres Verfahren einzuführen (mit den Kosten höherer Komplexität).
+
+
+Prüfen wir noch, wie viele fehlende Werte es bei den vorhergesagten Werten gibt:
+
+
+```{r}
+flights_test4_pred %>% 
+  summarise(pred_isna = sum(is.na(pred_lm7)),
+            pred_isna_prop = pred_isna / nrow(flights_test4_pred))  # prop wie "proportion" (Anteil)
+```
+
+Da fehlende Werte u.U. mit dem Mittelwert (der übrigen prognostizierten Werte) aufgefüllt werden, erledigen wir das gleich, um den Effekt auf $R^2$ abzuschätzen:
+
+```{r flights_test4_pred2}
+flights_test4_pred2 <- 
+flights_test4_pred %>% 
+  mutate(pred_lm7 = replace_na(pred_lm7, mean(pred_lm7, na.rm = TRUE)))
+```
+
+
+```{r}
+flights_test4_pred2 %>% 
+  summarise(sum(is.na(pred_lm7)))
+```
+
+Keine fehlenden Werte mehr.
+
+
+Wie sieht $R^2$ jetzt aus?
+
+```{r lm7-r2-test}
+flights_test4_pred2 %>% 
+  rsq(truth = dep_delay, estimate = pred_lm7)
+```
+
+Keine (nennenswerte) Veränderung.
+
+
+
+```{r rm-all-lms}
+#| echo: false
+
+rm(lm2)
+rm(lm3)
+rm(lm4)
+rm(lm5)
+rm(lm6)
+rm(lm7)
+rm(flights)
+```
+
+
+
+# Einreichen
+
+
+Das beste Modell im *Train-Sample* reichen wir ein; in diesem Fall `lm7`.
+
+
+
+
+```{r subm-df}
+submission_df <- 
+flights_test4_pred2 |> 
+  select(id, pred = pred_lm7)  # gleich umbenennen in "pred"
+```
+
+
+
+```{r write-csv, eval = FALSE}
+write_csv(submission_df, file = "Sauer_Sebastian_0123456_Prognose.csv")
+```
+
+
+
+# Was noch?
+
+## Mehr geht immer...
+
+Ein nächster Schritt könnte sein, sich folgende Punkte anzuschauen:
+
+  - Interaktionen
+  - Polynome
+  - Voraussetzungen
+
+Eine Faustregel zu Interaktionen lautet: Wenn zwei Variablen jeweils einen starken Haupteffekt haben, lohnt es sich u.U., den Interaktionseffekt anzuschauen (vgl. Gelman & Hill, 2007, S. 69).
+
+
+## Tidymodels
+
+Das ständige Updaten des Test-Datensatzes nervt; mit `tidymodels` wird es komfortabler und man hat Zugang zu leistungsfähigeren Prognosemodellen. [Hier](https://www.tmwr.org/) findet sich ein Einstieg und hier eine [Fallstudie mit Tutorial](https://www.tidymodels.org/start/models/).
+
+
+
+
