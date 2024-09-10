@@ -81,4 +81,16 @@ penguins |>
 
 
 
+# Ex: Visualize the mtcars dataset
+
+```{r}
+data(mtcars)
+```
+
+
+Use the tools presented here to visualize variables of interest of the mtcars dataset. In addition, provided plots that investigate bivariate associations (i.e., potential correlations between two variables).
+
+See here for details:
+
+<https://stats-nutshell.netlify.app/030-eda#exercises>
 
