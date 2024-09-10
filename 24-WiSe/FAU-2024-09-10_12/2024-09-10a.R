@@ -65,11 +65,24 @@ data(mtcars)
 
 
 # you can also import from internet sources:
-d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")  # hit command-enter
+
+penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")  # hit command-enter
 
 head(d)  # see the first few rows, the "head" of the table
 
 
 
+# Installing packages:
 
+# install.packages("tidyverse")
+
+
+library(DataExplorer)
+
+plot_histogram(penguins)
+
+
+
+library(tableone)  
+CreateTableOne(data = penguins)
 
