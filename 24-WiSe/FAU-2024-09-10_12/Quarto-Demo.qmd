@@ -102,6 +102,14 @@ library(ggstatsplot)
 ```
 
 
+```{r}
+mtcars <- 
+mtcars |> 
+  mutate(rownames_cars = rownames(mtcars))
+```
+
+
+
 Sometimes you need to re-format variables to nominal level, such as `am` in `mtcars`.
 
 Here's one way how to do it:
