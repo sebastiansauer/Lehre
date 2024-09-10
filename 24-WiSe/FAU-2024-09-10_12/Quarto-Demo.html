@@ -125,29 +125,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="tableone" class="level1">
 <h1>TableOne</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CreateTableOne</span>(<span class="at">data =</span> penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                               
-                                Overall         
-  n                                 344         
-  rownames (mean (SD))           172.50 (99.45) 
-  species (%)                                   
-     Adelie                         152 (44.2)  
-     Chinstrap                       68 (19.8)  
-     Gentoo                         124 (36.0)  
-  island (%)                                    
-     Biscoe                         168 (48.8)  
-     Dream                          124 (36.0)  
-     Torgersen                       52 (15.1)  
-  bill_length_mm (mean (SD))      43.92 (5.46)  
-  bill_depth_mm (mean (SD))       17.15 (1.97)  
-  flipper_length_mm (mean (SD))  200.92 (14.06) 
-  body_mass_g (mean (SD))       4201.75 (801.95)
-  sex (%)                                       
-                                     11 ( 3.2)  
-     female                         165 (48.0)  
-     male                           168 (48.8)  
-  year (mean (SD))              2008.03 (0.82)  </code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CreateTableOne</span>(<span class="at">data =</span> penguins) <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kableone</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Overall</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;">344</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rownames (mean (SD))</td>
+<td style="text-align: left;">172.50 (99.45)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">species (%)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">152 (44.2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chinstrap</td>
+<td style="text-align: left;">68 (19.8)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gentoo</td>
+<td style="text-align: left;">124 (36.0)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">island (%)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Biscoe</td>
+<td style="text-align: left;">168 (48.8)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dream</td>
+<td style="text-align: left;">124 (36.0)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: left;">52 (15.1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bill_length_mm (mean (SD))</td>
+<td style="text-align: left;">43.92 (5.46)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bill_depth_mm (mean (SD))</td>
+<td style="text-align: left;">17.15 (1.97)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">flipper_length_mm (mean (SD))</td>
+<td style="text-align: left;">200.92 (14.06)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">body_mass_g (mean (SD))</td>
+<td style="text-align: left;">4201.75 (801.95)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sex (%)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">11 ( 3.2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">165 (48.0)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">168 (48.8)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">year (mean (SD))</td>
+<td style="text-align: left;">2008.03 (0.82)</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>

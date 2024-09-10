@@ -1,10 +1,9 @@
 ---
 title: "My Quarto document!!!"
-format:
-  html
-  # pdf: 
-  #   keep-tex: true
+format: html
 ---
+
+
 
 
 # Table One example
@@ -17,13 +16,19 @@ R code must be explicitly marked as code, use "R code chunks",
 shortcut Command-Option-I, or hit the "+C" green button
 
 
+
+
 ```{r}
 library(tableone)
 library(DataExplorer)
 ```
 
 
+
+
 Now load the dataset:
+
+
 
 ```{r}
 penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")  # hit command-enter
@@ -31,10 +36,12 @@ penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerp
 
 
 
+
+
 # DataExplorer
 
 
-Hit Control-Enter to run some code line:
+
 
 ```{r}
 plot_histogram(penguins)
@@ -43,7 +50,10 @@ plot_histogram(penguins)
 
 
 
+
 # TableOne
+
+
 
 ```{r}
 CreateTableOne(data = penguins) |>
@@ -51,30 +61,17 @@ CreateTableOne(data = penguins) |>
 ```
 
 
+
+
 # THE PIPE
 
 "And then" command: vertical bar + greater-than "|" + ">" -
 is called the PIPE
 and can be read as "and then do ..."
-the shortcut is **"Control+Shift+M"**.
+the shortcut is "Control+Shift+
 
 
 
-# Exercise
-
-Show a grouped (and beautiful) table for all metric variables in the `penguins` dataset.
-Note that you'll need to R packages: tidyverse and easystats.
-
-
-
-```{r}
-library(easystats)
-library(tidyverse)
-penguins |> 
-  group_by(sex) |> 
-  describe_distribution() |> 
-  print_md()
-```
 
 
 
