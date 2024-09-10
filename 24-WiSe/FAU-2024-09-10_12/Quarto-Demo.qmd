@@ -16,6 +16,7 @@ shortcut Command-Option-I, or hit the "+C" green button
 
 ```{r}
 library(tableone)
+library(DataExplorer)
 ```
 
 
@@ -24,4 +25,22 @@ Now load the dataset:
 ```{r}
 penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")  # hit command-enter
 ```
+
+
+
+# DataExplorer
+
+
+```{r}
+plot_histogram(penguins)
+```
+
+
+
+# TableOne
+
+```{r}
+CreateTableOne(data = penguins)
+```
+
 
