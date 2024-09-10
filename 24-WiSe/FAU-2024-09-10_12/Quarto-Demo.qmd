@@ -1,0 +1,27 @@
+---
+title: "My Quarto document!!!"
+format: html
+---
+
+
+# Table One example
+
+
+Load the needed R packages:
+
+
+R code must be explicitly marked as code, use "R code chunks",
+shortcut Command-Option-I, or hit the "+C" green button
+
+
+```{r}
+library(tableone)
+```
+
+
+Now load the dataset:
+
+```{r}
+penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")  # hit command-enter
+```
+
