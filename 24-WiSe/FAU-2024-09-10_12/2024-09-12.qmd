@@ -1,6 +1,6 @@
 ---
 title: "2024-09-12"
-format: html
+format: docx
 ---
 
 
@@ -25,6 +25,31 @@ lm1_freq <- lm(mpg ~ hp, data = mtcars)
 Extract parameters of the model:
 
 ```{r}
-parameters(lm1_freq)
+parameters(lm1_freq) |> 
+  print_md()
 ```
+
+
+```{r}
+plot(parameters(lm1_freq),
+     show_intercept = TRUE)
+
+plot(parameters(lm1_freq))  # better without
+
+```
+
+# Ex
+
+
+# Exercise
+
+
+Consider the dataset `penguins`. Compute a linear model with body mass as output variable (DV) and flipper length as input (IV). 
+
+- Report the coefficients and interpret them.
+- Plot the model and the coefficients.
+- Report the model fit (R squared).
+- BONUS: `predict()` the weight of an average flipper-seized animal.  Check out the internet for examples of how to do so in case you need support.
+
+
 
