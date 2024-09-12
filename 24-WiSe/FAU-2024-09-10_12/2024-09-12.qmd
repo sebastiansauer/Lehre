@@ -308,8 +308,9 @@ penguins |>
 Female:
 ```{r}
 predict(lm2, newdata = 
-          data.frame(flipper_length_mm = 200,
-                     sex = "female"))
+          data.frame(
+            flipper_length_mm = 200,
+            sex = "female"))
 ```
 
 Around 4 kgs.
