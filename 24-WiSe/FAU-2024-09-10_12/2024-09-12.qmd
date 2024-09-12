@@ -128,16 +128,21 @@ Predict weight of average animal:
 
 ```{r}
 penguins |> 
-  summarise(flipper_length_mm_avg = mean(flipper_length_mm, na.rm = TRUE))
+  summarise(flipper_length_mm_avg = 
+              mean(flipper_length_mm, na.rm = TRUE))
 ```
 
 
+## Average flipper length - what's the expected weight?
 
 ```{r}
 predict(lm1, newdata = data.frame(flipper_length_mm = 200))
 ```
 
 Around 4 kgs.
+
+
+## Centering the data
 
 
 Center the data:
@@ -164,5 +169,39 @@ lm2 <- lm(body_mass_g ~ flipper_length_mm_c, data = penguins_c)
 
 parameters(lm2)
 ```
+
+
+
+# Chap 4.7
+
+```{r}
+lm3a <- lm(mpg ~ am, data = mtcars)
+parameters(lm3a)
+```
+
+
+```{r}
+plot(estimate_relation(lm3a))
+```
+
+
+
+
+
+
+
+
+# Exercise
+
+
+Consider the dataset `penguins`. 
+Compute a linear model with *body mass* as output variable (DV) and a) *flipper length* and b) *sex* as input (IV). 
+
+
+1. Tidy up the data set, if and where needed.
+2. Report the coefficients and interpret them.
+3. Plot the model and the coefficients.
+4. Report the model fit (R squared).
+5. BONUS: `predict()` the weight of an average flipper-seized animal.  Check out the internet for examples of how to do so in case you need support.
 
 
