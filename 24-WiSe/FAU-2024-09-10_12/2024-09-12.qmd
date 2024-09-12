@@ -1,0 +1,30 @@
+---
+title: "2024-09-12"
+format: html
+---
+
+
+# Setup
+
+```{r}
+data(mtcars)
+library(easystats)
+library(tidyverse)
+```
+
+
+# First model
+
+<https://stats-nutshell.netlify.app/050-regression1#first-model-one-metric-predictor>
+
+```{r}
+lm1_freq <- lm(mpg ~ hp, data = mtcars)
+```
+
+
+Extract parameters of the model:
+
+```{r}
+parameters(lm1_freq)
+```
+
