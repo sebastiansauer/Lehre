@@ -1,8 +1,8 @@
 ---
 title: "2024-09-12"
-format: docx
+format: html
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 
@@ -229,7 +229,7 @@ penguins_tidier <-
   penguins |> 
   select(body_mass_g, flipper_length_mm, sex) |> 
   drop_na() |> 
-  filter(sex != "")
+  filter(sex != "")  # maybe better to be excluded
 ```
 
 
