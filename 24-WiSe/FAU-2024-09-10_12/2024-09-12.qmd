@@ -38,18 +38,131 @@ plot(parameters(lm1_freq))  # better without
 
 ```
 
-# Ex
-
 
 # Exercise
 
 
 Consider the dataset `penguins`. Compute a linear model with body mass as output variable (DV) and flipper length as input (IV). 
 
-- Report the coefficients and interpret them.
-- Plot the model and the coefficients.
-- Report the model fit (R squared).
-- BONUS: `predict()` the weight of an average flipper-seized animal.  Check out the internet for examples of how to do so in case you need support.
+1. Report the coefficients and interpret them.
+2. Plot the model and the coefficients.
+3. Report the model fit (R squared).
+4. BONUS: `predict()` the weight of an average flipper-seized animal.  Check out the internet for examples of how to do so in case you need support.
 
+
+
+
+# Solution
+
+## Setup
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+
+# import data:
+penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+```
+
+
+
+## Let's go
+
+
+```{r}
+lm1 <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
+```
+
+
+
+Plot the model:
+
+
+```{r}
+plot(estimate_relation(lm1))
+```
+
+
+
+Alternative plotting method:
+
+
+```{r}
+ggscatter(penguins,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          add ="reg.line")
+```
+
+
+
+Coefficients (parameters):
+
+
+```{r}
+parameters(lm1)
+```
+
+
+
+Plot the coefficients:
+
+```{r}
+plot(parameters(lm1))
+```
+
+
+
+Model fit (explained variance by model):
+
+
+
+```{r}
+r2(lm1)
+```
+
+
+
+Predict weight of average animal:
+
+```{r}
+penguins |> 
+  summarise(flipper_length_mm_avg = mean(flipper_length_mm, na.rm = TRUE))
+```
+
+
+
+```{r}
+predict(lm1, newdata = data.frame(flipper_length_mm = 200))
+```
+
+Around 4 kgs.
+
+
+Center the data:
+
+
+```{r}
+penguins_c <-
+  penguins |> 
+  mutate(flipper_length_mm_c = center(flipper_length_mm))
+```
+
+
+Now the mean value is (nearly) zero:
+
+```{r}
+mean(penguins_c$flipper_length_mm_c, na.rm = TRUE)
+```
+
+
+Run the model again:
+
+```{r}
+lm2 <- lm(body_mass_g ~ flipper_length_mm_c, data = penguins_c)
+
+parameters(lm2)
+```
 
 
