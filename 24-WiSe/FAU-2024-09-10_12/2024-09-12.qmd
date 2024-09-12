@@ -1,6 +1,8 @@
 ---
 title: "2024-09-12"
 format: docx
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -202,6 +204,153 @@ Compute a linear model with *body mass* as output variable (DV) and a) *flipper 
 2. Report the coefficients and interpret them.
 3. Plot the model and the coefficients.
 4. Report the model fit (R squared).
-5. BONUS: `predict()` the weight of an average flipper-seized animal.  Check out the internet for examples of how to do so in case you need support.
+5. BONUS: `predict()` the weight of an average flipper-seized animal (male and female).  Check out the internet for examples of how to do so in case you need support.
+
+
+
+# Solution
+
+## Setup
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+
+# import data:
+penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+```
+
+
+## Tidy up
+
+```{r}
+penguins_tidier <-
+  penguins |> 
+  select(body_mass_g, flipper_length_mm, sex) |> 
+  drop_na() |> 
+  filter(sex != "")
+```
+
+
+
+## Let's go
+
+
+```{r}
+lm2 <- 
+  lm(body_mass_g ~ flipper_length_mm + sex, 
+          data = penguins_tidier)
+```
+
+
+
+Plot the model:
+
+
+```{r}
+plot(estimate_relation(lm2))
+```
+
+
+
+Alternative plotting method:
+
+
+```{r}
+ggscatter(penguins_tidier,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          color = "sex",
+          add ="reg.line")
+```
+
+
+
+Coefficients (parameters):
+
+
+```{r}
+parameters(lm2)
+```
+
+
+
+Plot the coefficients:
+
+```{r}
+plot(parameters(lm2))
+```
+
+
+
+Model fit (explained variance by model):
+
+
+
+```{r}
+r2(lm2)
+```
+
+
+
+Predict weight of average animal:
+
+```{r}
+penguins |> 
+  summarise(flipper_length_mm_avg = 
+              mean(flipper_length_mm, na.rm = TRUE))
+```
+
+
+## Average flipper length - what's the expected weight?
+
+Female:
+```{r}
+predict(lm2, newdata = 
+          data.frame(flipper_length_mm = 200,
+                     sex = "female"))
+```
+
+Around 4 kgs.
+
+Male:
+
+```{r}
+predict(lm2, newdata = 
+          data.frame(flipper_length_mm = 200,
+                     sex = "male"))
+```
+
+Around 4.3 kg.
+
+## Centering the data
+
+
+Center the data:
+
+
+```{r}
+penguins_c <-
+  penguins_tidier |> 
+  mutate(flipper_length_mm_c = center(flipper_length_mm))
+```
+
+
+Now the mean value is (nearly) zero:
+
+```{r}
+mean(penguins_c$flipper_length_mm_c, na.rm = TRUE)
+```
+
+
+Run the model again:
+
+```{r}
+lm2_c <- lm(body_mass_g ~ flipper_length_mm_c + sex, data = penguins_c)
+
+parameters(lm2_c)
+```
+
 
 
