@@ -1,6 +1,6 @@
 ---
 title: "Quarto-Test"
-format: html
+format: docx
 ---
 
 # Daten importieren
@@ -41,4 +41,67 @@ describe_distribution(d) |>
 
 
 
+
+# ggpubr
+
+
+```{r}
+library(ggpubr)
+```
+
+
+
+```{r}
+ggscatter(d,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex")
+```
+
+
+
+```{r}
+ggscatter(d,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "species",
+          shape = "species",
+          add = "reg.line",
+          xlab = "Bill length (mm)",
+          ylab = "Body maxx (g)",
+          conf.int = TRUE,
+          ellipse = TRUE,
+          cor.coef = TRUE)
+```
+
+
+# Aufgabe
+
+Erstellen Sie eine EDA.
+
+Nutzen Sie den Datensatz `mtcars`.
+
+
+```{r}
+data(mtcars)
+```
+
+
+
+Metrische Variable in Faktor-Variable umwandeln:
+
+```{r}
+mtcars$am <- factor(mtcars$am)
+```
+
+
+
+
+```{r}
+ggscatter(mtcars,
+          x = "hp",
+          y = "qsec",
+          color = "am",
+          add = "reg.line")
+```
 
