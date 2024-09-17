@@ -1,0 +1,44 @@
+---
+title: "Quarto-Test"
+format: html
+---
+
+# Daten importieren
+
+
+Hallo, das ist ein Quarto-Dokument. Ja, wirklich.
+
+
+
+# Aufgabe
+
+Importieren Sie die Pinguin-Daten und lassen Sie die die Verteilung der metrischen Variablen ausgeben (mit dem Paket easystats).
+
+
+# Lösung
+
+Daten importieren:
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+
+```
+
+
+Pakete starten:
+
+```{r}
+library(easystats)  # once per session
+```
+
+
+Verteilung ausgeben lassen:
+
+```{r}
+describe_distribution(d) |> 
+  print_md()
+```
+
+
+
+
