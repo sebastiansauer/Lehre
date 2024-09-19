@@ -139,12 +139,31 @@ penguins_nona |>
 
 Kovariate, deren Einfluss wir rausrechnen wollen: Schnabellänge.
 
+(Ohne Interaktionseffekt, d.h. parallele Regressionsgeraden)
+
+```{r}
+lm1 <- 
+  lm(body_mass_g ~ bill_length_mm + sex,
+   data = penguins_nona)
+
+parameters(lm1)   # aus dem Paket "easystats", muss geladen sein!
+```
 
 
 ```{r}
-lm(body_mass_g ~ sex + bill_length_mm,
-   data = penguins_nona)
+r2(lm1)
 ```
+
+
+
+```{r}
+plot(estimate_relation(lm1))
+```
+
+
+
+
+
 
 
 Bild zum Modell:
@@ -156,5 +175,21 @@ ggscatter(penguins_nona,
           y = "body_mass_g",
           color = "sex",
           add = "reg.line")
+```
+
+
+
+
+## Einfluss von Drittvariablen mit Interaktionseffekt bestimmen
+
+
+
+
+```{r}
+lm1_interact <- 
+  lm(body_mass_g ~ bill_length_mm + sex + bill_length_mm:sex,
+   data = penguins_nona)
+
+parameters(lm1_interact)   # aus dem Paket "easystats", muss geladen sein!
 ```
 
