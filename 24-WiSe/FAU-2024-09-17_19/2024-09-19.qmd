@@ -97,11 +97,64 @@ penguins |>
 
 
 
+
 ## Modellieren und Inferenzstatistik
 
 
 
 ```{r}
+lm(body_mass_g ~ sex, data = penguins_nona)
+```
 
+
+```{r}
+ggscatter(penguins_nona, 
+          x = "sex",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+
+
+## Daten umformatieren
+
+sex ist `female` --> 0
+sex ist `male` --> 1
+
+
+
+```{r}
+penguins_nona_num <- 
+penguins_nona |> 
+  mutate(sex_num = case_when(
+    sex == "female" ~ 0,
+    sex == "male" ~ 1
+  ))
+```
+
+
+
+## Einfluss von Drittvariablen bestimmen
+
+
+Kovariate, deren Einfluss wir rausrechnen wollen: Schnabellänge.
+
+
+
+```{r}
+lm(body_mass_g ~ sex + bill_length_mm,
+   data = penguins_nona)
+```
+
+
+Bild zum Modell:
+
+
+```{r}
+ggscatter(penguins_nona,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex",
+          add = "reg.line")
 ```
 
