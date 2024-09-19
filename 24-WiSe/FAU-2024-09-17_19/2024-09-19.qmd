@@ -42,8 +42,9 @@ describe_distribution(penguins)
 
 ## Gruppierte Mittelwerte
 
+
 ```{r}
-penguins |> 
+penguins |> # "UND-DANN-Befehl" Shortcut: Strg-Shift-M
   group_by(sex) |> 
   describe_distribution()
 ```
@@ -61,13 +62,39 @@ ggdensity(penguins,
 
 
 
+Hey, die `species` scheint ne wichtige Info zu sein. Da sollten wir mal hinschauen.
+
+
+
+
+```{r}
+penguins |> # "UND-DANN-Befehl" Shortcut: Strg-Shift-M
+  group_by(sex, species) |> 
+  describe_distribution()
+```
+
+
+
+
+
 ```{r}
 ggboxplot(penguins,
           x = "sex",
           y = "body_mass_g",
-          add = "mean_se",
-          fill = "sex")
+          add = "mean_se")
 ```
+
+
+## "Missliebige" Fälle entfernen
+
+
+```{r}
+penguins_nona <- 
+penguins |> 
+  drop_na() |> 
+  filter(sex != "")
+```
+
 
 
 ## Modellieren und Inferenzstatistik
