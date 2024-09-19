@@ -95,13 +95,45 @@ mtcars$am <- factor(mtcars$am)
 ```
 
 
+Oder synonym:
 
 
 ```{r}
-ggscatter(mtcars,
+mtcars2 <- 
+mtcars |>  # shortcut Control+Shift+M
+  mutate(am = factor(am))
+```
+
+
+
+
+```{r}
+ggscatter(mtcars2,
           x = "hp",
           y = "qsec",
           color = "am",
           add = "reg.line")
 ```
+
+
+
+```{r}
+mtcars$am <- factor(mtcars$am)
+mtcars$cyl <- factor(mtcars$cyl)
+
+ggscatter(mtcars,
+          x = "mpg",
+          y = "hp",
+          color = "cyl",
+          shape = "am",
+          add = "reg.line",
+          xlab = "miles per gallon ",
+          ylab = "Horse power ",
+          conf.int = TRUE,
+          ellipse = TRUE,
+          cor.coef = TRUE) +
+  labs(color = "Zylinder")
+```
+
+
 

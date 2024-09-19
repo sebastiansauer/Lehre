@@ -1,0 +1,80 @@
+---
+title: "2024-09-19"
+format: html
+
+---
+
+
+
+# Aufgabe
+
+Untersuchen Sie folgende Forschungsfrage:
+Wie ist der Zusammenhang von Geschlecht und Körpergewicht im Datensatz `penguins`? 
+
+
+
+# Lösung
+
+## Setup
+
+```{r}
+library(tidyverse)  # Datenjudo
+library(easystats)  # Make stats easy again
+library(ggpubr)  # Diagramme
+```
+
+
+## Daten importieren
+
+
+```{r}
+penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+```
+
+
+## Daten zusammenfassen
+
+
+```{r}
+describe_distribution(penguins)
+```
+
+
+## Gruppierte Mittelwerte
+
+```{r}
+penguins |> 
+  group_by(sex) |> 
+  describe_distribution()
+```
+
+
+
+## Daten visualisieren
+
+
+```{r}
+ggdensity(penguins,
+          x = "body_mass_g",#
+          fill = "sex")
+```
+
+
+
+```{r}
+ggboxplot(penguins,
+          x = "sex",
+          y = "body_mass_g",
+          add = "mean_se",
+          fill = "sex")
+```
+
+
+## Modellieren und Inferenzstatistik
+
+
+
+```{r}
+
+```
+
