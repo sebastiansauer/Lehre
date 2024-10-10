@@ -12,7 +12,7 @@ Laden Sie den Datensatz `penguins`.
 ### Modell berechnen
 
 Berechnen Sie ein Modell, um den Zusammenhang zwischen 
-Schnabeltiefe und Körpergewicht statistisch zu schätzen.
+Schnabeltiefe (UV) und Körpergewicht (AV) statistisch zu schätzen.
 
 
 ### Visualisieren Sie das Modell
@@ -43,4 +43,48 @@ wie oben
 
 Vergleichen Sie die Präzision der Regressionskoeffizienten mit dem Modell 1. Interpretieren Sie das Ergebnis.
 
+
+
+# Lösung zu Aufgabe 1
+
+
+## Modell 1
+
+
+Daten importieren:
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+
+Pakete starten:
+
+
+```{r}
+library(tidyverse)
+library(easystats)
+```
+
+
+Modell berechnen mit `lm`:
+
+```{r}
+m1 <- 
+  lm(body_mass_g ~ bill_depth_mm, data = penguins)
+```
+
+
+Modellparameter:
+
+```{r}
+parameters(m1)
+```
+
+Modell visualisieren:
+
+
+```{r}
+estimate_relation(m1) |> plot()
+```
 
