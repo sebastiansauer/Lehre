@@ -1,0 +1,46 @@
+---
+title: QM2, 2024-10-10
+---
+
+
+# Aufgabe 1
+
+Laden Sie den Datensatz `penguins`. 
+
+## Modell 1
+
+### Modell berechnen
+
+Berechnen Sie ein Modell, um den Zusammenhang zwischen 
+Schnabeltiefe und Körpergewicht statistisch zu schätzen.
+
+
+### Visualisieren Sie das Modell
+
+Tipp: `estimate_relation()` aus QM1. Aber es gibt auch andere Wege. 
+Tipp 2: Fragen Sie ChatGPT.
+
+### Präzision der Koeffizienten
+
+Geben Sie die Präzision der Regressionskoeffizienten an. 
+Interpretieren Sie das Ergebnis.
+
+
+## Modell 2: Gewicht als Funktion von Schnabeltiefe und von Spezies
+
+
+### Modell berechnen
+
+Berechnen Sie folgendes Modell: Gewicht als Funktion von Schnabeltiefe und von Spezies
+
+
+### Visualisieren Sie das Modell
+
+wie oben
+
+
+### Präzision der Koeffizienten
+
+Vergleichen Sie die Präzision der Regressionskoeffizienten mit dem Modell 1. Interpretieren Sie das Ergebnis.
+
+
