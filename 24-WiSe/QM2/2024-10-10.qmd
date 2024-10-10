@@ -81,6 +81,14 @@ Modellparameter:
 parameters(m1)
 ```
 
+Pro Millimeter Schnabeltiefe sinkt das Gewicht um 60.8g, im Schnitt, laut Modell.
+
+Die Null ist NICHT im Schätzbereich enthalten, also können wir die Hypothese, dass der Zusammenhang zwischen Schnabeltiefe und Gewicht 0 ist, verwerfen.
+
+Wir entscheiden uns also zu glauben, dass es einen Zusammenhang gibt. Wir können nicht ganz sicher sein, aber das Modell befürwortet diese Entscheidung.
+
+Allerdings sind wir nicht sicher, ob das ein Scheinzusammenhang ist oder ein "echter", d.h. kausaler Zusammenhang.
+
 Modell visualisieren:
 
 
