@@ -61,3 +61,8 @@ col_names |>
   str_remove_all("\\d+$") 
 ```
 
+```{r}
+gsub("[0-9]+$","", col_names) 
+
+```
+
