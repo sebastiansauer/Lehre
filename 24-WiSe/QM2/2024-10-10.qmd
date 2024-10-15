@@ -1,5 +1,7 @@
 ---
 title: QM2, 2024-10-10
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -57,6 +59,9 @@ Daten importieren:
 data("penguins", package = "palmerpenguins")
 ```
 
+Achtung: Das Paket muss installiert sein.
+
+
 
 Pakete starten:
 
@@ -75,13 +80,25 @@ m1 <-
 ```
 
 
+Mit Bayes:
+
+
+```{r}
+library(rstanarm)
+m1_bayes <- 
+  stan_glm(body_mass_g ~ bill_depth_mm, data = penguins,
+           refresh = 0)
+```
+
+
+
 Modellparameter:
 
 ```{r}
 parameters(m1)
 ```
 
-Pro Millimeter Schnabeltiefe sinkt das Gewicht um 60.8g, im Schnitt, laut Modell.
+Pro Millimeter Schnabeltiefe sinkt das Gewicht um knapp 200g, im Schnitt, laut Modell.
 
 Die Null ist NICHT im Schätzbereich enthalten, also können wir die Hypothese, dass der Zusammenhang zwischen Schnabeltiefe und Gewicht 0 ist, verwerfen.
 
