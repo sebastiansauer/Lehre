@@ -1,0 +1,24 @@
+---
+title: "2024-10-15, Hans-Hackathon"
+format: html
+---
+
+
+# Aufgabe
+
+Schreiben Sie einen R-Code,
+der aus dem folgenen String-Vektor,
+die Anzahl der uniquen Werte ausgibt,
+*nachdem* alle Zahlen aus dem Vektor entfernt wurden.
+
+Hier ist der String-Vektor:
+
+```{r}
+col_names <- 
+  c("key01",
+    "key02",
+    "value01",
+    "value02")
+
+```
+
