@@ -19,6 +19,45 @@ col_names <-
     "key02",
     "value01",
     "value02")
+```
 
+
+
+# Lösung
+
+
+Setup:
+
+```{r}
+library(tidyverse)
+```
+
+
+
+
+Zahlen entfernen:
+
+
+```{r}
+col_names_unique <- 
+  col_names %>% 
+  str_remove_all("[:digit:]") |> 
+  unique()
+
+col_names_unique
+```
+
+Alternativen, um Zahlen zu entfernen:
+
+```{r}
+col_names %>% 
+  str_remove_all("[0-9]") 
+```
+
+
+
+```{r}
+col_names |> 
+  str_remove_all("\\d+$") 
 ```
 
