@@ -1,0 +1,37 @@
+
+```{r}
+choose(4,2)
+```
+
+```{r}
+ziehe_2_aus_4 <-
+  (4*3*2*1)/ ((2*1)*(2))
+
+ziehe_2_aus_4
+```
+
+
+
+# Aufgabe
+
+Berta schreibt eine Statistik-Klausur (Schluck).
+Die Klausur besteht aus 3 Fragen.
+Berta hat 2 Fragen richtig beantwortet.
+Wie viele verschiedene Möglichkeiten gibt es dafür?
+
+Tipp: Nutze den Binomialkoeffizient.
+
+
+```{r}
+choose(3, 2)
+```
+
+
+Wie groß ist die Wahrscheinlihckeit, mit Raten die Klausur zu bestehen? Wenn man 2 Fragen richtig beantworten muss, um zu bestehen.
+
+
+```{r}
+1/2 * 1/2 * 1/2
+```
+
+

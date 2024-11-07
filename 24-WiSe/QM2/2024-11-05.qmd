@@ -1,0 +1,38 @@
+---
+title: "Untitled"
+format: html
+---
+
+
+Anzahl der Pfade:
+
+```{r}
+anz_pfade <- choose(9, 6)
+anz_pfade
+```
+
+
+Wskt. 1 Pfades:
+
+```{r}
+wskt_pfad <- .7^6 * .3^3
+wskt_pfad
+```
+
+
+Gesamt-Wskt:
+
+```{r}
+wskt <- anz_pfade * wskt_pfad
+wskt
+```
+
+
+```{r}
+dbinom(x = 6, size = 9, prob = .7)
+```
+
+```{r}
+dbinom(x = 6, size = 9, prob = c(0.1, 0.2, .3))
+```
+
