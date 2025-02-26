@@ -1,6 +1,12 @@
 # Enough statistics too be dangerous
 # 2025-02-26
 
+# R packages needed:
+library(tidyverse)
+library(visdat)
+library(easystats)
+
+
 age = 46  # Contrl+Enter
 age_before <-  45  # smaller-than minus
 
@@ -22,9 +28,7 @@ d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins
 head(d)  # see the first few rows, the "head" of the table
 
 
-library(tidyverse)
 
-library(visdat)
 
 vis_dat(penguins)
 
@@ -35,6 +39,13 @@ vis_dat(penguins)
 d_no_na <- 
 d |> # Contrl-Shift-M, read as "then do..."
   drop_na() #
+
+
+
+# Summarise Data:
+# needs easystats running
+d_no_na |> 
+  describe_distribution(select = body_mass_g)
 
 
 
