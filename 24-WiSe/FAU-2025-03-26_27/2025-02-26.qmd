@@ -160,11 +160,11 @@ ggdensity(d_no_na,
           fill = "species")
 ```
 
-# Metric Y, nominal X variable
+## Metric Y, nominal X variable
 
 Compare the weight between species
 
-## Boxplot
+### Boxplot
 
 
 
@@ -173,7 +173,65 @@ ggboxplot(penguins,
           x = "species",
           y = "body_mass_g",
           notch = TRUE,
-          add = "mean")
+          add = "mean",
+          add.params = 
+            list(color = okabeito_colors()[1],
+                 size = 1)
+          )
 ```
 
+### Violinplot
+
+Try a "violinplot" and see if you can make sense out of it.
+
+
+
+
+```{r}
+#| warning: false
+ggviolin(penguins,
+          x = "species",
+          y = "body_mass_g",
+          notch = TRUE,
+          add = "mean_se",
+          add.params = 
+            list(color = okabeito_colors()[1],
+                 size = 1)
+          )
+```
+
+
+# Inference!
+
+
+Research question:
+
+>   Male penguins are heavier than female ones *on average*.
+
+More mathy: $\mu_M > \mu_F$
+
+What's the DV and IV here?
+
+- DV: weight
+- IV: sex
+
+
+
+Tilde: "~" -> Windows: Alt GR + "+" key, Mac: Option+n
+
+```{r}
+lm1 <- lm(body_mass_g ~ sex, data = d_no_na2)
+parameters(lm1)
+```
+
+```{r}
+library(rstanarm)
+```
+
+Bayes:
+
+```{r}
+lm1 <- stan_glm(body_mass_g ~ sex, data = d_no_na2)
+parameters(lm1)
+```
 
