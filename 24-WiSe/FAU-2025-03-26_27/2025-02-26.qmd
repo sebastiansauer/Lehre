@@ -84,6 +84,7 @@ Exercise: Filter the data set such that only female animals remain.
 
 
 ```{r}
+d <- d_no_na2
 d %>%
   drop_na() %>%
   dplyr::filter(sex != "")
@@ -126,10 +127,37 @@ ggscatter(d_no_na2,
 Visualize the distribution of the body weight of the penguins.
 
 ```{r}
-gghi
+gghistogram(data = d,
+            x = "body_mass_g")
+```
+
+More histograms:
+
+```{r}
+gghistogram(d_no_na,
+            x = "body_mass_g",
+            facet.by = "species",
+            xlab = "Body mass [g]",
+            color = "black",
+            fill = "blue",
+            bins = 50)
 ```
 
 
-
+```{r}
+gghistogram(d_no_na,
+            x = "body_mass_g",
+            fill = "species",
+            shape = "species",
+            conf.int = TRUE,
+            ellipse = TRUE,
+            cor.coef = TRUE)
+```
+```{r}
+ggdensity(d_no_na,
+            x = "body_mass_g",
+         # facet.by = "species",
+          fill = "species")
+```
 
 
