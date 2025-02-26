@@ -45,10 +45,15 @@ d |> # Contrl-Shift-M, read as "then do..."
 # Summarise Data:
 # needs easystats running
 d_no_na |> 
-  describe_distribution(select = body_mass_g)
+  describe_distribution()
 
 
 
+
+# distribution per group:
+d_no_na |> 
+  group_by(sex) |> 
+  describe_distribution()
 
 
 

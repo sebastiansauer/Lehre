@@ -1,0 +1,38 @@
+---
+title: "My title"
+author: "Me"
+date: today
+format: html
+---
+
+# That's how to do it
+
+1. Start the libraries
+2. Import the data
+3. Create the table with the distributions.
+
+Then hit on "render".
+
+# Start libraries
+
+```{r}
+library(tidyverse)
+library(easystats)
+```
+
+
+# Import data
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+```
+
+
+# Describe distribution
+
+
+```{r}
+d |> 
+  describe_distribution() |> print_md()
+```
+
