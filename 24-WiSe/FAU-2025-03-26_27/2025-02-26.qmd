@@ -94,6 +94,8 @@ d %>%
 # Data vis
 
 
+## Numeric X, Numeric Y
+
 ```{r}
 ggscatter(d_no_na2,
           x = "bill_length_mm",
@@ -103,9 +105,29 @@ ggscatter(d_no_na2,
 
 
 
+More on `ggscatter`:
+
+
+```{r}
+ggscatter(d_no_na2, 
+           x = "bill_length_mm",
+           y = "body_mass_g",     
+           color = "species", 
+          title = "penguin2.0",
+          facet.by = "sex",
+        add = "reg.line") +
+  scale_color_okabeito()
+```
 
 
 
+## Numeric X
+
+Visualize the distribution of the body weight of the penguins.
+
+```{r}
+gghi
+```
 
 
 
