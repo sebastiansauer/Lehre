@@ -160,4 +160,20 @@ ggdensity(d_no_na,
           fill = "species")
 ```
 
+# Metric Y, nominal X variable
+
+Compare the weight between species
+
+## Boxplot
+
+
+
+```{r}
+ggboxplot(penguins,
+          x = "species",
+          y = "body_mass_g",
+          notch = TRUE,
+          add = "mean")
+```
+
 
