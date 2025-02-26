@@ -16,8 +16,11 @@ Then hit on "render".
 # Start libraries
 
 ```{r}
+#| message: false  # suppresses messages
+#| warning: false  # suppresses warnings
 library(tidyverse)
 library(easystats)
+library(ggpubr)
 ```
 
 
@@ -33,6 +36,78 @@ d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins
 
 ```{r}
 d |> 
-  describe_distribution() |> print_md()
+  describe_distribution() |> 
+  print_md()  # make a more styled table
 ```
+
+
+# Describe non-numeric data
+
+How many female and male aninals are in the data set?
+
+
+```{r}
+d |> 
+  data_tabulate(select = sex)
+```
+
+
+
+```{r}
+d |> 
+  select(sex) |> 
+  data_tabulate() |> 
+  print_md()
+```
+
+Empty text/string/character values:
+
+```{r}
+my_dummy_var <- NA
+```
+
+
+# Get rid of empty strings
+
+
+```{r}
+d_no_na2 <- 
+d |> 
+  drop_na() |> 
+  # now empty strings:
+  filter(sex != "") # ! =
+```
+
+
+
+Exercise: Filter the data set such that only female animals remain.
+
+
+```{r}
+d %>%
+  drop_na() %>%
+  dplyr::filter(sex != "")
+```
+
+
+
+# Data vis
+
+
+```{r}
+ggscatter(d_no_na2,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex")
+```
+
+
+
+
+
+
+
+
+
+
 
