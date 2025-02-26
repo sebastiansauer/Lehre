@@ -225,6 +225,12 @@ parameters(lm1)
 ```
 
 ```{r}
+parameters(lm1) |> plot()
+```
+
+
+
+```{r}
 library(rstanarm)
 ```
 
