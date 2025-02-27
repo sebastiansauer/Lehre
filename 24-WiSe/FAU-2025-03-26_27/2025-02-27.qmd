@@ -152,3 +152,43 @@ estimate_relation(lm_peng2) |> plot()
 ```
 
 
+# Metric Y, nominal X (with more than 2 values)
+
+
+Research question:
+
+>   Whether species are different in terms of weight (on average)?
+
+Research question more precise:
+
+$\mu_1 = \mu_2 = \mu_3$
+
+
+```{r}
+lm_peng3 <- lm(body_mass_g ~ species, data = penguins_nona)
+parameters(lm_peng3)
+```
+
+```{r}
+plot(parameters(lm_peng3))
+```
+
+
+```{r}
+ggboxplot(penguins_nona,
+          x = "species",
+          y = "body_mass_g",
+          add = "mean_se")
+```
+
+
+```{r}
+estimate_relation(lm_peng3) |> plot()
+```
+
+
+```{r}
+r2(lm_peng3)
+```
+
+
