@@ -101,3 +101,46 @@ ggscatter(penguins,
 r2(lm_peng1)
 ```
 
+
+# Models with a nominal X (two groups)
+
+Research Question: Sex has an effect on weight
+
+Sex --> Weight
+
+```{r}
+penguins_nona <-
+  penguins |> 
+  filter(sex != "") |> 
+  drop_na()
+```
+
+
+
+```{r}
+lm_peng2 <- stan_glm(body_mass_g ~ sex, data = penguins_nona,
+                     refresh = 0)
+parameters(lm_peng2)
+```
+
+```{r}
+ggscatter(penguins_nona,
+          x = "sex",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+```{r}
+ggboxplot(penguins_nona,
+          x = "sex",
+          y = "body_mass_g",
+          add = "mean_se")
+```
+
+
+
+```{r}
+estimate_relation(lm_peng2) |> plot()
+```
+
+
