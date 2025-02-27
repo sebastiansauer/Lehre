@@ -202,6 +202,8 @@ r2(lm_peng3)
 # Metric Y, metric X plus a nominal X
 
 
+(Ancova)
+
 Research question:
 
 >   Flipper length and sex are both predictors of the weight?
@@ -260,4 +262,47 @@ ggscatter(penguins_nona,
 ```{r}
 r2(lm_peng4)
 ```
+
+ROPE (region of practical equivalence)
+
+Kruschke 2018
+
+```{r}
+rope(lm_peng4)
+```
+
+```{r}
+rope(lm_peng4) |> plot()
+```
+
+
+# Y metric, 1 metric, 1 nominal plus Interaction
+
+
+Interaction means
+
+>   The effect of X on Y depends on Z.
+
+Non-interaction means:
+
+> The effect of X on Y is what what is. No matter what Z says.
+
+
+Here's the syntax:
+
+Pseudo Syntax:
+
+```{r}
+eval: false
+y ~ x1 + x2 + x1:x2
+```
+
+
+Research question:
+
+>   Does the effect of bill length (on weight) depends on the sex of the animal?
+
+
+
+
 
