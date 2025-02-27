@@ -1,0 +1,44 @@
+---
+title: "2025-02-27"
+format: html
+---
+
+
+# Setup
+
+Hit Shift-Command-Enter to run a whole code chunk.
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+library(rstanarm)
+```
+
+
+
+# A simple linear model
+
+Research question: 
+
+>   Is fuel economy a function of horse power of a car?
+
+hp --> mpg
+
+
+```{r}
+lm1_freq <- lm(mpg ~ hp, data = mtcars)
+```
+
+Here are the results (parameters):
+
+```{r}
+parameters(lm1_freq)
+```
+
+ex: scatterplot with a regression line for this model.
+
+
+
+
+
