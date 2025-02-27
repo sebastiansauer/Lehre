@@ -163,6 +163,10 @@ Research question more precise:
 
 $\mu_1 = \mu_2 = \mu_3$
 
+Or rather like this?
+
+$\mu_1 \ne \mu_2 \ne \mu_3$
+
 
 ```{r}
 lm_peng3 <- lm(body_mass_g ~ species, data = penguins_nona)
@@ -184,6 +188,8 @@ ggboxplot(penguins_nona,
 
 ```{r}
 estimate_relation(lm_peng3) |> plot()
+
+
 ```
 
 
@@ -191,4 +197,67 @@ estimate_relation(lm_peng3) |> plot()
 r2(lm_peng3)
 ```
 
+
+
+# Metric Y, metric X plus a nominal X
+
+
+Research question:
+
+>   Flipper length and sex are both predictors of the weight?
+
+More precisely:
+
+$\beta_1 \ne 0$
+
+$\beta_2 \ne 0$
+
+```{mermaid}
+graph LR
+  sex --> w
+  flipp --> w
+```
+
+Pseudo-Syntax:
+
+```{r}
+#| eval: false
+lm(y ~ x1 + x2, data = my_data)
+```
+
+
+```{r}
+lm_peng4 <- stan_glm(body_mass_g ~ flipper_length_mm + sex,
+                     data = penguins_nona,
+                     refresh = 0)
+parameters(lm_peng4)
+```
+
+
+```{r}
+estimate_relation(lm_peng4) |> plot()
+```
+
+
+```{r}
+ggscatter(penguins_nona,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          facet.by = "sex",
+          add = "reg.line")
+```
+
+```{r}
+ggscatter(penguins_nona,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          color = "sex",
+          add = "reg.line") +
+  scale_color_okabeito()
+```
+
+
+```{r}
+r2(lm_peng4)
+```
 
