@@ -306,3 +306,44 @@ Research question:
 
 
 
+
+```{r}
+lm_peng5 <- stan_glm(body_mass_g ~ flipper_length_mm + sex + flipper_length_mm:sex,
+                     data = penguins_nona,
+                     refresh = 0)
+parameters(lm_peng5)
+```
+
+
+```{r}
+estimate_relation(lm_peng5) |> plot()
+```
+
+
+```{r}
+r2(lm_peng5)
+```
+
+
+Not this one:
+
+```{r}
+ggscatter(penguins_nona,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          facet.by = "sex",
+          add = "reg.line")
+```
+
+Not this one:
+
+```{r}
+ggscatter(penguins_nona,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          color = "sex",
+          add = "reg.line") +
+  scale_color_okabeito()
+```
+
+
