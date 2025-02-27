@@ -312,6 +312,10 @@ lm_peng5 <- stan_glm(body_mass_g ~ bill_length_mm + sex + bill_length_mm:sex,
 parameters(lm_peng5)
 ```
 
+```{r}
+plot(parameters(lm_peng5))
+```
+
 
 ```{r}
 estimate_relation(lm_peng5) |> plot()
