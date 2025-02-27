@@ -305,10 +305,8 @@ Research question:
 
 
 
-
-
 ```{r}
-lm_peng5 <- stan_glm(body_mass_g ~ flipper_length_mm + sex + flipper_length_mm:sex,
+lm_peng5 <- stan_glm(body_mass_g ~ bill_length_mm + sex + bill_length_mm:sex,
                      data = penguins_nona,
                      refresh = 0)
 parameters(lm_peng5)
