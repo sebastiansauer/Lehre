@@ -104,6 +104,14 @@ r2(lm_peng1)
 
 # Models with a nominal X (two groups)
 
+**t-test**
+
+```{r}
+#| eval: false
+t.test(y ~ x, data = my_data)
+```
+
+
 Research Question: Sex has an effect on weight
 
 Sex --> Weight
