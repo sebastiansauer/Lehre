@@ -68,5 +68,36 @@ Penguins:
 Research Question: Whether the bill length is a predictor of weight.
 
 
+## Data
 
+```{r}
+penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+```
+
+
+## Model
+
+```{r}
+lm_peng1 <- stan_glm(body_mass_g ~ bill_length_mm,
+                     data = penguins,
+                     refresh = 0)
+parameters(lm_peng1)
+```
+
+```{r}
+plot(parameters(lm_peng1))
+```
+
+
+```{r}
+ggscatter(penguins,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+
+```{r}
+r2(lm_peng1)
+```
 
