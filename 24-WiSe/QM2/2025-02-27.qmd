@@ -39,6 +39,34 @@ parameters(lm1_freq)
 ex: scatterplot with a regression line for this model.
 
 
+```{r}
+ggscatter(mtcars,
+          y = "mpg",
+          x = "hp",
+          add = "reg.line",
+          conf.int = TRUE,
+          ellipse = TRUE,
+          cor.coef = TRUE) +
+  scale_color_okabeito()
+```
+
+
+
+# Bayes model1
+
+```{r}
+lm1_bayes <- stan_glm(mpg ~ hp, data = mtcars)  # rstanarm
+parameters(lm1_bayes)
+```
+
+
+# Exercise
+
+
+Penguins: 
+
+Research Question: Whether the bill length is a predictor of weight.
+
 
 
 
