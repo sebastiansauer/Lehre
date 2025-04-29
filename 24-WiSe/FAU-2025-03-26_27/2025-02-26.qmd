@@ -1,0 +1,243 @@
+---
+title: "My title"
+author: "Me"
+date: today
+format: html
+---
+
+# That's how to do it
+
+1. Start the libraries
+2. Import the data
+3. Create the table with the distributions.
+
+Then hit on "render".
+
+# Start libraries
+
+```{r}
+#| message: false  # suppresses messages
+#| warning: false  # suppresses warnings
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+```
+
+
+# Import data
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+```
+
+
+# Describe distribution
+
+
+```{r}
+d |> 
+  describe_distribution() |> 
+  print_md()  # make a more styled table
+```
+
+
+# Describe non-numeric data
+
+How many female and male aninals are in the data set?
+
+
+```{r}
+d |> 
+  data_tabulate(select = sex)
+```
+
+
+
+```{r}
+d |> 
+  select(sex) |> 
+  data_tabulate() |> 
+  print_md()
+```
+
+Empty text/string/character values:
+
+```{r}
+my_dummy_var <- NA
+```
+
+
+# Get rid of empty strings
+
+
+```{r}
+d_no_na2 <- 
+d |> 
+  drop_na() |> 
+  # now empty strings:
+  filter(sex != "") # ! =
+```
+
+
+
+Exercise: Filter the data set such that only female animals remain.
+
+
+```{r}
+d <- d_no_na2
+d %>%
+  drop_na() %>%
+  dplyr::filter(sex != "")
+```
+
+
+
+# Data vis
+
+
+## Numeric X, Numeric Y
+
+```{r}
+ggscatter(d_no_na2,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex")
+```
+
+
+
+More on `ggscatter`:
+
+
+```{r}
+ggscatter(d_no_na2, 
+           x = "bill_length_mm",
+           y = "body_mass_g",     
+           color = "species", 
+          title = "penguin2.0",
+          facet.by = "sex",
+        add = "reg.line") +
+  scale_color_okabeito()
+```
+
+
+
+## Numeric X
+
+Visualize the distribution of the body weight of the penguins.
+
+```{r}
+gghistogram(data = d,
+            x = "body_mass_g")
+```
+
+More histograms:
+
+```{r}
+gghistogram(d_no_na,
+            x = "body_mass_g",
+            facet.by = "species",
+            xlab = "Body mass [g]",
+            color = "black",
+            fill = "blue",
+            bins = 50)
+```
+
+
+```{r}
+gghistogram(d_no_na,
+            x = "body_mass_g",
+            fill = "species",
+            shape = "species",
+            conf.int = TRUE,
+            ellipse = TRUE,
+            cor.coef = TRUE)
+```
+```{r}
+ggdensity(d_no_na,
+            x = "body_mass_g",
+         # facet.by = "species",
+          fill = "species")
+```
+
+## Metric Y, nominal X variable
+
+Compare the weight between species
+
+### Boxplot
+
+
+
+```{r}
+ggboxplot(penguins,
+          x = "species",
+          y = "body_mass_g",
+          notch = TRUE,
+          add = "mean",
+          add.params = 
+            list(color = okabeito_colors()[1],
+                 size = 1)
+          )
+```
+
+### Violinplot
+
+Try a "violinplot" and see if you can make sense out of it.
+
+
+
+
+```{r}
+#| warning: false
+ggviolin(penguins,
+          x = "species",
+          y = "body_mass_g",
+          notch = TRUE,
+          add = "mean_se",
+          add.params = 
+            list(color = okabeito_colors()[1],
+                 size = 1)
+          )
+```
+
+
+# Inference!
+
+
+Research question:
+
+>   Male penguins are heavier than female ones *on average*.
+
+More mathy: $\mu_M > \mu_F$
+
+What's the DV and IV here?
+
+- DV: weight
+- IV: sex
+
+
+
+Tilde: "~" -> Windows: Alt GR + "+" key, Mac: Option+n
+
+```{r}
+lm1 <- lm(body_mass_g ~ sex, data = d_no_na2)
+parameters(lm1)
+```
+
+```{r}
+parameters(lm1) |> plot()
+```
+
+
+
+```{r}
+library(rstanarm)
+```
+
+Bayes:
+
+```{r}
+lm1 <- stan_glm(body_mass_g ~ sex, data = d_no_na2)
+parameters(lm1)
+```
+

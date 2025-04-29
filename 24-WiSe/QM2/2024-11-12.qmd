@@ -1,0 +1,16 @@
+---
+title: Specifying fig width in percentage unit
+format:
+  html: 
+    default-image-extension: png
+knitr:
+  opts_chunk:
+    out.width: "6%"
+---
+
+## Plot
+
+```{r}
+plot(rnorm(1000))
+```
+

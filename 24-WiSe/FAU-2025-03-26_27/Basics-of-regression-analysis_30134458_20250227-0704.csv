@@ -1,0 +1,25 @@
+format,body,additionalText,options,correctOptions,multiple,abstentionsAllowed,duration
+BINARY,"The most important (mathematical) assumption of the regression models ist that the predicted output value (y) is a linear function of the predictors.",,"Yes
+No",Yes,false,true,0
+BINARY,"Non-normal residuals are a minor issue for regression models as they do not affect the most important aspect of a regression model, which is the form of the regression line.",,"Yes
+No",Yes,false,true,0
+BINARY,"R square values above 1 indicate adequate model fit.",,"Yes
+No",No,false,true,0
+BINARY,"Regression coefficients may flip the sign if additional predictors are added to (or removed from) the model.",,"Yes
+No",Yes,false,true,0
+BINARY,"The regression line is fit to the data by maximizing the squared difference between the data points and the regresssion lline.",,"Yes
+No",No,false,true,0
+BINARY,"Adding more predictors to the model always improves the model fit.",,"Yes
+No",No,false,true,0
+BINARY,"Adding more predictors to the model always improves the validity of the model.",,"Yes
+No",No,false,true,0
+BINARY,"The t-test is a special case of the regression model.",,"Yes
+No",Yes,false,true,0
+BINARY,"The AOV (analysis of variance model) is a special case of the regression model.",,"Yes
+No",Yes,false,true,0
+BINARY,"Regression models can be used both for predictive and for causal models.",,"Yes
+No",Yes,false,true,0
+BINARY,"Pivotal to the validity of a regression model is that all relevant predictors have been added as predictors.",,"Yes
+No",Yes,false,true,0
+BINARY,"Regression analysis is robust against the violation of the assumption of equal variance of the residuals in the sense that the form of the regression line is not affected by violation of this assumption.",,"Yes
+No",Yes,false,true,0

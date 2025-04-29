@@ -1,0 +1,103 @@
+---
+title: "2025-02-27"
+format: html
+---
+
+
+# Setup
+
+Hit Shift-Command-Enter to run a whole code chunk.
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+library(rstanarm)
+```
+
+
+
+# A simple linear model
+
+Research question: 
+
+>   Is fuel economy a function of horse power of a car?
+
+hp --> mpg
+
+
+```{r}
+lm1_freq <- lm(mpg ~ hp, data = mtcars)
+```
+
+Here are the results (parameters):
+
+```{r}
+parameters(lm1_freq)
+```
+
+ex: scatterplot with a regression line for this model.
+
+
+```{r}
+ggscatter(mtcars,
+          y = "mpg",
+          x = "hp",
+          add = "reg.line",
+          conf.int = TRUE,
+          ellipse = TRUE,
+          cor.coef = TRUE) +
+  scale_color_okabeito()
+```
+
+
+
+# Bayes model1
+
+```{r}
+lm1_bayes <- stan_glm(mpg ~ hp, data = mtcars)  # rstanarm
+parameters(lm1_bayes)
+```
+
+
+# Exercise
+
+
+Penguins: 
+
+Research Question: Whether the bill length is a predictor of weight.
+
+
+## Data
+
+```{r}
+penguins <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+```
+
+
+## Model
+
+```{r}
+lm_peng1 <- stan_glm(body_mass_g ~ bill_length_mm,
+                     data = penguins,
+                     refresh = 0)
+parameters(lm_peng1)
+```
+
+```{r}
+plot(parameters(lm_peng1))
+```
+
+
+```{r}
+ggscatter(penguins,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+
+```{r}
+r2(lm_peng1)
+```
+
