@@ -1,0 +1,89 @@
+---
+title: "2025-09-16"
+format: html
+---
+
+
+# Importing data from the internet
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+
+# head(d)  # see the first few rows, the "head" of the table
+```
+
+
+# Import data from your own project folder
+
+
+```{r}
+penguins <- read.csv("penguins.csv")
+```
+
+
+
+# Starting packages
+
+```{r}
+library(easystats)
+```
+
+
+# Getting a table
+
+```{r}
+describe_distribution(d) |> print_md()
+```
+
+
+# Visualize models of the data
+
+
+Taxonomy:
+
+1. distribution
+2. association (r)
+3. differences between groups
+
+
+
+## nice package for that: ggpubr
+
+Add a code chunk and load this package:
+
+Command+Option+I adds a code chunk
+```{r}
+library(ggpubr)
+```
+
+
+## Distributions
+
+```{r}
+gghistogram(penguins, 
+            x = "body_mass_g",
+            add = "mean"
+            )
+
+```
+
+# Assocation
+
+```{r}
+ggscatter(data = penguins, 
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+
+## Differences
+
+```{r}
+ggboxplot(penguins, 
+          x = "sex",
+          y = "body_mass_g")
+```
+
+
+

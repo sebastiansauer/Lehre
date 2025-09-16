@@ -68,3 +68,9 @@ Ohne*.*
 .Rdata
 .DS_Store
 .quarto
+*Icon
+**/*Icon
+*/Icon*
+**/Icon*
+
+
