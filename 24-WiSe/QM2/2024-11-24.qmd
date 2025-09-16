@@ -1,0 +1,15 @@
+---
+title: "2024-11-12"
+format: html
+---
+
+```{r}
+library(mosaic)
+```
+
+
+
+```{r}
+xpnorm(q = 4.28, mean = 3.42, sd = .86)
+```
+

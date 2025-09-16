@@ -1,0 +1,43 @@
+---
+title: "Untitled"
+format: html
+---
+
+## Meine Auswertung
+
+
+```{r}
+
+```
+
+
+```{r}
+# 2025-05-20
+
+# Setup
+
+library(tidyverse)
+library(easystats)
+
+# Deskriptive Statistik
+
+data_url <- "https://raw.githubusercontent.com/sebastiansauer/modar/master/datasets/extra.csv"
+extra <- data_read(data_url)  # aus `{easystats}`
+
+
+extra_corr_names <- 
+  extra %>% 
+  select(n_facebook_friends, n_hangover, age, extra_single_item, n_party, extra_mean) %>% 
+  names()
+
+extra_corr_names
+
+
+extra %>% 
+  select(any_of(extra_corr_names)) %>% 
+  describe_distribution() |>  # aus `easystats` 
+  print_md()
+```
+
+
+
