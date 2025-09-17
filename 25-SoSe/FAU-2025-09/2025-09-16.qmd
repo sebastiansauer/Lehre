@@ -19,6 +19,7 @@ d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins
 
 
 ```{r}
+#| error: true
 penguins <- read.csv("penguins.csv")
 ```
 
@@ -28,6 +29,7 @@ penguins <- read.csv("penguins.csv")
 
 ```{r}
 library(easystats)
+library(tidyverse)
 ```
 
 
@@ -62,7 +64,7 @@ library(ggpubr)
 ## Distributions
 
 ```{r}
-gghistogram(penguins, 
+gghistogram(d, 
             x = "body_mass_g",
             add = "mean"
             )
@@ -82,7 +84,7 @@ ggscatter(data = d,
 ## Differences
 
 ```{r}
-ggboxplot(penguins, 
+ggboxplot(d, 
           x = "sex",
           y = "body_mass_g")
 ```
