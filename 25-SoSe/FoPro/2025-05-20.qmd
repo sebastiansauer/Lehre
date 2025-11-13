@@ -41,3 +41,13 @@ extra %>%
 
 
 
+
+```{r}
+library(ggpubr)
+gghistogram(extra, x = "extra_mean", add = "mean") +
+  labs(x = "Extraversion (Mittelwert)",
+       y = "Häufigkeit",
+       caption = "Die gestrichelte horizontale Linie zeigt den Mittelwert der Verteilung.")
+```
+
+
