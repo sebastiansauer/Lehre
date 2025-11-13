@@ -1,0 +1,259 @@
+---
+title: "2025-09-16"
+format: html
+---
+
+
+# Import data
+
+## Importing data from the internet
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+
+# head(d)  # see the first few rows, the "head" of the table
+```
+
+
+## Import data from your own project folder (own computer)
+
+
+```{r}
+#| error: true
+penguins <- read.csv("penguins.csv")
+```
+
+
+
+# Starting packages
+
+```{r}
+library(easystats)
+library(tidyverse)
+```
+
+
+# Descritive stasts: Getting a table
+
+```{r}
+describe_distribution(d) |> print_md()
+```
+
+
+# Visualize models of the data
+
+
+Taxonomy:
+
+1. distribution
+2. association (r)
+3. differences between groups
+
+
+
+## nice package for that: ggpubr
+
+Add a code chunk and load this package:
+
+Command+Option+I adds a code chunk
+```{r}
+library(ggpubr)
+```
+
+
+## Distributions
+
+```{r}
+gghistogram(d, 
+            x = "body_mass_g",
+            add = "mean"
+            )
+
+```
+
+# Assocation
+
+```{r}
+ggscatter(data = d, 
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+
+## Differences
+
+```{r}
+ggboxplot(d, 
+          x = "sex",
+          y = "body_mass_g")
+```
+
+
+
+## Exercise
+
+
+```{r}
+ggscatter(data = d,
+x = "bill_length_mm", 
+y = "bill_depth_mm",
+add  = "reg.line",
+color = "species")
+
+```
+
+
+```{r}
+ggboxplot(d, 
+          x = "sex",
+          y = "flipper_length_mm")
+```
+
+
+# Regression with R
+
+
+## numeric x, numeric y
+
+
+```{r}
+ggscatter(data = d, 
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+lm: "linear model"
+"y is a function of x" - function is defined in math
+"~": is a function of "tilde" (left to the enter key on Windows, Mac: Option+n)
+
+```{r}
+lm(body_mass_g ~ bill_length_mm, data = d)
+```
+
+## Standardizing (z-transformation) the data 
+
+- Helpful for interpretation.
+
+centering: subtracting the mean value (in X) from each data point
+
+z-standardizing: "normalizing" 
+ - *centering*
+ - standardizing the *scale* (putting the variance/standard devation to 1)
+
+```{r}
+penguins_standardized <- 
+d |>  # "and then"  
+  standardize(select = "bill_length_mm") 
+```
+
+
+```{r}
+lm_body_mass_bill_lenth_z <- 
+lm(body_mass_g ~ bill_length_mm, data = penguins_standardized)
+
+lm_body_mass_bill_lenth_z
+```
+
+
+## Exercise
+
+Run a regression:
+
+y: body mass g
+x flipper length - z-transformed
+
+And interpret the coefficients
+
+
+
+```{r}
+penguins_standardized_flipper <- 
+d |>  # "and then"  
+  standardize(select = "flipper_length_mm") 
+```
+
+
+```{r}
+lm_body_mass_flipper_length_z <- 
+lm(body_mass_g ~ flipper_length_mm, data = penguins_standardized_flipper)
+
+lm_body_mass_flipper_length_z
+```
+
+## p-value and other inferential statistics
+
+with beautification: 
+
+```{r}
+parameters(lm_body_mass_flipper_length_z) |> 
+  print_md()
+```
+
+significant effect!
+
+
+## R-Squared
+
+The amount (%) of explained variance by your model.
+The higher the better.
+
+
+```{r}
+r2(lm_body_mass_flipper_length_z)
+```
+
+
+## x: two groups, y: numeric
+
+
+
+```{r}
+ggboxplot(d, 
+          x = "sex",
+          y = "flipper_length_mm")
+```
+
+
+
+
+## Data cleansing
+
+
+```{r}
+d_filtered <- 
+d |>  # and then
+  filter(sex == "male" | sex == "female")
+```
+
+
+## Exercise: Regression
+
+with filtered data
+
+x: the grouping variable: sex
+y: the weight
+
+Plot:
+
+```{r}
+ggboxplot(d_filtered, 
+        x = "sex",
+        y = "body_mass_g")
+```
+
+
+```{r}
+lm_weight_by_sex <-
+  lm(body_mass_g ~ sex, data = d_filtered)
+
+parameters(lm_weight_by_sex)
+```
+
+## t-Test is the same, more or less
+
+```{r}
+t.test(body_mass_g ~ sex, data = d_filtered)
+```
+
