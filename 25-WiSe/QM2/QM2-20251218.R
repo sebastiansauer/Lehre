@@ -21,3 +21,6 @@ parameters(m_cnt_workingday)
 
 
 # Clevere Auto-Complete - Bot: Github CoPilot
+
+
+parameters(m_cnt_workingday) |> plot()
