@@ -7,6 +7,7 @@
 library(tidyverse)
 library(easystats)
 library(rstanarm)
+library(ggpubr)
 
 day <- read_csv("C:/Users/sebastian.sauer/Downloads/bike+sharing+dataset/day.csv")
 
@@ -23,4 +24,18 @@ parameters(m_cnt_workingday)
 # Clevere Auto-Complete - Bot: Github CoPilot
 
 
+# Visualisieren:
+
 parameters(m_cnt_workingday) |> plot()
+
+
+
+ggviolin(day, x = "workingday", y = "cnt",
+         add = "mean")
+        
+
+ggboxplot(day, x = "workingday", y = "cnt",
+         add = "mean")
+
+
+
