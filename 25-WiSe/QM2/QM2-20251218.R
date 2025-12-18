@@ -7,7 +7,7 @@
 library(tidyverse)
 library(easystats)
 library(rstanarm)
-library(ggpubr)
+library(ggpubr)  # Visualisierung
 
 day <- read_csv("C:/Users/sebastian.sauer/Downloads/bike+sharing+dataset/day.csv")
 
@@ -29,7 +29,7 @@ parameters(m_cnt_workingday)
 parameters(m_cnt_workingday) |> plot()
 
 
-
+# aus dem Paket "ggpubr" - vorher starten nicht vergessen:
 ggviolin(day, x = "workingday", y = "cnt",
          add = "mean")
         
@@ -37,5 +37,11 @@ ggviolin(day, x = "workingday", y = "cnt",
 ggboxplot(day, x = "workingday", y = "cnt",
          add = "mean")
 
+
+# Visiualisieren der Gesamtverteilung:
+
+
+ggdensity(day |> filter(workingday == 1), x = "cnt",
+          add = "mean")
 
 
