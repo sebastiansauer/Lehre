@@ -212,6 +212,37 @@ m_wday_hum |> estimate_relation() |> plot() +
   geom_point(data = day, aes(x = hum, y = cnt, color = as.factor(workingday)), alpha = 0.3) 
 ```
 
+**Aufgabe**
+
+
+A) Berechnen Sie das Modell mit Interaktionseffekt zwischen `workingday` und `humidity`. Geben Sie den Punktschätzer des Interaktionseffekts an.
+B) Visualisieren Sie das Modell mit Interaktionseffekt zwischen `workingday` und `humidity`.
+C) Interpretieren Sie den Interaktionseffekt inhaltlich.
+
+
+## A) Berechnen Sie das Modell mit Interaktionseffekt zwischen `workingday` und `humidity`.
+
+Regressionsformel:
+
+`cnt ~ hum + workingday + hum:workingday`
+
+
+
+```{r}
+m_wday_hum_int <- stan_glm(cnt ~ hum + workingday + hum:workingday, data = day, refresh = 0, seed = 42)
+```
+
+
+Punktschätzer des Interaktionseffekts:
+
+```{r}
+parameters(m_wday_hum_int)
+```
+
+Antwort: Der Punktschätzer des Interaktionseffekts beträgt `r round(coef(m_wday_hum_int)[4], 2)`.
+
+
+## B) Visualisieren Sie das Modell mit Interaktionseffekt zwischen `workingday` und `humidity`.
 
 
 ```{r}
@@ -221,4 +252,18 @@ ggplot(day, aes(x = hum, y = cnt, color = as.factor(workingday))) +
   labs(x = "Luftfeuchtigkeit", y = "Anzahl geliehener Fahrräder", color = "Werktag (0 = Nein, 1 = Ja)") +
   theme_minimal()
 ```
+
+
+## C) Interpretieren Sie den Interaktionseffekt inhaltlich.
+
+
+`cnt_predicted = 4517 * - 1373 * hum + 1266 * workingday + -1603 * hum*workingday`
+
+
+Das ist der Unterschied in den Steigungen pro Einheit in der UV zwischen den Gruppen.
+
+
+
+
+
 
