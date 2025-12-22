@@ -13,6 +13,7 @@ R-Pakete starten:
 library(tidyverse)
 library(rstanarm)
 library(easystats)
+library(ggpubr)  # Visualisierung
 ```
 
 
@@ -42,6 +43,8 @@ Dann nennen Sie bitte
 A) Den *Punktschätzer* des Effekts der UV
 B) Die *Modellgüte* als Anteil der erklärten Varianz des Modells (durch die UV)
 C) Ist der Effekt signifikant?
+D) Interpretieren Sie den Effekt inhaltlich.
+E) Kann man die Nullhypothese $H_0$ verwerfen?
 
 
 **Lösung**
@@ -93,3 +96,50 @@ Also sehr wenig. Der Werktag-Effekt ist sehr klein.
 ## C) Signifikant? Nein.
 
 die Null ist im Intervall enthalten, daher ist der Effekt NICHT signifikant.
+
+
+
+## D) Interpretation des Effekts
+
+
+Der Effekt der UV `workingday` auf die AV `cnt` ist sehr klein und nicht signifikant.
+
+
+Das bedeutet, dass es keinen nennenswerten Unterschied in der Anzahl der geliehenen Fahrräder zwischen Werktagen und Nicht-Werktagen gibt.
+
+
+```{r}
+ggplot(day, aes(x = as.factor(workingday), y = cnt)) +
+  geom_boxplot() +
+  labs(x = "Werktag (0 = Nein, 1 = Ja)", y = "Anzahl geliehener Fahrräder") +
+  theme_minimal()
+```
+
+
+```{r}
+ggboxplot(day, x = "workingday", y = "cnt",
+          xlab = "Werktag (0 = Nein, 1 = Ja)",
+          ylab = "Anzahl geliehener Fahrräder",
+          title = "Anzahl geliehener Fahrräder nach Werktag")
+```
+
+
+```{r}
+parameters(m_wday) |> plot()
+```
+
+## E) Nullhypothese verwerfen?
+
+Nein, die Nullhypothese kann nicht verworfen werden, da die Null im Bereich plausibler Werte (des Effekts der UVM d.i. das 95% CI) enthalten ist.
+
+
+
+# Aufgabe 2: Effekt von `workingday` und `humidity` auf `cnt`
+
+
+Berechnen Sie ein multiples Regressionsmodell, das die Anzahl der geliehenen Fahrräder (`cnt`) auf Basis dob es ein Werktag ist (ja/nein) (`workingday`) und der Luftfeuchtigkeit (`humidity`) vorhersagt.
+
+
+A) Nennen Sie die Regressionsformel
+B) Nennen Sie die Breite des 95%-Konfidenzintervalls des Effekts der UV `humidity` (ETI)
+
