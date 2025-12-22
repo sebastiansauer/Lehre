@@ -7,6 +7,15 @@ Importieren Sie die Bike-Share-Daten: <https://archive.ics.uci.edu/dataset/275/b
 Verwenden Sie davon den Datensatz `day`.
 
 
+R-Pakete starten:
+
+```{r}
+library(tidyverse)
+library(rstanarm)
+library(easystats)
+```
+
+
 Zuerst Daten herunterladen.
 Dann Daten importieren in RStudio:
 
@@ -25,13 +34,62 @@ Forschungsfrage:
 
 **Aufgabe**
 
-Berechnen Sie das lineare Modell, das die Anzahl der geliehenen Fahrräder auf Basis ob es ein Wertktag ist (ja/nein) vorhersagt.
+Berechnen Sie das lineare Modell, das die Anzahl der geliehenen Fahrräder auf Basis ob es ein Werktag ist (ja/nein) vorhersagt.
 
 
 Dann nennen Sie bitte 
 
 A) Den *Punktschätzer* des Effekts der UV
-B) Die *Modellgüte* als Anteil der erklärten Varianz (durch die UV)
+B) Die *Modellgüte* als Anteil der erklärten Varianz des Modells (durch die UV)
+C) Ist der Effekt signifikant?
+
+
+**Lösung**
+
+
+## A) Punktschätzer des Effekts der UV
+
+Regressionsformel: `AV ~ UV`
+
+```{r}
+m_wday <- stan_glm(cnt ~ workingday, data = day)
+```
+
+Parameter des Modells anschauen:
+
+
+```{r}
+parameters(m_wday)
+```
+Der Punktschätzer des Effekts der UV ist ca. 250.
+Der Punktschätzer des IEffekts der UV ist `r round(coef(m_wday)[2], 0)`.
+
+So bekommt man auch die Regressionskoeffizienten:
+
+```{r}
+coef(m_wday)
+```
 
 
 
+## B ) Modellgüte
+
+
+Die Modellgüte berechnen wir hier mit $R^2$:
+
+
+```{r}
+r2(m_wday)
+```
+
+Das Modell erklärt wie viel Prozent der Varianz in der AV durch die UV?
+
+- 0.4%
+
+
+Also sehr wenig. Der Werktag-Effekt ist sehr klein.
+
+
+## C) Signifikant? Nein.
+
+die Null ist im Intervall enthalten, daher ist der Effekt NICHT signifikant.
