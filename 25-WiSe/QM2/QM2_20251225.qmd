@@ -7,5 +7,13 @@ Importieren Sie die Bike-Share-Daten: <https://archive.ics.uci.edu/dataset/275/b
 Verwenden Sie davon den Datensatz `day`.
 
 
+Zuerst Daten herunterladen.
+Dann Daten importieren in RStudio:
+
+
+```{r}
+library(readr)
+day <- read_csv("~/Downloads/bike+sharing+dataset/day.csv")  # Achtung: Das ist der Pfad auf meinem Computer. Passen Sie ggf. den Pfad an Ihren Computer an.
+```
 
 
