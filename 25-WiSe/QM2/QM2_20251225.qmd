@@ -130,16 +130,95 @@ parameters(m_wday) |> plot()
 
 ## E) Nullhypothese verwerfen?
 
-Nein, die Nullhypothese kann nicht verworfen werden, da die Null im Bereich plausibler Werte (des Effekts der UVM d.i. das 95% CI) enthalten ist.
+Nein, die Nullhypothese kann nicht verworfen werden, da die Null im Bereich plausibler Werte (des Effekts der UV, d.i. das 95% CI) enthalten ist.
 
 
 
 # Aufgabe 2: Effekt von `workingday` und `humidity` auf `cnt`
 
 
-Berechnen Sie ein multiples Regressionsmodell, das die Anzahl der geliehenen Fahrräder (`cnt`) auf Basis dob es ein Werktag ist (ja/nein) (`workingday`) und der Luftfeuchtigkeit (`humidity`) vorhersagt.
+Berechnen Sie ein multiples Regressionsmodell, das die Anzahl der geliehenen Fahrräder (`cnt`) auf Basis dob es ein Werktag ist (ja/nein) (`workingday`) und der Luftfeuchtigkeit (`hum`) vorhersagt.
 
 
 A) Nennen Sie die Regressionsformel
-B) Nennen Sie die Breite des 95%-Konfidenzintervalls des Effekts der UV `humidity` (ETI)
+B) Nennen Sie die Breite des 95%-Konfidenzintervalls des Effekts der UV `hum` (ETI)
+C) Ist der Effekt von Luftfeuchtigkeit signifikant?
+D) Können wir die Rope-Hypothese verwerfen (± 300 Räder sind sind gerade noch vernachlässigbar).
+
+## A) Regressionsformel
+
+
+`cnt ~ workingday + humidity`
+
+
+Dazu das Modell berechnen:
+
+```{r}
+m_wday_hum <- stan_glm(cnt ~ hum + workingday, data = day, refresh = 0, seed = 42)
+```
+
+
+## B) Breite des 95%-Konfidenzintervalls des Effekts der UV `humidity` (ETI)
+
+
+```{r}
+parameters(m_wday_hum)
+```
+
+Die Breite berechnet sich als OG minus UG:
+
+```{r}
+breite <-  -375.38 - -2401.38
+breite
+```
+
+Die Breite des 95%-Konfidenzintervalls des Effekts der UV `humidity` beträgt `r round(breite, 2)`.
+
+
+## C) Ist der Effekt von Luftfeuchtigkeit signifikant?
+
+Hier ist noch mal das 95%-Konfidenzintervall des Effekts der UV `hum`:
+
+[-2401.38, -375.38] 
+
+
+Wie man sieht, ist die Null NICHT enthalten. 
+Daher ist der Effekt von `hum` signifikant.
+
+
+## D) Rope-Hypothese verwerfen?
+
+
+
+```{r}
+rope(m_wday_hum, rope = c(-300, 300), parameters = "hum") |> plot()
+```
+
+```{r}
+rope(m_wday_hum, rope = c(-300, 300), parameters = "hum")
+```
+JA, die ROPE-Hypothese kann verworfen werden, da das komplette CI (der "rote Bereich der Post-Verteilung") außerhalb der ROPE liegt.
+
+
+
+# Aufgabe 3: Interaktionseffekt zwischen `workingday` und `humidity` auf `cnt`
+
+
+Visualisieren Sie das Modell mit den beiden UV `workingday` und `humidity`, aber OHNE Interaktionseffekt.
+
+
+```{r}
+m_wday_hum |> estimate_relation() |> plot() +
+  geom_point(data = day, aes(x = hum, y = cnt, color = as.factor(workingday)), alpha = 0.3) 
+```
+
+
+
+```{r}
+ggplot(day, aes(x = hum, y = cnt, color = as.factor(workingday))) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Luftfeuchtigkeit", y = "Anzahl geliehener Fahrräder", color = "Werktag (0 = Nein, 1 = Ja)") +
+  theme_minimal()
+```
 
