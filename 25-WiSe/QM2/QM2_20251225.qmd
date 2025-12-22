@@ -1,0 +1,11 @@
+# QM2 20251222
+
+
+# Aufgabe 1
+
+Importieren Sie die Bike-Share-Daten: <https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset>.
+Verwenden Sie davon den Datensatz `day`.
+
+
+
+
