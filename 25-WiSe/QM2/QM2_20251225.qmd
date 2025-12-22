@@ -12,8 +12,26 @@ Dann Daten importieren in RStudio:
 
 
 ```{r}
-library(readr)
+library(tidyverse)
 day <- read_csv("~/Downloads/bike+sharing+dataset/day.csv")  # Achtung: Das ist der Pfad auf meinem Computer. Passen Sie ggf. den Pfad an Ihren Computer an.
 ```
+
+
+Forschungsfrage:
+
+- AV: Anzahl der geliehenen Fahrräder (`cnt`)
+- UV: Werktag (ja oder nein) (`workingday`)
+
+
+**Aufgabe**
+
+Berechnen Sie das lineare Modell, das die Anzahl der geliehenen Fahrräder auf Basis ob es ein Wertktag ist (ja/nein) vorhersagt.
+
+
+Dann nennen Sie bitte 
+
+A) Den *Punktschätzer* des Effekts der UV
+B) Die *Modellgüte* als Anteil der erklärten Varianz (durch die UV)
+
 
 
