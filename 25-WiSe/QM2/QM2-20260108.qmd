@@ -1,0 +1,44 @@
+# 20260108
+
+# AUFGABE
+
+
+## Aufgabenstellung
+Für jede der 8 in Kapitel 11 vorgestellte Forschungsfragen
+suchen Sie bitte ein passendes Beispiel im Datensatz
+["Bike Sharing Dataset"](https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset) (s. Aufgabe "bike05").
+Formulieren Sie jeweils a) die Regressionsformel und b)
+die zugehörige Forschungsfrage als ganzen Satz.
+
+
+# Lösung
+
+### y ~ b
+
+
+### y ~ x + b
+
+
+### y ~ x + b + x:b
+
+*synonyme Regressionsformel:* `y ~ x * b`
+
+
+
+### y ~ x_c + b + x_c:b
+
+
+### y ~ g
+
+
+### y ~ x1 + x2
+
+
+
+
+### y ~ x1_z + x2_z
+
+
+
+
+### y_z ~ x1_z + x2_z
