@@ -1,6 +1,19 @@
-# 20260108
+---
+title: "Zentrale Themen der Datenanalyse - QM2"
+date: 2026-01-08
+---
 
-# AUFGABE
+# Aufgabe
+
+
+## Setup
+
+```{r}
+library(tidyverse)
+library(rstandarm)
+library(easystats)
+```
+
 
 
 ## Aufgabenstellung
@@ -11,21 +24,114 @@ Formulieren Sie jeweils a) die Regressionsformel und b)
 die zugehörige Forschungsfrage als ganzen Satz.
 
 
-# Lösung
+## Lösung
 
 ### y ~ b
 
 
+`cnt ~ holiday`: Welchen Effekt hat ein Feiertag (holiday = 1 vs. holiday = 0) auf die durchschnittliche Anzahl gemieteter Fahrräder (cnt)?
+
+UV: holiday (binär: 0 = kein Feiertag, 1 = Feiertag)
+AV: cnt (Anzahl gemieteter Fahrräder)
+
+
+
+
 ### y ~ x + b
+
+Regressionsformel:
+
+`cnt ~ holiday + windspeed`
+
+Forschungsfrage:
+
+Wie stark ist der statistische Effekt der *Ferientage* (holiday: =1 oder =0) und der *Windgeschwindigkeit* (windspeed) auf die *Vermietung* von Fahrrädern (cnt)?
+
+UVs: holiday (binär: 0 = kein Feiertag, 1 = Feiertag), windspeed (kontinuierlich)
+
+AV: cnt (Anzahl gemieteter Fahrräder)
+
 
 
 ### y ~ x + b + x:b
 
+Mit Interaktionseffekt
+
 *synonyme Regressionsformel:* `y ~ x * b`
 
 
+`cnt ~ holiday + windspeed + holiday:windspeed`
 
-### y ~ x_c + b + x_c:b
+Forschungsfrage:
+
+Gibt es einen Interaktionseffekt zwischen Ferientage und Windgeschwindigkeit auf die Anzahl der vermieteten Fahrräder? Gibt es zusätzlich einen Haupteffekt von Ferientag (`holiday`) und von der Windgeschwindigkeit (`windspeed`)?
+
+UV: holiday (binär: 0 = kein Feiertag, 1 = Feiertag), windspeed (kontinuierlich)
+plus Interaktionseffekt
+
+AV: cnt (Anzahl gemieteter Fahrräder)
+
+
+### 
+
+`cnt ~ atemp_c*workingday`
+
+
+
+Gibt es lineare Effekte zwischen der zentrierten gefühlten Temperatur und Arbeitstagen und einen Interaktionseffekt zwischen der zentrierten gefühlten Temperatur und Arbeitstagen auf die Anzahl der verliehenen Fahrräder?
+
+UV: atemp_c (zentrierte gefühlte Temperatur), b (Arbeitstag: 0 = kein Arbeitstag, 1 = Arbeitstag)
+
+AV: cnt (Anzahl gemieteter Fahrräder)
+
+
+Umsetzung in R:
+
+Zuerst Daten importieren:
+
+```{r}
+data_path <- "https://vincentarelbundock.github.io/Rdatasets/csv/bayesrules/bike_users.csv"
+
+bike_data <- read_csv(data_path)
+```
+
+
+`atemp` zentrieren:
+
+```{r}
+bike_data <-
+  bike_data %>%
+  mutate(temp_actual_c = temp_actual - mean(temp_actual))
+```
+
+
+Modell berechnen:
+
+```{r}
+m_bike <- 
+  stan_glm(rides ~ temp_actual_c * weekend, 
+           data = bike_data,
+           refresh = 0)
+```
+
+
+Ergebnisse (Modellparameter) anschauen:
+
+```{r}
+parameters(m_bike)
+```
+
+
+`y_vorhergesagt = beta0 + beta1*weekend + beta2*x2 + beta3*x1*x2`
+
+Annahme: 
+- Es ist KEIN Wochenende: `weekend = FALSE`
+- Durchschnittliche gefühlte Temperatur: `temp_actual_c = 0`
+
+Interpretation:
+An einem Wochentag mit durchschnittlicher gefühlter Temperatur werden im Durchschnitt `beta0` Fahrräder verliehen, d.h. ca. 1500.
+
+
 
 
 ### y ~ g
