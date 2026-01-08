@@ -1,0 +1,274 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# QM2 20251222
+
+
+# Aufgabe 1
+
+Importieren Sie die Bike-Share-Daten: <https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset>.
+Verwenden Sie davon den Datensatz `day`.
+
+
+R-Pakete starten:
+
+```{r}
+library(tidyverse)
+library(rstanarm)
+library(easystats)
+library(ggpubr)  # Visualisierung
+```
+
+
+Zuerst Daten herunterladen.
+Dann Daten importieren in RStudio:
+
+
+```{r}
+library(tidyverse)
+day <- read_csv("~/Downloads/bike+sharing+dataset/day.csv")  # Achtung: Das ist der Pfad auf meinem Computer. Passen Sie ggf. den Pfad an Ihren Computer an.
+```
+
+
+Forschungsfrage:
+
+- AV: Anzahl der geliehenen Fahrräder (`cnt`)
+- UV: Werktag (ja oder nein) (`workingday`)
+
+
+**Aufgabe**
+
+Berechnen Sie das lineare Modell, das die Anzahl der geliehenen Fahrräder auf Basis ob es ein Werktag ist (ja/nein) vorhersagt.
+
+
+Dann nennen Sie bitte 
+
+A) Den *Punktschätzer* des Effekts der UV
+B) Die *Modellgüte* als Anteil der erklärten Varianz des Modells (durch die UV)
+C) Ist der Effekt signifikant?
+D) Interpretieren Sie den Effekt inhaltlich.
+E) Kann man die Nullhypothese $H_0$ verwerfen?
+
+
+**Lösung**
+
+
+## A) Punktschätzer des Effekts der UV
+
+Regressionsformel: `AV ~ UV`
+
+```{r}
+m_wday <- stan_glm(cnt ~ workingday, data = day)
+```
+
+Parameter des Modells anschauen:
+
+
+```{r}
+parameters(m_wday)
+```
+Der Punktschätzer des Effekts der UV ist ca. 250.
+Der Punktschätzer des IEffekts der UV ist `r round(coef(m_wday)[2], 0)`.
+
+So bekommt man auch die Regressionskoeffizienten:
+
+```{r}
+coef(m_wday)
+```
+
+
+
+## B ) Modellgüte
+
+
+Die Modellgüte berechnen wir hier mit $R^2$:
+
+
+```{r}
+r2(m_wday)
+```
+
+Das Modell erklärt wie viel Prozent der Varianz in der AV durch die UV?
+
+- 0.4%
+
+
+Also sehr wenig. Der Werktag-Effekt ist sehr klein.
+
+
+## C) Signifikant? Nein.
+
+die Null ist im Intervall enthalten, daher ist der Effekt NICHT signifikant.
+
+
+
+## D) Interpretation des Effekts
+
+
+Der Effekt der UV `workingday` auf die AV `cnt` ist sehr klein und nicht signifikant.
+
+
+Das bedeutet, dass es keinen nennenswerten Unterschied in der Anzahl der geliehenen Fahrräder zwischen Werktagen und Nicht-Werktagen gibt.
+
+
+```{r}
+ggplot(day, aes(x = as.factor(workingday), y = cnt)) +
+  geom_boxplot() +
+  labs(x = "Werktag (0 = Nein, 1 = Ja)", y = "Anzahl geliehener Fahrräder") +
+  theme_minimal()
+```
+
+
+```{r}
+ggboxplot(day, x = "workingday", y = "cnt",
+          xlab = "Werktag (0 = Nein, 1 = Ja)",
+          ylab = "Anzahl geliehener Fahrräder",
+          title = "Anzahl geliehener Fahrräder nach Werktag")
+```
+
+
+```{r}
+parameters(m_wday) |> plot()
+```
+
+## E) Nullhypothese verwerfen?
+
+Nein, die Nullhypothese kann nicht verworfen werden, da die Null im Bereich plausibler Werte (des Effekts der UV, d.i. das 95% CI) enthalten ist.
+
+
+
+# Aufgabe 2: Effekt von `workingday` und `humidity` auf `cnt`
+
+
+Berechnen Sie ein multiples Regressionsmodell, das die Anzahl der geliehenen Fahrräder (`cnt`) auf Basis dob es ein Werktag ist (ja/nein) (`workingday`) und der Luftfeuchtigkeit (`hum`) vorhersagt.
+
+
+A) Nennen Sie die Regressionsformel
+B) Nennen Sie die Breite des 95%-Konfidenzintervalls des Effekts der UV `hum` (ETI)
+C) Ist der Effekt von Luftfeuchtigkeit signifikant?
+D) Können wir die Rope-Hypothese verwerfen (± 300 Räder sind sind gerade noch vernachlässigbar).
+
+## A) Regressionsformel
+
+
+`cnt ~ workingday + humidity`
+
+
+Dazu das Modell berechnen:
+
+```{r}
+m_wday_hum <- stan_glm(cnt ~ hum + workingday, data = day, refresh = 0, seed = 42)
+```
+
+
+## B) Breite des 95%-Konfidenzintervalls des Effekts der UV `humidity` (ETI)
+
+
+```{r}
+parameters(m_wday_hum)
+```
+
+Die Breite berechnet sich als OG minus UG:
+
+```{r}
+breite <-  -375.38 - -2401.38
+breite
+```
+
+Die Breite des 95%-Konfidenzintervalls des Effekts der UV `humidity` beträgt `r round(breite, 2)`.
+
+
+## C) Ist der Effekt von Luftfeuchtigkeit signifikant?
+
+Hier ist noch mal das 95%-Konfidenzintervall des Effekts der UV `hum`:
+
+[-2401.38, -375.38] 
+
+
+Wie man sieht, ist die Null NICHT enthalten. 
+Daher ist der Effekt von `hum` signifikant.
+
+
+## D) Rope-Hypothese verwerfen?
+
+
+
+```{r}
+rope(m_wday_hum, rope = c(-300, 300), parameters = "hum") |> plot()
+```
+
+```{r}
+rope(m_wday_hum, rope = c(-300, 300), parameters = "hum")
+```
+JA, die ROPE-Hypothese kann verworfen werden, da das komplette CI (der "rote Bereich der Post-Verteilung") außerhalb der ROPE liegt.
+
+
+
+# Aufgabe 3: Interaktionseffekt zwischen `workingday` und `humidity` auf `cnt`
+
+
+Visualisieren Sie das Modell mit den beiden UV `workingday` und `humidity`, aber OHNE Interaktionseffekt.
+
+
+```{r}
+m_wday_hum |> estimate_relation() |> plot() +
+  geom_point(data = day, aes(x = hum, y = cnt, color = as.factor(workingday)), alpha = 0.3) 
+```
+
+**Aufgabe**
+
+
+A) Berechnen Sie das Modell mit Interaktionseffekt zwischen `workingday` und `humidity`. Geben Sie den Punktschätzer des Interaktionseffekts an.
+B) Visualisieren Sie das Modell mit Interaktionseffekt zwischen `workingday` und `humidity`.
+C) Interpretieren Sie den Interaktionseffekt inhaltlich.
+
+
+## A) Berechnen Sie das Modell mit Interaktionseffekt zwischen `workingday` und `humidity`.
+
+Regressionsformel:
+
+`cnt ~ hum + workingday + hum:workingday`
+
+
+
+```{r}
+m_wday_hum_int <- stan_glm(cnt ~ hum + workingday + hum:workingday, data = day, refresh = 0, seed = 42)
+```
+
+
+Punktschätzer des Interaktionseffekts:
+
+```{r}
+parameters(m_wday_hum_int)
+```
+
+Antwort: Der Punktschätzer des Interaktionseffekts beträgt `r round(coef(m_wday_hum_int)[4], 2)`.
+
+
+## B) Visualisieren Sie das Modell mit Interaktionseffekt zwischen `workingday` und `humidity`.
+
+
+```{r}
+ggplot(day, aes(x = hum, y = cnt, color = as.factor(workingday))) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Luftfeuchtigkeit", y = "Anzahl geliehener Fahrräder", color = "Werktag (0 = Nein, 1 = Ja)") +
+  theme_minimal()
+```
+
+
+## C) Interpretieren Sie den Interaktionseffekt inhaltlich.
+
+
+`cnt_predicted = 4517 * - 1373 * hum + 1266 * workingday + -1603 * hum*workingday`
+
+
+Das ist der Unterschied in den Steigungen pro Einheit in der UV zwischen den Gruppen.
+
+
+
+
+
+
