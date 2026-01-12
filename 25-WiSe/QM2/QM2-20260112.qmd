@@ -25,3 +25,75 @@ https://sebastiansauer.github.io/Datenwerk/posts/nerd-gelockert/Nerd-gelockert.h
 
 ## A4
 
+https://sebastiansauer.github.io/Datenwerk/posts/schmalste-post/index.html
+
+
+
+## A5
+
+https://sebastiansauer.github.io/Datenwerk/posts/aussagen-infstat/index.html
+
+## A6
+
+https://sebastiansauer.github.io/Datenwerk/posts/streuung-post/index.html
+
+## A7
+https://sebastiansauer.github.io/Datenwerk/posts/exp2/index.html
+
+
+## A8
+
+https://sebastiansauer.github.io/Datenwerk/posts/rope-luecke/index.html
+
+## A9
+
+https://sebastiansauer.github.io/start-bayes/0350-wskt2.html#addition-allgemeiner-ereignisse
+
+## A10
+https://sebastiansauer.github.io/Datenwerk/posts/Krebs1/Krebs1.html
+
+
+
+## A11
+
+Knapp 0,1%:
+
+```{r}
+(1/2)^10
+```
+
+
+
+## A12
+
+
+
+## A13
+
+https://sebastiansauer.github.io/Datenwerk/posts/kekse03/index.html
+
+
+
+## A14
+
+https://sebastiansauer.github.io/Datenwerk/posts/penguins-postbreite/index.html
+
+## A15
+
+https://statistik1.netlify.app/040-verbildlichen#fig-norm-perc
+
+## A16
+
+https://sebastiansauer.github.io/Datenwerk/posts/penguins-interact/index.html
+
+
+## A17
+
+https://sebastiansauer.github.io/Datenwerk/posts/anz-params/index.html
+
+## A18
+
+
+s. "streuung-post"
+
+
