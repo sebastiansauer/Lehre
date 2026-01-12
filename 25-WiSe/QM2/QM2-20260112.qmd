@@ -1,0 +1,27 @@
+---
+title: "QM2 - Klausurvorbereitung"
+date: 2026-01-12
+format: html
+---
+
+
+# Altklausur - letztes Jahr
+
+
+## A1
+
+https://sebastiansauer.github.io/Datenwerk/posts/Regression2/Regression2.html
+
+## A2
+
+https://sebastiansauer.github.io/Datenwerk/posts/alphafehler-inflation3/alphafehler-inflation3.html
+
+https://sebastiansauer.github.io/Datenwerk/posts/maschinendesaster/index.html
+
+## A3
+
+https://sebastiansauer.github.io/Datenwerk/posts/nerd-gelockert/Nerd-gelockert.html
+
+
+## A4
+
