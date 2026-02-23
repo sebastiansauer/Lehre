@@ -175,9 +175,18 @@ check_model(lm_peng_comp_species_weight, check = "linearity")
 check_model(lm_peng_comp_species_weight, check = "outliers")
 ```
 
+```{r}
+check_outliers(lm_peng_comp_species_weight)
+```
+
 
 ```{r}
 check_model(lm_peng_comp_species_weight, check = "qq")
+```
+
+
+```{r}
+check_predictions(lm_peng_comp_species_weight)
 ```
 
 
