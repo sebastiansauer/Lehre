@@ -1,0 +1,203 @@
+---
+title: "template_analysis"
+format: html
+---
+
+# Background
+
+The typical workflow of data analysis is shown in the [PPDAC cycle](https://stats-nutshell.netlify.app/020-basics#ppdac) and in the ["seven bridges of data analysis"](https://fopro.netlify.app/080-auswerten#fig-sieben-bruecken).
+
+
+# Setup
+
+Start the needed packages:
+
+```{r}
+#| message: false
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+library(rstanarm)  # optional: for Bayes analysis
+library(tableone)  # optonal
+```
+
+Import your dataset and give it an appropriate name:
+
+```{r}
+penguins_raw <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+```
+
+
+# Prepare data
+
+
+Sometimes (often!) your data set needs "cleansing" before you will want to start the actual analysis:
+
+
+```{r}
+penguins <-
+  penguins_raw |> 
+  filter(sex %in% c("male", "female"))
+```
+
+
+
+
+# Descriptive statistics
+
+
+## Describe sample size per subgroup
+
+
+```{r}
+CreateTableOne(data = penguins)
+```
+
+
+## Quantitative variables
+
+```{r}
+describe_distribution(penguins)
+```
+
+## Qualitative (non-metric) variables
+
+
+
+```{r}
+data_tabulate(penguins, select = c("sex", "island"))
+```
+
+
+# Visualization
+
+
+## Distriution
+
+```{r}
+ggdensity(penguins,
+          x = "body_mass_g",
+          add = "mean",
+          rug = TRUE,
+          fill = "sex",
+          color = "sex")
+```
+
+
+## Assocation (scatter plot)
+
+```{r}
+ggpubr::ggscatter(penguins,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex")
+```
+
+## Comparing groups (means)
+
+
+
+```{r}
+ggviolin(penguins,
+         y = "body_mass_g",
+         x = "species",
+         add = "mean")
+```
+
+# Modeling
+
+
+## Basic regression formula - Frequentist statistics
+
+
+```{r}
+#| error: true
+#| eval: false
+lm(ouput ~ input, data = my_data)
+```
+
+
+
+## Basic regression formula - Bayesian statistics
+
+```{r}
+#| error: true
+#| eval: false
+stan_glm(ouput ~ input, data = my_data)
+```
+
+
+## Comparing groups
+
+
+```{r}
+lm_peng_comp_species_weight <-
+  lm(body_mass_g ~ sex , data = penguins)
+```
+
+
+```{r}
+lm_peng_comp_species_weight_bayes <-
+  stan_glm(body_mass_g ~ sex, data = penguins)
+```
+
+
+
+### Model coefficients and Inferential statistics
+
+
+```{r}
+parameters(lm_peng_comp_species_weight)
+```
+
+
+```{r}
+parameters(lm_peng_comp_species_weight_bayes)
+```
+
+
+### Model fit/goodness
+
+
+```{r}
+r2(lm_peng_comp_species_weight)
+```
+
+
+### Model assumptions
+
+
+```{r}
+check_model(lm_peng_comp_species_weight, check = "linearity")
+```
+
+```{r}
+check_model(lm_peng_comp_species_weight, check = "outliers")
+```
+
+
+```{r}
+check_model(lm_peng_comp_species_weight, check = "qq")
+```
+
+
+
+## Metric independent variable
+
+For the easy of interpretation (and numeric robustness), we z-transform the independent variable:
+
+
+```{r}
+lm_peng_weight_by_flipper_length <-
+  lm(body_mass_g ~ scale(flipper_length_mm), data = penguins)
+```
+
+
+### Model coefficients and inferential statistics
+
+
+```{r}
+parameters(lm_peng_weight_by_flipper_length) |> 
+  print_md()
+```
+
