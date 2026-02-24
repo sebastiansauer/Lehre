@@ -26,7 +26,7 @@ Either use the button "import dataset" or use the `read.csv` command.
 
 
 ```{r}
-penguins <- read.csv("~/Downloads/penguins.csv")
+#penguins <- read.csv("~/Downloads/penguins.csv")
 ```
 
 
@@ -44,6 +44,22 @@ Add a code chunk by hitting the button or by typing "Ctr+Alt+I":
 ```{r}
 lm(body_mass_g ~ sex, data = d)
 ```
+
+
+## Data preparation
+
+```{r}
+library(dplyr)
+# library(palmerpenguins)
+
+penguins_filtered <- 
+  d %>%
+  filter(sex %in% c("male", "female"))
+```
+
+
+Control+Enter -> Run one single line OR the highlighted area
+
 
 
 ```{r}
