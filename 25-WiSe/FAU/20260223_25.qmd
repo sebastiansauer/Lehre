@@ -197,7 +197,24 @@ ggscatter(penguins_filtered,
 
 RQ: Assocation between weight and bill length also depends on the sex of the animals?
 
-```{r}
 
+```{r}
+lm_weigth_by_bill_sex <-
+  lm(body_mass_g ~ bill_length_mm + sex + bill_length_mm:sex, data = penguins_filtered)
+
+parameters(lm_weigth_by_bill_sex)
+```
+
+
+```{r}
+ggscatter(penguins_filtered,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex",
+          add = "reg.line")
+```
+
+```{r}
+r2(lm_weigth_by_bill_sex)
 ```
 
