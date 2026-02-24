@@ -29,3 +29,26 @@ Either use the button "import dataset" or use the `read.csv` command.
 penguins <- read.csv("~/Downloads/penguins.csv")
 ```
 
+
+
+# Simple model: `y ~ b`
+
+"Y as a function of of a binary input variable (two groups)".
+
+> Is the weight of a penguin a function of the sex of the animal?
+
+Add a code chunk by hitting the button or by typing "Ctr+Alt+I":
+
+
+
+```{r}
+lm(body_mass_g ~ sex, data = d)
+```
+
+
+```{r}
+library(tidyverse)
+d |> 
+  count(sex)
+```
+
