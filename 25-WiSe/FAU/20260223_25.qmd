@@ -64,7 +64,62 @@ Control+Enter -> Run one single line OR the highlighted area
 
 ```{r}
 library(tidyverse)
-d |> 
+penguins_filtered |> 
   count(sex)
 ```
+
+# Cleaned data
+
+
+
+```{r}
+lm_weight_sex <- lm(body_mass_g ~ sex, data = penguins_filtered)
+```
+
+
+Visualize the data and the model:
+
+```{r}
+library(tidyverse)
+library(ggpubr)
+```
+
+
+```{r}
+ggdotplot(penguins_filtered,
+          x = "sex",
+          y = "body_mass_g",
+          add = "mean")
+```
+
+Quality of the model, "goodness" of fit:
+
+```{r}
+library(easystats)
+```
+
+`r2` gives you the R-Squared:
+
+```{r}
+r2(lm_weight_sex)
+```
+
+
+# `y ~ x`
+
+DV: y (metric)
+IV: x (metric)
+
+Research question: 
+
+> body mass as a function flipper length
+
+
+```{r}
+lm_weight_flipper <-
+lm(body_mass_g ~ flipper_length_mm, data = penguins_filtered)
+```
+
+
+
 
