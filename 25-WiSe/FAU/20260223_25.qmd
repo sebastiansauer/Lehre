@@ -117,9 +117,54 @@ Research question:
 
 ```{r}
 lm_weight_flipper <-
-lm(body_mass_g ~ flipper_length_mm, data = penguins_filtered)
+  lm(body_mass_g ~ flipper_length_mm, data = penguins_filtered)
 ```
 
 
+```{r}
+parameters(lm_weight_flipper)  # from package "easystats"
+```
+
+```{r}
+ggscatter(data = penguins_filtered,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+```{r}
+r2(lm_weight_flipper)
+```
+
+# Exr
+
+RQ: body_mass_g as a function of bill length? What's the (statistical) effect of bill length of body weight?
+
+Please report:
+
+- the effect of bill length
+- goodness of the model
+
+
+
+```{r}
+lm_bill <- lm(body_mass_g ~ bill_length_mm, data = penguins_filtered)
+
+summary(lm_bill)
+
+ggscatter(data = penguins_filtered, x = "bill_length_mm", y = "body_mass_g", add = "reg.line")
+
+parameters(lm_bill)
+
+r2(lm_bill)
+```
+
+
+Make a nice table in html/pdf/word:
+
+
+```{r}
+parameters(lm_bill) |> print_md()
+```
 
 
