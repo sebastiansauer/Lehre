@@ -3,3 +3,29 @@ title: "20260223_25"
 format: html
 ---
 
+
+Hi there!
+Let me jot down some notes...
+
+
+```{r}
+1+1
+```
+
+# Import data
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+
+head(d)  # see the first few rows, the "head" of the table
+```
+
+Import data from your own machine:
+
+Either use the button "import dataset" or use the `read.csv` command.
+
+
+```{r}
+penguins <- read.csv("~/Downloads/penguins.csv")
+```
+
