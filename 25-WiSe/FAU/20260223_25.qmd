@@ -136,7 +136,7 @@ ggscatter(data = penguins_filtered,
 r2(lm_weight_flipper)
 ```
 
-# Exr
+## Exr
 
 RQ: body_mass_g as a function of bill length? What's the (statistical) effect of bill length of body weight?
 
@@ -167,4 +167,37 @@ Make a nice table in html/pdf/word:
 parameters(lm_bill) |> print_md()
 ```
 
+
+
+# Next typical linear model: `y ~ x + g`
+
+
+RQ: weight influenced by species and by flipper length?
+
+**Interaction, moderation**
+
+
+```{r}
+lm_y_by_x_and_g <-
+  lm(body_mass_g ~ flipper_length_mm + species + flipper_length_mm:species, data = penguins_filtered)
+
+parameters(lm_y_by_x_and_g)
+```
+
+
+```{r}
+ggscatter(penguins_filtered,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          color = "species",
+          add = "reg.line")
+```
+
+## Exr:
+
+RQ: Assocation between weight and bill length also depends on the sex of the animals?
+
+```{r}
+
+```
 

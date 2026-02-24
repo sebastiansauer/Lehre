@@ -72,7 +72,7 @@ data_tabulate(penguins, select = c("sex", "island"))
 # Visualization
 
 
-## Distriution
+## Distribution
 
 ```{r}
 ggdensity(penguins,
@@ -193,7 +193,7 @@ check_predictions(lm_peng_comp_species_weight)
 
 ## Metric independent variable
 
-For the easy of interpretation (and numeric robustness), we z-transform the independent variable:
+For the ease of interpretation (and numeric robustness), we center the independent variable:
 
 
 ```{r}
