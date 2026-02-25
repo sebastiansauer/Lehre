@@ -20,6 +20,8 @@ d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins
 head(d)  # see the first few rows, the "head" of the table
 ```
 
+
+
 Import data from your own machine:
 
 Either use the button "import dataset" or use the `read.csv` command.
@@ -218,3 +220,5 @@ ggscatter(penguins_filtered,
 r2(lm_weigth_by_bill_sex)
 ```
 
+
+# Centering
