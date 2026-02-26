@@ -1,16 +1,31 @@
 ---
-title: "20260223_25"
+title: "Enough statistics to be dangerous"
+subtitle: " introduction to statistical modelling (20260223_25)"
 format: html
+toc: true
+number-sections: true
 ---
 
 
-Hi there!
-Let me jot down some notes...
+---
 
+20260223 
+
+# Check if R is there
 
 ```{r}
 1+1
 ```
+
+
+# Start packages
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+```
+
 
 # Import data
 
@@ -33,7 +48,7 @@ Either use the button "import dataset" or use the `read.csv` command.
 
 
 
-# Simple model: `y ~ b`
+# `y ~ b`
 
 "Y as a function of of a binary input variable (two groups)".
 
@@ -70,7 +85,7 @@ penguins_filtered |>
   count(sex)
 ```
 
-# Cleaned data
+## Cleaned data
 
 
 
@@ -171,7 +186,7 @@ parameters(lm_bill) |> print_md()
 
 
 
-# Next typical linear model: `y ~ x + g`
+# `y ~ x + g + x:g` - interaction model
 
 
 RQ: weight influenced by species and by flipper length?
@@ -195,7 +210,7 @@ ggscatter(penguins_filtered,
           add = "reg.line")
 ```
 
-## Exr:
+## Exr
 
 RQ: Assocation between weight and bill length also depends on the sex of the animals?
 
@@ -222,24 +237,50 @@ r2(lm_weigth_by_bill_sex)
 
 
 
+---------
+
+
+22060225
 
 
 
-----
 
 
 
+# `y ~ x + g` - no interaction
 
-# Releveling
+
+
+```{r}
+lm_y_by_x_and_g_no_interact <-
+  lm(body_mass_g ~ flipper_length_mm + species, data = penguins_filtered)
+
+parameters(lm_y_by_x_and_g_no_interact)
+```
+
+Alternative plotting method:
+
+
+```{r}
+estimate_relation(lm_y_by_x_and_g_no_interact) |>
+  plot() +
+  geom_point(aes(x = flipper_length_mm, y = body_mass_g), data = penguins_filtered)
+```
+
+
+```{r}
+r2(lm_y_by_x_and_g_no_interact)
+```
+
+
+# `y ~ g_r` - Releveled factor levels
 
 See: <https://start-bayes.netlify.app/1000-metrische-av#vertiefung-wechsel-der-referenzkategorie>
 
 Current "base level" in Species:
 
 ```{r}
-penguisn_filtered <-
-penguins_filtered |> 
-  mutate(species = factor(species))
+penguins_filtered$species <- factor(penguins_filtered$species)
 ```
 
 
@@ -249,7 +290,7 @@ Check:
 levels(penguins$species)
 ```
 
-"Adeli" is the base level, as alphabetically first.
+"Adelie" is the base level, as alphabetically first.
 
 
 Here's the linear model with "Adelie" as base level:
@@ -258,7 +299,7 @@ Here's the linear model with "Adelie" as base level:
 ```{r}
 lm_y_by_x_and_g_factor <-
   lm(body_mass_g ~ flipper_length_mm + species + flipper_length_mm:species, 
-     data = penguisn_filtered)
+     data = penguins_filtered)  # interaction effect included
 
 parameters(lm_y_by_x_and_g_factor)
 ```
@@ -288,4 +329,57 @@ parameters(lm_y_by_x_and_g_relevel)
 ```
 
 
-# Centering
+# `y ~ x_c` - Centering a metric predictor
+
+Mean flipper length:
+
+```{r}
+mean(penguins_filtered$flipper_length_mm)
+```
+
+
+```{r}
+penguins_filtered$flipper_length_mm_c <- penguins_filtered$flipper_length_mm - 201
+```
+
+```{r}
+lm_weight_flipper_c <-
+  lm(body_mass_g ~ flipper_length_mm_c, data = penguins_filtered)
+
+parameters(lm_weight_flipper_c)
+```
+
+
+```{r}
+r2(lm_weight_flipper_c)
+```
+
+
+```{r}
+check_model(lm_weight_flipper_c)
+```
+
+
+# `log(y) ~ x_c`  - logarithmic dependent variable
+
+
+
+```{r}
+lm_weight_flipper_log_bodymass <-
+  lm(log(body_mass_g) ~ flipper_length_mm_c, data = penguins_filtered)
+
+parameters(lm_weight_flipper_log_bodymass)
+```
+
+
+
+```{r}
+r2(lm_weight_flipper_log_bodymass)
+```
+
+
+```{r}
+#| fig-asp: 2
+check_model(lm_weight_flipper_log_bodymass)
+```
+

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>20260223_25</title>
+<title>Enough statistics to be dangerous</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,15 +74,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#check-if-r-is-there" id="toc-check-if-r-is-there" class="nav-link active" data-scroll-target="#check-if-r-is-there"><span class="header-section-number">1</span> Check if R is there</a></li>
+  <li><a href="#start-packages" id="toc-start-packages" class="nav-link" data-scroll-target="#start-packages"><span class="header-section-number">2</span> Start packages</a></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="header-section-number">3</span> Import data</a></li>
+  <li><a href="#y-b" id="toc-y-b" class="nav-link" data-scroll-target="#y-b"><span class="header-section-number">4</span> <code>y ~ b</code></a>
+  <ul class="collapse">
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation"><span class="header-section-number">4.1</span> Data preparation</a></li>
+  <li><a href="#cleaned-data" id="toc-cleaned-data" class="nav-link" data-scroll-target="#cleaned-data"><span class="header-section-number">4.2</span> Cleaned data</a></li>
+  </ul></li>
+  <li><a href="#y-x" id="toc-y-x" class="nav-link" data-scroll-target="#y-x"><span class="header-section-number">5</span> <code>y ~ x</code></a>
+  <ul class="collapse">
+  <li><a href="#exr" id="toc-exr" class="nav-link" data-scroll-target="#exr"><span class="header-section-number">5.1</span> Exr</a></li>
+  </ul></li>
+  <li><a href="#y-x-g-xg---interaction-model" id="toc-y-x-g-xg---interaction-model" class="nav-link" data-scroll-target="#y-x-g-xg---interaction-model"><span class="header-section-number">6</span> <code>y ~ x + g + x:g</code> - interaction model</a>
+  <ul class="collapse">
+  <li><a href="#exr-1" id="toc-exr-1" class="nav-link" data-scroll-target="#exr-1"><span class="header-section-number">6.1</span> Exr</a></li>
+  </ul></li>
+  <li><a href="#y-x-g---no-interaction" id="toc-y-x-g---no-interaction" class="nav-link" data-scroll-target="#y-x-g---no-interaction"><span class="header-section-number">7</span> <code>y ~ x + g</code> - no interaction</a></li>
+  <li><a href="#y-g_r---releveled-factor-levels" id="toc-y-g_r---releveled-factor-levels" class="nav-link" data-scroll-target="#y-g_r---releveled-factor-levels"><span class="header-section-number">8</span> <code>y ~ g_r</code> - Releveled factor levels</a></li>
+  <li><a href="#y-x_c---centering-a-metric-predictor" id="toc-y-x_c---centering-a-metric-predictor" class="nav-link" data-scroll-target="#y-x_c---centering-a-metric-predictor"><span class="header-section-number">9</span> <code>y ~ x_c</code> - Centering a metric predictor</a></li>
+  <li><a href="#logy-x_c---logarithmic-dependent-variable" id="toc-logy-x_c---logarithmic-dependent-variable" class="nav-link" data-scroll-target="#logy-x_c---logarithmic-dependent-variable"><span class="header-section-number">10</span> <code>log(y) ~ x_c</code> - logarithmic dependent variable</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">20260223_25</h1>
+<h1 class="title">Enough statistics to be dangerous</h1>
+<p class="subtitle lead">introduction to statistical modelling20260223_25</p>
 </div>
 
 
@@ -99,19 +127,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Hi there! Let me jot down some notes…</p>
+<hr>
+<p>20260223</p>
+<section id="check-if-r-is-there" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Check if R is there</h1>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
-<section id="import-data" class="level1">
-<h1>Import data</h1>
+</section>
+<section id="start-packages" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Start packages</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)  <span class="co"># see the first few rows, the "head" of the table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code># Attaching packages: easystats 0.7.5
+✔ bayestestR  0.17.0   ✔ correlation 0.8.8 
+✔ datawizard  1.3.0    ✔ effectsize  1.0.1 
+✔ insight     1.4.6    ✔ modelbased  0.14.0
+✔ performance 0.16.0   ✔ parameters  0.28.3
+✔ report      0.6.3    ✔ see         0.13.0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'ggpubr'
+
+Die folgenden Objekte sind maskiert von 'package:datawizard':
+
+    mean_sd, median_mad</code></pre>
+</div>
+</div>
+</section>
+<section id="import-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Import data</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)  <span class="co"># see the first few rows, the "head" of the table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  rownames species    island bill_length_mm bill_depth_mm flipper_length_mm
 1        1  Adelie Torgersen           39.1          18.7               181
@@ -132,18 +200,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Import data from your own machine:</p>
 <p>Either use the button “import dataset” or use the <code>read.csv</code> command.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#penguins &lt;- read.csv("~/Downloads/penguins.csv")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#penguins &lt;- read.csv("~/Downloads/penguins.csv")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="simple-model-y-b" class="level1">
-<h1>Simple model: <code>y ~ b</code></h1>
+<section id="y-b" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> <code>y ~ b</code></h1>
 <p>“Y as a function of of a binary input variable (two groups)”.</p>
 <blockquote class="blockquote">
 <p>Is the weight of a penguin a function of the sex of the animal?</p>
 </blockquote>
 <p>Add a code chunk by hitting the button or by typing “Ctr+Alt+I”:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(body_mass_g <span class="sc">~</span> sex, <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(body_mass_g <span class="sc">~</span> sex, <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -154,46 +222,21 @@ Coefficients:
      4005.6       -143.3        540.1  </code></pre>
 </div>
 </div>
-<section id="data-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="data-preparation">Data preparation</h2>
+<section id="data-preparation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">4.1</span> Data preparation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attache Paket: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Die folgenden Objekte sind maskiert von 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Die folgenden Objekte sind maskiert von 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(palmerpenguins)</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>penguins_filtered <span class="ot">&lt;-</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  d <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(palmerpenguins)</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>penguins_filtered <span class="ot">&lt;-</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  d <span class="sc">%&gt;%</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Control+Enter -&gt; Run one single line OR the highlighted area</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ forcats   1.0.1     ✔ readr     2.2.0
-✔ ggplot2   4.0.2     ✔ stringr   1.6.0
-✔ lubridate 1.9.5     ✔ tibble    3.3.1
-✔ purrr     1.2.1     ✔ tidyr     1.3.2
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>penguins_filtered <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>penguins_filtered <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     sex   n
 1 female 165
@@ -201,9 +244,8 @@ Attache Paket: 'dplyr'</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="cleaned-data" class="level1">
-<h1>Cleaned data</h1>
+<section id="cleaned-data" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="cleaned-data"><span class="header-section-number">4.2</span> Cleaned data</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lm_weight_sex <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> sex, <span class="at">data =</span> penguins_filtered)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -224,7 +266,7 @@ Attache Paket: 'dplyr'</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="20260223_25_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="20260223_25_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -232,18 +274,10 @@ Attache Paket: 'dplyr'</code></pre>
 <p>Quality of the model, “goodness” of fit:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code># Attaching packages: easystats 0.7.5
-✔ bayestestR  0.17.0   ✔ correlation 0.8.8 
-✔ datawizard  1.3.0    ✔ effectsize  1.0.1 
-✔ insight     1.4.6    ✔ modelbased  0.14.0
-✔ performance 0.16.0   ✔ parameters  0.28.3
-✔ report      0.6.3    ✔ see         0.13.0</code></pre>
-</div>
 </div>
 <p><code>r2</code> gives you the R-Squared:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_weight_sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_weight_sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># R2 for Linear Regression
        R2: 0.181
@@ -251,19 +285,20 @@ Attache Paket: 'dplyr'</code></pre>
 </div>
 </div>
 </section>
-<section id="y-x" class="level1">
-<h1><code>y ~ x</code></h1>
+</section>
+<section id="y-x" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> <code>y ~ x</code></h1>
 <p>DV: y (metric) IV: x (metric)</p>
 <p>Research question:</p>
 <blockquote class="blockquote">
 <p>body mass as a function flipper length</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>lm_weight_flipper <span class="ot">&lt;-</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm, <span class="at">data =</span> penguins_filtered)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>lm_weight_flipper <span class="ot">&lt;-</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm, <span class="at">data =</span> penguins_filtered)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_weight_flipper)  <span class="co"># from package "easystats"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_weight_flipper)  <span class="co"># from package "easystats"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Parameter         | Coefficient |     SE |               95% CI | t(331) |      p
 ---------------------------------------------------------------------------------
@@ -277,29 +312,28 @@ Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(<span class="at">data =</span> penguins_filtered,</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"flipper_length_mm"</span>,</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"body_mass_g"</span>,</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(<span class="at">data =</span> penguins_filtered,</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"flipper_length_mm"</span>,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"body_mass_g"</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="20260223_25_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="20260223_25_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_weight_flipper)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_weight_flipper)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># R2 for Linear Regression
        R2: 0.762
   adj. R2: 0.761</code></pre>
 </div>
 </div>
-</section>
-<section id="exr" class="level1">
-<h1>Exr</h1>
+<section id="exr" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="exr"><span class="header-section-number">5.1</span> Exr</h2>
 <p>RQ: body_mass_g as a function of bill length? What’s the (statistical) effect of bill length of body weight?</p>
 <p>Please report:</p>
 <ul>
@@ -307,9 +341,9 @@ Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
 <li>goodness of the model</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>lm_bill <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> bill_length_mm, <span class="at">data =</span> penguins_filtered)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_bill)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>lm_bill <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> bill_length_mm, <span class="at">data =</span> penguins_filtered)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_bill)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -330,15 +364,15 @@ Residual standard error: 651.4 on 331 degrees of freedom
 Multiple R-squared:  0.3475,    Adjusted R-squared:  0.3455 
 F-statistic: 176.2 on 1 and 331 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(<span class="at">data =</span> penguins_filtered, <span class="at">x =</span> <span class="st">"bill_length_mm"</span>, <span class="at">y =</span> <span class="st">"body_mass_g"</span>, <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(<span class="at">data =</span> penguins_filtered, <span class="at">x =</span> <span class="st">"bill_length_mm"</span>, <span class="at">y =</span> <span class="st">"body_mass_g"</span>, <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="20260223_25_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="20260223_25_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_bill)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_bill)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Parameter      | Coefficient |     SE |            95% CI | t(331) |      p
 ---------------------------------------------------------------------------
@@ -350,7 +384,7 @@ bill length mm |       86.79 |   6.54 | [  73.93,  99.65] |  13.28 | &lt; .001</
 Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
   using a Wald t-distribution approximation.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_bill)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_bill)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># R2 for Linear Regression
        R2: 0.347
@@ -359,7 +393,7 @@ Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
 </div>
 <p>Make a nice table in html/pdf/word:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_bill) <span class="sc">|&gt;</span> <span class="fu">print_md</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_bill) <span class="sc">|&gt;</span> <span class="fu">print_md</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -399,6 +433,336 @@ Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+</section>
+<section id="y-x-g-xg---interaction-model" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> <code>y ~ x + g + x:g</code> - interaction model</h1>
+<p>RQ: weight influenced by species and by flipper length?</p>
+<p><strong>Interaction, moderation</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>lm_y_by_x_and_g <span class="ot">&lt;-</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> species <span class="sc">+</span> flipper_length_mm<span class="sc">:</span>species, <span class="at">data =</span> penguins_filtered)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_y_by_x_and_g)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter                               | Coefficient |      SE
+---------------------------------------------------------------
+(Intercept)                             |    -2508.09 |  892.41
+flipper length mm                       |       32.69 |    4.69
+species [Chinstrap]                     |     -529.11 | 1525.11
+species [Gentoo]                        |    -4166.12 | 1431.58
+flipper length mm × species [Chinstrap] |        1.88 |    7.86
+flipper length mm × species [Gentoo]    |       21.48 |    6.97
+
+Parameter                               |               95% CI | t(327) |      p
+--------------------------------------------------------------------------------
+(Intercept)                             | [-4263.68,  -752.49] |  -2.81 | 0.005 
+flipper length mm                       | [   23.46,    41.92] |   6.97 | &lt; .001
+species [Chinstrap]                     | [-3529.37,  2471.16] |  -0.35 | 0.729 
+species [Gentoo]                        | [-6982.39, -1349.84] |  -2.91 | 0.004 
+flipper length mm × species [Chinstrap] | [  -13.59,    17.36] |   0.24 | 0.811 
+flipper length mm × species [Gentoo]    | [    7.77,    35.18] |   3.08 | 0.002 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(penguins_filtered,</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"flipper_length_mm"</span>,</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"body_mass_g"</span>,</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"species"</span>,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20260223_25_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="exr-1" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="exr-1"><span class="header-section-number">6.1</span> Exr</h2>
+<p>RQ: Assocation between weight and bill length also depends on the sex of the animals?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>lm_weigth_by_bill_sex <span class="ot">&lt;-</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> bill_length_mm <span class="sc">+</span> sex <span class="sc">+</span> bill_length_mm<span class="sc">:</span>sex, <span class="at">data =</span> penguins_filtered)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_weigth_by_bill_sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter                   | Coefficient |     SE |             95% CI
+-----------------------------------------------------------------------
+(Intercept)                 |      537.75 | 421.35 | [-291.14, 1366.63]
+bill length mm              |       78.97 |   9.94 | [  59.41,   98.53]
+sex [male]                  |      799.57 | 591.81 | [-364.65, 1963.79]
+bill length mm × sex [male] |       -9.01 |  13.41 | [ -35.39,   17.38]
+
+Parameter                   | t(329) |      p
+---------------------------------------------
+(Intercept)                 |   1.28 | 0.203 
+bill length mm              |   7.94 | &lt; .001
+sex [male]                  |   1.35 | 0.178 
+bill length mm × sex [male] |  -0.67 | 0.502 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(penguins_filtered,</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"bill_length_mm"</span>,</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"body_mass_g"</span>,</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"sex"</span>,</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20260223_25_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_weigth_by_bill_sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># R2 for Linear Regression
+       R2: 0.404
+  adj. R2: 0.399</code></pre>
+</div>
+</div>
+<hr>
+<p>22060225</p>
+</section>
+</section>
+<section id="y-x-g---no-interaction" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> <code>y ~ x + g</code> - no interaction</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>lm_y_by_x_and_g_no_interact <span class="ot">&lt;-</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> species, <span class="at">data =</span> penguins_filtered)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_y_by_x_and_g_no_interact)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter           | Coefficient |     SE |               95% CI | t(329) |      p
+-----------------------------------------------------------------------------------
+(Intercept)         |    -4013.18 | 586.25 | [-5166.44, -2859.92] |  -6.85 | &lt; .001
+flipper length mm   |       40.61 |   3.08 | [   34.55,    46.66] |  13.19 | &lt; .001
+species [Chinstrap] |     -205.38 |  57.57 | [ -318.62,   -92.13] |  -3.57 | &lt; .001
+species [Gentoo]    |      284.52 |  95.43 | [   96.79,   472.25] |   2.98 | 0.003 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+<p>Alternative plotting method:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_relation</span>(lm_y_by_x_and_g_no_interact) <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>() <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g), <span class="at">data =</span> penguins_filtered)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20260223_25_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_y_by_x_and_g_no_interact)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># R2 for Linear Regression
+       R2: 0.787
+  adj. R2: 0.785</code></pre>
+</div>
+</div>
+</section>
+<section id="y-g_r---releveled-factor-levels" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> <code>y ~ g_r</code> - Releveled factor levels</h1>
+<p>See: <a href="https://start-bayes.netlify.app/1000-metrische-av#vertiefung-wechsel-der-referenzkategorie" class="uri">https://start-bayes.netlify.app/1000-metrische-av#vertiefung-wechsel-der-referenzkategorie</a></p>
+<p>Current “base level” in Species:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>penguins_filtered<span class="sc">$</span>species <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins_filtered<span class="sc">$</span>species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Check:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(penguins<span class="sc">$</span>species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Adelie"    "Chinstrap" "Gentoo"   </code></pre>
+</div>
+</div>
+<p>“Adelie” is the base level, as alphabetically first.</p>
+<p>Here’s the linear model with “Adelie” as base level:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>lm_y_by_x_and_g_factor <span class="ot">&lt;-</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> species <span class="sc">+</span> flipper_length_mm<span class="sc">:</span>species, </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">data =</span> penguins_filtered)  <span class="co"># interaction effect included</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_y_by_x_and_g_factor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter                               | Coefficient |      SE
+---------------------------------------------------------------
+(Intercept)                             |    -2508.09 |  892.41
+flipper length mm                       |       32.69 |    4.69
+species [Chinstrap]                     |     -529.11 | 1525.11
+species [Gentoo]                        |    -4166.12 | 1431.58
+flipper length mm × species [Chinstrap] |        1.88 |    7.86
+flipper length mm × species [Gentoo]    |       21.48 |    6.97
+
+Parameter                               |               95% CI | t(327) |      p
+--------------------------------------------------------------------------------
+(Intercept)                             | [-4263.68,  -752.49] |  -2.81 | 0.005 
+flipper length mm                       | [   23.46,    41.92] |   6.97 | &lt; .001
+species [Chinstrap]                     | [-3529.37,  2471.16] |  -0.35 | 0.729 
+species [Gentoo]                        | [-6982.39, -1349.84] |  -2.91 | 0.004 
+flipper length mm × species [Chinstrap] | [  -13.59,    17.36] |   0.24 | 0.811 
+flipper length mm × species [Gentoo]    | [    7.77,    35.18] |   3.08 | 0.002 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+<p>Now let’s relevel:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>penguins_filtered_releveled <span class="ot">&lt;-</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  penguins_filtered <span class="sc">|&gt;</span> </span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">factor</span>(species, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Gentoo"</span>, <span class="st">"Chinstrap"</span>, <span class="st">"Adelie"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Check:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(penguins_filtered_releveled<span class="sc">$</span>species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Gentoo"    "Chinstrap" "Adelie"   </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>lm_y_by_x_and_g_relevel <span class="ot">&lt;-</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> species <span class="sc">+</span> flipper_length_mm<span class="sc">:</span>species, </span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">data =</span> penguins_filtered_releveled)</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_y_by_x_and_g_relevel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter                               | Coefficient |      SE
+---------------------------------------------------------------
+(Intercept)                             |    -6674.20 | 1119.39
+flipper length mm                       |       54.17 |    5.15
+species [Chinstrap]                     |     3637.01 | 1668.11
+species [Adelie]                        |     4166.12 | 1431.58
+flipper length mm × species [Chinstrap] |      -19.59 |    8.15
+flipper length mm × species [Adelie]    |      -21.48 |    6.97
+
+Parameter                               |               95% CI | t(327) |      p
+--------------------------------------------------------------------------------
+(Intercept)                             | [-8876.31, -4472.10] |  -5.96 | &lt; .001
+flipper length mm                       | [   44.03,    64.30] |  10.52 | &lt; .001
+species [Chinstrap]                     | [  355.43,  6918.59] |   2.18 | 0.030 
+species [Adelie]                        | [ 1349.84,  6982.39] |   2.91 | 0.004 
+flipper length mm × species [Chinstrap] | [  -35.62,    -3.57] |  -2.41 | 0.017 
+flipper length mm × species [Adelie]    | [  -35.18,    -7.77] |  -3.08 | 0.002 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+</section>
+<section id="y-x_c---centering-a-metric-predictor" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> <code>y ~ x_c</code> - Centering a metric predictor</h1>
+<p>Mean flipper length:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(penguins_filtered<span class="sc">$</span>flipper_length_mm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 200.967</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>penguins_filtered<span class="sc">$</span>flipper_length_mm_c <span class="ot">&lt;-</span> penguins_filtered<span class="sc">$</span>flipper_length_mm <span class="sc">-</span> <span class="dv">201</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>lm_weight_flipper_c <span class="ot">&lt;-</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm_c, <span class="at">data =</span> penguins_filtered)</span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_weight_flipper_c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter           | Coefficient |    SE |             95% CI | t(331) |      p
+--------------------------------------------------------------------------------
+(Intercept)         |     4208.71 | 21.56 | [4166.31, 4251.12] | 195.25 | &lt; .001
+flipper length mm c |       50.15 |  1.54 | [  47.12,   53.18] |  32.56 | &lt; .001</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_weight_flipper_c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># R2 for Linear Regression
+       R2: 0.762
+  adj. R2: 0.761</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(lm_weight_flipper_c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20260223_25_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="logy-x_c---logarithmic-dependent-variable" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> <code>log(y) ~ x_c</code> - logarithmic dependent variable</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>lm_weight_flipper_log_bodymass <span class="ot">&lt;-</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(<span class="fu">log</span>(body_mass_g) <span class="sc">~</span> flipper_length_mm_c, <span class="at">data =</span> penguins_filtered)</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(lm_weight_flipper_log_bodymass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter           | Coefficient |       SE |       95% CI |  t(331) |      p
+------------------------------------------------------------------------------
+(Intercept)         |        8.33 | 5.22e-03 | [8.32, 8.34] | 1595.08 | &lt; .001
+flipper length mm c |        0.01 | 3.73e-04 | [0.01, 0.01] |   31.12 | &lt; .001</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+The model has a log-transformed response variable. Consider using
+  `exponentiate = TRUE` to interpret coefficients as ratios.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm_weight_flipper_log_bodymass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># R2 for Linear Regression
+       R2: 0.745
+  adj. R2: 0.744</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(lm_weight_flipper_log_bodymass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20260223_25_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
