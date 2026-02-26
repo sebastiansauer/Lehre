@@ -321,7 +321,8 @@ Now let's relevel:
 
 
 ```{r}
-penguins_filtered$species <- factor(penguins_filtered$species, levels = c("Gentoo", "Chinstrap", "Adelie"))
+penguins_filtered$species <- factor(penguins_filtered$species, 
+                                    levels = c("Gentoo", "Chinstrap", "Adelie"))
 
 levels(penguins_filtered$species)
 ```
@@ -354,7 +355,7 @@ parameters(lm_y_by_x_and_g_relevel)
 
 
 
-# `y ~ x_c` - Centering a metric predictor
+# `y ~ x_c` - Centering a metric independent variable
 
 Mean flipper length:
 
@@ -363,9 +364,13 @@ mean(penguins_filtered$flipper_length_mm)
 ```
 
 
+Advise: Center all numeric *input* variables in your model.
+
 ```{r}
 penguins_filtered$flipper_length_mm_c <- penguins_filtered$flipper_length_mm - 201
 ```
+
+
 
 ```{r}
 lm_weight_flipper_c <-
@@ -378,6 +383,11 @@ parameters(lm_weight_flipper_c)
 ```{r}
 r2(lm_weight_flipper_c)
 ```
+
+
+
+
+
 
 
 ```{r}
