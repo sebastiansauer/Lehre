@@ -21,11 +21,16 @@ library(rstanarm)  # optional: for Bayes analysis
 library(tableone)  # optional
 ```
 
+
+
+
 Import your dataset and give it an appropriate name:
 
 ```{r}
-penguins_raw <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+penguins_raw <- read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
 ```
+
+
 
 Here's an alternative data set, about [bike rental](https://vincentarelbundock.github.io/Rdatasets/doc/bayesrules/bikes.html)
 

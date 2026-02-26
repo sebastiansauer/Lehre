@@ -395,6 +395,99 @@ check_model(lm_weight_flipper_c)
 ```
 
 
+# Non-normal data - simulation study
+
+
+
+Let's simulate some non-normal dat to check it' influence on the modelling.
+
+
+
+Define the data and the model:
+
+```{r}
+n <- 100
+x <- 1:n
+sigma <- 5
+e <- sigma * runif(n = n)  # uniformly distributed
+e2 <- sigma * rnorm(n = n)  # normally distributed
+y <- x + e
+y2 <- x + e2
+```
+
+Put it in a data frame:
+
+```{r}
+non_normal_df <-
+  data.frame(
+    x = x,
+    e = e,
+    e2 = e2,
+    y = y,
+    y2 = y2
+    )
+```
+
+
+Visualize the distributions:
+
+```{r}
+ggdensity(non_normal_df,
+          x = "y")
+```
+
+```{r}
+ggdensity(non_normal_df,
+          x = "y2")
+```
+
+Run the model with `e`, non normal errors:
+
+```{r}
+lm_nonnormal <-
+  lm(y ~ x, data = non_normal_df)
+
+parameters(lm_nonnormal)
+```
+
+
+```{r}
+estimate_relation(lm_nonnormal) |> 
+  plot() +
+  geom_point(aes(x = x, y = y), data = non_normal_df)
+```
+
+
+Run the model with e2, normal error:
+
+
+```{r}
+lm_normal <-
+  lm(y ~ x, data = non_normal_df)
+
+parameters(lm_nonnormal)
+```
+
+
+```{r}
+estimate_relation(lm_nonnormal) |> 
+  plot() +
+  geom_point(aes(x = x, y = y2), data = non_normal_df)
+```
+
+# `y ~ x1_z + x2_z` - multiple metric input variables
+
+
+
+
+
+
+
+
+
+
+
+
 # `log(y) ~ x_c`  - logarithmic dependent variable
 
 
