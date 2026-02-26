@@ -249,11 +249,24 @@ r2(lm_weigth_by_bill_sex)
 
 # `y ~ x + g` - no interaction
 
+First, let's look at the distributions of our model variables:
+
+```{r}
+describe_distribution(penguins_filtered, select = c(body_mass_g, flipper_length_mm))
+```
 
 
 ```{r}
+data_tabulate(penguins_filtered, select = "species")  #easystats
+```
+
+
+Here's the model, this time NO interaction effect:
+
+```{r}
 lm_y_by_x_and_g_no_interact <-
-  lm(body_mass_g ~ flipper_length_mm + species, data = penguins_filtered)
+  lm(body_mass_g ~ flipper_length_mm + species, 
+     data = penguins_filtered)
 
 parameters(lm_y_by_x_and_g_no_interact)
 ```
@@ -306,6 +319,17 @@ parameters(lm_y_by_x_and_g_factor)
 
 Now let's relevel:
 
+
+```{r}
+penguins_filtered$species <- factor(penguins_filtered$species, levels = c("Gentoo", "Chinstrap", "Adelie"))
+
+levels(penguins_filtered$species)
+```
+
+
+
+Alternative code for releveling:
+
 ```{r}
 penguins_filtered_releveled <-
   penguins_filtered |> 
@@ -327,6 +351,7 @@ lm_y_by_x_and_g_relevel <-
 
 parameters(lm_y_by_x_and_g_relevel)
 ```
+
 
 
 # `y ~ x_c` - Centering a metric predictor
