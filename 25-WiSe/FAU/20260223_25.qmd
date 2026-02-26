@@ -221,4 +221,71 @@ r2(lm_weigth_by_bill_sex)
 ```
 
 
+
+
+
+
+----
+
+
+
+
+# Releveling
+
+See: <https://start-bayes.netlify.app/1000-metrische-av#vertiefung-wechsel-der-referenzkategorie>
+
+Current "base level" in Species:
+
+```{r}
+penguisn_filtered <-
+penguins_filtered |> 
+  mutate(species = factor(species))
+```
+
+
+Check:
+
+```{r}
+levels(penguins$species)
+```
+
+"Adeli" is the base level, as alphabetically first.
+
+
+Here's the linear model with "Adelie" as base level:
+
+
+```{r}
+lm_y_by_x_and_g_factor <-
+  lm(body_mass_g ~ flipper_length_mm + species + flipper_length_mm:species, 
+     data = penguisn_filtered)
+
+parameters(lm_y_by_x_and_g_factor)
+```
+
+Now let's relevel:
+
+```{r}
+penguins_filtered_releveled <-
+  penguins_filtered |> 
+  mutate(species = factor(species, levels = c("Gentoo", "Chinstrap", "Adelie")))
+```
+
+Check:
+
+```{r}
+levels(penguins_filtered_releveled$species)
+```
+
+
+
+```{r}
+lm_y_by_x_and_g_relevel <-
+  lm(body_mass_g ~ flipper_length_mm + species + flipper_length_mm:species, 
+     data = penguins_filtered_releveled)
+
+parameters(lm_y_by_x_and_g_relevel)
+```
+
+
 # Centering
