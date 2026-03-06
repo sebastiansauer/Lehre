@@ -391,7 +391,7 @@ r2(lm_weight_flipper_c)
 
 
 ```{r}
-check_model(lm_weight_flipper_c)
+check_model(lm_weight_flipper_c)   # from easystats
 ```
 
 
@@ -405,15 +405,20 @@ Let's simulate some non-normal dat to check it' influence on the modelling.
 
 Define the data and the model:
 
+
 ```{r}
-n <- 100
-x <- 1:n
+n <- 100  # sample size
+x <- 1:n   # 1,2,3,...
 sigma <- 5
-e <- sigma * runif(n = n)  # uniformly distributed
+e <- sigma * runif(n = n)  # random uniformly distributed
 e2 <- sigma * rnorm(n = n)  # normally distributed
 y <- x + e
 y2 <- x + e2
 ```
+
+
+
+
 
 Put it in a data frame:
 
@@ -441,7 +446,7 @@ ggdensity(non_normal_df,
           x = "y2")
 ```
 
-Run the model with `e`, non normal errors:
+Run the model with `e`, *non* normal errors:
 
 ```{r}
 lm_nonnormal <-
@@ -458,19 +463,19 @@ estimate_relation(lm_nonnormal) |>
 ```
 
 
-Run the model with e2, normal error:
+Run the model with e2, *normal* error:
 
 
 ```{r}
 lm_normal <-
-  lm(y ~ x, data = non_normal_df)
+  lm(y2 ~ x, data = non_normal_df)
 
-parameters(lm_nonnormal)
+parameters(lm_normal)
 ```
 
 
 ```{r}
-estimate_relation(lm_nonnormal) |> 
+estimate_relation(lm_normal) |> 
   plot() +
   geom_point(aes(x = x, y = y2), data = non_normal_df)
 ```
