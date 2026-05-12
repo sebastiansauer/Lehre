@@ -1,0 +1,21 @@
+---
+title: "20260512"
+format: html
+---
+
+# Pakete starten
+
+```{r}
+library(tidyverse)
+library(easystats)
+```
+
+
+# Daten importieren
+
+Zuerst aus Sosci-Survey exportieren.
+
+```{r}
+d_raw <- read_csv2("data/sosci-beispiel01.csv")
+```
+
