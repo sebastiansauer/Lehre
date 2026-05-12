@@ -1,0 +1,518 @@
+---
+title: "Enough statistics to be dangerous"
+subtitle: " introduction to statistical modelling (20260223_25)"
+format: html
+toc: true
+number-sections: true
+---
+
+
+---
+
+20260223 
+
+# Check if R is there
+
+```{r}
+1+1
+```
+
+
+# Start packages
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+```
+
+
+# Import data
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+
+head(d)  # see the first few rows, the "head" of the table
+```
+
+
+
+Import data from your own machine:
+
+Either use the button "import dataset" or use the `read.csv` command.
+
+
+```{r}
+#penguins <- read.csv("~/Downloads/penguins.csv")
+```
+
+
+
+# `y ~ b`
+
+"Y as a function of of a binary input variable (two groups)".
+
+> Is the weight of a penguin a function of the sex of the animal?
+
+Add a code chunk by hitting the button or by typing "Ctr+Alt+I":
+
+
+
+```{r}
+lm(body_mass_g ~ sex, data = d)
+```
+
+
+## Data preparation
+
+```{r}
+library(dplyr)
+# library(palmerpenguins)
+
+penguins_filtered <- 
+  d %>%
+  filter(sex %in% c("male", "female"))
+```
+
+
+Control+Enter -> Run one single line OR the highlighted area
+
+
+
+```{r}
+library(tidyverse)
+penguins_filtered |> 
+  count(sex)
+```
+
+## Cleaned data
+
+
+
+```{r}
+lm_weight_sex <- lm(body_mass_g ~ sex, data = penguins_filtered)
+```
+
+
+Visualize the data and the model:
+
+```{r}
+library(tidyverse)
+library(ggpubr)
+```
+
+
+```{r}
+ggdotplot(penguins_filtered,
+          x = "sex",
+          y = "body_mass_g",
+          add = "mean")
+```
+
+Quality of the model, "goodness" of fit:
+
+```{r}
+library(easystats)
+```
+
+`r2` gives you the R-Squared:
+
+```{r}
+r2(lm_weight_sex)
+```
+
+
+# `y ~ x`
+
+DV: y (metric)
+IV: x (metric)
+
+Research question: 
+
+> body mass as a function flipper length
+
+
+```{r}
+lm_weight_flipper <-
+  lm(body_mass_g ~ flipper_length_mm, data = penguins_filtered)
+```
+
+
+```{r}
+parameters(lm_weight_flipper)  # from package "easystats"
+```
+
+```{r}
+ggscatter(data = penguins_filtered,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+```{r}
+r2(lm_weight_flipper)
+```
+
+## Exr
+
+RQ: body_mass_g as a function of bill length? What's the (statistical) effect of bill length of body weight?
+
+Please report:
+
+- the effect of bill length
+- goodness of the model
+
+
+
+```{r}
+lm_bill <- lm(body_mass_g ~ bill_length_mm, data = penguins_filtered)
+
+summary(lm_bill)
+
+ggscatter(data = penguins_filtered, x = "bill_length_mm", y = "body_mass_g", add = "reg.line")
+
+parameters(lm_bill)
+
+r2(lm_bill)
+```
+
+
+Make a nice table in html/pdf/word:
+
+
+```{r}
+parameters(lm_bill) |> print_md()
+```
+
+
+
+# `y ~ x + g + x:g` - interaction model
+
+
+RQ: weight influenced by species and by flipper length?
+
+**Interaction, moderation**
+
+
+```{r}
+lm_y_by_x_and_g <-
+  lm(body_mass_g ~ flipper_length_mm + species + flipper_length_mm:species, data = penguins_filtered)
+
+parameters(lm_y_by_x_and_g)
+```
+
+
+```{r}
+ggscatter(penguins_filtered,
+          x = "flipper_length_mm",
+          y = "body_mass_g",
+          color = "species",
+          add = "reg.line")
+```
+
+## Exr
+
+RQ: Assocation between weight and bill length also depends on the sex of the animals?
+
+
+```{r}
+lm_weigth_by_bill_sex <-
+  lm(body_mass_g ~ bill_length_mm + sex + bill_length_mm:sex, data = penguins_filtered)
+
+parameters(lm_weigth_by_bill_sex)
+```
+
+
+```{r}
+ggscatter(penguins_filtered,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex",
+          add = "reg.line")
+```
+
+```{r}
+r2(lm_weigth_by_bill_sex)
+```
+
+
+
+---------
+
+
+22060225
+
+
+
+
+
+
+# `y ~ x + g` - no interaction
+
+First, let's look at the distributions of our model variables:
+
+```{r}
+describe_distribution(penguins_filtered, select = c(body_mass_g, flipper_length_mm))
+```
+
+
+```{r}
+data_tabulate(penguins_filtered, select = "species")  #easystats
+```
+
+
+Here's the model, this time NO interaction effect:
+
+```{r}
+lm_y_by_x_and_g_no_interact <-
+  lm(body_mass_g ~ flipper_length_mm + species, 
+     data = penguins_filtered)
+
+parameters(lm_y_by_x_and_g_no_interact)
+```
+
+Alternative plotting method:
+
+
+```{r}
+estimate_relation(lm_y_by_x_and_g_no_interact) |>
+  plot() +
+  geom_point(aes(x = flipper_length_mm, y = body_mass_g), data = penguins_filtered)
+```
+
+
+```{r}
+r2(lm_y_by_x_and_g_no_interact)
+```
+
+
+# `y ~ g_r` - Releveled factor levels
+
+See: <https://start-bayes.netlify.app/1000-metrische-av#vertiefung-wechsel-der-referenzkategorie>
+
+Current "base level" in Species:
+
+```{r}
+penguins_filtered$species <- factor(penguins_filtered$species)
+```
+
+
+Check:
+
+```{r}
+levels(penguins$species)
+```
+
+"Adelie" is the base level, as alphabetically first.
+
+
+Here's the linear model with "Adelie" as base level:
+
+
+```{r}
+lm_y_by_x_and_g_factor <-
+  lm(body_mass_g ~ flipper_length_mm + species + flipper_length_mm:species, 
+     data = penguins_filtered)  # interaction effect included
+
+parameters(lm_y_by_x_and_g_factor)
+```
+
+Now let's relevel:
+
+
+```{r}
+penguins_filtered$species <- factor(penguins_filtered$species, 
+                                    levels = c("Gentoo", "Chinstrap", "Adelie"))
+
+levels(penguins_filtered$species)
+```
+
+
+
+Alternative code for releveling:
+
+```{r}
+penguins_filtered_releveled <-
+  penguins_filtered |> 
+  mutate(species = factor(species, levels = c("Gentoo", "Chinstrap", "Adelie")))
+```
+
+Check:
+
+```{r}
+levels(penguins_filtered_releveled$species)
+```
+
+
+
+```{r}
+lm_y_by_x_and_g_relevel <-
+  lm(body_mass_g ~ flipper_length_mm + species + flipper_length_mm:species, 
+     data = penguins_filtered_releveled)
+
+parameters(lm_y_by_x_and_g_relevel)
+```
+
+
+
+# `y ~ x_c` - Centering a metric independent variable
+
+Mean flipper length:
+
+```{r}
+mean(penguins_filtered$flipper_length_mm)
+```
+
+
+Advise: Center all numeric *input* variables in your model.
+
+```{r}
+penguins_filtered$flipper_length_mm_c <- penguins_filtered$flipper_length_mm - 201
+```
+
+
+
+```{r}
+lm_weight_flipper_c <-
+  lm(body_mass_g ~ flipper_length_mm_c, data = penguins_filtered)
+
+parameters(lm_weight_flipper_c)
+```
+
+
+```{r}
+r2(lm_weight_flipper_c)
+```
+
+
+
+
+
+
+
+```{r}
+check_model(lm_weight_flipper_c)   # from easystats
+```
+
+
+# Non-normal data - simulation study
+
+
+
+Let's simulate some non-normal dat to check it' influence on the modelling.
+
+
+
+Define the data and the model:
+
+
+```{r}
+n <- 100  # sample size
+x <- 1:n   # 1,2,3,...
+sigma <- 5
+e <- sigma * runif(n = n)  # random uniformly distributed
+e2 <- sigma * rnorm(n = n)  # normally distributed
+y <- x + e
+y2 <- x + e2
+```
+
+
+
+
+
+Put it in a data frame:
+
+```{r}
+non_normal_df <-
+  data.frame(
+    x = x,
+    e = e,
+    e2 = e2,
+    y = y,
+    y2 = y2
+    )
+```
+
+
+Visualize the distributions:
+
+```{r}
+ggdensity(non_normal_df,
+          x = "y")
+```
+
+```{r}
+ggdensity(non_normal_df,
+          x = "y2")
+```
+
+Run the model with `e`, *non* normal errors:
+
+```{r}
+lm_nonnormal <-
+  lm(y ~ x, data = non_normal_df)
+
+parameters(lm_nonnormal)
+```
+
+
+```{r}
+estimate_relation(lm_nonnormal) |> 
+  plot() +
+  geom_point(aes(x = x, y = y), data = non_normal_df)
+```
+
+
+Run the model with e2, *normal* error:
+
+
+```{r}
+lm_normal <-
+  lm(y2 ~ x, data = non_normal_df)
+
+parameters(lm_normal)
+```
+
+
+```{r}
+estimate_relation(lm_normal) |> 
+  plot() +
+  geom_point(aes(x = x, y = y2), data = non_normal_df)
+```
+
+# `y ~ x1_z + x2_z` - multiple metric input variables
+
+
+
+
+
+
+
+
+
+
+
+
+# `log(y) ~ x_c`  - logarithmic dependent variable
+
+
+
+```{r}
+lm_weight_flipper_log_bodymass <-
+  lm(log(body_mass_g) ~ flipper_length_mm_c, data = penguins_filtered)
+
+parameters(lm_weight_flipper_log_bodymass)
+```
+
+
+
+```{r}
+r2(lm_weight_flipper_log_bodymass)
+```
+
+
+```{r}
+#| fig-asp: 2
+check_model(lm_weight_flipper_log_bodymass)
+```
+
