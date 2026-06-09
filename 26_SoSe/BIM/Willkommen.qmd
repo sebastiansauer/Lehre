@@ -1,0 +1,13 @@
+---
+title: "Willkommen"
+format: html
+---
+
+Liebe BIM-Studis,
+
+herzlich Willkommen zum Modul "Statistik"!
+
+Ich freue mich auf das gemeinsame Arbeiten.
+
+Ihr
+Sebastian Sauer
