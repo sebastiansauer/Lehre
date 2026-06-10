@@ -23,6 +23,7 @@ library(visdat)
 library(here)
 library(lubridate)
 library(fmsb)
+library(knitr)
 ```
 
 
@@ -198,6 +199,11 @@ spitzensport26 %>%
 
 # UMS - Motivation -  Unified Motive Scales
 
+Typische Motive aus der Psychologie:
+
+1. Affiliation - Anschlussmotiv
+2. Power - Macht
+3. Achievement - Leistung
 
 ## Daten
 
@@ -347,4 +353,39 @@ Dimensionality and Norms of the Rosenberg Self-esteem Scale in a German General 
 
 <https://www.researchgate.net/publication/228079175_Dimensionality_and_Norms_of_the_Rosenberg_Self-esteem_Scale_in_a_German_General_Population_Sample>
 
+
+# BFI
+
+```{r}
+bfi <-
+  spitzensport26 %>% 
+  select(contains("bfi"), 
+         Neurotizismus, Extraversion, Gewissenhaftigkeit, Verträglichkeit, Offenheit) %>% 
+  select(-contains("bfi"))
+
+bfi %>% names()
+```
+
+Für Tabellen:
+
+```{r}
+#| eval: false
+kable()
+```
+
+
+## Aufgabe
+
+1. Erstellen Sie eine Tabelle mit den 5 BFI-Werten für alle Personen.
+2. Rendern Sie nach HTML.
+
+Tipp: `kable`
+
+
+```{r}
+bfi %>% 
+  mutate(id = row_number()) %>% 
+  select(id, everything()) %>% 
+  kable()
+```
 
