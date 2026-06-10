@@ -91,10 +91,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#qualitätsdaten" id="toc-qualitätsdaten" class="nav-link" data-scroll-target="#qualitätsdaten"><span class="header-section-number">4</span> Qualitätsdaten</a></li>
   <li><a href="#bmzi---das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" id="toc-bmzi---das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" class="nav-link" data-scroll-target="#bmzi---das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport"><span class="header-section-number">5</span> BMZI - Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport</a>
   <ul class="collapse">
-  <li><a href="#normwerte" id="toc-normwerte" class="nav-link" data-scroll-target="#normwerte"><span class="header-section-number">5.1</span> Normwerte</a></li>
-  <li><a href="#daten" id="toc-daten" class="nav-link" data-scroll-target="#daten"><span class="header-section-number">5.2</span> Daten</a></li>
-  <li><a href="#z-werte-berechnen" id="toc-z-werte-berechnen" class="nav-link" data-scroll-target="#z-werte-berechnen"><span class="header-section-number">5.3</span> z-Werte berechnen</a></li>
-  <li><a href="#motivbasierte-sporttypen" id="toc-motivbasierte-sporttypen" class="nav-link" data-scroll-target="#motivbasierte-sporttypen"><span class="header-section-number">5.4</span> Motivbasierte Sporttypen</a></li>
+  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="header-section-number">5.1</span> Übung</a></li>
+  <li><a href="#normwerte" id="toc-normwerte" class="nav-link" data-scroll-target="#normwerte"><span class="header-section-number">5.2</span> Normwerte</a></li>
+  <li><a href="#daten" id="toc-daten" class="nav-link" data-scroll-target="#daten"><span class="header-section-number">5.3</span> Daten</a></li>
+  <li><a href="#visualisierung" id="toc-visualisierung" class="nav-link" data-scroll-target="#visualisierung"><span class="header-section-number">5.4</span> Visualisierung</a></li>
+  <li><a href="#z-werte-berechnen" id="toc-z-werte-berechnen" class="nav-link" data-scroll-target="#z-werte-berechnen"><span class="header-section-number">5.5</span> z-Werte berechnen</a></li>
+  <li><a href="#motivbasierte-sporttypen" id="toc-motivbasierte-sporttypen" class="nav-link" data-scroll-target="#motivbasierte-sporttypen"><span class="header-section-number">5.6</span> Motivbasierte Sporttypen</a></li>
   </ul></li>
   <li><a href="#ums---motivation---unified-motive-scales" id="toc-ums---motivation---unified-motive-scales" class="nav-link" data-scroll-target="#ums---motivation---unified-motive-scales"><span class="header-section-number">6</span> UMS - Motivation - Unified Motive Scales</a>
   <ul class="collapse">
@@ -208,8 +210,17 @@ Das folgende Objekt ist maskiert 'package:datawizard':
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fmsb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'fmsb'
+
+Die folgenden Objekte sind maskiert von 'package:effectsize':
+
+    oddsratio, riskratio</code></pre>
+</div>
 </div>
 </section>
 <section id="daten-importieren" class="level1" data-number="2">
@@ -218,14 +229,14 @@ Das folgende Objekt ist maskiert 'package:datawizard':
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(),<span class="st">"/data/spitzensport_anonym.sav"</span>)) <span class="co"># Hier IHREN Pfad eingeben!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(),<span class="st">"/data/spitzensport_anonym.sav"</span>)) <span class="co"># Hier IHREN Pfad eingeben!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Oder aus dem Internet holen:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"https://github.com/sebastiansauer/Lehre/raw/refs/heads/main/data/spitzensport_anonym.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"https://github.com/sebastiansauer/Lehre/raw/refs/heads/main/data/spitzensport_anonym.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -234,7 +245,7 @@ Das folgende Objekt ist maskiert 'package:datawizard':
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 9
@@ -519,7 +530,7 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -533,9 +544,9 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">row_nr =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(row_nr, Code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">row_nr =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(row_nr, Code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
@@ -559,9 +570,9 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bearbeitungsdauer =</span> datestamp <span class="sc">-</span> startdate) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bearbeitungsdauer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bearbeitungsdauer =</span> datestamp <span class="sc">-</span> startdate) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bearbeitungsdauer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 1
@@ -581,45 +592,147 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 </section>
 <section id="bmzi---das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> BMZI - Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport</h1>
-<section id="normwerte" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="normwerte"><span class="header-section-number">5.1</span> Normwerte</h2>
+<section id="übung" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="übung"><span class="header-section-number">5.1</span> Übung</h2>
+<ol type="1">
+<li>Welche Motivbereiche gibt es im BMZI?</li>
+<li>Was sind Ihre persönlichen Werte in den Motivbereichen?</li>
+<li>Interpretieren Sie die Werte in Ihren Motivbereichen! Tipp: z-Werte, s. S. 9 im PDF</li>
+<li>Finden Sie Ihren Sporttyp heraus!</li>
+</ol>
+</section>
+<section id="normwerte" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="normwerte"><span class="header-section-number">5.2</span> Normwerte</h2>
 <ol start="19" type="a">
 <li><a href="https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf" class="uri">https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf</a></li>
 </ol>
 </section>
-<section id="daten" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="daten"><span class="header-section-number">5.2</span> Daten</h2>
+<section id="daten" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="daten"><span class="header-section-number">5.3</span> Daten</h2>
 <p>z.B. die individuellen Scores für Motivbereich <em>Fitness/Gesundheit</em>:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"BMZI_FitGes"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"BMZI_FitGes"</span>), z_ind_fitges)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 4
-  BMZI_fitges3        BMZI_fitges2        BMZI_fitges1        BMZI_FitGes
-  &lt;dbl+lbl&gt;           &lt;dbl+lbl&gt;           &lt;dbl+lbl&gt;                 &lt;dbl&gt;
-1 5 [Trifft sehr zu]  5 [Trifft sehr zu]  5 [Trifft sehr zu]         5   
-2 4 [Trifft eher zu]  5 [Trifft sehr zu]  4 [Trifft eher zu]         4.33
-3 5 [Trifft sehr zu]  5 [Trifft sehr zu]  4 [Trifft eher zu]         4.67
-4 4 [Trifft eher zu]  5 [Trifft sehr zu]  5 [Trifft sehr zu]         4.67
-5 3 [Teils-Teils]     4 [Trifft eher zu]  3 [Teils-Teils]            3.33
-6 3 [Teils-Teils]     4 [Trifft eher zu]  4 [Trifft eher zu]         3.67
-7 4 [Trifft eher zu]  4 [Trifft eher zu]  4 [Trifft eher zu]         4   
-8 1 [Trifft nicht zu] 1 [Trifft nicht zu] 1 [Trifft nicht zu]        1   
-9 5 [Trifft sehr zu]  5 [Trifft sehr zu]  4 [Trifft eher zu]         4.67</code></pre>
+<pre><code># A tibble: 9 × 5
+  BMZI_fitges3        BMZI_fitges2        BMZI_fitges1  BMZI_FitGes z_ind_fitges
+  &lt;dbl+lbl&gt;           &lt;dbl+lbl&gt;           &lt;dbl+lbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+1 5 [Trifft sehr zu]  5 [Trifft sehr zu]  5 [Trifft se…        5           1.30 
+2 4 [Trifft eher zu]  5 [Trifft sehr zu]  4 [Trifft eh…        4.33        1.08 
+3 5 [Trifft sehr zu]  5 [Trifft sehr zu]  4 [Trifft eh…        4.67        1.58 
+4 4 [Trifft eher zu]  5 [Trifft sehr zu]  5 [Trifft se…        4.67        1.35 
+5 3 [Teils-Teils]     4 [Trifft eher zu]  3 [Teils-Tei…        3.33        0.684
+6 3 [Teils-Teils]     4 [Trifft eher zu]  4 [Trifft eh…        3.67        0.120
+7 4 [Trifft eher zu]  4 [Trifft eher zu]  4 [Trifft eh…        4           0.948
+8 1 [Trifft nicht zu] 1 [Trifft nicht zu] 1 [Trifft ni…        1          -0.536
+9 5 [Trifft sehr zu]  5 [Trifft sehr zu]  4 [Trifft eh…        4.67        1.24 </code></pre>
 </div>
 </div>
-</section>
-<section id="z-werte-berechnen" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="z-werte-berechnen"><span class="header-section-number">5.3</span> z-Werte berechnen</h2>
+<p>Zur Interpretation s. S. 9.</p>
+<p>Für die Dimension “Wettkampf/Leistung”:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(BMZI_FitGes) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(BMZI_WetLei, z_ind_wetlei)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 2
+  BMZI_WetLei z_ind_wetlei
+        &lt;dbl&gt;        &lt;dbl&gt;
+1        4.25        0.910
+2        4.5         1.59 
+3        3.25        0.389
+4        4.75        1.88 
+5        3.75        1.23 
+6        4.25        0.626
+7        5           1.99 
+8        4           1.93 
+9        4.25        1.10 </code></pre>
+</div>
+</div>
+<p>Alle z-Werte:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"z_ind_"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "z_ind_fitges" "z_ind_figaus" "z_ind_kon"    "z_ind_ablkat" "z_ind_aktfre"
+[6] "z_ind_wetlei" "z_ind_aes"   </code></pre>
+</div>
+</div>
+</section>
+<section id="visualisierung" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="visualisierung"><span class="header-section-number">5.4</span> Visualisierung</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>person_id <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>person <span class="ot">&lt;-</span> spitzensport26 <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(person_id) <span class="sc">%&gt;%</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(z_ind_fitges, z_ind_figaus, z_ind_kon, z_ind_ablkat,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>         z_ind_aktfre, z_ind_wetlei, z_ind_aes) <span class="sc">%&gt;%</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.numeric))</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Person # Referenzperson (Durchschnitt = z=0 in allen Dimensionen)</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>referenz <span class="ot">&lt;-</span> person</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>referenz[<span class="dv">1</span>, ] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>( <span class="dv">3</span>, <span class="dv">7</span>),  <span class="co"># max</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">7</span>),  <span class="co"># min</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  person,</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>  referenz</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket "fmsb"!</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="fu">radarchart</span>(df,</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">pcol   =</span> <span class="fu">c</span>(<span class="st">"#185FA5"</span>, <span class="st">"grey60"</span>),</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">pfcol  =</span> <span class="fu">c</span>(scales<span class="sc">::</span><span class="fu">alpha</span>(<span class="st">"#185FA5"</span>, <span class="fl">0.25</span>), scales<span class="sc">::</span><span class="fu">alpha</span>(<span class="st">"grey60"</span>, <span class="fl">0.10</span>)),</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>           <span class="at">plwd   =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">1.5</span>),</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">plty   =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),        <span class="co"># Person = durchgezogen, Referenz = gestrichelt</span></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">cglcol =</span> <span class="st">"grey80"</span>,</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>           <span class="at">cglty  =</span> <span class="dv">1</span>,</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>           <span class="at">axislabcol =</span> <span class="st">"grey50"</span>,</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>           <span class="at">vlcex  =</span> <span class="fl">0.85</span>,</span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>           <span class="at">title  =</span> <span class="fu">paste0</span>(<span class="st">"Motivprofil Person "</span>, person_id, <span class="st">" (z-Werte)"</span>)</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="BIM_praxisprojekt_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># legend("bottomright",</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#        legend = c(paste0("Person ", person_id), "Referenz (MW)"),</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#        col    = c("#185FA5", "grey60"),</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#        lty    = c(1, 2),</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#        lwd    = c(2, 1.5),</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#        bty    = "n"</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="z-werte-berechnen" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="z-werte-berechnen"><span class="header-section-number">5.5</span> z-Werte berechnen</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(BMZI_FitGes) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 1
@@ -636,16 +749,39 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 9      0.606 </code></pre>
 </div>
 </div>
-</section>
-<section id="motivbasierte-sporttypen" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="motivbasierte-sporttypen"><span class="header-section-number">5.4</span> Motivbasierte Sporttypen</h2>
+<p>Oder die schon vorab berechneten z-Werte verwenden:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"fqs"</span>) )<span class="sc">%&gt;%</span> </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sporttyp =</span> <span class="fu">names</span>(.)[<span class="fu">max.col</span>(<span class="sc">-</span>., <span class="at">ties.method =</span> <span class="st">"first"</span>)]) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sporttyp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"z_ind_"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 7
+  z_ind_fitges z_ind_figaus z_ind_kon z_ind_ablkat z_ind_aktfre z_ind_wetlei
+         &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+1        1.30       -0.0314    0.243        0.140         0.653        0.910
+2        1.08       -0.937     0.749       -0.0937       -0.375        1.59 
+3        1.58       -0.870     1.15        -0.298         0.962        0.389
+4        1.35       -0.732    -0.660       -0.282         0.348        1.88 
+5        0.684      -1.08     -0.0461      -1.26          0.765        1.23 
+6        0.120      -1.86      0.0712       1.05          0.128        0.626
+7        0.948      -0.357    -0.122       -0.651        -0.651        1.99 
+8       -0.536      -0.587    -0.420        0.252        -0.587        1.93 
+9        1.24       -1.51      0.579       -0.637        -0.348        1.10 
+# ℹ 1 more variable: z_ind_aes &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="motivbasierte-sporttypen" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="motivbasierte-sporttypen"><span class="header-section-number">5.6</span> Motivbasierte Sporttypen</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"fqs"</span>) )<span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sporttyp =</span> <span class="fu">names</span>(.)[<span class="fu">max.col</span>(<span class="sc">-</span>., <span class="at">ties.method =</span> <span class="st">"first"</span>)]) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sporttyp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 1
@@ -671,8 +807,8 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(nAff,nPow, nAch)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(nAff,nPow, nAch)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 3
@@ -715,8 +851,8 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(WHO5_Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(WHO5_Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 1
@@ -748,9 +884,9 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"few"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> . <span class="sc">-</span> <span class="dv">1</span>)) <span class="co"># 1 abziehen von allen Spalten</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"few"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> . <span class="sc">-</span> <span class="dv">1</span>)) <span class="co"># 1 abziehen von allen Spalten</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 21
@@ -785,9 +921,9 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"RSES"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"RSES"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "RSES_RSES01"      "RSES_RSES02R"     "RSES_RSES03"      "RSES_RSES04"     
@@ -803,8 +939,8 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(RSES_Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(RSES_Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 1
@@ -831,8 +967,8 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(RSES_RSES02R, RSES_RSES02R_Inv)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(RSES_RSES02R, RSES_RSES02R_Inv)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
@@ -852,20 +988,20 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>spitzensport26_umgepolt <span class="ot">&lt;-</span> </span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">RSES_RSES02R_umgepolt =</span> </span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">case_when</span>(</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>        RSES_RSES02R <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>        RSES_RSES02R <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>        RSES_RSES02R <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>        RSES_RSES02R <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA</span>)) </span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>spitzensport26_umgepolt <span class="sc">%&gt;%</span> </span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"RSES_RSES02"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>spitzensport26_umgepolt <span class="ot">&lt;-</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">RSES_RSES02R_umgepolt =</span> </span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">case_when</span>(</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>        RSES_RSES02R <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>        RSES_RSES02R <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>        RSES_RSES02R <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>        RSES_RSES02R <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA</span>)) </span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>spitzensport26_umgepolt <span class="sc">%&gt;%</span> </span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"RSES_RSES02"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 3
@@ -889,26 +1025,26 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1 abziehen:</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">matches</span>(<span class="st">"RSES_RSES</span><span class="sc">\\</span><span class="st">d{2}"</span>), <span class="sc">~</span> . <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># MW pro Zeile berechnen:</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rses_mw =</span> <span class="fu">row_means</span>(</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pick</span>(</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>      RSES_RSES01,</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>      RSES_RSES02R_Inv,</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>      RSES_RSES03,</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>      RSES_RSES04,</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>      RSES_RSES05R_Inv,</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>      RSES_RSES06R_Inv,</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>      RSES_RSES07,</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>      RSES_RSES08R_Inv,</span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>      RSES_RSES09R_Inv,</span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>      RSES_RSES10</span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rses_sum =</span> rses_mw <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rses_mw, rses_sum, RSES_Score_raw, RSES_Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1 abziehen:</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">matches</span>(<span class="st">"RSES_RSES</span><span class="sc">\\</span><span class="st">d{2}"</span>), <span class="sc">~</span> . <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># MW pro Zeile berechnen:</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rses_mw =</span> <span class="fu">row_means</span>(</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pick</span>(</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>      RSES_RSES01,</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>      RSES_RSES02R_Inv,</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>      RSES_RSES03,</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>      RSES_RSES04,</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>      RSES_RSES05R_Inv,</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>      RSES_RSES06R_Inv,</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>      RSES_RSES07,</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>      RSES_RSES08R_Inv,</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>      RSES_RSES09R_Inv,</span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>      RSES_RSES10</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rses_sum =</span> rses_mw <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rses_mw, rses_sum, RSES_Score_raw, RSES_Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 4

@@ -22,6 +22,7 @@ library(labelled)
 library(visdat)
 library(here)
 library(lubridate)
+library(fmsb)
 ```
 
 
@@ -75,6 +76,16 @@ spitzensport26 %>%
 
 # BMZI - Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport
 
+
+## Übung
+
+1. Welche Motivbereiche gibt es im BMZI?
+2. Was sind Ihre persönlichen Werte in den Motivbereichen?
+3. Interpretieren Sie die Werte in Ihren Motivbereichen! Tipp: z-Werte, s. S. 9 im PDF
+4. Finden Sie Ihren Sporttyp heraus!
+
+
+
 ## Normwerte
 
 s. <https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf>
@@ -90,6 +101,72 @@ spitzensport26 %>%
 ```
 
 Zur Interpretation s. S. 9.
+
+
+Für die Dimension "Wettkampf/Leistung":
+
+```{r}
+spitzensport26 %>% 
+  select(BMZI_WetLei, z_ind_wetlei)
+```
+
+
+Alle z-Werte:
+
+
+```{r}
+spitzensport26 %>% 
+  select(contains("z_ind_")) %>% 
+  names()
+```
+
+## Visualisierung
+
+```{r}
+
+person_id <- 1
+
+person <- spitzensport26 %>%
+  slice(person_id) %>%
+  select(z_ind_fitges, z_ind_figaus, z_ind_kon, z_ind_ablkat,
+         z_ind_aktfre, z_ind_wetlei, z_ind_aes) %>%
+  mutate(across(everything(), as.numeric))
+
+
+# Person # Referenzperson (Durchschnitt = z=0 in allen Dimensionen)
+referenz <- person
+referenz[1, ] <- 0
+
+df <- rbind(
+  rep( 3, 7),  # max
+  rep(-3, 7),  # min
+  person,
+  referenz
+)
+
+# Paket "fmsb"!
+radarchart(df,
+           pcol   = c("#185FA5", "grey60"),
+           pfcol  = c(scales::alpha("#185FA5", 0.25), scales::alpha("grey60", 0.10)),
+           plwd   = c(2, 1.5),
+           plty   = c(1, 2),        # Person = durchgezogen, Referenz = gestrichelt
+           cglcol = "grey80",
+           cglty  = 1,
+           axislabcol = "grey50",
+           vlcex  = 0.85,
+           title  = paste0("Motivprofil Person ", person_id, " (z-Werte)")
+)
+
+# legend("bottomright",
+#        legend = c(paste0("Person ", person_id), "Referenz (MW)"),
+#        col    = c("#185FA5", "grey60"),
+#        lty    = c(1, 2),
+#        lwd    = c(2, 1.5),
+#        bty    = "n"
+# )
+```
+
+
 
 ## z-Werte berechnen
 
