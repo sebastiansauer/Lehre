@@ -16,11 +16,12 @@ format:
 ```{r}
 library(tidyverse)
 library(easystats)
-# install.packages("haven")  für ".sav" Datendateien aus SPSS
+# z.B. install.packages("haven")  für ".sav" Datendateien aus SPSS
 library(haven)
 library(labelled)
 library(visdat)
 library(here)
+library(lubridate)
 ```
 
 
@@ -61,18 +62,36 @@ spitzensport26 %>%
 ```
 
 
+# Qualitätsdaten
+
+Bearbeitungsdauer:
+
+```{r}
+spitzensport26 %>% 
+  mutate(bearbeitungsdauer = datestamp - startdate) %>% 
+  select(bearbeitungsdauer)
+```
+
+
 # BMZI - Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport
+
+## Normwerte
 
 s. <https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf>
 
 
+## Daten
+
+z.B. die individuellen Scores für Motivbereich *Fitness/Gesundheit*:
+
 ```{r}
 spitzensport26 %>% 
-  select(BMZI_FitGes)
+  select(contains("BMZI_FitGes"), z_ind_fitges)
 ```
 
+Zur Interpretation s. S. 9.
 
-z-Werte berechnen:
+## z-Werte berechnen
 
 ```{r}
 spitzensport26 %>% 
@@ -81,9 +100,29 @@ spitzensport26 %>%
 ```
 
 
+Oder die schon vorab berechneten z-Werte verwenden:
+
+```{r}
+spitzensport26 %>% 
+  select(contains("z_ind_"))
+```
+
+
+## Motivbasierte Sporttypen
+
+```{r}
+spitzensport26 %>% 
+  select(starts_with("fqs") )%>% 
+  mutate(sporttyp = names(.)[max.col(-., ties.method = "first")]) %>% 
+  select(sporttyp)
+```
+
+
 
 # UMS - Motivation -  Unified Motive Scales
 
+
+## Daten
 
 ```{r}
 spitzensport26 %>% 
@@ -140,4 +179,95 @@ spitzensport26 %>%
   select(starts_with("few")) %>% 
   mutate(across(everything(), ~ . - 1)) # 1 abziehen von allen Spalten
 ```
+
+
+# RSES - Rosenberg Self-Esteem Scale - Selbstwert
+
+s. <https://zis.gesis.org/skala/Rosenberg-Self-Esteem-Scale?lang=de>
+
+
+## Daten
+
+```{r}
+spitzensport26 %>% 
+  select(starts_with("RSES")) %>% 
+  names()
+```
+
+
+## Score
+
+```{r}
+spitzensport26 %>% 
+  select(RSES_Score)
+```
+
+## Score selber berechnen
+
+
+### Umpolen
+
+Zuerst negativ gepolte Items umpolen.
+
+Check:
+
+```{r}
+spitzensport26 %>% 
+  select(RSES_RSES02R, RSES_RSES02R_Inv)
+```
+
+
+```{r}
+spitzensport26_umgepolt <- 
+spitzensport26 %>% 
+  mutate(
+    RSES_RSES02R_umgepolt = 
+      case_when(
+        RSES_RSES02R == 4 ~ 1,
+        RSES_RSES02R == 3 ~ 2,
+        RSES_RSES02R == 2 ~ 3,
+        RSES_RSES02R == 1 ~ 4,
+        TRUE ~ NA)) 
+
+
+spitzensport26_umgepolt %>% 
+      select(contains("RSES_RSES02"))
+```
+
+Passt!
+
+
+### Mittelwerte pro Zeile berechnen
+
+```{r}
+spitzensport26 %>% 
+  # 1 abziehen:
+  mutate(across(matches("RSES_RSES\\d{2}"), ~ . - 1)) %>% 
+  # MW pro Zeile berechnen:
+  mutate(rses_mw = row_means(
+    pick(
+      RSES_RSES01,
+      RSES_RSES02R_Inv,
+      RSES_RSES03,
+      RSES_RSES04,
+      RSES_RSES05R_Inv,
+      RSES_RSES06R_Inv,
+      RSES_RSES07,
+      RSES_RSES08R_Inv,
+      RSES_RSES09R_Inv,
+      RSES_RSES10
+    )
+  )) %>% 
+  mutate(rses_sum = rses_mw * 10) %>% 
+  select(rses_mw, rses_sum, RSES_Score_raw, RSES_Score)
+```
+
+
+## Normwerte 6 Stufen - hilft nicht
+
+s. Tab. 4 in 
+Dimensionality and Norms of the Rosenberg Self-esteem Scale in a German General Population Sample
+
+<https://www.researchgate.net/publication/228079175_Dimensionality_and_Norms_of_the_Rosenberg_Self-esteem_Scale_in_a_German_General_Population_Sample>
+
 

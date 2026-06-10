@@ -73,7 +73,7 @@ Icon
 **/*Icon
 */Icon*
 **/Icon*
-
+.~lock*
 
 # Binaries
 /_extensions/
