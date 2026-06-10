@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-06-10">
 
 <title>BIM-Sportskalen</title>
 <style>
@@ -87,7 +88,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">1</span> Setup</a></li>
   <li><a href="#daten-importieren" id="toc-daten-importieren" class="nav-link" data-scroll-target="#daten-importieren"><span class="header-section-number">2</span> Daten importieren</a></li>
   <li><a href="#erster-blick" id="toc-erster-blick" class="nav-link" data-scroll-target="#erster-blick"><span class="header-section-number">3</span> Erster Blick</a></li>
-  <li><a href="#das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" id="toc-das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" class="nav-link" data-scroll-target="#das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport"><span class="header-section-number">4</span> Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport</a></li>
+  <li><a href="#bmzi---das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" id="toc-bmzi---das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" class="nav-link" data-scroll-target="#bmzi---das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport"><span class="header-section-number">4</span> BMZI - Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport</a></li>
+  <li><a href="#ums---motivation---unified-motive-scales" id="toc-ums---motivation---unified-motive-scales" class="nav-link" data-scroll-target="#ums---motivation---unified-motive-scales"><span class="header-section-number">5</span> UMS - Motivation - Unified Motive Scales</a>
+  <ul class="collapse">
+  <li><a href="#normwerte" id="toc-normwerte" class="nav-link" data-scroll-target="#normwerte"><span class="header-section-number">5.1</span> Normwerte</a></li>
+  </ul></li>
+  <li><a href="#who5---wohlbefinden" id="toc-who5---wohlbefinden" class="nav-link" data-scroll-target="#who5---wohlbefinden"><span class="header-section-number">6</span> WHO5 - Wohlbefinden</a>
+  <ul class="collapse">
+  <li><a href="#normwerte-1" id="toc-normwerte-1" class="nav-link" data-scroll-target="#normwerte-1"><span class="header-section-number">6.1</span> Normwerte</a></li>
+  <li><a href="#daten" id="toc-daten" class="nav-link" data-scroll-target="#daten"><span class="header-section-number">6.2</span> Daten</a></li>
+  </ul></li>
+  <li><a href="#few-16---fragebogen-zur-erfassung-des-körperlichen-wohlbefindens" id="toc-few-16---fragebogen-zur-erfassung-des-körperlichen-wohlbefindens" class="nav-link" data-scroll-target="#few-16---fragebogen-zur-erfassung-des-körperlichen-wohlbefindens"><span class="header-section-number">7</span> FEW-16 - Fragebogen zur Erfassung des körperlichen Wohlbefindens</a>
+  <ul class="collapse">
+  <li><a href="#normwerte-2" id="toc-normwerte-2" class="nav-link" data-scroll-target="#normwerte-2"><span class="header-section-number">7.1</span> Normwerte</a></li>
+  <li><a href="#daten-1" id="toc-daten-1" class="nav-link" data-scroll-target="#daten-1"><span class="header-section-number">7.2</span> Daten</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -103,6 +118,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 10, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -170,10 +191,18 @@ Das folgende Objekt ist maskiert 'package:datawizard':
 </section>
 <section id="daten-importieren" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Daten importieren</h1>
+<p>Entweder lokal importieren - dann den richtigen Pfad zu den Daten eingeben:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(),<span class="st">"/data/Spitzensport26_all.sav"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(),<span class="st">"/data/spitzensport_anonym.sav"</span>)) <span class="co"># Hier IHREN Pfad eingeben!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Oder aus dem Internet holen:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"https://github.com/sebastiansauer/Lehre/raw/refs/heads/main/data/spitzensport_anonym.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -182,353 +211,335 @@ Das folgende Objekt ist maskiert 'package:datawizard':
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 9
-Columns: 316
-$ id                                &lt;dbl&gt; 13, 12, 4, 11, 3, 10, 5, 2, 21
-$ submitdate                        &lt;dttm&gt; 2026-04-07 23:17:58, 2026-03-31 10:3…
-$ lastpage                          &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13
-$ startlanguage                     &lt;chr&gt; "de", "de", "de", "de", "de", "de",…
-$ seed                              &lt;chr&gt; "768712036", "844051475", "756864239…
-$ startdate                         &lt;dttm&gt; 2026-04-07 22:30:37, 2026-03-31 10:0…
-$ datestamp                         &lt;dttm&gt; 2026-04-07 23:17:58, 2026-03-31 10:3…
-$ G14Q39                            &lt;chr+lbl&gt; "AO01", "AO01", "AO01", "AO01", "AO…
-$ Code                              &lt;chr&gt; "HALK1465", "ISDO380", "LIMR0873", …
-$ Alter                             &lt;dbl+lbl&gt; 19, 19, 19, 19, 20, 20, 20, 20, …
-$ Geschlecht                        &lt;dbl+lbl&gt; 2, 2, 1, 2, 1, 1, 2, 1, 1
-$ Geschlecht_Sonstiges              &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Schulabschluss                    &lt;dbl+lbl&gt; 4, 4, 4, 4, 5, 4, 3, 3, 4
-$ Körpergröße                       &lt;dbl+lbl&gt; 171, 179, 164, 180, 174, 169, 180, 1…
-$ Gewicht                           &lt;dbl+lbl&gt; 84, 82, 64, 70, 56, 71, 72, 66, …
-$ Primäre_Sportart                  &lt;dbl+lbl&gt; 13, 14, 13, 11,  6,  1, 14, 12, …
-$ Ball_Sportart                     &lt;dbl+lbl&gt;     NA,     NA,     NA,     NA,     …
-$ Ball_Sportart_Sonstiges           &lt;chr&gt; "", "", "", "", "", "Curling", "…
-$ Fitness_Sportart                  &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Fitness_Sportart_Sonstiges        &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Kampfsportart                     &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Kampfsportart_Sonstiges           &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Sportart_Laufen                   &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Sportart_Laufen_sonstiges         &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Gesundheitssportart               &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Gesundheitssportart_Sonstiges     &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Leichtathletik_Sportart           &lt;dbl+lbl&gt;     NA,     NA,     NA,     NA, 6666…
-$ Leichtathletik_Sportart_Sonstiges &lt;chr&gt; "", "", "", "", "Race Walking", …
-$ Bergsportart                      &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ Bergsportart_Sonstiges            &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Motorsportart                     &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Motorsportart_Sonstiges           &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Pferdesportart                    &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ Pferdesportart_Sonstiges          &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Präzisionsportart                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Präzisionsportart_Sonstiges       &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Radsportart                       &lt;dbl+lbl&gt; NA, NA, NA,  4, NA, NA, NA, NA, NA…
-$ Radsportart_Sonstiges             &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Rückschlagsportart                &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA,  1, …
-$ Rückschlagsportart_Sonstiges      &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Schießsportart                    &lt;dbl+lbl&gt;  2, NA,  3, NA, NA, NA, NA, NA, NA…
-$ Schießsportart_Sonstiges          &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Schwimmsportart                   &lt;dbl+lbl&gt; NA, 10, NA, NA, NA, NA,  9, NA, …
-$ Schwimmsportart_Sonstiges         &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Tanzsportart                      &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ Tanzsportart_Sonstiges            &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Turnsportart                      &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Turnsportart_Sonstiges            &lt;chr&gt; "", "", "", "", "", "", "", "", ""
-$ Kategorie_Primäre_Sportart        &lt;dbl+lbl&gt; 1, 2, 1, 1, 1, 3, 1, 1, 1
-$ Jahre_Sport                       &lt;dbl+lbl&gt; 15,  6, 12, 14, 10, 11, 14, 12, 18…
-$ Jahre_primäre_Sportart            &lt;dbl+lbl&gt; 16, 13, 10, 14,  7, 10, 14, 11, …
-$ Verein                            &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ Einheiten_Woche                   &lt;dbl+lbl&gt;  6,  5,  5,  6,  9, 10, 12, 11, 10…
-$ Stunden_Woche                     &lt;dbl+lbl&gt; 48, 10, 12, 20, 21, 29, 26, 24, …
-$ Wettkampf                         &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ Wettkampflevel                    &lt;dbl+lbl&gt; 5, 5, 5, 3, 5, 5, 3, 7, 5
-$ Wettzufrieden                     &lt;dbl+lbl&gt; 1, 4, 3, 4, 4, 3, 3, 3, 4
-$ Abbruch                           &lt;dbl+lbl&gt; 2, 2, 2, 2, 3, 2, 3, 2, 2
-$ Socialmedia                       &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ SocialmediaArt_SQ001              &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ SocialmediaArt_SQ002              &lt;dbl+lbl&gt; 1, 1, 1, 0, 0, 1, 1, 0, 1
-$ SocialmediaArt_SQ003              &lt;dbl+lbl&gt; 1, 1, 0, 1, 1, 0, 0, 0, 0
-$ SocialmediaArt_SQ004              &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 1, 1, 0
-$ SocialmediaArt_SQ005              &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ SocialMediaZeit                   &lt;dbl+lbl&gt; 3, 3, 3, 4, 2, 3, 3, 3, 3
-$ Schrittzahl                       &lt;dbl+lbl&gt; 0, 0, 0, 0, 1, 0, 1, 0, 0
-$ Schrittzahlestimate               &lt;dbl+lbl&gt; 4, 4, 3, 2, 7, 4, 4, 9, 5
-$ Tracker                           &lt;dbl+lbl&gt; 0, 0, 0, 1, 1, 0, 1, 1, 0
-$ Apps                              &lt;dbl+lbl&gt; 0, 0, 1, 0, 1, 0, 1, 1, 0
-$ AppZweck_SQ001                    &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 1
-$ AppZweck_SQ002                    &lt;dbl+lbl&gt; 1, 0, 0, 0, 0, 0, 0, 0, 0
-$ AppZweck_SQ003                    &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0
-$ AppZweck_SQ004                    &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ AppZweck_SQ005                    &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 1, 0, 0, 1
-$ AppZweck_SQ006                    &lt;dbl+lbl&gt; 0, 0, 1, 1, 0, 0, 0, 0, 0
-$ AppZweck_SQ007                    &lt;dbl+lbl&gt; 1, 1, 0, 1, 0, 1, 0, 0, 1
-$ AppZweck_SQ008                    &lt;dbl+lbl&gt; 1, 1, 1, 1, 0, 0, 0, 0, 0
-$ AppZweck_SQ009                    &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ suspicion_check                   &lt;chr&gt; "", "Ich versuche meine Aktivitäten …
-$ BMZI_fitges3                      &lt;dbl+lbl&gt; 5, 4, 5, 4, 3, 3, 4, 1, 5
-$ BMZI_kon3                         &lt;dbl+lbl&gt; 4, 4, 4, 2, 3, 4, 4, 2, 4
-$ BMZI_ablkat2                      &lt;dbl+lbl&gt; 4, 4, 4, 2, 2, 5, 2, 2, 3
-$ BMZI_aktfre3                      &lt;dbl+lbl&gt; 4, 3, 4, 2, 3, 4, 2, 1, 3
-$ BMZI_wetlei4                      &lt;dbl+lbl&gt; 4, 4, 1, 4, 2, 4, 5, 1, 4
-$ BMZI_figaus3                      &lt;dbl+lbl&gt; 2, 4, 2, 3, 2, 2, 4, 1, 3
-$ BMZI_aes2                         &lt;dbl+lbl&gt; 2, 4, 2, 2, 2, 3, 3, 1, 4
-$ BMZI_fitges2                      &lt;dbl+lbl&gt; 5, 5, 5, 5, 4, 4, 4, 1, 5
-$ BMZI_kon2                         &lt;dbl+lbl&gt; 2, 3, 4, 2, 2, 4, 3, 1, 4
-$ BMZI_ablkat3                      &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 5, 3, 3, 4
-$ BMZI_wetlei2                      &lt;dbl+lbl&gt; 4, 5, 4, 5, 4, 4, 5, 5, 3
-$ BMZI_figaus1                      &lt;dbl+lbl&gt; 4, 2, 2, 2, 1, 1, 1, 1, 1
-$ BMZI_kon4                         &lt;dbl+lbl&gt; 4, 4, 4, 3, 3, 3, 2, 1, 4
-$ BMZI_aes1                         &lt;dbl+lbl&gt; 1, 2, 2, 3, 4, 4, 2, 1, 4
-$ BMZI_fitges1                      &lt;dbl+lbl&gt; 5, 4, 4, 5, 3, 4, 4, 1, 4
-$ BMZI_wetlei1                      &lt;dbl+lbl&gt; 4, 4, 3, 5, 4, 4, 5, 5, 5
-$ BMZI_ablkat1                      &lt;dbl+lbl&gt; 3, 3, 1, 2, 1, 4, 1, 2, 2
-$ BMZI_aktfre2                      &lt;dbl+lbl&gt; 4, 5, 5, 4, 5, 4, 2, 1, 4
-$ BMZI_kon1                         &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 3, 2, 1, 4
-$ BMZI_aktfre1                      &lt;dbl+lbl&gt; 4, 2, 2, 4, 2, 3, 2, 1, 2
-$ BMZI_figaus2                      &lt;dbl+lbl&gt; 4, 3, 3, 2, 2, 1, 2, 1, 2
-$ BMZI_wetlei3                      &lt;dbl+lbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5
-$ BMZI_ablkat4                      &lt;dbl+lbl&gt; 4, 3, 3, 4, 1, 5, 2, 1, 2
-$ BMZI_kon5                         &lt;dbl+lbl&gt; 5, 5, 4, 2, 3, 4, 2, 1, 3
-$ UMS31_Fear2                       &lt;dbl+lbl&gt; 5, 2, 3, 2, 3, 4, 2, 2, 1
-$ UMS31_Int3                        &lt;dbl+lbl&gt; 3, 4, 4, 4, 4, 3, 4, 5, 5
-$ UMS31_Pow3                        &lt;dbl+lbl&gt; 4, 5, 4, 2, 4, 2, 5, 5, 2
-$ UMS31_Aff3                        &lt;dbl+lbl&gt; 4, 5, 5, 4, 5, 4, 4, 5, 5
-$ UMS31_Fear3                       &lt;dbl+lbl&gt; 5, 1, 5, 3, 2, 4, 3, 2, 2
-$ UMS31_Aff1                        &lt;dbl+lbl&gt; 4, 5, 4, 3, 4, 2, 4, 2, 4
-$ UMS31_Fear1                       &lt;dbl+lbl&gt; 4, 2, 5, 2, 1, 5, 2, 4, 4
-$ UMS32_Ach3                        &lt;dbl+lbl&gt; 4, 5, 4, 4, 4, 4, 5, 4, 5
-$ UMS32_Aff2                        &lt;dbl+lbl&gt; 4, 5, 4, 4, 5, 4, 3, 2, 5
-$ UMS32_Pow1                        &lt;dbl+lbl&gt; 1, 6, 1, 2, 1, 1, 3, 4, 3
-$ UMS32_Ach2                        &lt;dbl+lbl&gt; 3, 6, 5, 3, 4, 6, 6, 6, 5
-$ UMS32_Int2                        &lt;dbl+lbl&gt; 4, 4, 5, 6, 4, 4, 2, 5, 5
-$ UMS32_Pow2                        &lt;dbl+lbl&gt; 4, 6, 2, 2, 1, 2, 4, 4, 4
-$ UMS32_Ach1                        &lt;dbl+lbl&gt; 5, 6, 5, 4, 5, 5, 6, 5, 6
-$ UMS32_Int1                        &lt;dbl+lbl&gt; 2, 5, 5, 6, 5, 3, 4, 5, 6
-$ WHO5_SQ001                        &lt;dbl+lbl&gt; 3, 4, 4, 4, 3, 4, 4, 3, 5
-$ WHO5_SQ002                        &lt;dbl+lbl&gt; 4, 2, 3, 4, 2, 2, 3, 1, 4
-$ WHO5_SQ003                        &lt;dbl+lbl&gt; 2, 4, 4, 3, 4, 3, 4, 2, 4
-$ WHO5_SQ004                        &lt;dbl+lbl&gt; 2, 4, 2, 3, 2, 2, 2, 1, 2
-$ WHO5_SQ005                        &lt;dbl+lbl&gt; 2, 5, 5, 4, 4, 4, 4, 2, 1
-$ FEW16_Belastbarkeit1              &lt;dbl+lbl&gt; 4, 6, 5, 5, 5, 5, 4, 2, 5
-$ FEW16_Vit1                        &lt;dbl+lbl&gt; 5, 5, 3, 5, 3, 6, 4, 4, 3
-$ FEW16_Ruhe1                       &lt;dbl+lbl&gt; 4, 5, 4, 4, 4, 4, 3, 4, 5
-$ FEW16_Vit2                        &lt;dbl+lbl&gt; 4, 5, 4, 6, 2, 6, 4, 2, 4
-$ FEW16_Belastbarkeit2              &lt;dbl+lbl&gt; 5, 6, 5, 6, 6, 5, 5, 3, 4
-$ FEW16_Ruhe2                       &lt;dbl+lbl&gt; 3, 4, 4, 6, 4, 4, 5, 3, 5
-$ FEW16_Genuss1                     &lt;dbl+lbl&gt; 4, 6, 4, 5, 5, 4, 5, 4, 5
-$ FEW16_Belastbarkeit3              &lt;dbl+lbl&gt; 5, 6, 5, 5, 6, 5, 6, 4, 5
-$ FEW16_Vit3                        &lt;dbl+lbl&gt; 4, 5, 3, 6, 3, 6, 4, 3, 3
-$ FEW16_Belastbarkeit4              &lt;dbl+lbl&gt; 5, 6, 5, 6, 6, 6, 6, 5, 6
-$ FEW16_Genuss2                     &lt;dbl+lbl&gt; 5, 5, 5, 4, 3, 5, 5, 2, 4
-$ FEW16_Vit4                        &lt;dbl+lbl&gt; 3, 6, 3, 6, 3, 5, 4, 2, 4
-$ FEW16_Genuss3                     &lt;dbl+lbl&gt; 6, 4, 4, 4, 4, 5, 6, 5, 6
-$ FEW16_Genuss4                     &lt;dbl+lbl&gt; 3, 5, 3, 5, 5, 5, 5, 5, 4
-$ FEW16_Ruhe3                       &lt;dbl+lbl&gt; 4, 3, 5, 5, 4, 4, 5, 3, 4
-$ FEW16_Ruhe4                       &lt;dbl+lbl&gt; 4, 5, 4, 6, 4, 5, 6, 4, 4
-$ RSES_RSES01                       &lt;dbl+lbl&gt; 3, 2, 2, 2, 2, 2, 1, 2, 2
-$ RSES_RSES02R                      &lt;dbl+lbl&gt; 2, 4, 3, 4, 3, 2, 3, 2, 4
-$ RSES_RSES03                       &lt;dbl+lbl&gt; 2, 1, 1, 2, 2, 1, 2, 1, 1
-$ RSES_RSES04                       &lt;dbl+lbl&gt; 1, 1, 1, 2, 1, 2, 2, 1, 2
-$ RSES_RSES05R                      &lt;dbl+lbl&gt; 4, 4, 4, 4, 3, 3, 4, 2, 4
-$ RSES_RSES06R                      &lt;dbl+lbl&gt; 3, 4, 2, 4, 3, 3, 4, 4, 4
-$ RSES_RSES07                       &lt;dbl+lbl&gt; 2, 1, 1, 1, 1, 1, 1, 1, 1
-$ RSES_RSES08R                      &lt;dbl+lbl&gt; 3, 3, 1, 4, 4, 2, 4, 2, 3
-$ RSES_RSES09R                      &lt;dbl+lbl&gt; 4, 4, 3, 4, 4, 2, 4, 4, 4
-$ RSES_RSES10                       &lt;dbl+lbl&gt; 3, 2, 2, 1, 2, 3, 1, 2, 1
-$ BFI_E1R                           &lt;dbl+lbl&gt; 4, 1, 2, 2, 3, 3, 4, 1, 1
-$ BFI_V1                            &lt;dbl+lbl&gt; 3, 4, 4, 4, 4, 5, 3, 3, 5
-$ BFI_G1R                           &lt;dbl+lbl&gt; 4, 1, 4, 1, 3, 2, 3, 3, 3
-$ BFI_N1R                           &lt;dbl+lbl&gt; 4, 4, 2, 3, 4, 4, 2, 2, 4
-$ BFI_O1R                           &lt;dbl+lbl&gt; 2, 4, 3, 4, 3, 5, 5, 4, 3
-$ BFI_E2                            &lt;dbl+lbl&gt; 2, 4, 4, 2, 4, 4, 4, 4, 5
-$ BFI_V2R                           &lt;dbl+lbl&gt; 2, 5, 2, 3, 1, 2, 4, 4, 1
-$ BFI_G2                            &lt;dbl+lbl&gt; 3, 4, 4, 5, 5, 5, 4, 5, 3
-$ BFI_N2                            &lt;dbl+lbl&gt; 3, 2, 2, 2, 2, 4, 3, 3, 5
-$ BFI_O2                            &lt;dbl+lbl&gt; 4, 4, 4, 1, 2, 2, 3, 3, 4
-$ EDS_EDS1                          &lt;dbl+lbl&gt; 2, 4, 2, 2, 1, 4, 1, 2, 3
-$ EDS_EDS2                          &lt;dbl+lbl&gt; 3, 3, 2, 1, 3, 5, 3, 5, 3
-$ EDS_EDS3                          &lt;dbl+lbl&gt; 2, 4, 3, 5, 4, 5, 5, 4, 5
-$ EDS_EDS4                          &lt;dbl+lbl&gt; 1, 4, 1, 5, 3, 3, 3, 2, 2
-$ EDS_EDS5                          &lt;dbl+lbl&gt; 3, 3, 1, 4, 2, 2, 4, 2, 2
-$ EDS_EDS6                          &lt;dbl+lbl&gt; 5, 5, 3, 5, 5, 5, 5, 4, 5
-$ EDS_EDS7                          &lt;dbl+lbl&gt; 4, 4, 3, 3, 2, 3, 3, 2, 2
-$ EDS_EDS8                          &lt;dbl+lbl&gt; 2, 4, 1, 1, 1, 1, 1, 1, 1
-$ EDS_EDS9                          &lt;dbl+lbl&gt; 2, 4, 1, 3, 3, 5, 3, 3, 4
-$ EDS_EDS10                         &lt;dbl+lbl&gt; 3, 4, 3, 5, 4, 4, 5, 4, 5
-$ EDS_EDS11                         &lt;dbl+lbl&gt; 2, 5, 1, 2, 2, 4, 2, 3, 4
-$ EDS_EDS12                         &lt;dbl+lbl&gt; 4, 5, 4, 3, 3, 4, 4, 3, 4
-$ EDS_EDS13                         &lt;dbl+lbl&gt; 4, 4, 4, 5, 4, 3, 5, 5, 4
-$ EDS_EDS14                         &lt;dbl+lbl&gt; 4, 4, 3, 2, 4, 3, 4, 2, 4
-$ EDS_EDS15                         &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 4, 3, 1, 2
-$ EDS_EDS16                         &lt;dbl+lbl&gt; 2, 4, 1, 2, 3, 4, 3, 5, 4
-$ EDS_EDS17                         &lt;dbl+lbl&gt; 2, 4, 3, 5, 4, 4, 3, 4, 5
-$ EDS_EDS18                         &lt;dbl+lbl&gt; 3, 4, 1, 2, 2, 3, 2, 3, 4
-$ EDS_EDS19                         &lt;dbl+lbl&gt; 2, 2, 1, 1, 1, 1, 2, 1, 1
-$ EDS_EDS20                         &lt;dbl+lbl&gt; 5, 4, 4, 5, 4, 4, 5, 5, 5
-$ EDS_EDS21                         &lt;dbl+lbl&gt; 4, 4, 2, 1, 4, 3, 4, 3, 5
-$ MDDI_DS1                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ MDDI_AI1                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ MDDI_AI2                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ MDDI_DS2                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ MDDI_DS3                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ MDDI_DS4                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ MDDI_AI3                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ MDDI_DS5                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ MDDI_AI4                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ MDDI_FI1                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ MDDI_FI2                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ MDDI_FI3                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ MDDI_FI4                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
-$ EAT_EAT1                          &lt;dbl+lbl&gt; 3, 2, 1, 3, 1, 5, 1, 1, 1
-$ EAT_EAT2                          &lt;dbl+lbl&gt; 2, 1, 1, 2, 2, 3, 1, 1, 1
-$ EAT_EAT3                          &lt;dbl+lbl&gt; 4, 2, 2, 1, 1, 4, 1, 1, 1
-$ EAT_EAT4                          &lt;dbl+lbl&gt; 3, 2, 1, 2, 1, 4, 1, 1, 1
-$ EAT_EAT5                          &lt;dbl+lbl&gt; 4, 4, 1, 4, 2, 5, 1, 3, 1
-$ EAT_EAT6                          &lt;dbl+lbl&gt; 3, 1, 3, 6, 1, 5, 1, 1, 1
-$ EAT_EAT7                          &lt;dbl+lbl&gt; 5, 1, 1, 1, 1, 4, 1, 1, 1
-$ EAT_EAT8                          &lt;dbl+lbl&gt; 6, 3, 1, 5, 2, 4, 1, 1, 1
-$ FFI14_FFI1                        &lt;dbl+lbl&gt; 3, 3, 3, 4, 3, 3, 3, 2, 3
-$ FFI14_FFI2                        &lt;dbl+lbl&gt; 3, 3, 2, 2, 2, 1, 2, 2, 2
-$ FFI14_FF3                         &lt;dbl+lbl&gt; 2, 3, 3, 2, 3, 2, 3, 3, 2
-$ FFI14_FF4                         &lt;dbl+lbl&gt; 3, 4, 2, 3, 3, 3, 3, 3, 3
-$ FFI14_FFI5                        &lt;dbl+lbl&gt; 2, 3, 2, 2, 2, 3, 2, 3, 3
-$ FFI14_FFI6                        &lt;dbl+lbl&gt; 2, 3, 2, 3, 2, 2, 2, 2, 3
-$ FFI14_FFI7                        &lt;dbl+lbl&gt; 2, 3, 2, 3, 3, 2, 3, 2, 3
-$ FFI14_FFI8                        &lt;dbl+lbl&gt; 3, 3, 3, 2, 3, 3, 3, 3, 3
-$ FFI14_FFI9                        &lt;dbl+lbl&gt; 2, 2, 3, 1, 3, 2, 3, 2, 2
-$ FFI14_FFI10                       &lt;dbl+lbl&gt; 2, 3, 2, 1, 3, 3, 3, 3, 2
-$ FFI14_FFI11                       &lt;dbl+lbl&gt; 3, 4, 2, 2, 2, 2, 3, 3, 2
-$ FFI14_FFI12                       &lt;dbl+lbl&gt; 3, 3, 3, 2, 2, 3, 2, 3, 2
-$ FFI14_FFI13R                      &lt;dbl+lbl&gt; 2, 4, 2, 2, 2, 4, 3, 3, 1
-$ FFI14_FFI14                       &lt;dbl+lbl&gt; 3, 2, 3, 3, 2, 3, 2, 2, 4
-$ nAff                              &lt;dbl&gt; 3.000000, 4.000000, 3.333333, 2.6666…
-$ nPow                              &lt;dbl&gt; 2.0000000, 4.6666667, 1.3333333,…
-$ nAch                              &lt;dbl&gt; 3.000000, 4.666667, 3.666667, 2.…
-$ UMS_Fear                          &lt;dbl&gt; 3.6666667, 0.6666667, 3.3333333,…
-$ WHO5_Score                        &lt;dbl&gt; 13, 19, 18, 18, 15, 15, 17, 9, 16
-$ FEW_Belastbarkeit                 &lt;dbl&gt; 4.75, 6.00, 5.00, 5.50, 5.75, 5.…
-$ FEW_Vitalität                     &lt;dbl&gt; 4.00, 5.25, 3.25, 5.75, 2.75, 5.…
-$ FEW_Genussfähigkeit               &lt;dbl&gt; 4.50, 5.00, 4.00, 4.50, 4.25, 4.…
-$ FEW_innere_Ruhe                   &lt;dbl&gt; 3.75, 4.25, 4.25, 5.25, 4.00, 4.…
-$ FEW_Gesamt                        &lt;dbl&gt; 4.2500, 5.1250, 4.1250, 5.2500, …
-$ EDS_Score                         &lt;dbl&gt; 2.952381, 3.952381, 2.238095, 3.…
-$ EDS_Withdrawal                    &lt;dbl&gt; 2.333333, 4.000000, 2.000000, 2.…
-$ EDS_Continuance                   &lt;dbl&gt; 2.333333, 3.666667, 1.333333, 2.…
-$ EDS_Tolerance                     &lt;dbl&gt; 2.333333, 4.000000, 3.000000, 5.…
-$ EDS_Lack_Control                  &lt;dbl&gt; 2.000000, 4.333333, 1.000000, 3.…
-$ EDS_Reduction_Activities          &lt;dbl&gt; 3.000000, 3.333333, 2.000000, 2.…
-$ EDS_Time                          &lt;dbl&gt; 4.666667, 4.333333, 3.666667, 5.…
-$ EDS_Intention_Effects             &lt;dbl&gt; 4.000000, 4.000000, 2.666667, 2.…
-$ withde                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ withs                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ withas                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ contde                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ conts                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ contas                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ tolde                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ tols                              &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ tolas                             &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ lackde                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ lacks                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ lackas                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ reducde                           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ reducs                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ reducas                           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ timede                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ times                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ timeas                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ intde                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ ints                              &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ intas                             &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ dep                               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ depend                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ sym                               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ sympt1                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ sympt                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
-$ asy                               &lt;dbl&gt; 7, 7, 7, 7, 7, 7, 7, 7, 7
-$ asympt                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ ed                                &lt;dbl&gt; 3, 3, 3, 3, 3, 3, 3, 3, 3
-$ BMZI_FitGes                       &lt;dbl&gt; 5.000000, 4.333333, 4.666667, 4.…
-$ BMZI_FigAus                       &lt;dbl&gt; 3.333333, 3.000000, 2.333333, 2.…
-$ BMZI_Kon                          &lt;dbl&gt; 3.6, 4.0, 3.8, 2.4, 2.6, 3.6, 2.…
-$ BMZI_AblKat                       &lt;dbl&gt; 3.50, 3.50, 2.75, 2.75, 1.50, 4.…
-$ BMZI_AktFre                       &lt;dbl&gt; 4.000000, 3.333333, 3.666667, 3.…
-$ BMZI_WetLei                       &lt;dbl&gt; 4.25, 4.50, 3.25, 4.75, 3.75, 4.…
-$ BMZI_Aes                          &lt;dbl&gt; 1.5, 3.0, 2.0, 2.5, 3.0, 3.5, 2.…
-$ BMZI_Mittel_Ind6                  &lt;dbl&gt; 3.363889, 3.555556, 2.966667, 3.…
-$ BMZI_Mittel_Ind7                  &lt;dbl&gt; 3.597619, 3.666667, 3.209524, 3.…
-$ BFI_E1R_Inv                       &lt;dbl&gt; 2, 5, 4, 4, 3, 3, 2, 5, 5
-$ BFI_G1R_Inv                       &lt;dbl&gt; 2, 5, 2, 5, 3, 4, 3, 3, 3
-$ BFI_N1R_Inv                       &lt;dbl&gt; 2, 2, 4, 3, 2, 2, 4, 4, 2
-$ BFI_O1R_Inv                       &lt;dbl&gt; 4, 2, 3, 2, 3, 1, 1, 2, 3
-$ BFI_V2R_Inv                       &lt;dbl&gt; 4, 1, 4, 3, 5, 4, 2, 2, 5
-$ Neurotizismus                     &lt;dbl&gt; 2.5, 2.0, 3.0, 2.5, 2.0, 3.0, 3.…
-$ Extraversion                      &lt;dbl&gt; 2.0, 4.5, 4.0, 3.0, 3.5, 3.5, 3.…
-$ Gewissenhaftigkeit                &lt;dbl&gt; 2.5, 4.5, 3.0, 5.0, 4.0, 4.5, 3.…
-$ Offenheit                         &lt;dbl&gt; 4.0, 3.0, 3.5, 1.5, 2.5, 1.5, 2.…
-$ Verträglichkeit                   &lt;dbl&gt; 3.5, 2.5, 4.0, 3.5, 4.5, 4.5, 2.…
-$ RSES_RSES02R_Inv                  &lt;dbl&gt; 3, 1, 2, 1, 2, 3, 2, 3, 1
-$ RSES_RSES05R_Inv                  &lt;dbl&gt; 1, 1, 1, 1, 2, 2, 1, 3, 1
-$ RSES_RSES06R_Inv                  &lt;dbl&gt; 2, 1, 3, 1, 2, 2, 1, 1, 1
-$ RSES_RSES08R_Inv                  &lt;dbl&gt; 2, 2, 4, 1, 1, 3, 1, 3, 2
-$ RSES_RSES09R_Inv                  &lt;dbl&gt; 1, 1, 2, 1, 1, 3, 1, 1, 1
-$ RSES_Score_raw                    &lt;dbl&gt; 10, 3, 9, 3, 6, 12, 3, 8, 3
-$ RSES_Score                        &lt;dbl&gt; 20, 27, 21, 27, 24, 18, 27, 22, 27
-$ DS                                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
-$ AI                                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
-$ FI                                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
-$ MDDI_Score                        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
-$ EAT8                              &lt;dbl&gt; 3.750, 2.000, 1.375, 3.000, 1.375, 4…
-$ FFA13R_Inv                        &lt;dbl&gt; 3, 1, 3, 3, 3, 1, 2, 2, 4
-$ FFA14                             &lt;dbl&gt; 36, 40, 35, 33, 36, 33, 36, 35, 38
-$ BMI                               &lt;dbl&gt; 28.72679, 25.59221, 23.79536, 21…
-$ Sport_keinSport                   &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-$ SD_ind6                           &lt;dbl&gt; 0.9735626, 0.5931710, 0.7276293,…
-$ SD_ind7                           &lt;dbl&gt; 1.0827104, 0.6161409, 0.9241541,…
-$ z_ind_fitges                      &lt;dbl&gt; 1.2952502, 1.0820036, 1.5767314,…
-$ z_ind_figaus                      &lt;dbl&gt; -0.0313853, -0.9365858, -0.87040…
-$ z_ind_kon                         &lt;dbl&gt; 0.24252279, 0.74926865, 1.145271…
-$ z_ind_ablkat                      &lt;dbl&gt; 0.13980726, -0.09365858, -0.2977…
-$ z_ind_aktfre                      &lt;dbl&gt; 0.6533849, -0.3746343, 0.9620283…
-$ z_ind_wetlei                      &lt;dbl&gt; 0.9101738, 1.5921959, 0.3893924,…
-$ z_ind_aes                         &lt;dbl&gt; -1.91450344, -0.93658581, -1.328…
-$ fqs_kontakt_sportl                &lt;dbl&gt; 6.018276, 7.723455, 2.971056, 7.…
-$ fqs_figurbew_aest                 &lt;dbl&gt; 13.67681, 17.34804, 12.99239, 13…
-$ fqs_aktiv_erhol                   &lt;dbl&gt; 5.098231, 11.127774, 5.717824, 9…
-$ fqs_erholungssuch_fit             &lt;dbl&gt; 9.353612, 15.939288, 10.836006, …
-$ fqs_zweckfrei_sportbeg            &lt;dbl&gt; 13.083161, 12.427185, 8.214603, …
-$ fqs_gesundheits_figo              &lt;dbl&gt; 8.128902, 14.325520, 9.944876, 1…
-$ fqs_fig_gesell                    &lt;dbl&gt; 6.827138, 11.547403, 5.107793, 1…
-$ fqs_fig_stressreg                 &lt;dbl&gt; 7.946568, 15.397513, 10.780712, …
-$ fqs_erhol_sportl                  &lt;dbl&gt; 10.467070, 12.906640, 8.697666, …
-$ min_fqs                           &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.…</code></pre>
+Columns: 275
+$ id                       &lt;dbl&gt; 13, 12, 4, 11, 3, 10, 5, 2, 21
+$ submitdate               &lt;dttm&gt; 2026-04-07 23:17:58, 2026-03-31 10:32:17, 202…
+$ lastpage                 &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13
+$ startlanguage            &lt;chr&gt; "de", "de", "de", "de", "de", "de", "de", "d…
+$ seed                     &lt;chr&gt; "768712036", "844051475", "756864239", "10849…
+$ startdate                &lt;dttm&gt; 2026-04-07 22:30:37, 2026-03-31 10:07:29, 202…
+$ datestamp                &lt;dttm&gt; 2026-04-07 23:17:58, 2026-03-31 10:32:17, 202…
+$ G14Q39                   &lt;chr+lbl&gt; "AO01", "AO01", "AO01", "AO01", "AO01", "AO0…
+$ Code                     &lt;chr&gt; "HALK1465", "ISDO380", "LIMR0873", "MKN0677"…
+$ Jahre_Sport              &lt;dbl+lbl&gt; 15,  6, 12, 14, 10, 11, 14, 12, 18
+$ Verein                   &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ Einheiten_Woche          &lt;dbl+lbl&gt;  6,  5,  5,  6,  9, 10, 12, 11, 10
+$ Stunden_Woche            &lt;dbl+lbl&gt; 48, 10, 12, 20, 21, 29, 26, 24, 20
+$ Wettkampf                &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ Wettkampflevel           &lt;dbl+lbl&gt; 5, 5, 5, 3, 5, 5, 3, 7, 5
+$ Wettzufrieden            &lt;dbl+lbl&gt; 1, 4, 3, 4, 4, 3, 3, 3, 4
+$ Abbruch                  &lt;dbl+lbl&gt; 2, 2, 2, 2, 3, 2, 3, 2, 2
+$ Socialmedia              &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ SocialmediaArt_SQ001     &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ SocialmediaArt_SQ002     &lt;dbl+lbl&gt; 1, 1, 1, 0, 0, 1, 1, 0, 1
+$ SocialmediaArt_SQ003     &lt;dbl+lbl&gt; 1, 1, 0, 1, 1, 0, 0, 0, 0
+$ SocialmediaArt_SQ004     &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 1, 1, 0
+$ SocialmediaArt_SQ005     &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ SocialMediaZeit          &lt;dbl+lbl&gt; 3, 3, 3, 4, 2, 3, 3, 3, 3
+$ Schrittzahl              &lt;dbl+lbl&gt; 0, 0, 0, 0, 1, 0, 1, 0, 0
+$ Schrittzahlestimate      &lt;dbl+lbl&gt; 4, 4, 3, 2, 7, 4, 4, 9, 5
+$ Tracker                  &lt;dbl+lbl&gt; 0, 0, 0, 1, 1, 0, 1, 1, 0
+$ Apps                     &lt;dbl+lbl&gt; 0, 0, 1, 0, 1, 0, 1, 1, 0
+$ AppZweck_SQ001           &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 1
+$ AppZweck_SQ002           &lt;dbl+lbl&gt; 1, 0, 0, 0, 0, 0, 0, 0, 0
+$ AppZweck_SQ003           &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0
+$ AppZweck_SQ004           &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ AppZweck_SQ005           &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 1, 0, 0, 1
+$ AppZweck_SQ006           &lt;dbl+lbl&gt; 0, 0, 1, 1, 0, 0, 0, 0, 0
+$ AppZweck_SQ007           &lt;dbl+lbl&gt; 1, 1, 0, 1, 0, 1, 0, 0, 1
+$ AppZweck_SQ008           &lt;dbl+lbl&gt; 1, 1, 1, 1, 0, 0, 0, 0, 0
+$ AppZweck_SQ009           &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ suspicion_check          &lt;chr&gt; "", "Ich versuche meine Aktivitäten als L…
+$ BMZI_fitges3             &lt;dbl+lbl&gt; 5, 4, 5, 4, 3, 3, 4, 1, 5
+$ BMZI_kon3                &lt;dbl+lbl&gt; 4, 4, 4, 2, 3, 4, 4, 2, 4
+$ BMZI_ablkat2             &lt;dbl+lbl&gt; 4, 4, 4, 2, 2, 5, 2, 2, 3
+$ BMZI_aktfre3             &lt;dbl+lbl&gt; 4, 3, 4, 2, 3, 4, 2, 1, 3
+$ BMZI_wetlei4             &lt;dbl+lbl&gt; 4, 4, 1, 4, 2, 4, 5, 1, 4
+$ BMZI_figaus3             &lt;dbl+lbl&gt; 2, 4, 2, 3, 2, 2, 4, 1, 3
+$ BMZI_aes2                &lt;dbl+lbl&gt; 2, 4, 2, 2, 2, 3, 3, 1, 4
+$ BMZI_fitges2             &lt;dbl+lbl&gt; 5, 5, 5, 5, 4, 4, 4, 1, 5
+$ BMZI_kon2                &lt;dbl+lbl&gt; 2, 3, 4, 2, 2, 4, 3, 1, 4
+$ BMZI_ablkat3             &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 5, 3, 3, 4
+$ BMZI_wetlei2             &lt;dbl+lbl&gt; 4, 5, 4, 5, 4, 4, 5, 5, 3
+$ BMZI_figaus1             &lt;dbl+lbl&gt; 4, 2, 2, 2, 1, 1, 1, 1, 1
+$ BMZI_kon4                &lt;dbl+lbl&gt; 4, 4, 4, 3, 3, 3, 2, 1, 4
+$ BMZI_aes1                &lt;dbl+lbl&gt; 1, 2, 2, 3, 4, 4, 2, 1, 4
+$ BMZI_fitges1             &lt;dbl+lbl&gt; 5, 4, 4, 5, 3, 4, 4, 1, 4
+$ BMZI_wetlei1             &lt;dbl+lbl&gt; 4, 4, 3, 5, 4, 4, 5, 5, 5
+$ BMZI_ablkat1             &lt;dbl+lbl&gt; 3, 3, 1, 2, 1, 4, 1, 2, 2
+$ BMZI_aktfre2             &lt;dbl+lbl&gt; 4, 5, 5, 4, 5, 4, 2, 1, 4
+$ BMZI_kon1                &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 3, 2, 1, 4
+$ BMZI_aktfre1             &lt;dbl+lbl&gt; 4, 2, 2, 4, 2, 3, 2, 1, 2
+$ BMZI_figaus2             &lt;dbl+lbl&gt; 4, 3, 3, 2, 2, 1, 2, 1, 2
+$ BMZI_wetlei3             &lt;dbl+lbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5
+$ BMZI_ablkat4             &lt;dbl+lbl&gt; 4, 3, 3, 4, 1, 5, 2, 1, 2
+$ BMZI_kon5                &lt;dbl+lbl&gt; 5, 5, 4, 2, 3, 4, 2, 1, 3
+$ UMS31_Fear2              &lt;dbl+lbl&gt; 5, 2, 3, 2, 3, 4, 2, 2, 1
+$ UMS31_Int3               &lt;dbl+lbl&gt; 3, 4, 4, 4, 4, 3, 4, 5, 5
+$ UMS31_Pow3               &lt;dbl+lbl&gt; 4, 5, 4, 2, 4, 2, 5, 5, 2
+$ UMS31_Aff3               &lt;dbl+lbl&gt; 4, 5, 5, 4, 5, 4, 4, 5, 5
+$ UMS31_Fear3              &lt;dbl+lbl&gt; 5, 1, 5, 3, 2, 4, 3, 2, 2
+$ UMS31_Aff1               &lt;dbl+lbl&gt; 4, 5, 4, 3, 4, 2, 4, 2, 4
+$ UMS31_Fear1              &lt;dbl+lbl&gt; 4, 2, 5, 2, 1, 5, 2, 4, 4
+$ UMS32_Ach3               &lt;dbl+lbl&gt; 4, 5, 4, 4, 4, 4, 5, 4, 5
+$ UMS32_Aff2               &lt;dbl+lbl&gt; 4, 5, 4, 4, 5, 4, 3, 2, 5
+$ UMS32_Pow1               &lt;dbl+lbl&gt; 1, 6, 1, 2, 1, 1, 3, 4, 3
+$ UMS32_Ach2               &lt;dbl+lbl&gt; 3, 6, 5, 3, 4, 6, 6, 6, 5
+$ UMS32_Int2               &lt;dbl+lbl&gt; 4, 4, 5, 6, 4, 4, 2, 5, 5
+$ UMS32_Pow2               &lt;dbl+lbl&gt; 4, 6, 2, 2, 1, 2, 4, 4, 4
+$ UMS32_Ach1               &lt;dbl+lbl&gt; 5, 6, 5, 4, 5, 5, 6, 5, 6
+$ UMS32_Int1               &lt;dbl+lbl&gt; 2, 5, 5, 6, 5, 3, 4, 5, 6
+$ WHO5_SQ001               &lt;dbl+lbl&gt; 3, 4, 4, 4, 3, 4, 4, 3, 5
+$ WHO5_SQ002               &lt;dbl+lbl&gt; 4, 2, 3, 4, 2, 2, 3, 1, 4
+$ WHO5_SQ003               &lt;dbl+lbl&gt; 2, 4, 4, 3, 4, 3, 4, 2, 4
+$ WHO5_SQ004               &lt;dbl+lbl&gt; 2, 4, 2, 3, 2, 2, 2, 1, 2
+$ WHO5_SQ005               &lt;dbl+lbl&gt; 2, 5, 5, 4, 4, 4, 4, 2, 1
+$ FEW16_Belastbarkeit1     &lt;dbl+lbl&gt; 4, 6, 5, 5, 5, 5, 4, 2, 5
+$ FEW16_Vit1               &lt;dbl+lbl&gt; 5, 5, 3, 5, 3, 6, 4, 4, 3
+$ FEW16_Ruhe1              &lt;dbl+lbl&gt; 4, 5, 4, 4, 4, 4, 3, 4, 5
+$ FEW16_Vit2               &lt;dbl+lbl&gt; 4, 5, 4, 6, 2, 6, 4, 2, 4
+$ FEW16_Belastbarkeit2     &lt;dbl+lbl&gt; 5, 6, 5, 6, 6, 5, 5, 3, 4
+$ FEW16_Ruhe2              &lt;dbl+lbl&gt; 3, 4, 4, 6, 4, 4, 5, 3, 5
+$ FEW16_Genuss1            &lt;dbl+lbl&gt; 4, 6, 4, 5, 5, 4, 5, 4, 5
+$ FEW16_Belastbarkeit3     &lt;dbl+lbl&gt; 5, 6, 5, 5, 6, 5, 6, 4, 5
+$ FEW16_Vit3               &lt;dbl+lbl&gt; 4, 5, 3, 6, 3, 6, 4, 3, 3
+$ FEW16_Belastbarkeit4     &lt;dbl+lbl&gt; 5, 6, 5, 6, 6, 6, 6, 5, 6
+$ FEW16_Genuss2            &lt;dbl+lbl&gt; 5, 5, 5, 4, 3, 5, 5, 2, 4
+$ FEW16_Vit4               &lt;dbl+lbl&gt; 3, 6, 3, 6, 3, 5, 4, 2, 4
+$ FEW16_Genuss3            &lt;dbl+lbl&gt; 6, 4, 4, 4, 4, 5, 6, 5, 6
+$ FEW16_Genuss4            &lt;dbl+lbl&gt; 3, 5, 3, 5, 5, 5, 5, 5, 4
+$ FEW16_Ruhe3              &lt;dbl+lbl&gt; 4, 3, 5, 5, 4, 4, 5, 3, 4
+$ FEW16_Ruhe4              &lt;dbl+lbl&gt; 4, 5, 4, 6, 4, 5, 6, 4, 4
+$ RSES_RSES01              &lt;dbl+lbl&gt; 3, 2, 2, 2, 2, 2, 1, 2, 2
+$ RSES_RSES02R             &lt;dbl+lbl&gt; 2, 4, 3, 4, 3, 2, 3, 2, 4
+$ RSES_RSES03              &lt;dbl+lbl&gt; 2, 1, 1, 2, 2, 1, 2, 1, 1
+$ RSES_RSES04              &lt;dbl+lbl&gt; 1, 1, 1, 2, 1, 2, 2, 1, 2
+$ RSES_RSES05R             &lt;dbl+lbl&gt; 4, 4, 4, 4, 3, 3, 4, 2, 4
+$ RSES_RSES06R             &lt;dbl+lbl&gt; 3, 4, 2, 4, 3, 3, 4, 4, 4
+$ RSES_RSES07              &lt;dbl+lbl&gt; 2, 1, 1, 1, 1, 1, 1, 1, 1
+$ RSES_RSES08R             &lt;dbl+lbl&gt; 3, 3, 1, 4, 4, 2, 4, 2, 3
+$ RSES_RSES09R             &lt;dbl+lbl&gt; 4, 4, 3, 4, 4, 2, 4, 4, 4
+$ RSES_RSES10              &lt;dbl+lbl&gt; 3, 2, 2, 1, 2, 3, 1, 2, 1
+$ BFI_E1R                  &lt;dbl+lbl&gt; 4, 1, 2, 2, 3, 3, 4, 1, 1
+$ BFI_V1                   &lt;dbl+lbl&gt; 3, 4, 4, 4, 4, 5, 3, 3, 5
+$ BFI_G1R                  &lt;dbl+lbl&gt; 4, 1, 4, 1, 3, 2, 3, 3, 3
+$ BFI_N1R                  &lt;dbl+lbl&gt; 4, 4, 2, 3, 4, 4, 2, 2, 4
+$ BFI_O1R                  &lt;dbl+lbl&gt; 2, 4, 3, 4, 3, 5, 5, 4, 3
+$ BFI_E2                   &lt;dbl+lbl&gt; 2, 4, 4, 2, 4, 4, 4, 4, 5
+$ BFI_V2R                  &lt;dbl+lbl&gt; 2, 5, 2, 3, 1, 2, 4, 4, 1
+$ BFI_G2                   &lt;dbl+lbl&gt; 3, 4, 4, 5, 5, 5, 4, 5, 3
+$ BFI_N2                   &lt;dbl+lbl&gt; 3, 2, 2, 2, 2, 4, 3, 3, 5
+$ BFI_O2                   &lt;dbl+lbl&gt; 4, 4, 4, 1, 2, 2, 3, 3, 4
+$ EDS_EDS1                 &lt;dbl+lbl&gt; 2, 4, 2, 2, 1, 4, 1, 2, 3
+$ EDS_EDS2                 &lt;dbl+lbl&gt; 3, 3, 2, 1, 3, 5, 3, 5, 3
+$ EDS_EDS3                 &lt;dbl+lbl&gt; 2, 4, 3, 5, 4, 5, 5, 4, 5
+$ EDS_EDS4                 &lt;dbl+lbl&gt; 1, 4, 1, 5, 3, 3, 3, 2, 2
+$ EDS_EDS5                 &lt;dbl+lbl&gt; 3, 3, 1, 4, 2, 2, 4, 2, 2
+$ EDS_EDS6                 &lt;dbl+lbl&gt; 5, 5, 3, 5, 5, 5, 5, 4, 5
+$ EDS_EDS7                 &lt;dbl+lbl&gt; 4, 4, 3, 3, 2, 3, 3, 2, 2
+$ EDS_EDS8                 &lt;dbl+lbl&gt; 2, 4, 1, 1, 1, 1, 1, 1, 1
+$ EDS_EDS9                 &lt;dbl+lbl&gt; 2, 4, 1, 3, 3, 5, 3, 3, 4
+$ EDS_EDS10                &lt;dbl+lbl&gt; 3, 4, 3, 5, 4, 4, 5, 4, 5
+$ EDS_EDS11                &lt;dbl+lbl&gt; 2, 5, 1, 2, 2, 4, 2, 3, 4
+$ EDS_EDS12                &lt;dbl+lbl&gt; 4, 5, 4, 3, 3, 4, 4, 3, 4
+$ EDS_EDS13                &lt;dbl+lbl&gt; 4, 4, 4, 5, 4, 3, 5, 5, 4
+$ EDS_EDS14                &lt;dbl+lbl&gt; 4, 4, 3, 2, 4, 3, 4, 2, 4
+$ EDS_EDS15                &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 4, 3, 1, 2
+$ EDS_EDS16                &lt;dbl+lbl&gt; 2, 4, 1, 2, 3, 4, 3, 5, 4
+$ EDS_EDS17                &lt;dbl+lbl&gt; 2, 4, 3, 5, 4, 4, 3, 4, 5
+$ EDS_EDS18                &lt;dbl+lbl&gt; 3, 4, 1, 2, 2, 3, 2, 3, 4
+$ EDS_EDS19                &lt;dbl+lbl&gt; 2, 2, 1, 1, 1, 1, 2, 1, 1
+$ EDS_EDS20                &lt;dbl+lbl&gt; 5, 4, 4, 5, 4, 4, 5, 5, 5
+$ EDS_EDS21                &lt;dbl+lbl&gt; 4, 4, 2, 1, 4, 3, 4, 3, 5
+$ MDDI_DS1                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_AI1                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_AI2                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_DS2                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_DS3                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_DS4                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_AI3                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_DS5                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_AI4                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_FI1                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_FI2                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_FI3                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_FI4                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ EAT_EAT1                 &lt;dbl+lbl&gt; 3, 2, 1, 3, 1, 5, 1, 1, 1
+$ EAT_EAT2                 &lt;dbl+lbl&gt; 2, 1, 1, 2, 2, 3, 1, 1, 1
+$ EAT_EAT3                 &lt;dbl+lbl&gt; 4, 2, 2, 1, 1, 4, 1, 1, 1
+$ EAT_EAT4                 &lt;dbl+lbl&gt; 3, 2, 1, 2, 1, 4, 1, 1, 1
+$ EAT_EAT5                 &lt;dbl+lbl&gt; 4, 4, 1, 4, 2, 5, 1, 3, 1
+$ EAT_EAT6                 &lt;dbl+lbl&gt; 3, 1, 3, 6, 1, 5, 1, 1, 1
+$ EAT_EAT7                 &lt;dbl+lbl&gt; 5, 1, 1, 1, 1, 4, 1, 1, 1
+$ EAT_EAT8                 &lt;dbl+lbl&gt; 6, 3, 1, 5, 2, 4, 1, 1, 1
+$ FFI14_FFI1               &lt;dbl+lbl&gt; 3, 3, 3, 4, 3, 3, 3, 2, 3
+$ FFI14_FFI2               &lt;dbl+lbl&gt; 3, 3, 2, 2, 2, 1, 2, 2, 2
+$ FFI14_FF3                &lt;dbl+lbl&gt; 2, 3, 3, 2, 3, 2, 3, 3, 2
+$ FFI14_FF4                &lt;dbl+lbl&gt; 3, 4, 2, 3, 3, 3, 3, 3, 3
+$ FFI14_FFI5               &lt;dbl+lbl&gt; 2, 3, 2, 2, 2, 3, 2, 3, 3
+$ FFI14_FFI6               &lt;dbl+lbl&gt; 2, 3, 2, 3, 2, 2, 2, 2, 3
+$ FFI14_FFI7               &lt;dbl+lbl&gt; 2, 3, 2, 3, 3, 2, 3, 2, 3
+$ FFI14_FFI8               &lt;dbl+lbl&gt; 3, 3, 3, 2, 3, 3, 3, 3, 3
+$ FFI14_FFI9               &lt;dbl+lbl&gt; 2, 2, 3, 1, 3, 2, 3, 2, 2
+$ FFI14_FFI10              &lt;dbl+lbl&gt; 2, 3, 2, 1, 3, 3, 3, 3, 2
+$ FFI14_FFI11              &lt;dbl+lbl&gt; 3, 4, 2, 2, 2, 2, 3, 3, 2
+$ FFI14_FFI12              &lt;dbl+lbl&gt; 3, 3, 3, 2, 2, 3, 2, 3, 2
+$ FFI14_FFI13R             &lt;dbl+lbl&gt; 2, 4, 2, 2, 2, 4, 3, 3, 1
+$ FFI14_FFI14              &lt;dbl+lbl&gt; 3, 2, 3, 3, 2, 3, 2, 2, 4
+$ nAff                     &lt;dbl&gt; 3.000000, 4.000000, 3.333333, 2.666667, 3.666…
+$ nPow                     &lt;dbl&gt; 2.0000000, 4.6666667, 1.3333333, 1.000000…
+$ nAch                     &lt;dbl&gt; 3.000000, 4.666667, 3.666667, 2.666667, 3…
+$ UMS_Fear                 &lt;dbl&gt; 3.6666667, 0.6666667, 3.3333333, 1.333333…
+$ WHO5_Score               &lt;dbl&gt; 13, 19, 18, 18, 15, 15, 17, 9, 16
+$ FEW_Belastbarkeit        &lt;dbl&gt; 4.75, 6.00, 5.00, 5.50, 5.75, 5.25, 5.25,…
+$ FEW_Vitalität            &lt;dbl&gt; 4.00, 5.25, 3.25, 5.75, 2.75, 5.75, 4.00,…
+$ FEW_Genussfähigkeit      &lt;dbl&gt; 4.50, 5.00, 4.00, 4.50, 4.25, 4.75, 5.25,…
+$ FEW_innere_Ruhe          &lt;dbl&gt; 3.75, 4.25, 4.25, 5.25, 4.00, 4.25, 4.75,…
+$ FEW_Gesamt               &lt;dbl&gt; 4.2500, 5.1250, 4.1250, 5.2500, 4.1875, 5…
+$ EDS_Score                &lt;dbl&gt; 2.952381, 3.952381, 2.238095, 3.095238, 2…
+$ EDS_Withdrawal           &lt;dbl&gt; 2.333333, 4.000000, 2.000000, 2.000000, 1…
+$ EDS_Continuance          &lt;dbl&gt; 2.333333, 3.666667, 1.333333, 2.000000, 3…
+$ EDS_Tolerance            &lt;dbl&gt; 2.333333, 4.000000, 3.000000, 5.000000, 4…
+$ EDS_Lack_Control         &lt;dbl&gt; 2.000000, 4.333333, 1.000000, 3.000000, 2…
+$ EDS_Reduction_Activities &lt;dbl&gt; 3.000000, 3.333333, 2.000000, 2.666667, 2…
+$ EDS_Time                 &lt;dbl&gt; 4.666667, 4.333333, 3.666667, 5.000000, 4…
+$ EDS_Intention_Effects    &lt;dbl&gt; 4.000000, 4.000000, 2.666667, 2.000000, 3…
+$ withde                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ withs                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ withas                   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ contde                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ conts                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ contas                   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ tolde                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ tols                     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ tolas                    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ lackde                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ lacks                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ lackas                   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ reducde                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ reducs                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ reducas                  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ timede                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ times                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ timeas                   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ intde                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ ints                     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ intas                    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ dep                      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ depend                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ sym                      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ sympt1                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ sympt                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ asy                      &lt;dbl&gt; 7, 7, 7, 7, 7, 7, 7, 7, 7
+$ asympt                   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ ed                       &lt;dbl&gt; 3, 3, 3, 3, 3, 3, 3, 3, 3
+$ BMZI_FitGes              &lt;dbl&gt; 5.000000, 4.333333, 4.666667, 4.666667, 3…
+$ BMZI_FigAus              &lt;dbl&gt; 3.333333, 3.000000, 2.333333, 2.333333, 1…
+$ BMZI_Kon                 &lt;dbl&gt; 3.6, 4.0, 3.8, 2.4, 2.6, 3.6, 2.6, 1.2, 3.8
+$ BMZI_AblKat              &lt;dbl&gt; 3.50, 3.50, 2.75, 2.75, 1.50, 4.75, 2.00,…
+$ BMZI_AktFre              &lt;dbl&gt; 4.000000, 3.333333, 3.666667, 3.333333, 3…
+$ BMZI_WetLei              &lt;dbl&gt; 4.25, 4.50, 3.25, 4.75, 3.75, 4.25, 5.00,…
+$ BMZI_Aes                 &lt;dbl&gt; 1.5, 3.0, 2.0, 2.5, 3.0, 3.5, 2.5, 1.0, 4.0
+$ BMZI_Mittel_Ind6         &lt;dbl&gt; 3.363889, 3.555556, 2.966667, 3.011111, 2…
+$ BMZI_Mittel_Ind7         &lt;dbl&gt; 3.597619, 3.666667, 3.209524, 3.247619, 2…
+$ BFI_E1R_Inv              &lt;dbl&gt; 2, 5, 4, 4, 3, 3, 2, 5, 5
+$ BFI_G1R_Inv              &lt;dbl&gt; 2, 5, 2, 5, 3, 4, 3, 3, 3
+$ BFI_N1R_Inv              &lt;dbl&gt; 2, 2, 4, 3, 2, 2, 4, 4, 2
+$ BFI_O1R_Inv              &lt;dbl&gt; 4, 2, 3, 2, 3, 1, 1, 2, 3
+$ BFI_V2R_Inv              &lt;dbl&gt; 4, 1, 4, 3, 5, 4, 2, 2, 5
+$ Neurotizismus            &lt;dbl&gt; 2.5, 2.0, 3.0, 2.5, 2.0, 3.0, 3.5, 3.5, 3.5
+$ Extraversion             &lt;dbl&gt; 2.0, 4.5, 4.0, 3.0, 3.5, 3.5, 3.0, 4.5, 5.0
+$ Gewissenhaftigkeit       &lt;dbl&gt; 2.5, 4.5, 3.0, 5.0, 4.0, 4.5, 3.5, 4.0, 3.0
+$ Offenheit                &lt;dbl&gt; 4.0, 3.0, 3.5, 1.5, 2.5, 1.5, 2.0, 2.5, 3.5
+$ Verträglichkeit          &lt;dbl&gt; 3.5, 2.5, 4.0, 3.5, 4.5, 4.5, 2.5, 2.5, 5.0
+$ RSES_RSES02R_Inv         &lt;dbl&gt; 3, 1, 2, 1, 2, 3, 2, 3, 1
+$ RSES_RSES05R_Inv         &lt;dbl&gt; 1, 1, 1, 1, 2, 2, 1, 3, 1
+$ RSES_RSES06R_Inv         &lt;dbl&gt; 2, 1, 3, 1, 2, 2, 1, 1, 1
+$ RSES_RSES08R_Inv         &lt;dbl&gt; 2, 2, 4, 1, 1, 3, 1, 3, 2
+$ RSES_RSES09R_Inv         &lt;dbl&gt; 1, 1, 2, 1, 1, 3, 1, 1, 1
+$ RSES_Score_raw           &lt;dbl&gt; 10, 3, 9, 3, 6, 12, 3, 8, 3
+$ RSES_Score               &lt;dbl&gt; 20, 27, 21, 27, 24, 18, 27, 22, 27
+$ DS                       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ AI                       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ FI                       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_Score               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ EAT8                     &lt;dbl&gt; 3.750, 2.000, 1.375, 3.000, 1.375, 4.250,…
+$ FFA13R_Inv               &lt;dbl&gt; 3, 1, 3, 3, 3, 1, 2, 2, 4
+$ FFA14                    &lt;dbl&gt; 36, 40, 35, 33, 36, 33, 36, 35, 38
+$ BMI                      &lt;dbl&gt; 28.72679, 25.59221, 23.79536, 21.60494, 1…
+$ Sport_keinSport          &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ SD_ind6                  &lt;dbl&gt; 0.9735626, 0.5931710, 0.7276293, 0.926262…
+$ SD_ind7                  &lt;dbl&gt; 1.0827104, 0.6161409, 0.9241541, 1.051913…
+$ z_ind_fitges             &lt;dbl&gt; 1.2952502, 1.0820036, 1.5767314, 1.349016…
+$ z_ind_figaus             &lt;dbl&gt; -0.0313853, -0.9365858, -0.8704065, -0.731733…
+$ z_ind_kon                &lt;dbl&gt; 0.24252279, 0.74926865, 1.14527177, -0.65…
+$ z_ind_ablkat             &lt;dbl&gt; 0.13980726, -0.09365858, -0.29777066, -0.…
+$ z_ind_aktfre             &lt;dbl&gt; 0.6533849, -0.3746343, 0.9620283, 0.34787…
+$ z_ind_wetlei             &lt;dbl&gt; 0.9101738, 1.5921959, 0.3893924, 1.877316…
+$ z_ind_aes                &lt;dbl&gt; -1.91450344, -0.93658581, -1.32851525, -0…
+$ fqs_kontakt_sportl       &lt;dbl&gt; 6.018276, 7.723455, 2.971056, 7.500959, 5…
+$ fqs_figurbew_aest        &lt;dbl&gt; 13.67681, 17.34804, 12.99239, 13.30058, 1…
+$ fqs_aktiv_erhol          &lt;dbl&gt; 5.098231, 11.127774, 5.717824, 9.781807, …
+$ fqs_erholungssuch_fit    &lt;dbl&gt; 9.353612, 15.939288, 10.836006, 11.879714…
+$ fqs_zweckfrei_sportbeg   &lt;dbl&gt; 13.083161, 12.427185, 8.214603, 11.114853…
+$ fqs_gesundheits_figo     &lt;dbl&gt; 8.128902, 14.325520, 9.944876, 12.197950,…
+$ fqs_fig_gesell           &lt;dbl&gt; 6.827138, 11.547403, 5.107793, 13.220550,…
+$ fqs_fig_stressreg        &lt;dbl&gt; 7.946568, 15.397513, 10.780712, 13.698015…
+$ fqs_erhol_sportl         &lt;dbl&gt; 10.467070, 12.906640, 8.697666, 9.625563,…
+$ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5…</code></pre>
 </div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="BIM_praxisprojekt_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="BIM_praxisprojekt_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Pseudonyme Codes:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">row_nr =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(row_nr, Code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 2
+  row_nr Code    
+   &lt;int&gt; &lt;chr&gt;   
+1      1 HALK1465
+2      2 ISDO380 
+3      3 LIMR0873
+4      4 MKN0677 
+5      5 AMHR2285
+6      6 AUUS3168
+7      7 eato1475
+8      8 LSNN2283
+9      9 usdn269 </code></pre>
+</div>
+</div>
 </section>
-<section id="das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport</h1>
+<section id="bmzi---das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> BMZI - Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport</h1>
 <ol start="19" type="a">
 <li><a href="https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf" class="uri">https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf</a></li>
 </ol>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"BMZI_FitGes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(BMZI_FitGes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 1
@@ -545,6 +556,137 @@ $ min_fqs                           &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.
 9        4.67</code></pre>
 </div>
 </div>
+<p>z-Werte berechnen:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(BMZI_FitGes) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 1
+  BMZI_FitGes
+        &lt;dbl&gt;
+1      0.879 
+2      0.333 
+3      0.606 
+4      0.606 
+5     -0.485 
+6     -0.212 
+7      0.0606
+8     -2.39  
+9      0.606 </code></pre>
+</div>
+</div>
+</section>
+<section id="ums---motivation---unified-motive-scales" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> UMS - Motivation - Unified Motive Scales</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(nAff,nPow, nAch)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+   nAff  nPow  nAch
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1  3    2      3   
+2  4    4.67   4.67
+3  3.33 1.33   3.67
+4  2.67 1      2.67
+5  3.67 1      3.33
+6  2.33 0.667  4   
+7  2.67 3      4.67
+8  2    3.33   4   
+9  3.67 2      4.33</code></pre>
+</div>
+</div>
+<section id="normwerte" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="normwerte"><span class="header-section-number">5.1</span> Normwerte</h2>
+<ol start="19" type="a">
+<li>Tab. 2 in <a href="https://www.psy.lmu.de/allg2/download/schoenbrodt/pub/ums_jrp.pdf" class="uri">https://www.psy.lmu.de/allg2/download/schoenbrodt/pub/ums_jrp.pdf</a></li>
+</ol>
+<p>Itemtexte: s. Tab. A1</p>
+</section>
+</section>
+<section id="who5---wohlbefinden" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> WHO5 - Wohlbefinden</h1>
+<section id="normwerte-1" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="normwerte-1"><span class="header-section-number">6.1</span> Normwerte</h2>
+<ol start="19" type="a">
+<li><a href="https://www.who.int/publications/m/item/WHO-UCN-MSD-MHE-2024.01" class="uri">https://www.who.int/publications/m/item/WHO-UCN-MSD-MHE-2024.01</a></li>
+</ol>
+<blockquote class="blockquote">
+<p>A percentage score below 50 (or a raw score below 13) has been suggested as a cut-off for poor mental well-being and as an indication for further assessment for the possible presence of a mental health condition (e.g., depressive disorder) [4].</p>
+</blockquote>
+<p><a href="https://cdn.who.int/media/docs/default-source/mental-health/who-5_english-original4da539d6ed4b49389e3afe47cda2326a.pdf?sfvrsn=ed43f352_11&amp;download=true">Quelle</a></p>
+</section>
+<section id="daten" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="daten"><span class="header-section-number">6.2</span> Daten</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(WHO5_Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 1
+  WHO5_Score
+       &lt;dbl&gt;
+1         13
+2         19
+3         18
+4         18
+5         15
+6         15
+7         17
+8          9
+9         16</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="few-16---fragebogen-zur-erfassung-des-körperlichen-wohlbefindens" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> FEW-16 - Fragebogen zur Erfassung des körperlichen Wohlbefindens</h1>
+<section id="normwerte-2" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="normwerte-2"><span class="header-section-number">7.1</span> Normwerte</h2>
+<ol start="19" type="a">
+<li>Tab 4 in Albani et al, <a href="https://github.com/sebastiansauer/Lehre/blob/main/26_SoSe/BIM/FEW16_Albani%20et%20al.%202006.pdf" class="uri">https://github.com/sebastiansauer/Lehre/blob/main/26_SoSe/BIM/FEW16_Albani%20et%20al.%202006.pdf</a></li>
+</ol>
+</section>
+<section id="daten-1" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="daten-1"><span class="header-section-number">7.2</span> Daten</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"few"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> . <span class="sc">-</span> <span class="dv">1</span>)) <span class="co"># 1 abziehen von allen Spalten</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 21
+  FEW16_Belastbarkeit1 FEW16_Vit1 FEW16_Ruhe1 FEW16_Vit2 FEW16_Belastbarkeit2
+                 &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;                &lt;dbl&gt;
+1                    3          4           3          3                    4
+2                    5          4           4          4                    5
+3                    4          2           3          3                    4
+4                    4          4           3          5                    5
+5                    4          2           3          1                    5
+6                    4          5           3          5                    4
+7                    3          3           2          3                    4
+8                    1          3           3          1                    2
+9                    4          2           4          3                    3
+# ℹ 16 more variables: FEW16_Ruhe2 &lt;dbl&gt;, FEW16_Genuss1 &lt;dbl&gt;,
+#   FEW16_Belastbarkeit3 &lt;dbl&gt;, FEW16_Vit3 &lt;dbl&gt;, FEW16_Belastbarkeit4 &lt;dbl&gt;,
+#   FEW16_Genuss2 &lt;dbl&gt;, FEW16_Vit4 &lt;dbl&gt;, FEW16_Genuss3 &lt;dbl&gt;,
+#   FEW16_Genuss4 &lt;dbl&gt;, FEW16_Ruhe3 &lt;dbl&gt;, FEW16_Ruhe4 &lt;dbl&gt;,
+#   FEW_Belastbarkeit &lt;dbl&gt;, FEW_Vitalität &lt;dbl&gt;, FEW_Genussfähigkeit &lt;dbl&gt;,
+#   FEW_innere_Ruhe &lt;dbl&gt;, FEW_Gesamt &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
 </section>
 
 </main>

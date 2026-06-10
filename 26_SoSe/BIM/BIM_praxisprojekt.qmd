@@ -1,5 +1,6 @@
 ---
 title: BIM-Sportskalen
+date: today
 format:
   html:
     number-sections: true
@@ -26,8 +27,16 @@ library(here)
 
 # Daten importieren
 
+Entweder lokal importieren - dann den richtigen Pfad zu den Daten eingeben:
+
 ```{r}
-spitzensport26 <- read_sav(paste0(here(),"/data/Spitzensport26_all.sav"))
+spitzensport26 <- read_sav(paste0(here(),"/data/spitzensport_anonym.sav")) # Hier IHREN Pfad eingeben!
+```
+
+Oder aus dem Internet holen:
+
+```{r}
+spitzensport26 <- read_sav("https://github.com/sebastiansauer/Lehre/raw/refs/heads/main/data/spitzensport_anonym.sav")
 ```
 
 # Erster Blick
@@ -43,15 +52,92 @@ vis_dat(spitzensport26)
 ```
 
 
-# Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport
+Pseudonyme Codes:
+
+```{r}
+spitzensport26 %>% 
+  mutate(row_nr = row_number()) %>% 
+  select(row_nr, Code)
+```
+
+
+# BMZI - Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport
 
 s. <https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf>
 
 
 ```{r}
 spitzensport26 %>% 
-  select("BMZI_FitGes")
+  select(BMZI_FitGes)
 ```
 
 
+z-Werte berechnen:
+
+```{r}
+spitzensport26 %>% 
+  select(BMZI_FitGes) %>% 
+  standardize()
+```
+
+
+
+# UMS - Motivation -  Unified Motive Scales
+
+
+```{r}
+spitzensport26 %>% 
+  select(nAff,nPow, nAch)
+```
+
+
+
+## Normwerte
+
+s. Tab. 2 in <https://www.psy.lmu.de/allg2/download/schoenbrodt/pub/ums_jrp.pdf>
+
+Itemtexte: s. Tab. A1
+
+
+
+
+# WHO5 - Wohlbefinden
+
+
+## Normwerte
+
+s. <https://www.who.int/publications/m/item/WHO-UCN-MSD-MHE-2024.01>
+
+
+>   A percentage score below 50 (or a raw score below 13) has been suggested as a cut-off
+for poor mental well-being and as an indication for further assessment for the possible
+presence of a mental health condition (e.g., depressive disorder) [4].
+
+
+[Quelle](https://cdn.who.int/media/docs/default-source/mental-health/who-5_english-original4da539d6ed4b49389e3afe47cda2326a.pdf?sfvrsn=ed43f352_11&download=true)
+
+
+## Daten
+
+```{r}
+spitzensport26 %>% 
+  select(WHO5_Score)
+```
+
+
+
+# FEW-16 - Fragebogen zur Erfassung des körperlichen Wohlbefindens
+
+## Normwerte
+
+s. Tab 4 in Albani et al, <https://github.com/sebastiansauer/Lehre/blob/main/26_SoSe/BIM/FEW16_Albani%20et%20al.%202006.pdf>
+
+
+## Daten
+
+```{r}
+spitzensport26 %>% 
+  select(starts_with("few")) %>% 
+  mutate(across(everything(), ~ . - 1)) # 1 abziehen von allen Spalten
+```
 
