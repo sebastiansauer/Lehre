@@ -1,0 +1,51 @@
+---
+title: BIM-Sportskalen
+---
+
+
+# Setup
+
+!Achtung: Pakete vorher noch (einmalig) installieren, falls noch nicht geschehen!
+
+```{r}
+library(tidyverse)
+library(easystats)
+# install.packages("haven")  für ".sav" Datendateien aus SPSS
+library(haven)
+library(labelled)
+library(visdat)
+```
+
+
+
+# Daten importieren
+
+```{r}
+spitzensport26 <- read_sav("data/Spitzensport26_all.sav")
+```
+
+# Erster Blick
+
+
+```{r}
+glimpse(spitzensport26)
+```
+
+
+```{r}
+vis_dat(spitzensport26)
+```
+
+
+# Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport
+
+s. <https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf>
+
+
+```{r}
+spitzensport26 %>% 
+  select("BMZI_FitGes")
+```
+
+
+
