@@ -389,3 +389,19 @@ bfi %>%
   kable()
 ```
 
+
+
+## Aufgabe
+
+2. Fügen Sie die z-Werte für Neurotizismus hinzu.
+3. Fügen Sie die Prozentwerte für den z-Wert hinzu.
+
+
+
+```{r}
+bfi %>% 
+  mutate(bfi_gewiss_z = (Gewissenhaftigkeit - 3.97) / 0.92) %>% 
+  mutate(bfi_gewiss_pr = pnorm(bfi_gewiss_z)) %>% 
+  select(contains("pr"))
+```
+

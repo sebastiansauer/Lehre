@@ -127,6 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#bfi" id="toc-bfi" class="nav-link" data-scroll-target="#bfi"><span class="header-section-number">10</span> BFI</a>
   <ul class="collapse">
   <li><a href="#aufgabe" id="toc-aufgabe" class="nav-link" data-scroll-target="#aufgabe"><span class="header-section-number">10.1</span> Aufgabe</a></li>
+  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link" data-scroll-target="#aufgabe-1"><span class="header-section-number">10.2</span> Aufgabe</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1220,6 +1221,36 @@ $ min_fqs                  &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.500959, 5
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+<section id="aufgabe-1" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="aufgabe-1"><span class="header-section-number">10.2</span> Aufgabe</h2>
+<ol start="2" type="1">
+<li>Fügen Sie die z-Werte für Neurotizismus hinzu.</li>
+<li>Fügen Sie die Prozentwerte für den z-Wert hinzu.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>bfi <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bfi_gewiss_z =</span> (Gewissenhaftigkeit <span class="sc">-</span> <span class="fl">3.97</span>) <span class="sc">/</span> <span class="fl">0.92</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bfi_gewiss_pr =</span> <span class="fu">pnorm</span>(bfi_gewiss_z)) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"pr"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 1
+  bfi_gewiss_pr
+          &lt;dbl&gt;
+1        0.0550
+2        0.718 
+3        0.146 
+4        0.869 
+5        0.513 
+6        0.718 
+7        0.305 
+8        0.513 
+9        0.146 </code></pre>
 </div>
 </div>
 </section>
