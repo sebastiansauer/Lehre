@@ -1,0 +1,11 @@
+- Demographie und sportbezogene Fragen (u.a. Trainingsumfang, Wettkampfebene u.v.m.)
+- BMZI- Sportbezogene Motivation. Das Verfahren ist eig. auf Freizeit-Gesundheitssport gemünzt, aber da kann man anschließend ein schönes Typenprofil zur Verfügung stellen als zusätzliches Dankeschön für’s Mitmachen – ggf. werde ich den Fragebogen abwandeln (ursprüngliche Motivation, anzufangen o.ä.)
+- UMS3 – Motivation u.a. in den Bereichen Leistung, Anschluss, Macht
+- WHO5 – generelles Wohlbefinden
+- FEW16 – körperliches Wohlbefinden
+- RSES - Selbstwert
+- BFI - Big-Five-Persönlichkeitsdimensionen
+- EDS – Sportsucht
+- MDDI – Muscle Dysmorphic Disorder (wird übersprungen, falls vorne keine Kraftsportart ausgewählt wurde)
+- EAT8 – Essverhalten
+- ein noch zu bestimmendes Stressmaß, z.B. Perceived Stress Scale
