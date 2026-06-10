@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>BIM-Sportskalen</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="BIM_praxisprojekt_files/libs/clipboard/clipboard.min.js"></script>
+<script src="BIM_praxisprojekt_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="BIM_praxisprojekt_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="BIM_praxisprojekt_files/libs/quarto-html/popper.min.js"></script>
+<script src="BIM_praxisprojekt_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="BIM_praxisprojekt_files/libs/quarto-html/anchor.min.js"></script>
+<link href="BIM_praxisprojekt_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="BIM_praxisprojekt_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="BIM_praxisprojekt_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="BIM_praxisprojekt_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="BIM_praxisprojekt_files/libs/bootstrap/bootstrap-3ecfba9f483a897421b20140373012a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">1</span> Setup</a></li>
+  <li><a href="#daten-importieren" id="toc-daten-importieren" class="nav-link" data-scroll-target="#daten-importieren"><span class="header-section-number">2</span> Daten importieren</a></li>
+  <li><a href="#erster-blick" id="toc-erster-blick" class="nav-link" data-scroll-target="#erster-blick"><span class="header-section-number">3</span> Erster Blick</a></li>
+  <li><a href="#das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" id="toc-das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" class="nav-link" data-scroll-target="#das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport"><span class="header-section-number">4</span> Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">BIM-Sportskalen</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="setup" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Setup</h1>
+<p>!Achtung: Pakete vorher noch (einmalig) installieren, falls noch nicht geschehen!</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code># Attaching packages: easystats 0.7.6
+✔ bayestestR  0.18.1   ✔ correlation 0.8.8 
+✔ datawizard  1.3.1    ✔ effectsize  1.0.2 
+✔ insight     1.5.1    ✔ modelbased  0.15.0
+✔ performance 0.17.0   ✔ parameters  0.29.1
+✔ report      0.6.4    ✔ see         0.14.0</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("haven")  für ".sav" Datendateien aus SPSS</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'labelled'
+
+Das folgende Objekt ist maskiert 'package:datawizard':
+
+    to_factor</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /home/sebastian-sauer/Dokumente/lehre</code></pre>
+</div>
+</div>
+</section>
+<section id="daten-importieren" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Daten importieren</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(),<span class="st">"/data/Spitzensport26_all.sav"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="erster-blick" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Erster Blick</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 9
+Columns: 316
+$ id                                &lt;dbl&gt; 13, 12, 4, 11, 3, 10, 5, 2, 21
+$ submitdate                        &lt;dttm&gt; 2026-04-07 23:17:58, 2026-03-31 10:3…
+$ lastpage                          &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13
+$ startlanguage                     &lt;chr&gt; "de", "de", "de", "de", "de", "de",…
+$ seed                              &lt;chr&gt; "768712036", "844051475", "756864239…
+$ startdate                         &lt;dttm&gt; 2026-04-07 22:30:37, 2026-03-31 10:0…
+$ datestamp                         &lt;dttm&gt; 2026-04-07 23:17:58, 2026-03-31 10:3…
+$ G14Q39                            &lt;chr+lbl&gt; "AO01", "AO01", "AO01", "AO01", "AO…
+$ Code                              &lt;chr&gt; "HALK1465", "ISDO380", "LIMR0873", …
+$ Alter                             &lt;dbl+lbl&gt; 19, 19, 19, 19, 20, 20, 20, 20, …
+$ Geschlecht                        &lt;dbl+lbl&gt; 2, 2, 1, 2, 1, 1, 2, 1, 1
+$ Geschlecht_Sonstiges              &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Schulabschluss                    &lt;dbl+lbl&gt; 4, 4, 4, 4, 5, 4, 3, 3, 4
+$ Körpergröße                       &lt;dbl+lbl&gt; 171, 179, 164, 180, 174, 169, 180, 1…
+$ Gewicht                           &lt;dbl+lbl&gt; 84, 82, 64, 70, 56, 71, 72, 66, …
+$ Primäre_Sportart                  &lt;dbl+lbl&gt; 13, 14, 13, 11,  6,  1, 14, 12, …
+$ Ball_Sportart                     &lt;dbl+lbl&gt;     NA,     NA,     NA,     NA,     …
+$ Ball_Sportart_Sonstiges           &lt;chr&gt; "", "", "", "", "", "Curling", "…
+$ Fitness_Sportart                  &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ Fitness_Sportart_Sonstiges        &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Kampfsportart                     &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ Kampfsportart_Sonstiges           &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Sportart_Laufen                   &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ Sportart_Laufen_sonstiges         &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Gesundheitssportart               &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ Gesundheitssportart_Sonstiges     &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Leichtathletik_Sportart           &lt;dbl+lbl&gt;     NA,     NA,     NA,     NA, 6666…
+$ Leichtathletik_Sportart_Sonstiges &lt;chr&gt; "", "", "", "", "Race Walking", …
+$ Bergsportart                      &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Bergsportart_Sonstiges            &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Motorsportart                     &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ Motorsportart_Sonstiges           &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Pferdesportart                    &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Pferdesportart_Sonstiges          &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Präzisionsportart                 &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ Präzisionsportart_Sonstiges       &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Radsportart                       &lt;dbl+lbl&gt; NA, NA, NA,  4, NA, NA, NA, NA, NA…
+$ Radsportart_Sonstiges             &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Rückschlagsportart                &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA,  1, …
+$ Rückschlagsportart_Sonstiges      &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Schießsportart                    &lt;dbl+lbl&gt;  2, NA,  3, NA, NA, NA, NA, NA, NA…
+$ Schießsportart_Sonstiges          &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Schwimmsportart                   &lt;dbl+lbl&gt; NA, 10, NA, NA, NA, NA,  9, NA, …
+$ Schwimmsportart_Sonstiges         &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Tanzsportart                      &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Tanzsportart_Sonstiges            &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Turnsportart                      &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ Turnsportart_Sonstiges            &lt;chr&gt; "", "", "", "", "", "", "", "", ""
+$ Kategorie_Primäre_Sportart        &lt;dbl+lbl&gt; 1, 2, 1, 1, 1, 3, 1, 1, 1
+$ Jahre_Sport                       &lt;dbl+lbl&gt; 15,  6, 12, 14, 10, 11, 14, 12, 18…
+$ Jahre_primäre_Sportart            &lt;dbl+lbl&gt; 16, 13, 10, 14,  7, 10, 14, 11, …
+$ Verein                            &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ Einheiten_Woche                   &lt;dbl+lbl&gt;  6,  5,  5,  6,  9, 10, 12, 11, 10…
+$ Stunden_Woche                     &lt;dbl+lbl&gt; 48, 10, 12, 20, 21, 29, 26, 24, …
+$ Wettkampf                         &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ Wettkampflevel                    &lt;dbl+lbl&gt; 5, 5, 5, 3, 5, 5, 3, 7, 5
+$ Wettzufrieden                     &lt;dbl+lbl&gt; 1, 4, 3, 4, 4, 3, 3, 3, 4
+$ Abbruch                           &lt;dbl+lbl&gt; 2, 2, 2, 2, 3, 2, 3, 2, 2
+$ Socialmedia                       &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ SocialmediaArt_SQ001              &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ SocialmediaArt_SQ002              &lt;dbl+lbl&gt; 1, 1, 1, 0, 0, 1, 1, 0, 1
+$ SocialmediaArt_SQ003              &lt;dbl+lbl&gt; 1, 1, 0, 1, 1, 0, 0, 0, 0
+$ SocialmediaArt_SQ004              &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 1, 1, 0
+$ SocialmediaArt_SQ005              &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ SocialMediaZeit                   &lt;dbl+lbl&gt; 3, 3, 3, 4, 2, 3, 3, 3, 3
+$ Schrittzahl                       &lt;dbl+lbl&gt; 0, 0, 0, 0, 1, 0, 1, 0, 0
+$ Schrittzahlestimate               &lt;dbl+lbl&gt; 4, 4, 3, 2, 7, 4, 4, 9, 5
+$ Tracker                           &lt;dbl+lbl&gt; 0, 0, 0, 1, 1, 0, 1, 1, 0
+$ Apps                              &lt;dbl+lbl&gt; 0, 0, 1, 0, 1, 0, 1, 1, 0
+$ AppZweck_SQ001                    &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 1
+$ AppZweck_SQ002                    &lt;dbl+lbl&gt; 1, 0, 0, 0, 0, 0, 0, 0, 0
+$ AppZweck_SQ003                    &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0
+$ AppZweck_SQ004                    &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ AppZweck_SQ005                    &lt;dbl+lbl&gt; 0, 1, 0, 0, 0, 1, 0, 0, 1
+$ AppZweck_SQ006                    &lt;dbl+lbl&gt; 0, 0, 1, 1, 0, 0, 0, 0, 0
+$ AppZweck_SQ007                    &lt;dbl+lbl&gt; 1, 1, 0, 1, 0, 1, 0, 0, 1
+$ AppZweck_SQ008                    &lt;dbl+lbl&gt; 1, 1, 1, 1, 0, 0, 0, 0, 0
+$ AppZweck_SQ009                    &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ suspicion_check                   &lt;chr&gt; "", "Ich versuche meine Aktivitäten …
+$ BMZI_fitges3                      &lt;dbl+lbl&gt; 5, 4, 5, 4, 3, 3, 4, 1, 5
+$ BMZI_kon3                         &lt;dbl+lbl&gt; 4, 4, 4, 2, 3, 4, 4, 2, 4
+$ BMZI_ablkat2                      &lt;dbl+lbl&gt; 4, 4, 4, 2, 2, 5, 2, 2, 3
+$ BMZI_aktfre3                      &lt;dbl+lbl&gt; 4, 3, 4, 2, 3, 4, 2, 1, 3
+$ BMZI_wetlei4                      &lt;dbl+lbl&gt; 4, 4, 1, 4, 2, 4, 5, 1, 4
+$ BMZI_figaus3                      &lt;dbl+lbl&gt; 2, 4, 2, 3, 2, 2, 4, 1, 3
+$ BMZI_aes2                         &lt;dbl+lbl&gt; 2, 4, 2, 2, 2, 3, 3, 1, 4
+$ BMZI_fitges2                      &lt;dbl+lbl&gt; 5, 5, 5, 5, 4, 4, 4, 1, 5
+$ BMZI_kon2                         &lt;dbl+lbl&gt; 2, 3, 4, 2, 2, 4, 3, 1, 4
+$ BMZI_ablkat3                      &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 5, 3, 3, 4
+$ BMZI_wetlei2                      &lt;dbl+lbl&gt; 4, 5, 4, 5, 4, 4, 5, 5, 3
+$ BMZI_figaus1                      &lt;dbl+lbl&gt; 4, 2, 2, 2, 1, 1, 1, 1, 1
+$ BMZI_kon4                         &lt;dbl+lbl&gt; 4, 4, 4, 3, 3, 3, 2, 1, 4
+$ BMZI_aes1                         &lt;dbl+lbl&gt; 1, 2, 2, 3, 4, 4, 2, 1, 4
+$ BMZI_fitges1                      &lt;dbl+lbl&gt; 5, 4, 4, 5, 3, 4, 4, 1, 4
+$ BMZI_wetlei1                      &lt;dbl+lbl&gt; 4, 4, 3, 5, 4, 4, 5, 5, 5
+$ BMZI_ablkat1                      &lt;dbl+lbl&gt; 3, 3, 1, 2, 1, 4, 1, 2, 2
+$ BMZI_aktfre2                      &lt;dbl+lbl&gt; 4, 5, 5, 4, 5, 4, 2, 1, 4
+$ BMZI_kon1                         &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 3, 2, 1, 4
+$ BMZI_aktfre1                      &lt;dbl+lbl&gt; 4, 2, 2, 4, 2, 3, 2, 1, 2
+$ BMZI_figaus2                      &lt;dbl+lbl&gt; 4, 3, 3, 2, 2, 1, 2, 1, 2
+$ BMZI_wetlei3                      &lt;dbl+lbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5
+$ BMZI_ablkat4                      &lt;dbl+lbl&gt; 4, 3, 3, 4, 1, 5, 2, 1, 2
+$ BMZI_kon5                         &lt;dbl+lbl&gt; 5, 5, 4, 2, 3, 4, 2, 1, 3
+$ UMS31_Fear2                       &lt;dbl+lbl&gt; 5, 2, 3, 2, 3, 4, 2, 2, 1
+$ UMS31_Int3                        &lt;dbl+lbl&gt; 3, 4, 4, 4, 4, 3, 4, 5, 5
+$ UMS31_Pow3                        &lt;dbl+lbl&gt; 4, 5, 4, 2, 4, 2, 5, 5, 2
+$ UMS31_Aff3                        &lt;dbl+lbl&gt; 4, 5, 5, 4, 5, 4, 4, 5, 5
+$ UMS31_Fear3                       &lt;dbl+lbl&gt; 5, 1, 5, 3, 2, 4, 3, 2, 2
+$ UMS31_Aff1                        &lt;dbl+lbl&gt; 4, 5, 4, 3, 4, 2, 4, 2, 4
+$ UMS31_Fear1                       &lt;dbl+lbl&gt; 4, 2, 5, 2, 1, 5, 2, 4, 4
+$ UMS32_Ach3                        &lt;dbl+lbl&gt; 4, 5, 4, 4, 4, 4, 5, 4, 5
+$ UMS32_Aff2                        &lt;dbl+lbl&gt; 4, 5, 4, 4, 5, 4, 3, 2, 5
+$ UMS32_Pow1                        &lt;dbl+lbl&gt; 1, 6, 1, 2, 1, 1, 3, 4, 3
+$ UMS32_Ach2                        &lt;dbl+lbl&gt; 3, 6, 5, 3, 4, 6, 6, 6, 5
+$ UMS32_Int2                        &lt;dbl+lbl&gt; 4, 4, 5, 6, 4, 4, 2, 5, 5
+$ UMS32_Pow2                        &lt;dbl+lbl&gt; 4, 6, 2, 2, 1, 2, 4, 4, 4
+$ UMS32_Ach1                        &lt;dbl+lbl&gt; 5, 6, 5, 4, 5, 5, 6, 5, 6
+$ UMS32_Int1                        &lt;dbl+lbl&gt; 2, 5, 5, 6, 5, 3, 4, 5, 6
+$ WHO5_SQ001                        &lt;dbl+lbl&gt; 3, 4, 4, 4, 3, 4, 4, 3, 5
+$ WHO5_SQ002                        &lt;dbl+lbl&gt; 4, 2, 3, 4, 2, 2, 3, 1, 4
+$ WHO5_SQ003                        &lt;dbl+lbl&gt; 2, 4, 4, 3, 4, 3, 4, 2, 4
+$ WHO5_SQ004                        &lt;dbl+lbl&gt; 2, 4, 2, 3, 2, 2, 2, 1, 2
+$ WHO5_SQ005                        &lt;dbl+lbl&gt; 2, 5, 5, 4, 4, 4, 4, 2, 1
+$ FEW16_Belastbarkeit1              &lt;dbl+lbl&gt; 4, 6, 5, 5, 5, 5, 4, 2, 5
+$ FEW16_Vit1                        &lt;dbl+lbl&gt; 5, 5, 3, 5, 3, 6, 4, 4, 3
+$ FEW16_Ruhe1                       &lt;dbl+lbl&gt; 4, 5, 4, 4, 4, 4, 3, 4, 5
+$ FEW16_Vit2                        &lt;dbl+lbl&gt; 4, 5, 4, 6, 2, 6, 4, 2, 4
+$ FEW16_Belastbarkeit2              &lt;dbl+lbl&gt; 5, 6, 5, 6, 6, 5, 5, 3, 4
+$ FEW16_Ruhe2                       &lt;dbl+lbl&gt; 3, 4, 4, 6, 4, 4, 5, 3, 5
+$ FEW16_Genuss1                     &lt;dbl+lbl&gt; 4, 6, 4, 5, 5, 4, 5, 4, 5
+$ FEW16_Belastbarkeit3              &lt;dbl+lbl&gt; 5, 6, 5, 5, 6, 5, 6, 4, 5
+$ FEW16_Vit3                        &lt;dbl+lbl&gt; 4, 5, 3, 6, 3, 6, 4, 3, 3
+$ FEW16_Belastbarkeit4              &lt;dbl+lbl&gt; 5, 6, 5, 6, 6, 6, 6, 5, 6
+$ FEW16_Genuss2                     &lt;dbl+lbl&gt; 5, 5, 5, 4, 3, 5, 5, 2, 4
+$ FEW16_Vit4                        &lt;dbl+lbl&gt; 3, 6, 3, 6, 3, 5, 4, 2, 4
+$ FEW16_Genuss3                     &lt;dbl+lbl&gt; 6, 4, 4, 4, 4, 5, 6, 5, 6
+$ FEW16_Genuss4                     &lt;dbl+lbl&gt; 3, 5, 3, 5, 5, 5, 5, 5, 4
+$ FEW16_Ruhe3                       &lt;dbl+lbl&gt; 4, 3, 5, 5, 4, 4, 5, 3, 4
+$ FEW16_Ruhe4                       &lt;dbl+lbl&gt; 4, 5, 4, 6, 4, 5, 6, 4, 4
+$ RSES_RSES01                       &lt;dbl+lbl&gt; 3, 2, 2, 2, 2, 2, 1, 2, 2
+$ RSES_RSES02R                      &lt;dbl+lbl&gt; 2, 4, 3, 4, 3, 2, 3, 2, 4
+$ RSES_RSES03                       &lt;dbl+lbl&gt; 2, 1, 1, 2, 2, 1, 2, 1, 1
+$ RSES_RSES04                       &lt;dbl+lbl&gt; 1, 1, 1, 2, 1, 2, 2, 1, 2
+$ RSES_RSES05R                      &lt;dbl+lbl&gt; 4, 4, 4, 4, 3, 3, 4, 2, 4
+$ RSES_RSES06R                      &lt;dbl+lbl&gt; 3, 4, 2, 4, 3, 3, 4, 4, 4
+$ RSES_RSES07                       &lt;dbl+lbl&gt; 2, 1, 1, 1, 1, 1, 1, 1, 1
+$ RSES_RSES08R                      &lt;dbl+lbl&gt; 3, 3, 1, 4, 4, 2, 4, 2, 3
+$ RSES_RSES09R                      &lt;dbl+lbl&gt; 4, 4, 3, 4, 4, 2, 4, 4, 4
+$ RSES_RSES10                       &lt;dbl+lbl&gt; 3, 2, 2, 1, 2, 3, 1, 2, 1
+$ BFI_E1R                           &lt;dbl+lbl&gt; 4, 1, 2, 2, 3, 3, 4, 1, 1
+$ BFI_V1                            &lt;dbl+lbl&gt; 3, 4, 4, 4, 4, 5, 3, 3, 5
+$ BFI_G1R                           &lt;dbl+lbl&gt; 4, 1, 4, 1, 3, 2, 3, 3, 3
+$ BFI_N1R                           &lt;dbl+lbl&gt; 4, 4, 2, 3, 4, 4, 2, 2, 4
+$ BFI_O1R                           &lt;dbl+lbl&gt; 2, 4, 3, 4, 3, 5, 5, 4, 3
+$ BFI_E2                            &lt;dbl+lbl&gt; 2, 4, 4, 2, 4, 4, 4, 4, 5
+$ BFI_V2R                           &lt;dbl+lbl&gt; 2, 5, 2, 3, 1, 2, 4, 4, 1
+$ BFI_G2                            &lt;dbl+lbl&gt; 3, 4, 4, 5, 5, 5, 4, 5, 3
+$ BFI_N2                            &lt;dbl+lbl&gt; 3, 2, 2, 2, 2, 4, 3, 3, 5
+$ BFI_O2                            &lt;dbl+lbl&gt; 4, 4, 4, 1, 2, 2, 3, 3, 4
+$ EDS_EDS1                          &lt;dbl+lbl&gt; 2, 4, 2, 2, 1, 4, 1, 2, 3
+$ EDS_EDS2                          &lt;dbl+lbl&gt; 3, 3, 2, 1, 3, 5, 3, 5, 3
+$ EDS_EDS3                          &lt;dbl+lbl&gt; 2, 4, 3, 5, 4, 5, 5, 4, 5
+$ EDS_EDS4                          &lt;dbl+lbl&gt; 1, 4, 1, 5, 3, 3, 3, 2, 2
+$ EDS_EDS5                          &lt;dbl+lbl&gt; 3, 3, 1, 4, 2, 2, 4, 2, 2
+$ EDS_EDS6                          &lt;dbl+lbl&gt; 5, 5, 3, 5, 5, 5, 5, 4, 5
+$ EDS_EDS7                          &lt;dbl+lbl&gt; 4, 4, 3, 3, 2, 3, 3, 2, 2
+$ EDS_EDS8                          &lt;dbl+lbl&gt; 2, 4, 1, 1, 1, 1, 1, 1, 1
+$ EDS_EDS9                          &lt;dbl+lbl&gt; 2, 4, 1, 3, 3, 5, 3, 3, 4
+$ EDS_EDS10                         &lt;dbl+lbl&gt; 3, 4, 3, 5, 4, 4, 5, 4, 5
+$ EDS_EDS11                         &lt;dbl+lbl&gt; 2, 5, 1, 2, 2, 4, 2, 3, 4
+$ EDS_EDS12                         &lt;dbl+lbl&gt; 4, 5, 4, 3, 3, 4, 4, 3, 4
+$ EDS_EDS13                         &lt;dbl+lbl&gt; 4, 4, 4, 5, 4, 3, 5, 5, 4
+$ EDS_EDS14                         &lt;dbl+lbl&gt; 4, 4, 3, 2, 4, 3, 4, 2, 4
+$ EDS_EDS15                         &lt;dbl+lbl&gt; 3, 4, 3, 3, 2, 4, 3, 1, 2
+$ EDS_EDS16                         &lt;dbl+lbl&gt; 2, 4, 1, 2, 3, 4, 3, 5, 4
+$ EDS_EDS17                         &lt;dbl+lbl&gt; 2, 4, 3, 5, 4, 4, 3, 4, 5
+$ EDS_EDS18                         &lt;dbl+lbl&gt; 3, 4, 1, 2, 2, 3, 2, 3, 4
+$ EDS_EDS19                         &lt;dbl+lbl&gt; 2, 2, 1, 1, 1, 1, 2, 1, 1
+$ EDS_EDS20                         &lt;dbl+lbl&gt; 5, 4, 4, 5, 4, 4, 5, 5, 5
+$ EDS_EDS21                         &lt;dbl+lbl&gt; 4, 4, 2, 1, 4, 3, 4, 3, 5
+$ MDDI_DS1                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ MDDI_AI1                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ MDDI_AI2                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ MDDI_DS2                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ MDDI_DS3                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ MDDI_DS4                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ MDDI_AI3                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ MDDI_DS5                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ MDDI_AI4                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ MDDI_FI1                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ MDDI_FI2                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ MDDI_FI3                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ MDDI_FI4                          &lt;dbl+lbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, …
+$ EAT_EAT1                          &lt;dbl+lbl&gt; 3, 2, 1, 3, 1, 5, 1, 1, 1
+$ EAT_EAT2                          &lt;dbl+lbl&gt; 2, 1, 1, 2, 2, 3, 1, 1, 1
+$ EAT_EAT3                          &lt;dbl+lbl&gt; 4, 2, 2, 1, 1, 4, 1, 1, 1
+$ EAT_EAT4                          &lt;dbl+lbl&gt; 3, 2, 1, 2, 1, 4, 1, 1, 1
+$ EAT_EAT5                          &lt;dbl+lbl&gt; 4, 4, 1, 4, 2, 5, 1, 3, 1
+$ EAT_EAT6                          &lt;dbl+lbl&gt; 3, 1, 3, 6, 1, 5, 1, 1, 1
+$ EAT_EAT7                          &lt;dbl+lbl&gt; 5, 1, 1, 1, 1, 4, 1, 1, 1
+$ EAT_EAT8                          &lt;dbl+lbl&gt; 6, 3, 1, 5, 2, 4, 1, 1, 1
+$ FFI14_FFI1                        &lt;dbl+lbl&gt; 3, 3, 3, 4, 3, 3, 3, 2, 3
+$ FFI14_FFI2                        &lt;dbl+lbl&gt; 3, 3, 2, 2, 2, 1, 2, 2, 2
+$ FFI14_FF3                         &lt;dbl+lbl&gt; 2, 3, 3, 2, 3, 2, 3, 3, 2
+$ FFI14_FF4                         &lt;dbl+lbl&gt; 3, 4, 2, 3, 3, 3, 3, 3, 3
+$ FFI14_FFI5                        &lt;dbl+lbl&gt; 2, 3, 2, 2, 2, 3, 2, 3, 3
+$ FFI14_FFI6                        &lt;dbl+lbl&gt; 2, 3, 2, 3, 2, 2, 2, 2, 3
+$ FFI14_FFI7                        &lt;dbl+lbl&gt; 2, 3, 2, 3, 3, 2, 3, 2, 3
+$ FFI14_FFI8                        &lt;dbl+lbl&gt; 3, 3, 3, 2, 3, 3, 3, 3, 3
+$ FFI14_FFI9                        &lt;dbl+lbl&gt; 2, 2, 3, 1, 3, 2, 3, 2, 2
+$ FFI14_FFI10                       &lt;dbl+lbl&gt; 2, 3, 2, 1, 3, 3, 3, 3, 2
+$ FFI14_FFI11                       &lt;dbl+lbl&gt; 3, 4, 2, 2, 2, 2, 3, 3, 2
+$ FFI14_FFI12                       &lt;dbl+lbl&gt; 3, 3, 3, 2, 2, 3, 2, 3, 2
+$ FFI14_FFI13R                      &lt;dbl+lbl&gt; 2, 4, 2, 2, 2, 4, 3, 3, 1
+$ FFI14_FFI14                       &lt;dbl+lbl&gt; 3, 2, 3, 3, 2, 3, 2, 2, 4
+$ nAff                              &lt;dbl&gt; 3.000000, 4.000000, 3.333333, 2.6666…
+$ nPow                              &lt;dbl&gt; 2.0000000, 4.6666667, 1.3333333,…
+$ nAch                              &lt;dbl&gt; 3.000000, 4.666667, 3.666667, 2.…
+$ UMS_Fear                          &lt;dbl&gt; 3.6666667, 0.6666667, 3.3333333,…
+$ WHO5_Score                        &lt;dbl&gt; 13, 19, 18, 18, 15, 15, 17, 9, 16
+$ FEW_Belastbarkeit                 &lt;dbl&gt; 4.75, 6.00, 5.00, 5.50, 5.75, 5.…
+$ FEW_Vitalität                     &lt;dbl&gt; 4.00, 5.25, 3.25, 5.75, 2.75, 5.…
+$ FEW_Genussfähigkeit               &lt;dbl&gt; 4.50, 5.00, 4.00, 4.50, 4.25, 4.…
+$ FEW_innere_Ruhe                   &lt;dbl&gt; 3.75, 4.25, 4.25, 5.25, 4.00, 4.…
+$ FEW_Gesamt                        &lt;dbl&gt; 4.2500, 5.1250, 4.1250, 5.2500, …
+$ EDS_Score                         &lt;dbl&gt; 2.952381, 3.952381, 2.238095, 3.…
+$ EDS_Withdrawal                    &lt;dbl&gt; 2.333333, 4.000000, 2.000000, 2.…
+$ EDS_Continuance                   &lt;dbl&gt; 2.333333, 3.666667, 1.333333, 2.…
+$ EDS_Tolerance                     &lt;dbl&gt; 2.333333, 4.000000, 3.000000, 5.…
+$ EDS_Lack_Control                  &lt;dbl&gt; 2.000000, 4.333333, 1.000000, 3.…
+$ EDS_Reduction_Activities          &lt;dbl&gt; 3.000000, 3.333333, 2.000000, 2.…
+$ EDS_Time                          &lt;dbl&gt; 4.666667, 4.333333, 3.666667, 5.…
+$ EDS_Intention_Effects             &lt;dbl&gt; 4.000000, 4.000000, 2.666667, 2.…
+$ withde                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ withs                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ withas                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ contde                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ conts                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ contas                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ tolde                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ tols                              &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ tolas                             &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ lackde                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ lacks                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ lackas                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ reducde                           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ reducs                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ reducas                           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ timede                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ times                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ timeas                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ intde                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ ints                              &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ intas                             &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ dep                               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ depend                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ sym                               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ sympt1                            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ sympt                             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ asy                               &lt;dbl&gt; 7, 7, 7, 7, 7, 7, 7, 7, 7
+$ asympt                            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ ed                                &lt;dbl&gt; 3, 3, 3, 3, 3, 3, 3, 3, 3
+$ BMZI_FitGes                       &lt;dbl&gt; 5.000000, 4.333333, 4.666667, 4.…
+$ BMZI_FigAus                       &lt;dbl&gt; 3.333333, 3.000000, 2.333333, 2.…
+$ BMZI_Kon                          &lt;dbl&gt; 3.6, 4.0, 3.8, 2.4, 2.6, 3.6, 2.…
+$ BMZI_AblKat                       &lt;dbl&gt; 3.50, 3.50, 2.75, 2.75, 1.50, 4.…
+$ BMZI_AktFre                       &lt;dbl&gt; 4.000000, 3.333333, 3.666667, 3.…
+$ BMZI_WetLei                       &lt;dbl&gt; 4.25, 4.50, 3.25, 4.75, 3.75, 4.…
+$ BMZI_Aes                          &lt;dbl&gt; 1.5, 3.0, 2.0, 2.5, 3.0, 3.5, 2.…
+$ BMZI_Mittel_Ind6                  &lt;dbl&gt; 3.363889, 3.555556, 2.966667, 3.…
+$ BMZI_Mittel_Ind7                  &lt;dbl&gt; 3.597619, 3.666667, 3.209524, 3.…
+$ BFI_E1R_Inv                       &lt;dbl&gt; 2, 5, 4, 4, 3, 3, 2, 5, 5
+$ BFI_G1R_Inv                       &lt;dbl&gt; 2, 5, 2, 5, 3, 4, 3, 3, 3
+$ BFI_N1R_Inv                       &lt;dbl&gt; 2, 2, 4, 3, 2, 2, 4, 4, 2
+$ BFI_O1R_Inv                       &lt;dbl&gt; 4, 2, 3, 2, 3, 1, 1, 2, 3
+$ BFI_V2R_Inv                       &lt;dbl&gt; 4, 1, 4, 3, 5, 4, 2, 2, 5
+$ Neurotizismus                     &lt;dbl&gt; 2.5, 2.0, 3.0, 2.5, 2.0, 3.0, 3.…
+$ Extraversion                      &lt;dbl&gt; 2.0, 4.5, 4.0, 3.0, 3.5, 3.5, 3.…
+$ Gewissenhaftigkeit                &lt;dbl&gt; 2.5, 4.5, 3.0, 5.0, 4.0, 4.5, 3.…
+$ Offenheit                         &lt;dbl&gt; 4.0, 3.0, 3.5, 1.5, 2.5, 1.5, 2.…
+$ Verträglichkeit                   &lt;dbl&gt; 3.5, 2.5, 4.0, 3.5, 4.5, 4.5, 2.…
+$ RSES_RSES02R_Inv                  &lt;dbl&gt; 3, 1, 2, 1, 2, 3, 2, 3, 1
+$ RSES_RSES05R_Inv                  &lt;dbl&gt; 1, 1, 1, 1, 2, 2, 1, 3, 1
+$ RSES_RSES06R_Inv                  &lt;dbl&gt; 2, 1, 3, 1, 2, 2, 1, 1, 1
+$ RSES_RSES08R_Inv                  &lt;dbl&gt; 2, 2, 4, 1, 1, 3, 1, 3, 2
+$ RSES_RSES09R_Inv                  &lt;dbl&gt; 1, 1, 2, 1, 1, 3, 1, 1, 1
+$ RSES_Score_raw                    &lt;dbl&gt; 10, 3, 9, 3, 6, 12, 3, 8, 3
+$ RSES_Score                        &lt;dbl&gt; 20, 27, 21, 27, 24, 18, 27, 22, 27
+$ DS                                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ AI                                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ FI                                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ MDDI_Score                        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA
+$ EAT8                              &lt;dbl&gt; 3.750, 2.000, 1.375, 3.000, 1.375, 4…
+$ FFA13R_Inv                        &lt;dbl&gt; 3, 1, 3, 3, 3, 1, 2, 2, 4
+$ FFA14                             &lt;dbl&gt; 36, 40, 35, 33, 36, 33, 36, 35, 38
+$ BMI                               &lt;dbl&gt; 28.72679, 25.59221, 23.79536, 21…
+$ Sport_keinSport                   &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ SD_ind6                           &lt;dbl&gt; 0.9735626, 0.5931710, 0.7276293,…
+$ SD_ind7                           &lt;dbl&gt; 1.0827104, 0.6161409, 0.9241541,…
+$ z_ind_fitges                      &lt;dbl&gt; 1.2952502, 1.0820036, 1.5767314,…
+$ z_ind_figaus                      &lt;dbl&gt; -0.0313853, -0.9365858, -0.87040…
+$ z_ind_kon                         &lt;dbl&gt; 0.24252279, 0.74926865, 1.145271…
+$ z_ind_ablkat                      &lt;dbl&gt; 0.13980726, -0.09365858, -0.2977…
+$ z_ind_aktfre                      &lt;dbl&gt; 0.6533849, -0.3746343, 0.9620283…
+$ z_ind_wetlei                      &lt;dbl&gt; 0.9101738, 1.5921959, 0.3893924,…
+$ z_ind_aes                         &lt;dbl&gt; -1.91450344, -0.93658581, -1.328…
+$ fqs_kontakt_sportl                &lt;dbl&gt; 6.018276, 7.723455, 2.971056, 7.…
+$ fqs_figurbew_aest                 &lt;dbl&gt; 13.67681, 17.34804, 12.99239, 13…
+$ fqs_aktiv_erhol                   &lt;dbl&gt; 5.098231, 11.127774, 5.717824, 9…
+$ fqs_erholungssuch_fit             &lt;dbl&gt; 9.353612, 15.939288, 10.836006, …
+$ fqs_zweckfrei_sportbeg            &lt;dbl&gt; 13.083161, 12.427185, 8.214603, …
+$ fqs_gesundheits_figo              &lt;dbl&gt; 8.128902, 14.325520, 9.944876, 1…
+$ fqs_fig_gesell                    &lt;dbl&gt; 6.827138, 11.547403, 5.107793, 1…
+$ fqs_fig_stressreg                 &lt;dbl&gt; 7.946568, 15.397513, 10.780712, …
+$ fqs_erhol_sportl                  &lt;dbl&gt; 10.467070, 12.906640, 8.697666, …
+$ min_fqs                           &lt;dbl&gt; 5.098231, 7.723455, 2.971056, 7.…</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(spitzensport26)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="BIM_praxisprojekt_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="das-berner-motiv--und-zielinventar-im-freizeitund-gesundheitssport" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Das Berner Motiv- und Zielinventar im Freizeitund Gesundheitssport</h1>
+<ol start="19" type="a">
+<li><a href="https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf" class="uri">https://www.zssw.unibe.ch/befragungen/sportberatung/BMZI_klein.pdf</a></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>spitzensport26 <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"BMZI_FitGes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 1
+  BMZI_FitGes
+        &lt;dbl&gt;
+1        5   
+2        4.33
+3        4.67
+4        4.67
+5        3.33
+6        3.67
+7        4   
+8        1   
+9        4.67</code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

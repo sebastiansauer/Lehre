@@ -1,5 +1,10 @@
 ---
 title: BIM-Sportskalen
+format:
+  html:
+    number-sections: true
+    toc: true
+    code-fold: true
 ---
 
 
@@ -14,6 +19,7 @@ library(easystats)
 library(haven)
 library(labelled)
 library(visdat)
+library(here)
 ```
 
 
@@ -21,7 +27,7 @@ library(visdat)
 # Daten importieren
 
 ```{r}
-spitzensport26 <- read_sav("data/Spitzensport26_all.sav")
+spitzensport26 <- read_sav(paste0(here(),"/data/Spitzensport26_all.sav"))
 ```
 
 # Erster Blick
