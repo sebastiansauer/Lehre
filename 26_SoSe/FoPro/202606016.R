@@ -1,15 +1,10 @@
 #20260616
 
 
-data_path <- "https://raw.githubusercontent.com/sebastiansauer/pradadata/refs/heads/master/data-raw/extra.csv"
-
 
 library(tidyverse)
 
-
-extra_raw <- read_csv(data_path)
-
-
+# Zeitdauer der Bearbeitung der Umfrage (pro Versuchsperson) berechnen:
 
 d_raw <-
   tibble(
