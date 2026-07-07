@@ -165,11 +165,15 @@ Das klappt wenn die wahre Verteilung des Effekts etwa der Prior-Verteilung etnsp
 Bei starkem ("informativem") Prior, der weit weg von der Wahrheit ist, wird die Coverage falsch, z.B. 
 
 
-`prior = normal(0, 0.2)` mit `true_beta = 1`
+`prior = normal(0, 0.2)` mit `true_beta = 2`
+
+```{r}
+true_beta = 2
+```
 
 
 ```{r coverages-breaks100}
-check_coverage(n = 100, true_beta = 1, prior = normal(0, 0.2))  # informativer Prior, θ weit weg, im Schwanz
+check_coverage(n = 100, true_beta = true_beta, prior = normal(0, 0.2))  # informativer Prior, θ weit weg, im Schwanz
 ```
 
 So ein Modell wird nicht kalibriert sein.
@@ -177,7 +181,7 @@ So ein Modell wird nicht kalibriert sein.
 
 ```{r coverage-breaks-ns}
 tic()
-check_coverage(n = ns, true_beta = 1, prior = normal(0, 0.2)) 
+check_coverage(n = ns, true_beta = true_beta, prior = normal(0, 0.2)) 
 data.frame(n = ns, coverage = cov)
 toc()
 ```
@@ -186,7 +190,6 @@ toc()
 Das heißt: Bei einem schlecht kalibrierten Modell gilt: Wir werden häufiger Fehler machen bei der Entscheidung, die H0 zu verwerfen.
 
 # Problem - Der Effekt ist nicht fix
-
 
 Der Effekt (beta) ist aber nicht fix - wir wissen ihn nicht genau. 100% der Wahrscheinlichkeit auf einen
 einzelnen Punkt zu setzen, was wir bisher getan haben, ist nicht realistisch.
@@ -198,7 +201,7 @@ Also los:
 
 
 ```{r multiple-betas}
-betas <- c(0, 0.3, 0.6, 1)
+betas <- c(0, 0.5, 1, 2)
 # milder Prior (flacher Fall, alle ~0.95 also kalibriert)
 
 sapply(betas, function(b) check_coverage(n = 100, true_beta = b, reps = 200))
@@ -233,7 +236,7 @@ Jetzt die `betas` übergeben:
 
 
 ```{r rund-grid-coverage-mild-vs-scharf}
-betas <- c(0, 0.5, 1)
+betas <- c(0, 0.5, 1, 2)
 
 set.seed(123)
 res <- rbind(
