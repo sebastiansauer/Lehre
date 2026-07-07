@@ -32,16 +32,18 @@ Das ist das Thema dieser Untersuchung.
 
 ```{r load-libs}
 library(tidyverse)
-library(rstanarm)
-library(tictoc)
+library(rstanarm)  # Bayes
+library(tictoc)  # Zeitmessung
 ```
 
 
-# Nullhyp testen
+# Nullhypothese testen
 
 ## H0 wahr
 
-Wenn die H0 wahr ist, dann wird sie in 95% richtig erkannt werden und in 5% der Fälle falsch erkannt werden
+Wenn die H0 wahr ist, dann wird sie in 95% richtig erkannt werden und in 5% der Fälle falsch erkannt werden 
+(wenn der Test richtig kalibriert ist - wenn das tatsächliche Alphafehler gleich dem nominellen ist).
+
 ```{r simo-h0-true}
 set.seed(1)
 rate <- function(n, reps = 5000) {
@@ -54,10 +56,11 @@ sapply(c(50, 500, 5000, 50000), rate)
 #> ~0.05  0.05  0.05  0.05  -- konstant, n ist egal
 ```
 
+Wie man sieht, ist der Test kalibriert: Das faktische Alphaniveau entspricht dem tatsächlichen, wie die Simulation zeigt.
 
 ## H0 falsch, auch nur ein kleines, kleines bisschen
 
-Wenn die H0 aber auch nur ein kleines bisschen falsch ist, wird - bei großem *n* - der Test immer signifikant werden.
+Wenn die H0 aber auch nur ein kleines bisschen falsch ist, wird - bei großem *n* - der Test *immer* signifikant werden.
 
 ```{r simu-h0-false}
 set.seed(1)
@@ -67,7 +70,7 @@ rate <- function(n, reps = 5000) {
     t.test(x, y)$p.value < 0.05
   }))
 }
-sapply(c(50, 500, 5000, 50000), rate)
+sapply(c(50, 500, 5000, 50000), rate)  # verschiedene N
 
 ```
 
@@ -75,7 +78,9 @@ sapply(c(50, 500, 5000, 50000), rate)
 # Kalibrierung von Bayesmodellen testen
 
 
-Geschwindigkeitstest für die Berechnung eines einzelnen Modells:
+Geschwindigkeitstest für die Berechnung eines einzelnen Modells
+mit einem Effekt von `beta = 0.3`.
+Wir nutzen eine typische Priori-Verteilung: N(0, 2.5).
 
 ```{r}
 one_fit <- function(n, true_beta = 0.3, level = 0.95) {
@@ -102,7 +107,7 @@ one_fit <- function(n, true_beta = 0.3, level = 0.95,
   x <- rnorm(n)
   y <- true_beta * x + rnorm(n)
   fit <- stan_glm(y ~ x, data = data.frame(x, y),
-                  chains = 2, iter = 1000, refresh = 0,
+                  chains = 2, iter = 800, refresh = 0,
                   prior = prior)
   ci <- posterior_interval(fit, prob = level, pars = "x")
   ci[1] <= true_beta && true_beta <= ci[2]
@@ -111,6 +116,8 @@ one_fit <- function(n, true_beta = 0.3, level = 0.95,
 
 
 Funktion definieren, hier mit `reps = 200`.
+Eine größere Zahl wäre besser,
+braucht aber mehr Rechenzeit.
 
 ```{r}
 check_coverage <- function(n, true_beta = 0.3, reps = 200, level = 0.95,
@@ -126,6 +133,7 @@ check_coverage <- function(n, true_beta = 0.3, reps = 200, level = 0.95,
 
 Jetzt prüfen mit ienem fixen Wert für `n` oder für mehrere `ns` (dauert länger)
 
+Der wahre Effekt liegt wieder bei `beta = 0.3`.
 
 
 ```{r coverage100}
@@ -164,6 +172,9 @@ Bei starkem ("informativem") Prior, der weit weg von der Wahrheit ist, wird die 
 check_coverage(n = 100, true_beta = 1, prior = normal(0, 0.2))  # informativer Prior, θ weit weg, im Schwanz
 ```
 
+So ein Modell wird nicht kalibriert sein.
+
+
 ```{r coverage-breaks-ns}
 tic()
 check_coverage(n = ns, true_beta = 1, prior = normal(0, 0.2)) 
@@ -172,22 +183,23 @@ toc()
 ```
 
 
-Das heißt: Wir werden häufiger Fehler machen bei der Entscheidung, die H0 zu verwerfen.
+Das heißt: Bei einem schlecht kalibrierten Modell gilt: Wir werden häufiger Fehler machen bei der Entscheidung, die H0 zu verwerfen.
 
-# Problem - theta ist nicht fix
-
-
-Der Effekt (theta) ist aber nicht fix - wir wissen ihn nicht genau. 100% der Wahrscheinlichkeit auf einen
-einzelnen Punkt zu setzen, ist nicht realistisch.
+# Problem - Der Effekt ist nicht fix
 
 
-Wir können die Situation bessern und genauer schätzen, wenn wir mehrere Werte für theta prüfen.
+Der Effekt (beta) ist aber nicht fix - wir wissen ihn nicht genau. 100% der Wahrscheinlichkeit auf einen
+einzelnen Punkt zu setzen, was wir bisher getan haben, ist nicht realistisch.
 
+
+Wir können die Situation bessern und genauer schätzen,
+wenn wir mehrere Werte für theta prüfen.
+Also los:
 
 
 ```{r multiple-betas}
 betas <- c(0, 0.3, 0.6, 1)
-# milder Prior (flacher Fall, alle ~0.95)
+# milder Prior (flacher Fall, alle ~0.95 also kalibriert)
 
 sapply(betas, function(b) check_coverage(n = 100, true_beta = b, reps = 200))
 ```
@@ -207,7 +219,7 @@ sapply(betas, function(b) {
 
 
 
-```{r}
+```{r run-grid}
 run_grid <- function(prior, label, betas, n = 100, reps = 50) { # besser wäre: reps=1000, aber das dauert ein paar Stunden Rechenzeit
   cov <- vapply(betas,
                 function(b) check_coverage(n = n, true_beta = b,
@@ -220,7 +232,7 @@ run_grid <- function(prior, label, betas, n = 100, reps = 50) { # besser wäre: 
 Jetzt die `betas` übergeben:
 
 
-```{r}
+```{r rund-grid-coverage-mild-vs-scharf}
 betas <- c(0, 0.5, 1)
 
 set.seed(123)
@@ -233,7 +245,7 @@ res <- rbind(
 Und plotten:
 
 
-```{r}
+```{r plot-coverage}
 reps <- 200
 res$se   <- sqrt(res$coverage * (1 - res$coverage) / reps)
 
@@ -251,3 +263,18 @@ ggplot(res, aes(true_beta, coverage, color = prior)) +
        color = "Prior", fill = "Prior") +
   theme_minimal()
 ```
+
+
+# Fazit
+
+Quatsch geht rein und kommt raus:
+Bei einem Modell mit fehlerhaften Annahmen darf man nicht erwarten,
+dass immer etwas Vernünftiges rauskommt.
+Vornehmer ausgedrückt: fehlkalibrierte Modelle führen zu einer Divergenz von nominellen und rellen Alphafehler.
+
+Typische Probleme fehlkalibrierter Modelle:
+
+- Die Priori-Verteilung widerspricht der tatsächlichen Verteilung des Effekts.
+- besonders wenn die Stichprobe klein ist.
+- Die angenommene Verteilungsform (zB Normalverteilung) entspricht nicht der wahren Verteilung (die vielleicht randlastiger ist).
+
