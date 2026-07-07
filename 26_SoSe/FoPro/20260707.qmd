@@ -1,13 +1,39 @@
 ---
-title: "Simu"
+title: "Simulation von Alphafehler-Raten bei Bayes-Modellen"
 format: html
+execute: 
+  cache: true
 ---
+
+
+# Einführung
+
+In Bayes-Modellen spielt der Alphafehler zumeist keine Rolle.
+Der Grund ist, dass Bayes nicht daran interessiert ist (primär).
+In Bayes geht es um die Wahrscheinlichkeitverteilung des untersuchten Paramaters (d.h. der Hypothese) gegeben der Daten.
+Im Frequentismus, wo der Alphafehler beheimatet ist, geht es nicht um die Wahrscheinlichkeit der Hypothesen. 
+Sondern darum, auf Dauer die H0 nicht zu oft/selten zu verwerfen.
+(Ob die H0 überhaupt sinnvoll als falsch zu definieren ist, steht auf einem anderen Blatt.)
+Darum spielt (nur) im Frequentismus der Alphafehler eine wichtige Rolle.
+Zur Erinnerung: Der Alphafehler sagt nicht, ob die vorliegende Hypothese richtig oder falsch ist.
+Sondern: wenn man den Versuch (unendlich) oft wiederholt unter Annahme der H0, wie oft man dann fälschlich die H0 verwirft.
+Kurz: Die Idee des Frequentismus ist, auf Dauer nicht zu viele Fehler zu machen.
+In Bayes ist die Idee, die Wahrscheinlichkeit der Hypothese im Licht der Daten und der Annahmen korrekt zu bewerten.
+
+
+Aber man kann trotzdem in Bayes-Analyse prüfen, ob ein Entscheidungskriterium - z.B. theta ist außerhalb des 95%-Intervalls - auch wirklich die angezeigte Häufigkeit (wie 95%) trifft.
+Dann spricht man einer "Kalibrierung" des Modells; man untersucht die "Copverage" (Abdeckung) des Bayes-Modells.
+Das ist das Thema dieser Untersuchung.
+
+
 
 
 # Setup
 
-```{r}
+```{r load-libs}
 library(tidyverse)
+library(rstanarm)
+library(tictoc)
 ```
 
 
@@ -16,7 +42,7 @@ library(tidyverse)
 ## H0 wahr
 
 Wenn die H0 wahr ist, dann wird sie in 95% richtig erkannt werden und in 5% der Fälle falsch erkannt werden
-```{r}
+```{r simo-h0-true}
 set.seed(1)
 rate <- function(n, reps = 5000) {
   mean(replicate(reps, {
@@ -33,7 +59,7 @@ sapply(c(50, 500, 5000, 50000), rate)
 
 Wenn die H0 aber auch nur ein kleines bisschen falsch ist, wird - bei großem *n* - der Test immer signifikant werden.
 
-```{r}
+```{r simu-h0-false}
 set.seed(1)
 rate <- function(n, reps = 5000) {
   mean(replicate(reps, {
@@ -45,3 +71,183 @@ sapply(c(50, 500, 5000, 50000), rate)
 
 ```
 
+
+# Kalibrierung von Bayesmodellen testen
+
+
+Geschwindigkeitstest für die Berechnung eines einzelnen Modells:
+
+```{r}
+one_fit <- function(n, true_beta = 0.3, level = 0.95) {
+  x <- rnorm(n)
+  y <- true_beta * x + rnorm(n)
+  fit <- stan_glm(y ~ x, data = data.frame(x, y),
+                  chains = 2, iter = 1000, refresh = 0,
+                  prior = normal(0, 2.5))
+  ci <- posterior_interval(fit, prob = level, pars = "x")
+  ci[1] <= true_beta && true_beta <= ci[2]
+}
+
+system.time(one_fit(n = 100))   # nur die "elapsed"-Zahl zählt
+```
+
+
+
+Je nach verfügbarer Zeit (Geduld) für die Rechendauer die `iter` Zahl einstellen:
+
+```{r}
+# iter = 800 statt 1000 -> ~20% schneller pro Fit
+one_fit <- function(n, true_beta = 0.3, level = 0.95,
+                    prior = normal(0, 2.5)) {
+  x <- rnorm(n)
+  y <- true_beta * x + rnorm(n)
+  fit <- stan_glm(y ~ x, data = data.frame(x, y),
+                  chains = 2, iter = 1000, refresh = 0,
+                  prior = prior)
+  ci <- posterior_interval(fit, prob = level, pars = "x")
+  ci[1] <= true_beta && true_beta <= ci[2]
+}
+```
+
+
+Funktion definieren, hier mit `reps = 200`.
+
+```{r}
+check_coverage <- function(n, true_beta = 0.3, reps = 200, level = 0.95,
+                           prior = normal(0, 2.5)) {
+  hits <- vapply(seq_len(reps),
+                 function(i) one_fit(n = n, true_beta = true_beta,
+                                     level = level, prior = prior),
+                 logical(1))
+  mean(hits)
+}
+```
+
+
+Jetzt prüfen mit ienem fixen Wert für `n` oder für mehrere `ns` (dauert länger)
+
+
+
+```{r coverage100}
+tic()
+n <- 100
+cov <- sapply(n, check_coverage, true_beta = 0.3, reps = 500)
+data.frame(n = n, coverage = cov)
+toc()
+```
+
+
+
+```{r coverage-ns}
+tic()
+ns <- c(20, 50, 100, 200, 500)
+cov <- sapply(ns, check_coverage, true_beta = 0.3, reps = 500)
+data.frame(n = ns, coverage = cov)
+toc()
+```
+
+Hier passt die Coverage - nomineller und tatsächlicher Verwerfungsbereich sind ca. 95%.
+
+Das klappt wenn die wahre Verteilung des Effekts etwa der Prior-Verteilung etnspricht.
+
+
+# Coverage bricht ein
+
+
+Bei starkem ("informativem") Prior, der weit weg von der Wahrheit ist, wird die Coverage falsch, z.B. 
+
+
+`prior = normal(0, 0.2)` mit `true_beta = 1`
+
+
+```{r coverages-breaks100}
+check_coverage(n = 100, true_beta = 1, prior = normal(0, 0.2))  # informativer Prior, θ weit weg, im Schwanz
+```
+
+```{r coverage-breaks-ns}
+tic()
+check_coverage(n = ns, true_beta = 1, prior = normal(0, 0.2)) 
+data.frame(n = ns, coverage = cov)
+toc()
+```
+
+
+Das heißt: Wir werden häufiger Fehler machen bei der Entscheidung, die H0 zu verwerfen.
+
+# Problem - theta ist nicht fix
+
+
+Der Effekt (theta) ist aber nicht fix - wir wissen ihn nicht genau. 100% der Wahrscheinlichkeit auf einen
+einzelnen Punkt zu setzen, ist nicht realistisch.
+
+
+Wir können die Situation bessern und genauer schätzen, wenn wir mehrere Werte für theta prüfen.
+
+
+
+```{r multiple-betas}
+betas <- c(0, 0.3, 0.6, 1)
+# milder Prior (flacher Fall, alle ~0.95)
+
+sapply(betas, function(b) check_coverage(n = 100, true_beta = b, reps = 200))
+```
+
+
+Hier bricht die Coverage zusammen:
+```{r coverage-breaks100-multiple-betas}
+# scharfer Prior gegen die Wahrheit (Profil über theta)
+sapply(betas, function(b) {
+  check_coverage(n = 100, true_beta = b, reps = 200,
+                 prior = normal(0, 0.2, autoscale = FALSE))
+})
+```
+
+
+# Im Überblick mit mehreren betas
+
+
+
+```{r}
+run_grid <- function(prior, label, betas, n = 100, reps = 50) { # besser wäre: reps=1000, aber das dauert ein paar Stunden Rechenzeit
+  cov <- vapply(betas,
+                function(b) check_coverage(n = n, true_beta = b,
+                                           reps = reps, prior = prior),
+                numeric(1))
+  data.frame(true_beta = betas, coverage = cov, prior = label, reps = reps)
+}
+```
+
+Jetzt die `betas` übergeben:
+
+
+```{r}
+betas <- c(0, 0.5, 1)
+
+set.seed(123)
+res <- rbind(
+  run_grid(normal(0, 2.5),                    "mild: normal(0, 2.5)",   betas = betas),
+  run_grid(normal(0, 0.2, autoscale = FALSE), "scharf: normal(0, 0.2)", betas = betas)
+)
+```
+
+Und plotten:
+
+
+```{r}
+reps <- 200
+res$se   <- sqrt(res$coverage * (1 - res$coverage) / reps)
+
+ggplot(res, aes(true_beta, coverage, color = prior)) +
+  geom_hline(yintercept = 0.95, linetype = "dashed", color = "grey40") +
+  geom_ribbon(aes(ymin = coverage - 2*se, ymax = coverage + 2*se, fill = prior),
+              alpha = 0.15, color = NA) +
+  geom_line() +
+  geom_point(size = 2) +
+  scale_y_continuous(limits = c(NA, 1), labels = scales::percent) +
+  labs(title = "Punktweise Coverage als Funktion von theta",
+       subtitle = "Nominal 95%. Scharfer Prior bricht ein, wo die Wahrheit im Prior-Schwanz sitzt.",
+       x = expression(true_beta~(wahrer~Wert)),
+       y = "Empirische Coverage",
+       color = "Prior", fill = "Prior") +
+  theme_minimal()
+```
