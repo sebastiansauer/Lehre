@@ -1,0 +1,47 @@
+---
+title: "Simu"
+format: html
+---
+
+
+# Setup
+
+```{r}
+library(tidyverse)
+```
+
+
+# Nullhyp testen
+
+## H0 wahr
+
+Wenn die H0 wahr ist, dann wird sie in 95% richtig erkannt werden und in 5% der Fälle falsch erkannt werden
+```{r}
+set.seed(1)
+rate <- function(n, reps = 5000) {
+  mean(replicate(reps, {
+    x <- rnorm(n); y <- rnorm(n)   # delta = 0 exakt
+    t.test(x, y)$p.value < 0.05
+  }))
+}
+sapply(c(50, 500, 5000, 50000), rate)
+#> ~0.05  0.05  0.05  0.05  -- konstant, n ist egal
+```
+
+
+## H0 falsch, auch nur ein kleines, kleines bisschen
+
+Wenn die H0 aber auch nur ein kleines bisschen falsch ist, wird - bei großem *n* - der Test immer signifikant werden.
+
+```{r}
+set.seed(1)
+rate <- function(n, reps = 5000) {
+  mean(replicate(reps, {
+    x <- rnorm(n); y <- rnorm(n, mean = 0.1)   # delta = 0.1, Mini-Effekt
+    t.test(x, y)$p.value < 0.05
+  }))
+}
+sapply(c(50, 500, 5000, 50000), rate)
+
+```
+
