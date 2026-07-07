@@ -131,7 +131,7 @@ Jetzt prüfen mit ienem fixen Wert für `n` oder für mehrere `ns` (dauert läng
 ```{r coverage100}
 tic()
 n <- 100
-cov <- sapply(n, check_coverage, true_beta = 0.3, reps = 500)
+cov <- sapply(n, check_coverage, true_beta = 0.3, reps = 200)
 data.frame(n = n, coverage = cov)
 toc()
 ```
@@ -141,7 +141,7 @@ toc()
 ```{r coverage-ns}
 tic()
 ns <- c(20, 50, 100, 200, 500)
-cov <- sapply(ns, check_coverage, true_beta = 0.3, reps = 500)
+cov <- sapply(ns, check_coverage, true_beta = 0.3, reps = 200)
 data.frame(n = ns, coverage = cov)
 toc()
 ```
