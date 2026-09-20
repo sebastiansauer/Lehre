@@ -1,0 +1,7 @@
+Herlich willkommen zu diesem Modul!
+
+In diesem Repo finden Sie den R-Code aus dem Unterricht.
+
+Ihr
+Sebastian Sauer
+
