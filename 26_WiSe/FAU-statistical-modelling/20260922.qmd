@@ -1,6 +1,6 @@
 ---
 title: "20260922 - Introduction to statistical modeling"
-format: html
+format: docx
 ---
 
 
@@ -63,10 +63,16 @@ Visualize the model:
 ```{r}
 library(ggpubr)  #control+enter
 
-ggscatter(d, 
+ggscatter(d,
           x = "bill_length_mm",
           y = "body_mass_g",
-          add = "reg.line")
+          color = "species",
+          add = "reg.line",
+          conf.int = TRUE,
+          cor.coef = TRUE,
+          alpha = 0.6,
+          xlab = "Schnabellänge (mm)",
+          ylab = "Körpermasse (g)")
 ```
 
 
@@ -77,6 +83,43 @@ ggscatter(d,
 Choose and run your own model, just as above. Try to understand the result.
 
 
+# Descriptives statistics
 
+Control+Shift+I -- insert code chunk
+
+Mind the pipe! "|>"
+
+```{r}
+d |>  # Control+Shift+M - the "pipe" - "and then do ..."
+  select(bill_length_mm, body_mass_g, sex) |> 
+  describe_distribution(by = "sex")  |> 
+  print_md()
+```
+
+
+```{r}
+ggscatter(d,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex",
+          add = "reg.line", # regression line
+          shape = "sex")
+```
+
+
+# Exercise
+
+Find a function to visualize the difference between multiple groups in one plot. Use the package `ggbpur`. Try it out!
+
+
+```{r}
+ggviolin(d, 
+x = "sex", 
+y = "body_mass_g", 
+fill = "sex",
+palette = c("#00AFBB", "#E7B800", "#FC4E07"),
+add = c("boxplot", "mean"), 
+add.params = list(fill = "white"))
+```
 
 
