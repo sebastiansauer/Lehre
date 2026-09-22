@@ -1,0 +1,42 @@
+---
+title: "20260922 - Introduction to statistical modeling"
+format: html
+---
+
+
+# Welcome!
+
+
+# Quick start
+
+
+Load R packages:
+```{r}
+library(tidyverse)
+library(easystats)
+```
+
+Load data:
+
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+
+head(d)  # see the first few rows, the "head" of the table
+```
+
+
+Model data:
+
+
+```{r}
+m1 <- lm(body_mass_g ~ bill_length_mm, data = d)
+
+model_parameters(m1)
+```
+
+
+
+```{r}
+effectsize::standardize_parameters(m1, method = "refit")   # oder "basic"
+```
