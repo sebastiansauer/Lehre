@@ -11,8 +11,18 @@ format: html
 
 
 Load R packages:
+
+Use `Alt+Command+I` to *I*nsert a Code Chunk:
+
 ```{r}
-library(tidyverse)
+
+```
+
+
+
+
+```{r}
+library(tidyverse)  
 library(easystats)
 ```
 
@@ -26,17 +36,47 @@ head(d)  # see the first few rows, the "head" of the table
 ```
 
 
-Model data:
+First Modelling:
 
 
 ```{r}
-m1 <- lm(body_mass_g ~ bill_length_mm, data = d)
+m1 <- lm(body_mass_g ~ bill_length_mm, data = d)  # Control+Enter
 
 model_parameters(m1)
 ```
 
+$R^2$: The (percentage) amount of explained variance of the model - "goodness" of the model.
 
+```{r}
+r2(m1)
+```
+
+
+Standardized coefficients:
 
 ```{r}
 effectsize::standardize_parameters(m1, method = "refit")   # oder "basic"
 ```
+
+Visualize the model:
+
+```{r}
+library(ggpubr)  #control+enter
+
+ggscatter(d, 
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          add = "reg.line")
+```
+
+
+
+
+# Exercise
+
+Choose and run your own model, just as above. Try to understand the result.
+
+
+
+
+
