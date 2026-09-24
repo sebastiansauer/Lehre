@@ -510,7 +510,11 @@ Report the typical analysis!
 ## Solution 
 
 ```{r}
-lm_3d <- stan_glm(body_mass_g ~ bill_length_mm + flipper_length_mm, data = d3)
+d3 <-
+  d2 |> 
+  center(select = c("bill_length_mm", "flipper_length_mm"), append = TRUE)
+
+lm_3d <- stan_glm(body_mass_g ~ bill_length_mm_c + flipper_length_mm_c, data = d3)
 model_parameters(lm_3d)
 ```
 
@@ -527,7 +531,7 @@ estimate_relation(lm_3d) |>
 model_parameters(lm_3d) |> plot()
 ```
 
-
+R2:
 
 ```{r}
 r2(lm_3d)
