@@ -370,11 +370,64 @@ estimate_relation(m6) |>
 
 # Ex
 
+
+## Question
+
 >   weight as a function of bill length and species
 
 Please report:
 
 1. statistical taxonomy model
 2. compute it and report parameters 
-3. r2
-4 visualization
+3. report r2
+4. show visualization
+
+## Answer
+
+1. statistical taxonomy model
+
+`y ~ x* g`
+
+`y ~ x + g + x:g`
+
+2. compute it and report parameters 
+
+```{r}
+m_interact2 <- lm(body_mass_g ~ bill_length_mm * species, data = d2)
+model_parameters(m_interact2)
+```
+
+
+3. report r2
+
+```{r}
+r2(m_interact2)
+```
+
+4. show visualization
+
+```{r}
+estimate_relation(m_interact2) |> 
+  plot(show_data = TRUE) +
+  theme_modern()
+```
+
+## Bonus - stability of coefficients
+
+```{r}
+m_bill_length <-  lm(body_mass_g ~ bill_length_mm, data = d2)
+model_parameters(m_bill_length)
+```
+
+In this case, the coefficient is stable - but in other case, the coefficient might vary wildly!
+
+## Bonus - visualize parameters
+
+
+```{r}
+m_interact2 |> 
+  model_parameters() |> 
+  plot()
+```
+
+
