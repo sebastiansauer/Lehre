@@ -168,11 +168,40 @@ model_parameters(m2)
 
 # Visualize it
 
+Tip: To run all of the code in this file - hit `Control+Alt+R`.
+
 
 ```{r}
 estimate_relation(m2) |> 
   plot(show_data = TRUE) +
-  scale_color_viridis_d()
+  scale_color_okabeito() +
+  scale_fill_okabeito() +
+  theme_modern()
 ```
+
+# Excercise
+
+
+`y ~ x + b`
+
+Find an example research question from our penguin data set,
+where 
+
+- y - is metric (outcome, DV)
+- x - is metric (input)
+- b - is binary (two groups) (input)
+
+# Exercise
+
+Research question:
+
+>   Is the flipper length (DV) of a penguin related to its bill depth and the sex of the animal?
+
+
+Compute the model and report its goodness ($R²$) - also the model parameters.
+
+
+
+
 
 
