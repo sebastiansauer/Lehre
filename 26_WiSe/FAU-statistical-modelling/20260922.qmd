@@ -1,6 +1,8 @@
 ---
 title: "20260922, 24 - Introduction to statistical modeling"
 format: html
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -222,6 +224,61 @@ The number is 73.
 `y ~ b` 
 
 Find a research question for this model (from the penguins data set).
+
+>  Is bill length in penguins a function of sex?
+
+>  Have male penguins a longer bill than female penguins?
+
+
+this is the so-called *t-test* scenario.
+
+```{r}
+lm(bill_length_mm ~ sex, data = d2)
+```
+
+
+
+# Exercise
+
+## Consider
+
+>   Is the weight a function of the the species of the penguins?
+
+Find the statistical taxonomy model and compute the parameters. And visualize it. And tell the model goodness (explained variance).
+
+Bonus: How could we formulate the research question in a more precise way?
+
+
+## Solution
+
+
+prototype statistical taxonomy model:
+
+`y ~ g`
+
+with
+
+- y : metric outcome
+- g : nominal input variable (with 2 or more groups)
+
+```{r}
+m_weight_species <- lm(body_mass_g ~ species, data = d2)
+
+model_parameters(m_weight_species)
+
+r2(m_weight_species)
+
+estimate_relation(m_weight_species) %>%
+  plot(show_data = T) +
+  theme_minimal()
+```
+
+
+
+
+
+
+
 
 
 
