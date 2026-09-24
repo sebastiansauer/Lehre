@@ -478,4 +478,58 @@ tip:
 - the rest remains the same
 
 
+```{r}
+library(rstanarm)
+m_interact_bayes <- stan_glm(body_mass_g ~ bill_length_mm_c * species, data = d3)
+model_parameters(m_interact_bayes)
+```
+
+Compare to our previous model:
+
+```{r}
+model_parameters(m_interact3)
+```
+
+
+
+```{r}
+pd(m_interact_bayes) |> plot()
+```
+
+
+# `y ~ x1 + x2`
+
+>  Is weigth a function of bill length and of flipper length?
+
+
+## Question
+
+Report the typical analysis!
+
+
+## Solution 
+
+```{r}
+lm_3d <- stan_glm(body_mass_g ~ bill_length_mm + flipper_length_mm, data = d3)
+model_parameters(lm_3d)
+```
+
+Visualization:
+
+```{r}
+estimate_relation(lm_3d) |> 
+  plot(show_data = TRUE)
+```
+
+
+
+```{r}
+model_parameters(lm_3d) |> plot()
+```
+
+
+
+```{r}
+r2(lm_3d)
+```
 
