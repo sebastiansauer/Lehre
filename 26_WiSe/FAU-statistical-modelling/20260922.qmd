@@ -317,8 +317,11 @@ model_parameters(m4)
 
 ## Interaction effect
 
-`y ~ x + g + x_c:g`
+`y ~ x + g + x:g`
 
+synonymous:
+
+`y ~ x * g`
 
 compare to without interaction effect:
 
@@ -347,7 +350,31 @@ Research question for interaction effect (penguins data):
 
 
 ```{r}
-lm_interact1 <- lm( ??? ~ ???, data = d2)
+m6 <- lm(body_mass_g ~ bill_length_mm * sex, data = d2)
+
+model_parameters(m6)
 ```
 
 
+Diagram for m6:
+
+
+```{r}
+estimate_relation(m6) |> 
+  plot(show_data = TRUE) +
+  scale_color_okabeito() +
+  scale_fill_okabeito() +
+  theme_modern()
+```
+
+
+# Ex
+
+>   weight as a function of bill length and species
+
+Please report:
+
+1. statistical taxonomy model
+2. compute it and report parameters 
+3. r2
+4 visualization
