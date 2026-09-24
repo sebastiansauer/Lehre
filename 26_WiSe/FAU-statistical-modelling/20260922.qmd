@@ -1,6 +1,6 @@
 ---
-title: "20260922 - Introduction to statistical modeling"
-format: docx
+title: "20260922, 24 - Introduction to statistical modeling"
+format: html
 ---
 
 
@@ -199,6 +199,29 @@ Research question:
 
 
 Compute the model and report its goodness ($R²$) - also the model parameters.
+
+
+```{r}
+m3 <- lm(flipper_length_mm ~ bill_depth_mm + sex, data = d2) 
+
+model_parameters(m3)
+
+summary(m3)
+
+m3_r2 <- r2(m3)
+```
+
+
+$R^2$ was found to be `r r2(m3)$R2`.
+
+
+The number is 73.
+
+# Exercise
+
+`y ~ b` 
+
+Find a research question for this model (from the penguins data set).
 
 
 
