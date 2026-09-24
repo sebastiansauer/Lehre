@@ -238,6 +238,8 @@ lm(bill_length_mm ~ sex, data = d2)
 
 
 
+
+
 # Exercise
 
 ## Consider
@@ -273,15 +275,79 @@ estimate_relation(m_weight_species) %>%
   theme_minimal()
 ```
 
+Research question:
+
+>   Is body mass a function of the species?
+
+Research question more precise:
+
+>   Are penguins of the Adelie species heavier than Gentoo or Chinstrap penguins?
+
+>  ... on average ...
+
+$\mu_{\text{Adelie}} \ne \mu_2$
 
 
 
 
 
 
+# Bayes
+
+Frequentist:
+
+```{r}
+lm(bill_length_mm ~ sex, data = d2)
+```
+
+Bayes:
 
 
+```{r}
+library(rstanarm)
+
+m4 <- stan_glm(bill_length_mm ~ sex, data = d2)
+
+model_parameters(m4)
+```
 
 
+# More models
+
+
+## Interaction effect
+
+`y ~ x + g + x_c:g`
+
+
+compare to without interaction effect:
+
+
+`y ~ x + g`
+
+
+What's an interaction effect in intuitive terms?
+
+
+sugar + stirring --> sweetness
+
+
+rain + sun --> plant growth
+
+
+Does the effect of X on y depends on g?
+
+if the slopes are NOT parallel.
+
+
+Research question for interaction effect (penguins data):
+
+
+>   Does the effect of bill length on weight depends on sex of the penguin?
+
+
+```{r}
+lm_interact1 <- lm( ??? ~ ???, data = d2)
+```
 
 
