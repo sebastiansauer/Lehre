@@ -123,3 +123,56 @@ add.params = list(fill = "white"))
 ```
 
 
+
+# Modelling y ~ x + b
+
+Is the weight of a penguin related to its bill length and to the sex of the animal?
+
+```{mermaid}
+flowchart LR
+x --> y
+b --> y
+```
+
+
+```{mermaid}
+flowchart LR
+bill_length --> body_weight
+sex --> body_weight
+```
+
+# First: tidy up the data
+
+
+```{r}
+d |> 
+   filter(sex == "female" | sex == "male" ) -> d2
+```
+
+
+same thing:
+
+```{r}
+d2 <- 
+d |> 
+   filter(sex == "female" | sex == "male")
+```
+
+# Model it
+
+```{r}
+m2 <- lm(body_mass_g ~ bill_length_mm + sex, data = d2)  # Control+Enter for execution
+
+model_parameters(m2)
+```
+
+# Visualize it
+
+
+```{r}
+estimate_relation(m2) |> 
+  plot(show_data = TRUE) +
+  scale_color_viridis_d()
+```
+
+
