@@ -419,7 +419,7 @@ m_bill_length <-  lm(body_mass_g ~ bill_length_mm, data = d2)
 model_parameters(m_bill_length)
 ```
 
-In this case, the coefficient is stable - but in other case, the coefficient might vary wildly!
+In this case, the coefficient `bill_length` is stable - but in other case, the coefficient might vary wildly!
 
 ## Bonus - visualize parameters
 
@@ -429,5 +429,53 @@ m_interact2 |>
   model_parameters() |> 
   plot()
 ```
+
+# Centering the data
+
+```{r}
+d3 <- 
+d2 |> 
+  center(select = "bill_length_mm",
+         append = TRUE)
+```
+
+```{r}
+d2 |> 
+  describe_distribution(select = "bill_length_mm")
+```
+
+avarage: approx. 44mm
+
+
+# Ex
+
+## Question
+
+Please refit the model `m_interact2` with centered X (bill_length_mm) and compare the parameter values. Any difference?
+
+
+## Solution
+
+```{r}
+m_interact3 <- lm(body_mass_g ~ bill_length_mm_c * species, data = d3)
+model_parameters(m_interact3)
+
+model_parameters(m_interact2)
+```
+
+# Standardize the data (z-transformation)
+
+# Bayes compared to Frequentist
+
+## Ex
+
+Take `m_interact3` and run a Bayesian analysis with it.
+
+tip:
+
+- package `rstanarm`
+- command `stan_glm` instead of `lm`
+- the rest remains the same
+
 
 
