@@ -1,6 +1,5 @@
 ---
-title: "Übung: Ein Tabellenfehler mit Folgen"
-subtitle: "Excel und R im Vergleich"
+title: "Excel und R im Vergleich"
 lang: de
 format:
   html:
