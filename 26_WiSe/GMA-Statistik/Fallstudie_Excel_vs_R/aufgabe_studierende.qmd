@@ -1,0 +1,71 @@
+---
+title: "Übung: Ein Tabellenfehler mit Folgen"
+subtitle: "Excel und R im Vergleich"
+lang: de
+format:
+  html:
+    toc: false
+---
+
+## Worum geht es?
+
+Ein Forschungsteam hat untersucht, ob hohe Staatsschulden das Wirtschaftswachstum bremsen. Die Kernaussage der Studie: Liegt die Schuldenquote eines Landes über 90 % des BIP, schrumpft die Wirtschaft im Mittel. Diese Aussage wurde in der Politik oft zitiert, etwa in Debatten über Sparprogramme.
+
+Sie sind das Prüfteam. Ihre Frage: Stimmt die Kernaussage -- zumindest rechnerisch?
+
+Die Länder und Zahlen in dieser Übung sind fiktiv. Der Fall dahinter ist echt; mehr dazu am Ende der Veranstaltung.
+
+## Material
+
+- `schulden_wachstum.xlsx` mit den Blättern *Bericht*, *Daten* und *Hinweis*
+- `schulden_wachstum.csv` mit denselben Daten für R
+
+Die Daten umfassen 20 Länder. Für jedes Land steht dort das mittlere reale Wirtschaftswachstum (in % pro Jahr), getrennt nach der Höhe der Schuldenquote. Eine leere Zelle bedeutet: Das Land hatte nie eine Schuldenquote in diesem Bereich.
+
+## Teil A: Prüfung in Excel (20 Minuten)
+
+1. Öffnen Sie die Excel-Datei und lesen Sie das Blatt *Bericht*. Notieren Sie die Kernaussage und den Wert für "über 90 %".
+2. Wechseln Sie zum Blatt *Daten*. Finden Sie heraus, wie die Werte im Bericht zustande kommen.
+3. Prüfen Sie die Berechnung. Stimmt sie? Falls nicht: Was ist falsch, und wie lautet der richtige Wert?
+4. Notieren Sie zwei Dinge: Wie lange haben Sie für die Prüfung gebraucht? Wie sicher sind Sie, dass jetzt alles stimmt (0 bis 100 %)?
+
+::: {.callout-tip collapse="true"}
+## Tipp 1 (nur bei Bedarf)
+Klicken Sie auf die Zellen in der Zeile *Mittelwert* und sehen Sie sich die Formeln genau an.
+:::
+
+::: {.callout-tip collapse="true"}
+## Tipp 2 (nur bei Bedarf)
+Welche Zeilen umfasst der Zellbereich in jeder Formel? In welchen Zeilen stehen Daten?
+:::
+
+## Teil B: Dieselbe Analyse in R (20 Minuten)
+
+Legen Sie die CSV-Datei in Ihren Projektordner und führen Sie diesen Code aus:
+
+```r
+daten <- read.csv("schulden_wachstum.csv")
+head(daten)
+mean(daten$ueber_90, na.rm = TRUE)
+```
+
+`na.rm = TRUE` bedeutet: Fehlende Werte (leere Zellen) werden ignoriert.
+
+1. Vergleichen Sie das Ergebnis mit Teil A.
+2. Berechnen Sie in R die Mittelwerte der drei anderen Spalten (`unter_30`, `von_30_bis_60`, `von_60_bis_90`). Vergleichen Sie mit Excel.
+3. Bei einer Spalte meldet R ein Problem. Finden Sie die Ursache. Tipp: `str(daten)`. (`str` wie "Struktur")
+4. Gehen Sie zurück in die Excel-Datei. Warum hat Excel bei dieser Spalte nichts gemeldet?
+
+## Teil C: Diskussion (15 Minuten)
+
+Diskutieren Sie in Ihrer Gruppe und notieren Sie Stichpunkte.
+
+1. Wo "steht" die Berechnung in Excel, wo in R? Was folgt daraus für die Fehlersuche?
+2. Sie geben die Analyse an eine Kollegin weiter. Was muss sie in Excel prüfen, um sicher zu sein? Was in R?
+3. Macht R solche Fehler unmöglich? Schreiben Sie eine Zeile R-Code, die denselben Fehler wie in Excel macht.
+4. Wofür würden Sie trotzdem lieber Excel verwenden?
+5. Ändert sich die Kernaussage des Berichts durch Ihre Korrektur? Wie sehr würden Sie der korrigierten Aussage vertrauen? Sehen Sie sich dazu auch die Werte der einzelnen Länder in der Spalte "über 90 %" an.
+
+## Ergebnis
+
+Schreiben Sie eine kurze Notiz an das Forschungsteam (höchstens 5 Sätze): Was haben Sie gefunden, und was empfehlen Sie?

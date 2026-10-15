@@ -1,0 +1,156 @@
+---
+title: "Auflösung: Ein Tabellenfehler mit Folgen"
+subtitle: "Was war falsch, was steckt dahinter, was nehmen Sie mit?"
+lang: de
+format:
+  html:
+    toc: true
+---
+
+## Was war falsch?
+
+### Der Hauptfehler: ein zu kurzer Zellbereich
+
+In der Zelle `E23` des Blatts *Daten* steht:
+
+```
+=MITTELWERT(E7:E21)
+```
+
+Richtig wäre `E2:E21`. Die Daten beginnen in Zeile 2, die Formel erst in Zeile 7. Damit fehlen die ersten fünf Länder (Aldorien bis Estrien). Vier davon haben einen Wert in dieser Spalte -- und zwar ein relativ hohes Wachstum.
+
+| | Anzahl Werte | Mittelwert "über 90 %" |
+|---|---|---|
+| Bericht (falsch) | 8 | -0,1 % |
+| Korrigiert | 12 | 1,0 % |
+
+Der Fehler ist klein: eine einzige Ziffer in einer einzigen Zelle. Excel gibt keine Warnung, denn die Formel ist gültig. Sie rechnet nur mit den falschen Zellen.
+
+In R lautet dieselbe Rechnung:
+
+```{r}
+daten <- read.csv("schulden_wachstum.csv")
+mean(daten$ueber_90, na.rm = TRUE)
+```
+
+Hier gibt es keinen Zellbereich, den man falsch eingeben könnte. Der Code sagt: "Mittelwert der Spalte `ueber_90`", also aller Werte.
+
+### Der Bonusfehler: eine Zahl als Text
+
+Bei Jarland steht in der Spalte "60 bis 90 %" der Eintrag `2,1` -- aber als Text, nicht als Zahl. Excel übergeht diesen Wert beim Mittelwert ohne jede Meldung. Erkennbar ist das nur an der linksbündigen Ausrichtung und an einem kleinen grünen Dreieck in der Zelle.
+
+R reagiert anders:
+
+```{r}
+str(daten$von_60_bis_90)
+mean(daten$von_60_bis_90, na.rm = TRUE)
+```
+
+R erkennt, dass die Spalte Text enthält, und rechnet nicht weiter. Das wirkt zunächst lästig, ist aber ein Vorteil: Das Problem fällt sofort auf. So reparieren Sie es:
+
+
+- Möglichkeit 1: Öffnen Sie die CSV-Datei in einen Texteditor (z.B. Positron) und korrigieren Sie die Zahl. Speichern Sie ggf. mit einem neuen Dateinamen ab.
+- Möglickeit 2: Korrigieren Sie die Daten in R.
+
+
+```{r}
+l
+```
+
+```{r}
+x <- as.numeric(sub(",", ".", daten$von_60_bis_90))
+mean(x, na.rm = TRUE)
+```
+
+## Was bedeutet das für die Kernaussage?
+
+Der Bericht behauptete: Über 90 % Schuldenquote schrumpft die Wirtschaft. Nach der Korrektur wächst sie im Mittel um 1,0 %. Die Kernaussage ist damit falsch.
+
+Aber Vorsicht vor dem Gegenschluss "Schulden sind also egal". Das Wachstum ist immer noch deutlich geringer als bei niedrigeren Schuldenquoten (4,0 / 3,3 / 2,9 %). Und auch die korrigierte Zahl steht auf wackligen Beinen:
+
+- **Ausreißer:** Norvik hat -6,9 % und zieht den Mittelwert stark nach unten. Ohne Norvik liegt er bei 1,75 %. Wenn ein einzelnes Land das Ergebnis so stark bestimmt, ist Vorsicht geboten.
+- **Gewichtung:** Jedes Land zählt gleich, egal ob es ein Jahr oder zwanzig Jahre über 90 % lag. Das kann man so machen, muss es aber begründen.
+- **Ursache und Wirkung:** Selbst wenn hohe Schulden mit geringem Wachstum zusammenfallen, ist unklar, was was verursacht. Bremsen Schulden das Wachstum? Oder führt schwaches Wachstum zu mehr Schulden, weil Steuereinnahmen sinken?
+
+```{r}
+mean(daten$ueber_90[daten$land != "Norvik"], na.rm = TRUE)
+```
+
+## Der echte Fall: Reinhart und Rogoff
+
+Die Übung ist einem realen Fall nachgebaut. Die Ökonomen Carmen Reinhart und Kenneth Rogoff veröffentlichten 2010 die Studie *Growth in a Time of Debt* (s. https://www.nber.org/system/files/working_papers/w15639/w15639.pdf). Ihr zentrales Ergebnis: Länder mit einer Staatsschuldenquote über 90 % hatten im Mittel ein Wachstum von -0,1 %. Die Studie wurde in der Debatte über Sparpolitik nach der Finanz- und Eurokrise häufig zitiert. Wie groß ihr Einfluss auf konkrete politische Entscheidungen tatsächlich war, ist umstritten.
+
+2013 versuchte Thomas Herndon, ein Doktorand an der University of Massachusetts, die Ergebnisse für eine Seminararbeit nachzurechnen. Es gelang ihm nicht. Er bat die Autoren um ihre Excel-Datei und bekam sie. Zusammen mit seinen Professoren Michael Ash und Robert Pollin fand er drei Probleme:
+
+1. **Einen Bereichsfehler in Excel:** Fünf Länder (Australien, Österreich, Belgien, Kanada, Dänemark) fehlten im Mittelwert -- genau wie in der Übung.
+2. **Ausgeschlossene Daten:** Für einige Länder wurden verfügbare Jahre nicht berücksichtigt.
+3. **Eine fragwürdige Gewichtung:** Jedes Land zählte gleich. So bekam ein einzelnes Jahr Neuseelands mit stark negativem Wachstum dasselbe Gewicht wie viele Jahre anderer Länder.
+
+Nach allen drei Korrekturen lag das mittlere Wachstum bei 2,2 % statt -0,1 %.
+
+Zur Fairness gehört zweierlei. Erstens: Der Excel-Fehler allein erklärt nur einen Teil des Unterschieds. Datenauswahl und Gewichtung wogen schwerer. Zweitens: Reinhart und Rogoff haben den Excel-Fehler eingeräumt, hielten aber an ihrer Grundaussage fest, dass hohe Schulden mit geringerem Wachstum einhergehen. Ob und ab welcher Schwelle das gilt, wird in der Forschung bis heute diskutiert.
+
+Bemerkenswert ist auch, *wie* der Fehler gefunden wurde: Die Autoren haben ihre Datei herausgegeben. Ohne diese Transparenz wäre der Fehler vielleicht nie entdeckt worden.
+
+## Excel und R im Vergleich
+
+Beide Werkzeuge haben ihre Berechtigung. Die Frage ist nicht, welches "besser" ist, sondern welches für welche Aufgabe passt.
+
+| Kriterium | Excel | R |
+|---|---|---|
+| Einstieg | sehr leicht, sofort sichtbare Ergebnisse | steilere Lernkurve, Code lernen nötig |
+| Wo steht die Rechnung? | verteilt in Zellen, einzeln anklicken | im Skript, von oben nach unten lesbar |
+| Fehlersuche | Zellen absuchen, leicht etwas übersehen | Code lesen, Fehler stehen im Text |
+| Daten und Rechnung | vermischt in derselben Tabelle | getrennt: Rohdaten bleiben unverändert |
+| Neue Daten | Bereiche anpassen, kopieren, klicken | Skript erneut ausführen |
+| Problemmeldungen | rechnet oft still weiter | warnt oder bricht ab |
+| Weitergabe und Prüfung | Prüfer muss jede Zelle prüfen | Prüfer liest das Skript |
+| Statistische Verfahren | Grundfunktionen, vieles umständlich | nahezu alles verfügbar |
+| Große Datenmengen | Zeilenlimit, wird schnell träge | Millionen Zeilen kein Problem |
+| Schnelle Einmalrechnung | ideal | oft aufwendiger als nötig |
+| Verbreitung im Beruf | fast überall | in Analyse und Forschung verbreitet |
+
+Einige Punkte genauer:
+
+**Was für Excel spricht.** Für eine schnelle Kalkulation, eine kleine Liste oder einen ersten Blick in Daten ist Excel kaum zu schlagen. Fast alle Kolleginnen und Kollegen können damit umgehen. Excel hat außerdem eigene Prüfwerkzeuge, etwa die Formelüberwachung, die zeigt, welche Zellen in eine Formel eingehen. Neuere Funktionen wie Power Query zeichnen Arbeitsschritte sogar nachvollziehbar auf.
+
+**Was gegen Excel spricht.** Die Rechenlogik ist unsichtbar. Man sieht das Ergebnis, nicht den Weg. Daten und Rechnung stehen in derselben Tabelle, sodass ein versehentlich überschriebener Wert oder ein verschobener Bereich kaum auffällt. Und Excel ist "hilfsbereit": Es wandelt Einträge automatisch um oder ignoriert Text in Rechnungen -- meist ohne Meldung.
+
+**Was für R spricht.** Das Skript dokumentiert jeden Schritt. Wer es liest, versteht die Analyse. Kommen neue Daten, läuft das Skript einfach erneut. Probleme werden gemeldet statt übergangen. Das macht Analysen prüfbar und wiederholbar.
+
+**Was gegen R spricht.** Der Einstieg kostet Zeit. Fehlermeldungen sind anfangs schwer verständlich. Und R schützt nicht vor allen Fehlern. Dieser Code macht genau denselben Fehler wie die Excel-Formel:
+
+```{r}
+mean(daten$ueber_90[6:20], na.rm = TRUE)
+```
+
+Der Unterschied: Der Fehler steht sichtbar im Code. Wer das Skript liest, kann ihn finden.
+
+**Abwägung.** Für schnelle, einmalige Rechnungen ist Excel oft die vernünftige Wahl. Sobald eine Analyse wichtig ist, wiederholt wird oder von anderen geprüft werden soll, hat R klare Vorteile. Je größer die Folgen eines Fehlers, desto wichtiger wird Nachvollziehbarkeit.
+
+## Was Sie mitnehmen sollten
+
+1. **Fehler passieren -- auch Profis.** Reinhart und Rogoff sind renommierte Ökonomen. Entscheidend ist nicht, Fehler zu vermeiden, sondern sie findbar zu machen.
+2. **Sichtbare Rechenwege sind prüfbare Rechenwege.** Eine Analyse, deren Logik in Zellen versteckt ist, lässt sich schwer prüfen. Ein Skript lässt sich lesen.
+3. **Stille Fehler sind die gefährlichsten.** Eine Warnung oder Fehlermeldung ist ärgerlich, aber hilfreich. Ein Werkzeug, das still weiterrechnet, wiegt Sie in falscher Sicherheit.
+4. **Transparenz ermöglicht Korrektur.** Der Fehler wurde nur gefunden, weil die Autoren ihre Daten herausgaben. Legen Sie Ihre Daten und Rechenwege offen, wo immer möglich.
+5. **Ergebnisse plausibilisieren.** Passt das Ergebnis zu den Einzelwerten? Wie viele Werte gehen ein? Was passiert ohne Ausreißer?
+6. **Ein Mittelwert ist keine Wahrheit.** Er hängt davon ab, welche Daten eingehen, wie sie gewichtet werden und ob Ausreißer dabei sind. Und ein Zusammenhang sagt noch nichts über Ursache und Wirkung.
+7. **Das Werkzeug passend wählen.** Excel für schnelle Einmalrechnungen, R für Analysen, die zählen.
+
+### Praktische Regeln für Ihre eigene Arbeit
+
+- Rohdaten nie überschreiben. Rechnen Sie immer mit einer Kopie oder im Skript.
+- In R ganze Spalten verwenden, keine festen Zeilennummern wie `[6:20]`.
+- Ein Skript so schreiben, dass es von oben nach unten ohne manuelle Zwischenschritte durchläuft.
+- Die Anzahl der Werte prüfen, die in eine Berechnung eingehen, z.B. mit `sum(!is.na(x))`.
+- Warnungen in R lesen, nicht wegklicken.
+
+## Fazit
+
+Ein einziger falscher Zellbereich drehte die Kernaussage einer einflussreichen Studie -- zumindest zum Teil. Excel hat diesen Fehler nicht verursacht, ihn aber schwer sichtbar gemacht. R macht Rechenwege lesbar und meldet Probleme. Es verhindert Fehler nicht, macht sie aber findbar. Das ist der Kern guter wissenschaftlicher und betrieblicher Praxis: nachvollziehbar arbeiten, damit andere -- und Sie selbst -- Fehler finden können.
+
+## Quellen
+
+- Reinhart, C. M., & Rogoff, K. S. (2010). Growth in a time of debt. *American Economic Review, 100*(2), 573--578.
+- Herndon, T., Ash, M., & Pollin, R. (2014). Does high public debt consistently stifle economic growth? A critique of Reinhart and Rogoff. *Cambridge Journal of Economics, 38*(2), 257--279.
