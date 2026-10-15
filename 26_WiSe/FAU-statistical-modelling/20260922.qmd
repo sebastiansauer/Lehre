@@ -1,0 +1,539 @@
+---
+title: "20260922, 24 - Introduction to statistical modeling"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Welcome!
+
+
+# Quick start
+
+
+Load R packages:
+
+Use `Alt+Command+I` to *I*nsert a Code Chunk:
+
+```{r}
+
+```
+
+
+
+
+```{r}
+library(tidyverse)  
+library(easystats)
+```
+
+Load data:
+
+
+```{r}
+d <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv")
+
+head(d)  # see the first few rows, the "head" of the table
+```
+
+
+First Modelling:
+
+
+```{r}
+m1 <- lm(body_mass_g ~ bill_length_mm, data = d)  # Control+Enter
+
+model_parameters(m1)
+```
+
+$R^2$: The (percentage) amount of explained variance of the model - "goodness" of the model.
+
+```{r}
+r2(m1)
+```
+
+
+Standardized coefficients:
+
+```{r}
+effectsize::standardize_parameters(m1, method = "refit")   # oder "basic"
+```
+
+Visualize the model:
+
+```{r}
+library(ggpubr)  #control+enter
+
+ggscatter(d,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "species",
+          add = "reg.line",
+          conf.int = TRUE,
+          cor.coef = TRUE,
+          alpha = 0.6,
+          xlab = "Schnabellänge (mm)",
+          ylab = "Körpermasse (g)")
+```
+
+
+
+
+# Exercise
+
+Choose and run your own model, just as above. Try to understand the result.
+
+
+# Descriptives statistics
+
+Control+Shift+I -- insert code chunk
+
+Mind the pipe! "|>"
+
+```{r}
+d |>  # Control+Shift+M - the "pipe" - "and then do ..."
+  select(bill_length_mm, body_mass_g, sex) |> 
+  describe_distribution(by = "sex")  |> 
+  print_md()
+```
+
+
+```{r}
+ggscatter(d,
+          x = "bill_length_mm",
+          y = "body_mass_g",
+          color = "sex",
+          add = "reg.line", # regression line
+          shape = "sex")
+```
+
+
+# Exercise
+
+Find a function to visualize the difference between multiple groups in one plot. Use the package `ggbpur`. Try it out!
+
+
+```{r}
+ggviolin(d, 
+x = "sex", 
+y = "body_mass_g", 
+fill = "sex",
+palette = c("#00AFBB", "#E7B800", "#FC4E07"),
+add = c("boxplot", "mean"), 
+add.params = list(fill = "white"))
+```
+
+
+
+# Modelling y ~ x + b
+
+Is the weight of a penguin related to its bill length and to the sex of the animal?
+
+```{mermaid}
+flowchart LR
+x --> y
+b --> y
+```
+
+
+```{mermaid}
+flowchart LR
+bill_length --> body_weight
+sex --> body_weight
+```
+
+# First: tidy up the data
+
+
+```{r}
+d |> 
+   filter(sex == "female" | sex == "male" ) -> d2
+```
+
+
+same thing:
+
+```{r}
+d2 <- 
+d |> 
+   filter(sex == "female" | sex == "male")
+```
+
+# Model it
+
+```{r}
+m2 <- lm(body_mass_g ~ bill_length_mm + sex, data = d2)  # Control+Enter for execution
+
+model_parameters(m2)
+```
+
+# Visualize it
+
+Tip: To run all of the code in this file - hit `Control+Alt+R`.
+
+
+```{r}
+estimate_relation(m2) |> 
+  plot(show_data = TRUE) +
+  scale_color_okabeito() +
+  scale_fill_okabeito() +
+  theme_modern()
+```
+
+# Excercise
+
+
+`y ~ x + b`
+
+Find an example research question from our penguin data set,
+where 
+
+- y - is metric (outcome, DV)
+- x - is metric (input)
+- b - is binary (two groups) (input)
+
+# Exercise
+
+Research question:
+
+>   Is the flipper length (DV) of a penguin related to its bill depth and the sex of the animal?
+
+
+Compute the model and report its goodness ($R²$) - also the model parameters.
+
+
+```{r}
+m3 <- lm(flipper_length_mm ~ bill_depth_mm + sex, data = d2) 
+
+model_parameters(m3)
+
+summary(m3)
+
+m3_r2 <- r2(m3)
+```
+
+
+$R^2$ was found to be `r r2(m3)$R2`.
+
+
+The number is 73.
+
+# Exercise
+
+`y ~ b` 
+
+Find a research question for this model (from the penguins data set).
+
+>  Is bill length in penguins a function of sex?
+
+>  Have male penguins a longer bill than female penguins?
+
+
+this is the so-called *t-test* scenario.
+
+```{r}
+lm(bill_length_mm ~ sex, data = d2)
+```
+
+
+
+
+
+# Exercise
+
+## Consider
+
+>   Is the weight a function of the the species of the penguins?
+
+Find the statistical taxonomy model and compute the parameters. And visualize it. And tell the model goodness (explained variance).
+
+Bonus: How could we formulate the research question in a more precise way?
+
+
+## Solution
+
+
+prototype statistical taxonomy model:
+
+`y ~ g`
+
+with
+
+- y : metric outcome
+- g : nominal input variable (with 2 or more groups)
+
+```{r}
+m_weight_species <- lm(body_mass_g ~ species, data = d2)
+
+model_parameters(m_weight_species)
+
+r2(m_weight_species)
+
+estimate_relation(m_weight_species) %>%
+  plot(show_data = T) +
+  theme_minimal()
+```
+
+Research question:
+
+>   Is body mass a function of the species?
+
+Research question more precise:
+
+>   Are penguins of the Adelie species heavier than Gentoo or Chinstrap penguins?
+
+>  ... on average ...
+
+$\mu_{\text{Adelie}} \ne \mu_2$
+
+
+
+
+
+
+# Bayes
+
+Frequentist:
+
+```{r}
+lm(bill_length_mm ~ sex, data = d2)
+```
+
+Bayes:
+
+
+```{r}
+library(rstanarm)
+
+m4 <- stan_glm(bill_length_mm ~ sex, data = d2)
+
+model_parameters(m4)
+```
+
+
+# More models
+
+
+## Interaction effect
+
+`y ~ x + g + x:g`
+
+synonymous:
+
+`y ~ x * g`
+
+compare to without interaction effect:
+
+
+`y ~ x + g`
+
+
+What's an interaction effect in intuitive terms?
+
+
+sugar + stirring --> sweetness
+
+
+rain + sun --> plant growth
+
+
+Does the effect of X on y depends on g?
+
+if the slopes are NOT parallel.
+
+
+Research question for interaction effect (penguins data):
+
+
+>   Does the effect of bill length on weight depends on sex of the penguin?
+
+
+```{r}
+m6 <- lm(body_mass_g ~ bill_length_mm * sex, data = d2)
+
+model_parameters(m6)
+```
+
+
+Diagram for m6:
+
+
+```{r}
+estimate_relation(m6) |> 
+  plot(show_data = TRUE) +
+  scale_color_okabeito() +
+  scale_fill_okabeito() +
+  theme_modern()
+```
+
+
+# Ex
+
+
+## Question
+
+>   weight as a function of bill length and species
+
+Please report:
+
+1. statistical taxonomy model
+2. compute it and report parameters 
+3. report r2
+4. show visualization
+
+## Answer
+
+1. statistical taxonomy model
+
+`y ~ x* g`
+
+`y ~ x + g + x:g`
+
+2. compute it and report parameters 
+
+```{r}
+m_interact2 <- lm(body_mass_g ~ bill_length_mm * species, data = d2)
+model_parameters(m_interact2)
+```
+
+
+3. report r2
+
+```{r}
+r2(m_interact2)
+```
+
+4. show visualization
+
+```{r}
+estimate_relation(m_interact2) |> 
+  plot(show_data = TRUE) +
+  theme_modern()
+```
+
+## Bonus - stability of coefficients
+
+```{r}
+m_bill_length <-  lm(body_mass_g ~ bill_length_mm, data = d2)
+model_parameters(m_bill_length)
+```
+
+In this case, the coefficient `bill_length` is stable - but in other case, the coefficient might vary wildly!
+
+## Bonus - visualize parameters
+
+
+```{r}
+m_interact2 |> 
+  model_parameters() |> 
+  plot()
+```
+
+# Centering the data
+
+```{r}
+d3 <- 
+d2 |> 
+  center(select = "bill_length_mm",
+         append = TRUE)
+```
+
+```{r}
+d2 |> 
+  describe_distribution(select = "bill_length_mm")
+```
+
+avarage: approx. 44mm
+
+
+# Ex
+
+## Question
+
+Please refit the model `m_interact2` with centered X (bill_length_mm) and compare the parameter values. Any difference?
+
+
+## Solution
+
+```{r}
+m_interact3 <- lm(body_mass_g ~ bill_length_mm_c * species, data = d3)
+model_parameters(m_interact3)
+
+model_parameters(m_interact2)
+```
+
+# Standardize the data (z-transformation)
+
+# Bayes compared to Frequentist
+
+## Ex
+
+Take `m_interact3` and run a Bayesian analysis with it.
+
+tip:
+
+- package `rstanarm`
+- command `stan_glm` instead of `lm`
+- the rest remains the same
+
+
+```{r}
+library(rstanarm)
+m_interact_bayes <- stan_glm(body_mass_g ~ bill_length_mm_c * species, data = d3)
+model_parameters(m_interact_bayes)
+```
+
+Compare to our previous model:
+
+```{r}
+model_parameters(m_interact3)
+```
+
+
+
+```{r}
+pd(m_interact_bayes) |> plot()
+```
+
+
+# `y ~ x1 + x2`
+
+>  Is weigth a function of bill length and of flipper length?
+
+
+## Question
+
+Report the typical analysis!
+
+
+## Solution 
+
+```{r}
+d3 <-
+  d2 |> 
+  center(select = c("bill_length_mm", "flipper_length_mm"), append = TRUE)
+
+lm_3d <- stan_glm(body_mass_g ~ bill_length_mm_c + flipper_length_mm_c, data = d3)
+model_parameters(lm_3d)
+```
+
+Visualization:
+
+```{r}
+estimate_relation(lm_3d) |> 
+  plot(show_data = TRUE)
+```
+
+
+
+```{r}
+model_parameters(lm_3d) |> plot()
+```
+
+R2:
+
+```{r}
+r2(lm_3d)
+```
+
