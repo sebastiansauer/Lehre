@@ -1,4 +1,4 @@
-# https://stats-nutshell.netlify.app/basics.html#initial-quiz
+# https://sebastiansauer.github.io/stats-nutshell/020-basics.html#initial-quiz
 
 
 # Exercise 2.1 (Define a variable) Define in R the variable age and assign the value 42

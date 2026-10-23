@@ -15,7 +15,7 @@ Intended audience: This course is particularly suited for highly motivated learn
 
 *Venue*: Please note that this course will be conducted online via Zoom. You will receive Zoom login information in due course.
 
-*Upfront preparation*: Prior to our course, I encourage you to explore the course website at: https://stats-nutshell.netlify.app/. It's crucial to ensure that you have R/RStudio installed and operational for your participation. Instructions and resources for this setup can be found on the course page under 'Upfront Student Preparation'. Additionally, a project repository is available on the (free) cloud version of RStudio at https://rstudio.cloud/content/3421620. Please also check-out this folder: https://github.com/sebastiansauer/Lehre/tree/main/24-WiSe/FAU-2024-09-17_19.
+*Upfront preparation*: Prior to our course, I encourage you to explore the course website at: https://sebastiansauer.github.io/stats-nutshell/. It's crucial to ensure that you have R/RStudio installed and operational for your participation. Instructions and resources for this setup can be found on the course page under 'Upfront Student Preparation'. Additionally, a project repository is available on the (free) cloud version of RStudio at https://rstudio.cloud/content/3421620. Please also check-out this folder: https://github.com/sebastiansauer/Lehre/tree/main/24-WiSe/FAU-2024-09-17_19.
 
 
 *Any questions?* Please feel free to reach out to me at any time (sebastiansauer1@gmail.com). I'm looking forward to our course!

@@ -92,7 +92,7 @@ Use the tools presented here to visualize variables of interest of the mtcars da
 
 See here for details:
 
-<https://stats-nutshell.netlify.app/030-eda#exercises>
+<https://sebastiansauer.github.io/stats-nutshell/030-EDA.html#exercises>
 
 Don't forget to install (if not yet done so) and load the needed packages:
 

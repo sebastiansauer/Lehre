@@ -9,7 +9,7 @@ editor: source
 ---
 
 
-Wir bearbeiten [dieses Kapitel](https://ds1-prognosemodellierung.netlify.app/060-tidymodels.html#workflows-mit-rezepten).
+Wir bearbeiten [dieses Kapitel](https://sebastiansauer.github.io/datascience1/060-tidymodels.html#workflows-mit-rezepten).
 
 
 

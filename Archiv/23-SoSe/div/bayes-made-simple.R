@@ -18,7 +18,7 @@ library(ggstatsplot)  # Daten visualisieren
 
 data(mtcars)
 
-# Quelle: https://stats-nutshell.netlify.app/regression1.html
+# Quelle: https://sebastiansauer.github.io/stats-nutshell/050-regression1.html
 
 
 

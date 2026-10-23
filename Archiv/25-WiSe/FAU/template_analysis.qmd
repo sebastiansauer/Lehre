@@ -5,7 +5,7 @@ format: html
 
 # Background
 
-The typical workflow of data analysis is shown in the [PPDAC cycle](https://stats-nutshell.netlify.app/020-basics#ppdac) and in the ["seven bridges of data analysis"](https://fopro.netlify.app/080-auswerten#fig-sieben-bruecken).
+The typical workflow of data analysis is shown in the [PPDAC cycle](https://sebastiansauer.github.io/stats-nutshell/020-basics.html#ppdac) and in the ["seven bridges of data analysis"](https://sebastiansauer.github.io/fopra/080-Auswerten.html#fig-sieben-bruecken).
 
 
 # Setup

@@ -1,7 +1,7 @@
 # Welcome!
 
 
-# Surf to the course site to get started: https://stats-nutshell.netlify.app
+# Surf to the course site to get started: https://sebastiansauer.github.io/stats-nutshell/
 
 
 # Please make sure the following R packages are installed on your PC 
@@ -13,7 +13,7 @@ install.packages("easystats")
 
 
 # The next R package is optional, unfortunately, some external software is needed to install the package
-# see here for more information: https://stats-nutshell.netlify.app/#upfront-student-preparation
+# see here for more information: https://sebastiansauer.github.io/stats-nutshell/#upfront-student-preparation
 
 install.packages("rstanarm")
   

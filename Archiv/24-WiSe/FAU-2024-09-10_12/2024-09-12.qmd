@@ -17,7 +17,7 @@ library(tidyverse)
 
 # First model
 
-<https://stats-nutshell.netlify.app/050-regression1#first-model-one-metric-predictor>
+<https://sebastiansauer.github.io/stats-nutshell/050-regression1.html#first-model-one-metric-predictor>
 
 ```{r}
 lm1_freq <- lm(mpg ~ hp, data = mtcars)
