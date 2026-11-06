@@ -54,14 +54,14 @@ bayesbox2_breit
 bayesbox3 <-
   tibble(
     hyps = hyps,
-    Liks = l_24_von_30,
+    liks = l_24_von_30,
     apriori = apriori,  # indifferent
   )
 
 bayesbox3_breit <-
   bayesbox3 |> 
   mutate(
-    post_unstand = apriori * Liks,
+    post_unstand = apriori * liks,
     evidenz = sum(post_unstand),
     post = post_unstand / evidenz,
   )
@@ -80,7 +80,7 @@ bayesbox4 <-
   tibble(
     hyps = hyps,
     liks = l_24_von_30,
-    apriori = apriori2,  # 1 vs 99
+    apriori = apriori2,  # 99 vs 1
   )
 
 bayesbox4_breit <-
