@@ -1,0 +1,71 @@
+---
+title: "Titel der Arbeit"
+author:
+  - name: Sebastian Sauer
+    affiliation: Hochschule Ansbach
+    email: sebastian.sauer@hs-ansbach.de
+date: today
+lang: de
+format:
+  html:
+    toc: true
+    number-sections: true
+  pdf:
+    documentclass: article
+    keep-tex: false
+bibliography: references.bib
+csl: apa.csl          # APA-Stil; weglassen = Chicago default
+execute:
+  echo: false
+  warning: false
+---
+
+## Einleitung
+
+Die Bayes-Statistik bietet gegenüber der frequentistischen Inferenz wichtige Vorteile [@kruschke2014; @mcelreath2020]. Im Folgenden wird ein einfaches Beispiel vorgestellt.
+
+Direktes Zitieren mit Seitenzahl: @gelman2013 [S. 42] betonen, dass Prior-Verteilungen explizit begründet werden sollten.
+
+Zitat in Klammern: Posterior-Verteilungen lassen sich direkt probabilistisch interpretieren [@kruschke2014, S. 15].
+
+## Methode
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(bayesplot)
+```
+
+Die Daten wurden mit R [@rcoreteam2024] und dem Paket `bayesplot` [@gabry2019] ausgewertet.
+
+```{r}
+#| label: fig-posterior
+#| fig-cap: "Posterior-Verteilung des Mittelwerts"
+#| fig-width: 6
+#| fig-height: 4
+
+set.seed(42)
+posterior_samples <- rnorm(1000, mean = 0.3, sd = 0.1)
+
+data.frame(theta = posterior_samples) |>
+  ggplot(aes(x = theta)) +
+  geom_histogram(bins = 40, fill = "steelblue", alpha = 0.7) +
+  labs(x = "θ", y = "Häufigkeit") +
+  theme_minimal()
+```
+
+## Ergebnisse
+
+Wie in @fig-posterior zu sehen, liegt der Posterior-Median bei
+`r round(median(posterior_samples), 2)` (90%-HDI: `r round(quantile(posterior_samples, 0.05), 2)` -- `r round(quantile(posterior_samples, 0.95), 2)`).
+
+## Diskussion
+
+Die Ergebnisse replizieren frühere Befunde [vgl. @mcelreath2020, Kap. 3].
+
+## Literatur
+
+::: {#refs}
+:::
